@@ -87,3 +87,16 @@ test('generated token inventory exactly reflects canonical CSS', async () => {
   );
   assert.deepEqual(inventory.tokens, expected, 'Run npm run build:tokens after editing tokens.');
 });
+
+test('core templates expose a native, script-free navigation disclosure', async () => {
+  for (const name of ['index', 'article']) {
+    const html = await read(`packages/core/templates/${name}.html`);
+    assert.match(html, /<nav\b[^>]*class="una-nav"[^>]*aria-label="[^"]+"/);
+    assert.match(html, /class="una-nav-links una-nav-links--wide"/);
+    assert.match(html, /<details\s+class="una-nav-disclosure"\s*>/);
+    assert.match(html, /<summary\s+class="una-nav-toggle"\s*>/);
+    assert.match(html, /<svg\b[^>]*aria-hidden="true"/);
+    assert.doesNotMatch(html, /<script\b|\son\w+=|javascript:/i);
+    assert.doesNotMatch(html, /<summary\b[^>]*\b(?:role|aria-expanded)=/);
+  }
+});

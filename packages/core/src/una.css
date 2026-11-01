@@ -121,12 +121,60 @@
 }
 
 .una-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--una-space-2) var(--una-space-6);
   padding-block: var(--una-space-3);
   border-block: var(--una-border-width) solid var(--una-color-ink);
   margin-block-end: var(--una-space-8);
+}
+
+.una-nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--una-space-2) var(--una-space-6);
+}
+
+.una-nav-disclosure {
+  display: none;
+}
+
+.una-nav-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--una-space-2);
+  inline-size: max-content;
+  min-inline-size: 44px;
+  min-block-size: 44px;
+  margin-inline-start: auto;
+  padding: var(--una-space-2) var(--una-space-3);
+  color: var(--una-color-ink);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.una-nav-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.una-nav-toggle:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.una-nav-icon {
+  flex: none;
+  inline-size: 24px;
+  block-size: 24px;
+}
+
+.una-nav-icon-close,
+.una-nav-disclosure[open] .una-nav-icon-menu {
+  display: none;
+}
+
+.una-nav-disclosure[open] .una-nav-icon-close {
+  display: block;
 }
 
 .una-nav a {
@@ -417,6 +465,35 @@
 
   .una-masthead p {
     max-inline-size: 45ch;
+  }
+}
+
+/* The four specimen links need about 530px including page margins. */
+@media (width <= 36rem) {
+  .una-nav {
+    padding-block: 0;
+  }
+
+  .una-nav-links--wide {
+    display: none;
+  }
+
+  .una-nav-disclosure {
+    display: block;
+  }
+
+  .una-nav-disclosure .una-nav-links {
+    flex-direction: column;
+    gap: 0;
+    padding-block: var(--una-space-2);
+    border-block-start: var(--una-border-width) solid var(--una-color-rule);
+  }
+
+  .una-nav-disclosure a {
+    display: flex;
+    align-items: center;
+    min-block-size: 44px;
+    padding: var(--una-space-3);
   }
 }
 

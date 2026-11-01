@@ -14,7 +14,30 @@
         <p>A short publication description.</p>
       </header>
       <nav class="una-nav" aria-label="Main navigation">
-        <a href="index.html">Journal</a><a href="article.html" aria-current="page">Article</a>
+        <div class="una-nav-links una-nav-links--wide">
+          <a href="index.html">Journal</a><a href="article.html" aria-current="page">Article</a>
+        </div>
+        <details class="una-nav-disclosure">
+          <summary class="una-nav-toggle">
+            <svg
+              class="una-nav-icon"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <path class="una-nav-icon-menu" d="M3 6h18M3 12h18M3 18h18" />
+              <path class="una-nav-icon-close" d="m5 5 14 14M5 19 19 5" /></svg
+            ><span>Menu</span>
+          </summary>
+          <div class="una-nav-links">
+            <a href="index.html">Journal</a><a href="article.html" aria-current="page">Article</a>
+          </div>
+        </details>
       </nav>
       <main id="main" class="una-main" tabindex="-1">
         <article>

@@ -9,6 +9,23 @@
         "value": "arial",
         "createdAt": "2026-11-01T02:39:41.729Z",
         "reason": "Lead engineer retained Arial for framework-neutral body text and system fallback; DESIGN.md Typography records Bricolage Grotesque as the optional display face, and independent finish review accepted this intentional choice."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "rgb(0, 0, 0)",
+        "files": [
+          "examples/static-html/about.html",
+          "examples/static-html/article.html",
+          "examples/static-html/blue-hour.html",
+          "examples/static-html/commonplace.html",
+          "examples/static-html/index.html",
+          "examples/static-html/ordinary.html",
+          "examples/tailwind/index.html",
+          "packages/core/templates/article.html",
+          "packages/core/templates/index.html"
+        ],
+        "createdAt": "2026-11-01T03:04:24.105Z",
+        "reason": "Codex lead engineer: the single mobile-navigation detector pass reported default black on these masthead paragraphs; Chrome computed-style inspection of every named page, including file-based templates and the public preview, instead confirms canonical cocoa rgb(71, 40, 26). This narrowly scoped value is a detector rendering false positive; no palette change is authorized."
       }
     ]
   }

@@ -72,6 +72,11 @@ typography:
     fontSize: '0.8125rem'
     fontWeight: 400
     lineHeight: 1.6
+  note:
+    fontFamily: "'Arial', 'Helvetica Neue', sans-serif"
+    fontSize: '0.875rem'
+    fontWeight: 400
+    lineHeight: 1.6
   navigation:
     fontFamily: "'Arial', 'Helvetica Neue', sans-serif"
     fontSize: '0.9375rem'
@@ -136,7 +141,7 @@ components:
 
 Una Moderno gives an independent publication a clear reading surface and a useful margin. Cocoa and rose display type, a nearly white ground, blue editorial fields, and square-edged imagery make it direct, lively, and grounded. Its density comes from stories and navigable lists, with rules separating functions rather than enclosing every item.
 
-The custom sans establishes identity while familiar sans-serif supporting text and a serif article face keep reading comfortable. The implemented world is light, flat, and built from ordinary HTML links, headings, lists, and native disclosure. It carries no dark theme, floating card system, or scripted navigation.
+The custom sans establishes identity while familiar sans-serif supporting text and a serif article face keep reading comfortable. The implemented world is light, flat, and built from ordinary HTML links, headings, lists, and native disclosure for the compact navigation and article contents. It carries no dark theme, floating card system, or scripted navigation.
 
 **Key Characteristics:**
 
@@ -204,6 +209,7 @@ The sidecar's eight-step color ramps are generated preview aids, not additional 
 - **Body:** navigation-adjacent copy and sidebar text. **Navigation** is slightly smaller and bold; **Deck** is larger, with a 60ch maximum.
 - **Prose:** the sustained-reading role, constrained to 70ch. Article subsection headings return to the display face (1.75rem, 1.15 line height).
 - **Label:** sentence-case metadata, captions, utility copy, and small link descriptions. Dates use tabular numerals; there is no separate all-caps label system.
+- **Note:** muted supporting notes and specimen disclosures, slightly larger than metadata and quieter than body copy.
 - **Quote:** a larger serif voice within the cream quotation surface.
 
 The frontmatter records each role's exact size, weight, and leading. These values describe the current implementation; they do not create new CSS token names for literals used by the semantic stylesheet.
@@ -216,7 +222,7 @@ The centered page shell caps at 75rem. Above the small-screen breakpoint it leav
 
 The journal presents one leading story, a three-column recent-story row, and supporting sidebar modules. The feature image uses a 3:2 frame; recent thumbnails use 4:3 frames. Both crop with `object-fit: cover`. The core accepts absent optional images; omitting them must leave complete linked stories.
 
-At 56rem and below, the main grid becomes one column, the sidebar follows the main content with a 2.5rem top margin in addition to the grid gap, and the masthead description moves below the wordmark. The article's sidebar contents gives way to native inline disclosure. At 30rem and below, the three recent stories become individual rows with a 6rem thumbnail track and a flexible text track. A story without an image uses one text column. Navigation wraps throughout; no mobile menu is introduced.
+At 56rem and below, the main grid becomes one column, the sidebar follows the main content with a 2.5rem top margin in addition to the grid gap, and the masthead description moves below the wordmark. The article's sidebar contents gives way to native inline disclosure. At 36rem and below, the horizontal main-navigation links give way to a closed-by-default native Menu disclosure. Its expanded links run vertically in the page flow below the masthead. Above that breakpoint, the horizontal links remain visible and can wrap. At 30rem and below, the three recent stories become individual rows with a 6rem thumbnail track and a flexible text track. A story without an image uses one text column.
 
 The spacing scale is quarter-rem based, with deliberate larger steps for sections. Metadata and list details use the small steps; modules use the middle steps; article sections and the footer use the larger steps. Prose siblings are separated by 1.5rem, with subsection headings beginning after 3rem.
 
@@ -242,7 +248,11 @@ A compact publication identity, not a campaign banner. The home link uses the di
 
 ### Navigation and text links
 
-Ordinary anchors carry the primary actions. Main navigation has cocoa text between top and bottom cocoa rules, wraps naturally, and underlines both hover and the current page. The current page is declared with `aria-current="page"`; forced-colors mode adds a system-color bottom border. General links use Reading blue, an offset underline, and Deep rust on hover. Feature and story titles retain cocoa and reveal an underline on hover.
+Ordinary anchors carry the primary actions. Main navigation has cocoa text between top and bottom cocoa rules, with horizontal links above 36rem and a native Menu disclosure at 36rem and below. Both link groups contain the same destinations; the inactive group is hidden from display and keyboard focus. The current page is declared with `aria-current="page"`; hover and the current page receive an underline, and forced-colors mode adds a system-color bottom border. General links use Reading blue, an offset underline, and Deep rust on hover. Feature and story titles retain cocoa and reveal an underline on hover.
+
+The frontmatter navigation padding describes the wide layout; compact navigation removes that outer padding. The compact menu begins closed. Its right-aligned summary combines the visible word Menu with a decorative, authored SVG icon: three lines when closed, an X when open. The summary has a minimum target of 44px by 44px; expanded links stretch across the available width and have a 44px minimum height. The icon follows `currentColor`, and the summary and links use the shared focus treatment. The expansion stays in document flow, without an overlay or animation. Native `details`/`summary` owns the expanded state; no JavaScript, scripted roles, or `aria-expanded` override is added. The native open state persists through viewport resizing, and following an in-page link does not automatically close the menu.
+
+The compact breakpoint is content-driven: the four specimen links measured about 482px, plus 48px of outer page margins, requiring about 530px. The implemented 36rem threshold (576px at the default root size) adds about 46px of allowance. These are specimen measurements, not a guarantee for longer or translated navigation labels; extensions must recheck fit.
 
 Keyboard focus is an unambiguous outline (3px, offset 4px). The skip link is translated above the viewport until focused, then appears on a white surface and targets the main landmark. The sidecar records the exact focus, reduced-motion, and forced-color behaviors.
 

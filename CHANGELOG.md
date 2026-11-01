@@ -12,6 +12,10 @@ Changes that affect consumers, contributors, or the public markup/token contract
 - Astro reference using a normalized content contract and public fictional fixtures.
 - Historical provenance, architecture and product documentation, asset licensing records, contributor policies, and repository verification tooling.
 
+### Changed
+
+- Phone navigation now uses a closed-by-default native hamburger disclosure at 36rem and below, with 44px touch targets and a full-width vertical list. Tablet and desktop retain horizontal navigation. Core templates, static HTML, Tailwind, and Astro share the same markup contract with matching wide and disclosure link groups; no runtime JavaScript is added.
+
 ### Boundaries
 
 - The v0.1 API is early and may change; breaking class/token changes must be recorded here.

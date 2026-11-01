@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-01T02:40:07.715Z",
+  "generatedAt": "2026-11-01T03:04:15.447202Z",
   "title": "Design System: Una Moderno",
   "extensions": {
     "source": {
@@ -279,6 +279,10 @@
         "displayName": "Label",
         "purpose": "Metadata, captions, utility copy, and descriptions."
       },
+      "note": {
+        "displayName": "Note",
+        "purpose": "Muted supporting notes and specimen disclosures."
+      },
       "navigation": {
         "displayName": "Navigation",
         "purpose": "Main navigation links."
@@ -307,6 +311,13 @@
         "value": "30rem",
         "condition": "width <= 30rem",
         "behavior": "1rem shell margins; recent stories stack with a 6rem image track when an image exists."
+      },
+      {
+        "name": "compact-navigation",
+        "value": "36rem",
+        "condition": "width <= 36rem",
+        "behavior": "Replace horizontal navigation with a closed-by-default native Menu disclosure. Its expanded links form full-width vertical targets in the page flow; the inactive link group is hidden.",
+        "rationale": "The four specimen links measured about 482px plus 48px of outer margins (about 530px total); 576px at the default root size leaves about 46px of allowance. Recheck fit for different labels."
       },
       {
         "name": "stacked-editorial",
@@ -354,9 +365,27 @@
         "defaultTransform": "translateY(-200%)",
         "focusedTransform": "translateY(0)",
         "target": "Main landmark with a unique id and tabindex=-1."
+      },
+      "navigation": {
+        "element": "One labeled nav containing a wide link group and native details/summary with matching destinations.",
+        "compactCondition": "width <= 36rem",
+        "defaultState": "Closed; no open attribute in authored markup.",
+        "summaryLabel": "Menu",
+        "summaryMinimumInlineSize": "44px",
+        "summaryMinimumBlockSize": "44px",
+        "expandedLinkMinimumBlockSize": "44px",
+        "expandedLinkWidth": "Full available width.",
+        "icon": "Authored 24px SVG with currentColor stroke; hamburger paths when closed and X paths when open. Decorative and not focusable.",
+        "visibility": "Only the viewport-appropriate link group is displayed and available to keyboard focus.",
+        "expandedState": "Native details/summary semantics; no aria-expanded override or scripted role.",
+        "layout": "In flow below the masthead; no overlay.",
+        "motion": "No menu transition or animation.",
+        "resizeBehavior": "Native open state is preserved when resizing between compact and wide layouts.",
+        "fragmentLinkBehavior": "Following an in-page anchor does not automatically close the native disclosure.",
+        "runtimeJavaScript": false
       }
     },
-    "previewNotes": "Snippets use scoped ds- classes and source CSS variable references with fallback values. Load the optional local font stylesheet to show Bricolage Grotesque. Fragment links demonstrate native anchors; destinations belong to the surrounding document. Inline contents is displayed independently of the page breakpoint. Static quotations have no invented hover state."
+    "previewNotes": "Snippets use scoped ds- classes and source CSS variable references with fallback values. Load the optional local font stylesheet to show Bricolage Grotesque. Fragment links demonstrate native anchors; destinations belong to the surrounding document. Inline contents is displayed independently of the page breakpoint. Static quotations have no invented hover state. Main navigation follows the viewport-based 36rem breakpoint; the native disclosure starts closed and is shown only at compact widths."
   },
   "components": [
     {
@@ -371,9 +400,9 @@
       "name": "Main navigation",
       "kind": "nav",
       "refersTo": "navigation",
-      "description": "Wrapping native anchors, with an underlined current page.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a href=\"#journal\" aria-current=\"page\">The journal</a><a href=\"#recent\">Recent stories</a><a href=\"#long-read\">The long read</a><a href=\"#about\">About this edition</a></nav>",
-      "css": ".ds-nav{font-family:var(--una-font-body, 'Arial', 'Helvetica Neue', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);display:flex;flex-wrap:wrap;gap:var(--una-space-2, 0.5rem) var(--una-space-6, 1.5rem);padding-block:var(--una-space-3, 0.75rem);border-block:var(--una-border-width, 1px) solid var(--una-color-ink, #47281a);margin-block-end:var(--una-space-8, 2rem);}.ds-nav a{display:inline-block;padding-block:var(--una-space-1, 0.25rem);color:var(--una-color-ink, #47281a);font-size:0.9375rem;font-weight:700;text-decoration:none;text-underline-offset:0.2em;}.ds-nav a:hover,.ds-nav a[aria-current=\"page\"]{text-decoration:underline;text-decoration-thickness:2px;}.ds-nav a:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(forced-colors:active){.ds-nav a[aria-current=\"page\"]{border-block-end:2px solid LinkText;}}"
+      "description": "Horizontal links above 36rem; a closed-by-default native Menu disclosure with matching links at 36rem and below.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><div class=\"ds-nav-links ds-nav-links--wide\"><a href=\"#journal\" aria-current=\"page\">The journal</a><a href=\"#recent\">Recent stories</a><a href=\"#long-read\">The long read</a><a href=\"#about\">About this edition</a></div><details class=\"ds-nav-disclosure\"><summary class=\"ds-nav-toggle\"><svg class=\"ds-nav-icon\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\" focusable=\"false\"><path class=\"ds-nav-icon-menu\" d=\"M3 6h18M3 12h18M3 18h18\" /><path class=\"ds-nav-icon-close\" d=\"m5 5 14 14M5 19 19 5\" /></svg><span>Menu</span></summary><div class=\"ds-nav-links\"><a href=\"#journal\" aria-current=\"page\">The journal</a><a href=\"#recent\">Recent stories</a><a href=\"#long-read\">The long read</a><a href=\"#about\">About this edition</a></div></details></nav>",
+      "css": ".ds-nav { font-family: var(--una-font-body, 'Arial', 'Helvetica Neue', sans-serif); font-size: var(--una-text-body, 1rem); line-height: var(--una-leading-body, 1.6); color: var(--una-color-ink, #47281a); } .ds-nav a { text-underline-offset: 0.2em; } .ds-nav-toggle, .ds-nav a { box-sizing: border-box; } .ds-nav :where(:focus-visible) { outline: var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79); outline-offset: var(--una-focus-offset, 4px); } .ds-nav { padding-block: var(--una-space-3, 0.75rem); border-block: var(--una-border-width, 1px) solid var(--una-color-ink, #47281a); margin-block-end: var(--una-space-8, 2rem); } .ds-nav-links { display: flex; flex-wrap: wrap; gap: var(--una-space-2, 0.5rem) var(--una-space-6, 1.5rem); } .ds-nav-disclosure { display: none; } .ds-nav-toggle { display: flex; align-items: center; justify-content: center; gap: var(--una-space-2, 0.5rem); inline-size: max-content; min-inline-size: 44px; min-block-size: 44px; margin-inline-start: auto; padding: var(--una-space-2, 0.5rem) var(--una-space-3, 0.75rem); color: var(--una-color-ink, #47281a); font-size: 0.9375rem; font-weight: 700; cursor: pointer; list-style: none; } .ds-nav-toggle::-webkit-details-marker { display: none; } .ds-nav-toggle:hover { text-decoration: underline; text-underline-offset: 0.2em; } .ds-nav-icon { flex: none; inline-size: 24px; block-size: 24px; } .ds-nav-icon-close, .ds-nav-disclosure[open] .ds-nav-icon-menu { display: none; } .ds-nav-disclosure[open] .ds-nav-icon-close { display: block; } .ds-nav a { display: inline-block; padding-block: var(--una-space-1, 0.25rem); font-size: 0.9375rem; font-weight: 700; color: var(--una-color-ink, #47281a); text-decoration: none; } .ds-nav a:hover, .ds-nav a[aria-current='page'] { text-decoration: underline; text-decoration-thickness: 2px; } @media (width <= 36rem) { .ds-nav { padding-block: 0; } .ds-nav-links--wide { display: none; } .ds-nav-disclosure { display: block; } .ds-nav-disclosure .ds-nav-links { flex-direction: column; gap: 0; padding-block: var(--una-space-2, 0.5rem); border-block-start: var(--una-border-width, 1px) solid var(--una-color-rule, #cbbeb5); } .ds-nav-disclosure a { display: flex; align-items: center; min-block-size: 44px; padding: var(--una-space-3, 0.75rem); } } @media (forced-colors: active) { .ds-nav a[aria-current='page'] { border-block-end: 2px solid LinkText; } }"
     },
     {
       "name": "Feature without optional image",
@@ -426,7 +455,7 @@
   ],
   "narrative": {
     "northStar": "Independent arts-journal contents spread",
-    "overview": "Una Moderno gives an independent publication a clear reading surface and a useful margin. Cocoa and rose display type, a nearly white ground, blue editorial fields, and square-edged imagery make it direct, lively, and grounded. Its density comes from stories and navigable lists, with rules separating functions rather than enclosing every item.\n\nThe custom sans establishes identity while familiar sans-serif supporting text and a serif article face keep reading comfortable. The implemented world is light, flat, and built from ordinary HTML links, headings, lists, and native disclosure. It carries no dark theme, floating card system, or scripted navigation.",
+    "overview": "Una Moderno gives an independent publication a clear reading surface and a useful margin. Cocoa and rose display type, a nearly white ground, blue editorial fields, and square-edged imagery make it direct, lively, and grounded. Its density comes from stories and navigable lists, with rules separating functions rather than enclosing every item.\n\nThe custom sans establishes identity while familiar sans-serif supporting text and a serif article face keep reading comfortable. The implemented world is light, flat, and built from ordinary HTML links, headings, lists, and native disclosure for the compact navigation and article contents. It carries no dark theme, floating card system, or scripted navigation.",
     "keyCharacteristics": [
       "Cocoa and rose masthead with a blue editorial margin.",
       "Unequal columns, a leading story, three recent stories, and useful supporting lists.",

@@ -36,7 +36,7 @@ git diff --check
 
 ## Verification and handoff
 
-For visual changes, verify 390px, 768px, 1280px, and 1440px widths; inspect screenshots, keyboard focus, skip navigation, headings, contrast, links, long titles, absent optional images, reduced motion, and horizontal overflow. Automated accessibility results supplement manual inspection.
+For visual changes, verify 390px, 768px, 1280px, and 1440px widths. For navigation changes, also verify 320px, phone landscape, both sides of the 36rem breakpoint, native open/closed accessibility state, keyboard and touch operation, 44px targets, and open-state axe; inspect screenshots, keyboard focus, skip navigation, headings, contrast, links, long titles, absent optional images, reduced motion, and horizontal overflow. Automated accessibility results supplement manual inspection.
 
 Before declaring work ready, run the full gates above, verify relative links/assets and package exports, inspect the diff for private material or secrets, and record actual results. Update generated design documentation from the implemented system. Report incomplete or unavailable checks explicitly; never turn a skipped check into a pass. Independent review should seek material defects and record their resolution.
 

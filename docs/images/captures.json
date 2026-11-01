@@ -27,8 +27,8 @@
       "captured": "2026-11-01",
       "browser": "Google Chrome 156.0.8078.74",
       "command": "UNA_BROWSER_CHANNEL=chrome npm run test:browser",
-      "sha256": "7ba52ec59763a8f672b3759872ba8fb3965619ffbce2701d508f641bdc92f216",
-      "origin": "Origin: local Una Moderno fictional specimen, route /, 390x1000 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; bundled Bricolage Grotesque font under SIL OFL 1.1. No historical or private-site assets. Pixels are unchanged from the browser capture."
+      "sha256": "8282d27fbf0ac8f85beab3b46637a2f6dc1142f4e1952a7b1a683c7a7e84f89e",
+      "origin": "Origin: local Una Moderno fictional specimen, route /, 390x1000 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Native phone menu closed by default. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; bundled Bricolage Grotesque font under SIL OFL 1.1. No historical or private-site assets. Pixels are unchanged from the browser capture."
     },
     {
       "file": "article-desktop.png",
@@ -57,8 +57,23 @@
       "captured": "2026-11-01",
       "browser": "Google Chrome 156.0.8078.74",
       "command": "UNA_BROWSER_CHANNEL=chrome npm run test:browser",
-      "sha256": "bf9b891c870e6e92346ef079d378da077eec669589b83544f88bd2790c8063e0",
-      "origin": "Origin: local Una Moderno fictional specimen, route /article.html, 390x1000 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; bundled Bricolage Grotesque font under SIL OFL 1.1. No historical or private-site assets. Pixels are unchanged from the browser capture."
+      "sha256": "6dde535c9283096eb461889bc1632c0cc23bb54a3c85756f08d20ae8dfccec93",
+      "origin": "Origin: local Una Moderno fictional specimen, route /article.html, 390x1000 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Native phone menu closed by default. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; bundled Bricolage Grotesque font under SIL OFL 1.1. No historical or private-site assets. Pixels are unchanged from the browser capture."
+    },
+    {
+      "file": "navigation-mobile-open.png",
+      "source": ".impeccable/review/nav-static-index-390-open.png",
+      "route": "/",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "fullPage": true,
+      "captured": "2026-11-01",
+      "browser": "Google Chrome 156.0.8078.74",
+      "command": "UNA_BROWSER_CHANNEL=chrome npm run test:browser",
+      "origin": "Origin: local Una Moderno fictional specimen, route /, 390x844 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Native phone menu open and keyboard-focused. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; bundled Bricolage Grotesque font under SIL OFL 1.1. No historical or private-site assets. Pixels are unchanged from the browser capture.",
+      "sha256": "3ec6b8593d85e0f6af4aef5cece777bf8bedf62f9aebfb16aeab2ff82b2970dd"
     }
   ]
 }
