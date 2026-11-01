@@ -12,8 +12,8 @@
       "captured": "2026-11-01",
       "browser": "Google Chrome 156.0.8078.74",
       "command": "UNA_BROWSER_CHANNEL=chrome npm run test:browser",
-      "sha256": "3b87e746c8962e778000bb03ead870187ca6850b4acb849950939ff74925d15e",
-      "origin": "Origin: local Una Moderno fictional specimen, route /, 1440x1000 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Initial navigation position. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; bundled Geist Sans 1.900 under SIL OFL 1.1. No historical or private-site assets. Pixels are unchanged from the browser capture."
+      "sha256": "73b358d4cc791f2fcb70899962fb5759e14f49406a377eeeaf558c5263679d92",
+      "origin": "Origin: local Una Moderno fictional specimen, route /, 1440x1000 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Initial navigation scroll position. Inter 4.1; spaced two-word masthead; utility metadata hidden at 480px and below; paper cover headline; stable hover weights; no decorative rules or link underlines; hidden scrollbar chrome. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; unmodified Inter Variable under SIL OFL 1.1. No historical, Microsoft/Zune, or private-site assets. Pixels are unchanged from the browser capture."
     },
     {
       "file": "editorial-mobile.png",
@@ -27,8 +27,8 @@
       "captured": "2026-11-01",
       "browser": "Google Chrome 156.0.8078.74",
       "command": "UNA_BROWSER_CHANNEL=chrome npm run test:browser",
-      "sha256": "22c6a1fda298ccdfb5efe32fd74cd0891ba37ca33435ffac971cd7ed4082c5bf",
-      "origin": "Origin: local Una Moderno fictional specimen, route /, 390x1000 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Initial navigation position with hidden scrollbar chrome and a partial next destination. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; bundled Geist Sans 1.900 under SIL OFL 1.1. No historical or private-site assets. Pixels are unchanged from the browser capture."
+      "sha256": "f8c83527623b341f7be35caa204e7791d3970cf5a003534156e0cc361610bcea",
+      "origin": "Origin: local Una Moderno fictional specimen, route /, 390x1000 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Initial navigation scroll position. Inter 4.1; spaced two-word masthead; utility metadata hidden at 480px and below; paper cover headline; stable hover weights; no decorative rules or link underlines; hidden scrollbar chrome. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; unmodified Inter Variable under SIL OFL 1.1. No historical, Microsoft/Zune, or private-site assets. Pixels are unchanged from the browser capture."
     },
     {
       "file": "article-desktop.png",
@@ -42,8 +42,8 @@
       "captured": "2026-11-01",
       "browser": "Google Chrome 156.0.8078.74",
       "command": "UNA_BROWSER_CHANNEL=chrome npm run test:browser",
-      "sha256": "6fcc1e9fa4a089271aae0f5a556ef8aafb926375672733097f60c42f4e680fe6",
-      "origin": "Origin: local Una Moderno fictional specimen, route /article.html, 1440x1000 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Initial navigation position. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; bundled Geist Sans 1.900 under SIL OFL 1.1. No historical or private-site assets. Pixels are unchanged from the browser capture."
+      "sha256": "6dafcb1015d026823b456b2c81424f7f080b9e62fd291ed6a9798b2577c2761d",
+      "origin": "Origin: local Una Moderno fictional specimen, route /article.html, 1440x1000 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Initial navigation scroll position. Inter 4.1; spaced two-word masthead; utility metadata hidden at 480px and below; paper cover headline; stable hover weights; no decorative rules or link underlines; hidden scrollbar chrome. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; unmodified Inter Variable under SIL OFL 1.1. No historical, Microsoft/Zune, or private-site assets. Pixels are unchanged from the browser capture."
     },
     {
       "file": "article-mobile.png",
@@ -57,8 +57,8 @@
       "captured": "2026-11-01",
       "browser": "Google Chrome 156.0.8078.74",
       "command": "UNA_BROWSER_CHANNEL=chrome npm run test:browser",
-      "sha256": "74a9ccea9ce6276a8dea355b530773252a9909dde63714d4391475c7ef459e7b",
-      "origin": "Origin: local Una Moderno fictional specimen, route /article.html, 390x1000 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Initial navigation position with hidden scrollbar chrome. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; bundled Geist Sans 1.900 under SIL OFL 1.1. No historical or private-site assets. Pixels are unchanged from the browser capture."
+      "sha256": "fb435c6f12589f1b56dce168e6cb9078f34dc076030fb51d7eeff818f8e04ec9",
+      "origin": "Origin: local Una Moderno fictional specimen, route /article.html, 390x1000 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Initial navigation scroll position. Inter 4.1; spaced two-word masthead; utility metadata hidden at 480px and below; paper cover headline; stable hover weights; no decorative rules or link underlines; hidden scrollbar chrome. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; unmodified Inter Variable under SIL OFL 1.1. No historical, Microsoft/Zune, or private-site assets. Pixels are unchanged from the browser capture."
     },
     {
       "file": "navigation-mobile-end.png",
@@ -72,8 +72,38 @@
       "captured": "2026-11-01",
       "browser": "Google Chrome 156.0.8078.74",
       "command": "UNA_BROWSER_CHANNEL=chrome npm run test:browser",
-      "sha256": "53070db6977d5c4fa2c87ba586724e2a743a4db77266825738b1b2b703650efd",
-      "origin": "Origin: local Una Moderno fictional specimen, route /, 390x844 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Navigation scrolled to the final keyboard-focused link; complete focus outline and hidden scrollbar chrome. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; bundled Geist Sans 1.900 under SIL OFL 1.1. No historical or private-site assets. Pixels are unchanged from the browser capture."
+      "sha256": "df3874fd9c7dfb3dd7844d59cfc345b9bf93eec59cda80f49b10b37e084bf947",
+      "origin": "Origin: local Una Moderno fictional specimen, route /, 390x844 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Final navigation link keyboard-focused, fully visible outline. Inter 4.1; spaced two-word masthead; utility metadata hidden at 480px and below; paper cover headline; stable hover weights; no decorative rules or link underlines; hidden scrollbar chrome. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; unmodified Inter Variable under SIL OFL 1.1. No historical, Microsoft/Zune, or private-site assets. Pixels are unchanged from the browser capture."
+    },
+    {
+      "file": "navigation-320-initial.png",
+      "source": ".impeccable/review/nav-static-index-320-initial.png",
+      "route": "/",
+      "viewport": {
+        "width": 320,
+        "height": 844
+      },
+      "fullPage": true,
+      "captured": "2026-11-01",
+      "browser": "Google Chrome 156.0.8078.74",
+      "command": "UNA_BROWSER_CHANNEL=chrome npm run test:browser",
+      "origin": "Origin: local Una Moderno fictional specimen, route /, 320x844 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Initial navigation scroll position. Inter 4.1; spaced two-word masthead; utility metadata hidden at 480px and below; paper cover headline; stable hover weights; no decorative rules or link underlines; hidden scrollbar chrome. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; unmodified Inter Variable under SIL OFL 1.1. No historical, Microsoft/Zune, or private-site assets. Pixels are unchanged from the browser capture.",
+      "sha256": "4e5990194c373f87405732aacf1d0b28a8231af27357f9675d5cce95fa1fe959"
+    },
+    {
+      "file": "navigation-320-end.png",
+      "source": ".impeccable/review/nav-static-index-320-end.png",
+      "route": "/",
+      "viewport": {
+        "width": 320,
+        "height": 844
+      },
+      "fullPage": true,
+      "captured": "2026-11-01",
+      "browser": "Google Chrome 156.0.8078.74",
+      "command": "UNA_BROWSER_CHANNEL=chrome npm run test:browser",
+      "origin": "Origin: local Una Moderno fictional specimen, route /, 320x844 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Final navigation link keyboard-focused, fully visible outline. Inter 4.1; spaced two-word masthead; utility metadata hidden at 480px and below; paper cover headline; stable hover weights; no decorative rules or link underlines; hidden scrollbar chrome. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; unmodified Inter Variable under SIL OFL 1.1. No historical, Microsoft/Zune, or private-site assets. Pixels are unchanged from the browser capture.",
+      "sha256": "9a7657d3147c6d65b63b75ef5df68479467a7a8f64d19e8dac40ebc12159eb74"
     }
   ]
 }

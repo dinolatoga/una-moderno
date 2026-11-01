@@ -54,12 +54,12 @@ const nextStory = stories.find(
     </main>
     <aside class="una-sidebar" aria-label="Article navigation">
       <section class="una-module una-module--blue">
-        <h2>Take your time.</h2>
+        <h2>take your time</h2>
         <p>A small essay from a fictional journal. Find your place below.</p>
       </section>
       {headings.length > 0 && (
         <nav class="una-module una-contents-sidebar" aria-label="In this article">
-          <h2>In this article</h2>
+          <h2>in this article</h2>
           <ol class="una-link-list">
             {headings.map((heading) => (
               <li>
@@ -70,7 +70,7 @@ const nextStory = stories.find(
         </nav>
       )}
       <section class="una-module">
-        <h2>Keep reading</h2>
+        <h2>keep reading</h2>
         <ul class="una-link-list">
           <li>
             <a href={`${base}${nextStory.slug}/`}>{nextStory.title}</a>

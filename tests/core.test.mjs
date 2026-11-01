@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { readFile, stat } from 'node:fs/promises';
+import { readFile, readdir, stat } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import test from 'node:test';
@@ -13,7 +13,7 @@ test('every core token reference resolves to a canonical --una-* definition', as
   const tokens = await read('packages/core/src/tokens.css');
   const styles = await read('packages/core/src/una.css');
   const definitions = new Set([...tokens.matchAll(/(--una-[\w-]+)\s*:/g)].map((match) => match[1]));
-  for (const category of ['color', 'font', 'space', 'layout', 'border', 'focus', 'motion']) {
+  for (const category of ['color', 'font', 'weight', 'space', 'layout', 'focus', 'motion']) {
     assert.ok(
       [...definitions].some((name) => name.startsWith(`--una-${category}-`)),
       `Missing ${category} tokens.`,
@@ -104,51 +104,68 @@ test('core templates expose one script-free horizontal navigation link set', asy
   }
 });
 
-test('bundled Geist binary and license notices match their recorded provenance', async () => {
+test('bundled Inter binary and license match the official release provenance', async () => {
   const assetRoot = 'packages/core/assets';
   const provenance = JSON.parse(await read(`${assetRoot}/provenance.json`));
-  const font = await readFile(resolve(root, assetRoot, provenance.file));
-  assert.equal(provenance.file, 'geist-variable.woff2');
-  assert.equal(provenance.package, 'geist@1.9.0');
-  assert.equal(provenance.source, 'https://registry.npmjs.org/geist/-/geist-1.9.0.tgz');
-  assert.equal(provenance.member, 'package/dist/fonts/geist-sans/Geist-Variable.woff2');
+  const font = await readFile(resolve(root, assetRoot, provenance.font.file));
+  assert.equal(provenance.font.file, 'inter-variable.woff2');
+  assert.equal(provenance.release.tag, 'v4.1');
+  assert.equal(provenance.release.url, 'https://github.com/rsms/inter/releases/tag/v4.1');
+  assert.equal(provenance.selectedMember, 'web/InterVariable.woff2');
   assert.equal(font.subarray(0, 4).toString(), 'wOF2');
-  assert.equal(font.length, 69576);
-  assert.equal(font.length, provenance.bytes);
+  assert.equal(font.length, 352240);
+  assert.equal(font.length, provenance.font.bytes);
   const digest = createHash('sha256').update(font).digest('hex');
-  assert.equal(digest, '5c5588027e59e74e205b9d6c7fd877b261091cee367f6bb3a8d505da14cae512');
-  assert.equal(digest, provenance.sha256);
-  assert.deepEqual(provenance.axes, [{ tag: 'wght', min: 100, default: 400, max: 900 }]);
+  assert.equal(digest, '693b77d4f32ee9b8bfc995589b5fad5e99adf2832738661f5402f9978429a8e3');
+  assert.equal(digest, provenance.font.sha256);
+  assert.equal(digest, provenance.crossSourceVerification.websiteFontSha256);
+  assert.deepEqual(provenance.font.axes, [
+    { tag: 'opsz', minimum: 14, default: 14, maximum: 32 },
+    { tag: 'wght', minimum: 100, default: 400, maximum: 900 },
+  ]);
   assert.equal(provenance.license, 'OFL-1.1');
-  const notices = {
-    'OFL.txt': 'c683bfbcc7e087f5d37a54ef628f10387c451a83ddc459b151403a164ac46c90',
-    'Geist-LICENSE.txt': '930853ee1daa68554d9e35c8a9175affb74f699fad9a5da6ee5ebe76379d9137',
-  };
-  assert.deepEqual(provenance.licenseFiles, Object.keys(notices));
-  for (const [file, expected] of Object.entries(notices)) {
-    const notice = await readFile(resolve(root, assetRoot, file));
-    assert.equal(createHash('sha256').update(notice).digest('hex'), expected, file);
-    assert.match(notice.toString(), /SIL OPEN FONT LICENSE Version 1\.1/);
-  }
+  assert.equal(provenance.font.licenseFile, 'OFL.txt');
+  const notice = await readFile(resolve(root, assetRoot, provenance.font.licenseFile));
+  const licenseDigest = createHash('sha256').update(notice).digest('hex');
+  assert.equal(licenseDigest, '262481e844521b326f5ecd053e59b98c8b2da78c8ee1bdbb6e8174305e54935a');
+  assert.equal(licenseDigest, provenance.font.licenseSha256);
+  assert.match(notice.toString(), /SIL OPEN FONT LICENSE Version 1\.1/);
+  assert.deepEqual(
+    (await readdir(resolve(root, assetRoot))).filter((file) => file.endsWith('.woff2')),
+    [provenance.font.file],
+  );
 });
 
-test('font roles share one Geist stack and the optional face stays local with swap fallback', async () => {
+test('font roles share one Inter stack and the optional face stays local with swap fallback', async () => {
   const source = await read('packages/core/src/tokens.css');
   const tokens = Object.fromEntries(
     [...source.matchAll(/(--una-[\w-]+):\s*([^;]+);/g)].map((match) => [match[1], match[2].trim()]),
   );
-  assert.match(tokens['--una-font-body'], /^'Geist', 'Una Geist Fallback', system-ui/);
+  assert.match(tokens['--una-font-body'], /^'Inter', 'Una Inter Fallback', system-ui/);
   for (const role of ['display', 'prose', 'code']) {
     assert.equal(tokens[`--una-font-${role}`], 'var(--una-font-body)');
   }
+  for (const [role, weight] of Object.entries({
+    brand: 200,
+    display: 300,
+    body: 400,
+    label: 500,
+    strong: 600,
+    hover: 700,
+  })) {
+    assert.equal(tokens[`--una-weight-${role}`], String(weight));
+  }
   const fonts = await read('packages/core/assets/fonts.css');
-  const geistFace = fonts.match(/@font-face\s*\{[^}]*font-family: Geist;[^}]*\}/)?.[0];
-  assert.ok(geistFace);
-  assert.match(geistFace, /font-weight: 100 900;/);
-  assert.match(geistFace, /font-display: swap;/);
+  const face = fonts.match(/@font-face\s*\{[^}]*font-family: Inter;[^}]*\}/)?.[0];
+  assert.ok(face);
+  assert.match(face, /font-weight: 100 900;/);
+  assert.match(face, /font-display: swap;/);
   const downloads = [...fonts.matchAll(/url\(([^)]+)\)/g)].map((match) => match[1]);
-  assert.deepEqual(downloads, ["'./geist-variable.woff2'"]);
+  assert.deepEqual(downloads, ["'./inter-variable.woff2'"]);
   assert.match(fonts, /src: local\('Arial'\), local\('ArialMT'\)/);
-  assert.match(fonts, /size-adjust: 102\.2072%/);
+  const provenance = JSON.parse(await read('packages/core/assets/provenance.json'));
+  assert.ok(fonts.includes(`size-adjust: ${provenance.fallback.sizeAdjust};`));
+  assert.ok(fonts.includes(`ascent-override: ${provenance.fallback.ascentOverride};`));
+  assert.ok(fonts.includes(`descent-override: ${provenance.fallback.descentOverride};`));
   assert.doesNotMatch(fonts, /@import|https?:\/\//);
 });

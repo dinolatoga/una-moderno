@@ -8,20 +8,30 @@
   --color-una-blue-light: var(--una-color-blue-light);
   --color-una-link: var(--una-color-link);
   --color-una-rust: var(--una-color-rust);
-  --color-una-rule: var(--una-color-rule);
   --color-una-selection: var(--una-color-selection);
   --color-una-focus: var(--una-color-focus);
+  --color-una-stage: var(--una-color-stage);
+  --color-una-accent: var(--una-color-accent);
   --color-una-original-brown: var(--una-color-original-brown);
   --color-una-original-rose: var(--una-color-original-rose);
   --color-una-original-slate: var(--una-color-original-slate);
   --color-una-original-orange: var(--una-color-original-orange);
   --color-una-original-cream: var(--una-color-original-cream);
 
-  /* Role aliases share the canonical Geist stack; core owns font delivery. */
+  /* Role aliases share the canonical Inter stack; core owns font delivery. */
   --font-una-display: var(--una-font-display);
   --font-una-body: var(--una-font-body);
   --font-una-prose: var(--una-font-prose);
   --font-una-code: var(--una-font-code);
+  --font-weight-una-weight-brand: var(--una-weight-brand);
+  --font-weight-una-weight-display: var(--una-weight-display);
+  --font-weight-una-weight-body: var(--una-weight-body);
+  --font-weight-una-weight-label: var(--una-weight-label);
+  --font-weight-una-weight-strong: var(--una-weight-strong);
+  --font-weight-una-weight-hover: var(--una-weight-hover);
+  --text-una-nav: var(--una-text-nav);
+  --text-una-section: var(--una-text-section);
+  --text-una-utility: var(--una-text-utility);
   --text-una-small: var(--una-text-small);
   --text-una-body: var(--una-text-body);
   --text-una-prose: var(--una-text-prose);
@@ -45,6 +55,5 @@
   --spacing-una-layout-gap: var(--una-layout-gap);
   --container-una-layout: var(--una-layout-max);
   --container-una-prose: var(--una-prose-measure);
-  --radius-una: var(--una-border-radius);
   --ease-una: var(--una-motion-ease);
 }

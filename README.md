@@ -6,7 +6,7 @@ Give an independent publication a considered editorial layout without adopting a
 
 **Framework-neutral at the core; Tailwind-ready when wanted.**
 
-![Una Moderno's editorial index: a featured essay, three recent stories, and a useful blue sidebar.](docs/images/editorial-desktop.png)
+![Una Moderno's editorial index: a featured essay, three recent stories, and useful sidebar modules.](docs/images/editorial-desktop.png)
 
 [See the mobile specimen](docs/images/editorial-mobile.png) · [See the scrolled navigation](docs/images/navigation-mobile-end.png) · [See a long-form article](docs/images/article-desktop.png) · [Read the markup contract](docs/architecture.md) · [Inspect the source CSS](packages/core/src/una.css)
 
@@ -19,11 +19,11 @@ This v0.1 foundation is for independent writers, developers integrating a layout
 - **An optional Tailwind v4 layer:** CSS-first aliases of core tokens, explicit source detection, and a compiled example using the same semantic structure.
 - **An Astro reference:** a static site rendered from validated fictional fixtures. It demonstrates a normalized content boundary, not a live CMS integration.
 
-The original 580:360 editorial split and 20px gap survive in a fluid layout. On smaller screens, the reading column comes first and the sidebar follows. One horizontal navigation row serves every viewport; on narrow screens, its strip scrolls while the page stays within the viewport. Visible focus, a skip link, and article contents work without client JavaScript.
+The original 580:360 editorial split and 20px gap survive in a fluid layout. A dark lead-story field, lighter Inter typography, and open editorial columns draw on the owner's Zune references. Spacing and typography separate sections; italic inline links remain distinct from ordinary bold text. On smaller screens, the reading column comes first and the sidebar follows. One lowercase navigation row serves every viewport; on narrow screens, its strip scrolls while the page stays within the viewport. Primary headlines and navigation retain their weight on hover. Keyboard focus outlines, a skip link, and article contents work without client JavaScript.
 
 ## Try it
 
-The foundation is on `codex/v0.1-foundation` while its pull request is under review. Packages are workspace-local and **not published to npm**. The API is pre-1.0 and may change with documented revisions.
+The foundation is on `codex/v0.1-foundation` while its pull request is under review. Packages are workspace-local and **not published to npm**. The API is pre-1.0 and may change with documented revisions. The About pages intentionally link to the owner's durable `main`-branch reference-document URL; that destination is unavailable until this change reaches `main`. The [reference record in this branch](docs/zune-inspiration.md) is available here.
 
 For the full development setup, use **Node.js 22.23.4 or newer** and **npm 10.9.4**. `.nvmrc` records the tested Node version. Git and a network connection are needed for the clone and dependency installation.
 
@@ -56,7 +56,9 @@ Copy `packages/core/dist/una.css` or `una.min.css` into your own assets director
 </body>
 ```
 
-Override `--una-*` properties on `.una` to make it your own. Core CSS contains no external font request. For the specimen's self-hosted Geist typography across all text roles, copy `packages/core/assets/` and separately link `fonts.css`; preserve both OFL notices. One variable asset supplies the used weights, with `font-display: swap` and local/system fallbacks. See [core usage](packages/core/README.md).
+For coordinated theme changes, override `--una-*` properties on `:root` after core CSS so dependent aliases resolve together. Scoped overrides on `.una` also work, but each affected alias or role must be redefined there; inherited aliases do not recompute when a dependency changes on a descendant. See [core customization](packages/core/README.md#theme-overrides).
+
+Core CSS contains no external font request. For the specimen's self-hosted Inter typography across all text roles, copy `packages/core/assets/` and separately link `fonts.css`; preserve `OFL.txt`. The optional uncut variable font is 352,240 bytes, about 5.06 times the previous 69,576-byte asset. It preserves the official font's weight and optical-size axes; this is a download-size tradeoff, not a speed claim. It uses `font-display: swap` and local/system fallbacks. See [core usage](packages/core/README.md) and [font provenance](docs/assets.md#inter).
 
 ## Add Tailwind when wanted
 
@@ -71,7 +73,7 @@ In this monorepo, the optional theme is available as `@una-moderno/tailwind`. Ou
 @source './index.html';
 ```
 
-Use utilities such as `bg-una-blue` and `text-una-ink` alongside the semantic core. The mappings refer to `var(--una-*)`; token overrides therefore reach both layers. This example deliberately omits Tailwind Preflight so a second reset does not change the core contract. Source paths are relative to the stylesheet; add each template location explicitly and use complete class names.
+Use utilities such as `bg-una-stage`, `text-una-accent`, and `font-una-weight-display` alongside the semantic core. The mappings refer to the same `var(--una-*)` tokens; both layers share the root/scoped alias rules described above. This example deliberately omits Tailwind Preflight so a second reset does not change the core contract. Source paths are relative to the stylesheet; add each template location explicitly and use complete class names.
 
 ```sh
 npm run build:tailwind
@@ -108,8 +110,10 @@ Una Moderno descends from Dino Latoga's 2008 Una WordPress theme. The archived s
 
 [PRODUCT.md](PRODUCT.md) fixes the product boundary. [DESIGN.md](DESIGN.md) records the implemented design system; [machine-readable tokens](packages/core/tokens.json) are generated from source CSS. [Asset provenance](docs/assets.md) covers the original artwork, demo writing, font, and screenshots.
 
+The [Zune reference record](docs/zune-inspiration.md) distinguishes historical evidence from the owner's current design choices. Una Moderno is independent of Microsoft; no Zune screenshots, branding, or proprietary assets are redistributed.
+
 v0.2 targets a verified WordPress adapter and a tested CMS mapping. Broader browser testing, additional writing systems, dark-mode design, and a package publication policy remain open work. These are roadmap items, not current compatibility claims. See [CHANGELOG.md](CHANGELOG.md) for the unreleased foundation.
 
 ## License
 
-Original code, templates, demo writing, and artwork are [MIT licensed](LICENSE), copyright Dino Latoga. Bundled Geist Sans is separately licensed under [SIL OFL 1.1](packages/core/assets/OFL.txt); the [distribution notice](packages/core/assets/Geist-LICENSE.txt) is also preserved. No historical Una assets are redistributed.
+Original code, templates, demo writing, and artwork are [MIT licensed](LICENSE), copyright Dino Latoga. Bundled Inter is separately licensed under [SIL OFL 1.1](packages/core/assets/OFL.txt). No historical Una assets are redistributed.

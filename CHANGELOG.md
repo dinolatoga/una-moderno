@@ -14,8 +14,16 @@ Changes that affect consumers, contributors, or the public markup/token contract
 
 ### Changed
 
-- Use one self-hosted Geist Sans variable font for every text role, with weight and scale defining hierarchy; preserve official OFL notices, checksums, and metric-aware local/system fallbacks.
-- Main navigation uses one set of direct links at every width. The non-wrapping horizontal strip scrolls natively when needed, with visible continuation on phones, hidden scrollbar chrome, 44px targets, contained horizontal overscroll, unrestricted vertical page gestures, and room for the standard focus outline. Core templates, static HTML, Tailwind, and Astro share this smaller markup contract; no runtime JavaScript is added.
+- Use one self-hosted Inter variable font from the official 4.1 release for every text role; preserve its OFL notice, checksums, and measured local/system fallbacks. Weight roles assign 200 to the wordmark, 300 to display/navigation, 400 to body text, 500 to metadata and 600 to current navigation, compact headings and inline prose links. Inline prose links are italic and retain weight 600 on hover, distinguishing them from upright strong text. Weight 700 remains available for compact story/resource-link hover states.
+- Add `--una-color-stage`, `--una-color-accent`, navigation/section/utility type tokens, and matching optional Tailwind aliases. The owner's Zune desktop and website references inform lighter typography and open editorial columns; no proprietary reference assets are shipped.
+- Add `una-feature--cover` and `una-feature-copy` for a dark lead-story field with optional art. Long-form articles retain a light reading surface.
+- Keep `una-module--blue` as a compatible class name, now styling an unboxed module with an ink-colored noninteractive heading instead of a blue panel.
+- Give the dark cover's headline a paper rest color and rose hover color without changing weight 300. Primary-title and inactive-navigation hover changes color only; inactive navigation is muted/300 and the current page remains rose/600.
+- Remove masthead stripes. Render the wordmark as two nowrap word spans separated by a literal space, with a `20vw` cap on its fluid size. Hide the utility line with no reserved space at 30rem and below; prose continues to enlarge independently of the wordmark cap.
+- Document the optional Inter font payload: 352,240 bytes versus the previous 69,576-byte asset, approximately 5.06 times as large. The official variable file remains unsubsetted.
+- Remove decorative dividers from navigation, sections, modules, article contents and the footer. Link states use color and weight without text decoration or simulated underlines; keyboard focus retains its 3px outline. Forced colors use system link, visited-link and focus colors.
+- Remove unused `--una-color-rule`, `--una-border-width` and `--una-border-radius` tokens and their optional Tailwind aliases. Add `--una-weight-hover` and `font-una-weight-hover` for the canonical 700 hover weight.
+- Main navigation uses one lowercase set of direct links at every width: journal, stories, long read, about. The non-wrapping horizontal strip scrolls natively when needed, with visible continuation on phones, hidden scrollbar chrome, 44px targets, contained horizontal overscroll, unrestricted vertical page gestures, and room for the standard focus outline. Core templates, static HTML, Tailwind, and Astro share this smaller markup contract; no runtime JavaScript is added.
 
 ### Boundaries
 

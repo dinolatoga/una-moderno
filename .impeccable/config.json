@@ -8,7 +8,7 @@
         "rule": "overused-font",
         "value": "arial",
         "createdAt": "2026-11-01T02:39:41.729Z",
-        "reason": "Codex lead engineer: Arial is used only as an optional locally installed, metric-adjusted fallback behind owner-approved Geist; docs/assets.md records measured fallback metrics. It is not the primary display or body face."
+        "reason": "Codex lead engineer: Arial is used only as an optional locally installed, metric-adjusted fallback behind owner-approved Inter; docs/assets.md records measured fallback metrics. It is not the primary display or body face."
       },
       {
         "rule": "design-system-color",
@@ -29,9 +29,9 @@
       },
       {
         "rule": "overused-font",
-        "value": "geist",
-        "createdAt": "2026-11-01T03:49:29.023Z",
-        "reason": "User confirmed Geist for every text role: no, use Geist for all. just change weight for headings etc. DESIGN.md records that explicit owner decision; hierarchy uses weights 400, 700 and 800."
+        "value": "inter",
+        "createdAt": "2026-11-01T04:07:35.332Z",
+        "reason": "User confirmed Inter for every text role as the approved practical substitute for Zune-inspired typography. The pinned owner direction supersedes the saturated-font warning; hierarchy is expressed through weights 200, 300, 400, 500 and 600."
       }
     ]
   }

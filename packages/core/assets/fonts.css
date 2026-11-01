@@ -1,34 +1,34 @@
-/* Optional self-hosted Geist Sans 1.900; SIL OFL 1.1. See both license notices. */
+/* Optional Inter v4.1 upright variable font; SIL OFL 1.1. See OFL.txt. */
 @font-face {
-  font-family: Geist;
+  font-family: Inter;
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url('./geist-variable.woff2') format('woff2');
+  src: url('./inter-variable.woff2') format('woff2');
 }
 
-/* Match Geist x-height and vertical metrics when local Arial is available.
-   Derivation and source metrics: docs/assets.md. No fallback font is downloaded. */
+/* Local fallback matches Inter at opsz 14; optical sizing and glyph widths vary.
+   No system font is redistributed. Derivation: docs/assets.md. */
 @font-face {
-  font-family: 'Una Geist Fallback';
+  font-family: 'Una Inter Fallback';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 100 599;
   font-display: swap;
   src: local('Arial'), local('ArialMT');
-  size-adjust: 102.2072%;
-  ascent-override: 98.3297%;
-  descent-override: 28.863%;
+  size-adjust: 105.2731%;
+  ascent-override: 92.0226%;
+  descent-override: 22.9129%;
   line-gap-override: 0%;
 }
 
 @font-face {
-  font-family: 'Una Geist Fallback';
+  font-family: 'Una Inter Fallback';
   font-style: normal;
-  font-weight: 700 900;
+  font-weight: 600 900;
   font-display: swap;
   src: local('Arial Bold'), local('Arial-BoldMT');
-  size-adjust: 102.2072%;
-  ascent-override: 98.3297%;
-  descent-override: 28.863%;
+  size-adjust: 105.2731%;
+  ascent-override: 92.0226%;
+  descent-override: 22.9129%;
   line-gap-override: 0%;
 }

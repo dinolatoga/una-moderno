@@ -1,20 +1,21 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-01T03:49:56.473815Z",
+  "generatedAt": "2026-11-01T04:45:00.053929Z",
   "title": "Design System: Una Moderno",
   "extensions": {
     "source": {
       "authority": "packages/core/src/tokens.css",
       "semanticStyles": "packages/core/src/una.css",
       "generatedInventory": "packages/core/tokens.json",
-      "canonicalTokenCount": 51,
-      "status": "Derived documentation; edit source CSS first. No independent palette or token authoring.",
+      "canonicalTokenCount": 59,
+      "status": "Derived implementation record; edit source CSS first. No review, compatibility, or accessibility outcome is asserted.",
       "optionalFont": "packages/core/assets/fonts.css"
     },
     "colorMeta": {
       "ink": {
         "role": "primary",
         "displayName": "Cocoa ink",
+        "canonical": "#47281a",
         "tonalRamp": [
           "oklch(15.000% 0.05233 44.691)",
           "oklch(26.429% 0.05233 44.691)",
@@ -29,6 +30,7 @@
       "muted": {
         "role": "neutral",
         "displayName": "Muted cocoa",
+        "canonical": "#715347",
         "tonalRamp": [
           "oklch(15.000% 0.04466 42.780)",
           "oklch(26.429% 0.04466 42.780)",
@@ -43,6 +45,7 @@
       "paper": {
         "role": "neutral",
         "displayName": "Reading white",
+        "canonical": "#fffefa",
         "tonalRamp": [
           "oklch(15.000% 0.00537 95.097)",
           "oklch(26.429% 0.00537 95.097)",
@@ -57,6 +60,7 @@
       "white": {
         "role": "neutral",
         "displayName": "Clear white",
+        "canonical": "#fff",
         "tonalRamp": [
           "oklch(15.000% 0.00000 0.000)",
           "oklch(26.429% 0.00000 0.000)",
@@ -70,7 +74,8 @@
       },
       "blue": {
         "role": "secondary",
-        "displayName": "Margin blue",
+        "displayName": "Art blue",
+        "canonical": "#87a9d3",
         "tonalRamp": [
           "oklch(15.000% 0.07199 253.996)",
           "oklch(26.429% 0.07199 253.996)",
@@ -85,6 +90,7 @@
       "blue-light": {
         "role": "secondary",
         "displayName": "Destination blue",
+        "canonical": "#e8eff8",
         "tonalRamp": [
           "oklch(15.000% 0.01426 254.606)",
           "oklch(26.429% 0.01426 254.606)",
@@ -99,6 +105,7 @@
       "link": {
         "role": "primary",
         "displayName": "Reading blue",
+        "canonical": "#294d79",
         "tonalRamp": [
           "oklch(15.000% 0.08501 254.512)",
           "oklch(26.429% 0.08501 254.512)",
@@ -113,6 +120,7 @@
       "rust": {
         "role": "primary",
         "displayName": "Deep rust",
+        "canonical": "#a1440d",
         "tonalRamp": [
           "oklch(15.000% 0.13737 44.960)",
           "oklch(26.429% 0.13737 44.960)",
@@ -124,23 +132,10 @@
           "oklch(95.000% 0.13737 44.960)"
         ]
       },
-      "rule": {
-        "role": "neutral",
-        "displayName": "Warm rule",
-        "tonalRamp": [
-          "oklch(15.000% 0.01935 57.155)",
-          "oklch(26.429% 0.01935 57.155)",
-          "oklch(37.857% 0.01935 57.155)",
-          "oklch(49.286% 0.01935 57.155)",
-          "oklch(60.714% 0.01935 57.155)",
-          "oklch(72.143% 0.01935 57.155)",
-          "oklch(83.571% 0.01935 57.155)",
-          "oklch(95.000% 0.01935 57.155)"
-        ]
-      },
       "selection": {
         "role": "secondary",
         "displayName": "Selection amber",
+        "canonical": "#f2cc89",
         "tonalRamp": [
           "oklch(15.000% 0.09495 81.111)",
           "oklch(26.429% 0.09495 81.111)",
@@ -155,6 +150,7 @@
       "focus": {
         "role": "primary",
         "displayName": "Focus blue",
+        "canonical": "#294d79",
         "tonalRamp": [
           "oklch(15.000% 0.08501 254.512)",
           "oklch(26.429% 0.08501 254.512)",
@@ -166,9 +162,40 @@
           "oklch(95.000% 0.08501 254.512)"
         ]
       },
+      "stage": {
+        "role": "neutral",
+        "displayName": "Charcoal stage",
+        "canonical": "#171514",
+        "tonalRamp": [
+          "oklch(15.00% 0.0038 48.52)",
+          "oklch(26.43% 0.0038 48.52)",
+          "oklch(37.86% 0.0038 48.52)",
+          "oklch(49.29% 0.0038 48.52)",
+          "oklch(60.71% 0.0038 48.52)",
+          "oklch(72.14% 0.0038 48.52)",
+          "oklch(83.57% 0.0038 48.52)",
+          "oklch(95.00% 0.0038 48.52)"
+        ]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Selection rose",
+        "canonical": "#9b656b",
+        "tonalRamp": [
+          "oklch(15.00% 0.0702 12.27)",
+          "oklch(26.43% 0.0702 12.27)",
+          "oklch(37.86% 0.0702 12.27)",
+          "oklch(49.29% 0.0702 12.27)",
+          "oklch(60.71% 0.0702 12.27)",
+          "oklch(72.14% 0.0702 12.27)",
+          "oklch(83.57% 0.0702 12.27)",
+          "oklch(95.00% 0.0702 12.27)"
+        ]
+      },
       "original-brown": {
         "role": "neutral",
         "displayName": "Historical brown",
+        "canonical": "#876551",
         "tonalRamp": [
           "oklch(15.000% 0.05336 51.698)",
           "oklch(26.429% 0.05336 51.698)",
@@ -182,7 +209,8 @@
       },
       "original-rose": {
         "role": "secondary",
-        "displayName": "Masthead rose",
+        "displayName": "Historical rose",
+        "canonical": "#9b656b",
         "tonalRamp": [
           "oklch(15.000% 0.07024 12.270)",
           "oklch(26.429% 0.07024 12.270)",
@@ -197,6 +225,7 @@
       "original-slate": {
         "role": "tertiary",
         "displayName": "Historical slate",
+        "canonical": "#727c9f",
         "tonalRamp": [
           "oklch(15.000% 0.05498 272.229)",
           "oklch(26.429% 0.05498 272.229)",
@@ -211,6 +240,7 @@
       "original-orange": {
         "role": "tertiary",
         "displayName": "Historical orange",
+        "canonical": "#cd5f19",
         "tonalRamp": [
           "oklch(15.000% 0.15845 47.165)",
           "oklch(26.429% 0.15845 47.165)",
@@ -225,6 +255,7 @@
       "original-cream": {
         "role": "neutral",
         "displayName": "Quote cream",
+        "canonical": "#faf3e2",
         "tonalRamp": [
           "oklch(15.000% 0.02363 88.234)",
           "oklch(26.429% 0.02363 88.234)",
@@ -238,71 +269,150 @@
       }
     },
     "colorRampPolicy": "Eight-step OKLCH ramps are synthetic panel previews at source hue and chroma. They are not shipped tokens, approved UI colors, or contrast evidence; browser gamut mapping may apply.",
+    "colorAliases": {
+      "accent": {
+        "source": "--una-color-accent",
+        "value": "var(--una-color-original-rose)",
+        "resolved": "#9b656b"
+      }
+    },
+    "contrastPairs": [
+      {
+        "foreground": "ink",
+        "background": "paper",
+        "ratio": 13.12,
+        "method": "Source sRGB relative luminance; pair calculation only."
+      },
+      {
+        "foreground": "muted",
+        "background": "paper",
+        "ratio": 6.87,
+        "method": "Source sRGB relative luminance; pair calculation only."
+      },
+      {
+        "foreground": "accent",
+        "background": "paper",
+        "ratio": 4.66,
+        "method": "Source sRGB relative luminance; pair calculation only."
+      },
+      {
+        "foreground": "paper",
+        "background": "stage",
+        "ratio": 18.04,
+        "method": "Source sRGB relative luminance; pair calculation only."
+      },
+      {
+        "foreground": "blue",
+        "background": "stage",
+        "ratio": 7.49,
+        "method": "Source sRGB relative luminance; pair calculation only."
+      }
+    ],
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Home wordmark; can shrink and wrap anywhere when narrow space or enlarged text requires it."
+        "purpose": "Lowercase two-word wordmark; each word is nowrap, with a real separating space and a 20vw cap on the fluid token. Weight 200 stays stable on hover/active.",
+        "tokenFontSize": "clamp(3rem, 7vw, 5.5rem)",
+        "renderedFontSize": "min(var(--una-text-brand), 20vw)"
       },
       "headline": {
         "displayName": "Headline",
-        "purpose": "Feature and article titles."
+        "purpose": "Lowercase light article title: .una-title."
+      },
+      "cover-headline": {
+        "displayName": "Cover Headline",
+        "purpose": "Narrower paper-colored headline on the charcoal cover, changing to rose on hover/active at stable weight 300."
       },
       "section": {
         "displayName": "Section",
-        "purpose": "Recent-stories section heading."
+        "purpose": "Recent-story section and sidebar module headings."
+      },
+      "prose-heading": {
+        "displayName": "Prose Heading",
+        "purpose": "Lowercase subsection heading inside .una-prose."
       },
       "title": {
         "displayName": "Title",
-        "purpose": "Recent-story headings."
+        "purpose": "Recent-story heading above 30rem."
       },
-      "module": {
-        "displayName": "Module",
-        "purpose": "Ordinary sidebar headings."
-      },
-      "blue-module": {
-        "displayName": "Blue Module",
-        "purpose": "Blue publication-note heading."
+      "title-compact": {
+        "displayName": "Title Compact",
+        "purpose": "Recent-story heading at width <= 30rem."
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Supporting copy and sidebar text."
+        "purpose": "Publication and sidebar supporting text."
       },
       "prose": {
         "displayName": "Prose",
-        "purpose": "Sustained article reading; maximum 70ch."
+        "purpose": "Sustained article reading at a 70ch maximum."
       },
       "deck": {
         "displayName": "Deck",
-        "purpose": "Story summaries; maximum 60ch."
+        "purpose": "Article summary at a 60ch maximum."
+      },
+      "cover-deck": {
+        "displayName": "Cover Deck",
+        "purpose": "Summary within the charcoal cover."
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Metadata, captions, utility copy, and descriptions."
+        "purpose": "Metadata and captions; small descriptions retain their actual inherited weight."
       },
       "note": {
         "displayName": "Note",
         "purpose": "Muted supporting notes and specimen disclosures."
       },
+      "strapline": {
+        "displayName": "Strapline",
+        "purpose": "Masthead description at 1.5 leading."
+      },
       "navigation": {
         "displayName": "Navigation",
-        "purpose": "Main navigation links."
+        "purpose": "Inactive muted navigation link at stable weight 300; hover/active changes only color to rose."
+      },
+      "navigation-current": {
+        "displayName": "Navigation Current",
+        "purpose": "Current page link, distinguished by rose color and weight 600."
+      },
+      "utility": {
+        "displayName": "Utility",
+        "purpose": "Uppercase publication/specimen information; the entire utility block is hidden at width <= 30rem."
+      },
+      "section-label": {
+        "displayName": "Section Label",
+        "purpose": "Uppercase recent-story count and ordering label."
       },
       "quote": {
         "displayName": "Quote",
-        "purpose": "Article quotation."
+        "purpose": "Regular quotation text inside a cream field."
+      },
+      "list-link": {
+        "displayName": "List Link",
+        "purpose": "Supporting-list anchor at weight 600; hover/active uses 700."
+      },
+      "code": {
+        "displayName": "Code",
+        "purpose": "Proportional inline code with inherited prose leading."
+      },
+      "prose-link": {
+        "displayName": "Prose link",
+        "purpose": "Inline prose anchor, italic at stable weight 600 in every state, distinct from upright strong text.",
+        "fontStyle": "italic",
+        "italicDelivery": "Browser synthesis from the single upright Inter asset."
       }
     },
     "shadows": [],
     "motion": [
       {
-        "name": "destination-duration",
+        "name": "interaction-duration",
         "value": "160ms",
-        "purpose": "Background-color transition on article :target."
+        "purpose": "Link-color and article-target background-color transitions."
       },
       {
-        "name": "destination-ease",
+        "name": "interaction-ease",
         "value": "cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "The easing used only for the article destination field."
+        "purpose": "Easing shared by link-color and destination transitions."
       }
     ],
     "breakpoints": [
@@ -310,20 +420,25 @@
         "name": "narrow-navigation-gap",
         "value": "22rem",
         "condition": "width <= 22rem",
-        "behavior": "Reduce the horizontal navigation gap from 1.5rem to 0.5rem while retaining the same single row and native overflow scrolling.",
-        "rationale": "Keep part of the next destination visible on the narrowest phones; actual fit depends on label lengths."
+        "behavior": "Reduce the navigation gap from 1.5rem to 0.5rem, retaining a single native horizontal row."
       },
       {
         "name": "compact-stories",
         "value": "30rem",
         "condition": "width <= 30rem",
-        "behavior": "1rem shell margins; recent stories stack with a min(6rem, 33.3333%) image track and a flexible text track when an image exists, reserving room for text when its size increases."
+        "behavior": "Hide the publication utility block without reserved space; use 1rem shell margins and stacked recent-story rows with min(6rem, 33.3333%) thumbnail tracks, flexible text tracks, and 1.25rem titles."
+      },
+      {
+        "name": "stacked-cover",
+        "value": "42rem",
+        "condition": "width <= 42rem",
+        "behavior": "Stack cover copy before the figure."
       },
       {
         "name": "stacked-editorial",
         "value": "56rem",
         "condition": "width <= 56rem",
-        "behavior": "One content column, masthead description below wordmark, sidebar after content, inline native article contents instead of sidebar contents."
+        "behavior": "One editorial column; masthead description below wordmark; sidebar after content; inline native article contents replaces sidebar contents."
       }
     ],
     "layout": {
@@ -337,16 +452,28 @@
       "proseMax": "70ch",
       "headlineMax": "21ch",
       "deckMax": "60ch",
-      "featureImageAspectRatio": "3 / 2",
-      "recentImageAspectRatio": "4 / 3",
-      "compactStoryColumns": "min(6rem, 33.3333%) minmax(0, 1fr); a story without an image uses minmax(0, 1fr)."
+      "coverTracks": "minmax(0, 1fr) minmax(0, 1fr)",
+      "coverPadding": "1.5rem",
+      "coverGap": "1.5rem",
+      "coverSourceOrder": "Copy then optional figure; wide grid puts figure left and copy right.",
+      "coverImageAspectRatio": "1",
+      "articleImageAspectRatio": "3 / 2",
+      "recentImageAspectRatio": "1",
+      "compactStoryColumns": "min(6rem, 33.3333%) minmax(0, 1fr); without image: minmax(0, 1fr).",
+      "wordmark": {
+        "words": "Separate nowrap spans with a real space; wrap between words when needed.",
+        "fontSize": "min(var(--una-text-brand), 20vw)",
+        "decorativeGeometry": false
+      }
     },
     "interaction": {
       "focus": {
         "width": "3px",
         "offset": "4px",
         "colorToken": "focus",
-        "css": ".una :where(:focus-visible) { outline: var(--una-focus-width) solid var(--una-color-focus); outline-offset: var(--una-focus-offset); }"
+        "css": ".una :where(:focus-visible) { outline: var(--una-focus-width) solid var(--una-color-focus); outline-offset: var(--una-focus-offset); }",
+        "coverColorToken": "blue",
+        "coverCss": ".una-feature--cover :focus-visible { outline-color: var(--una-color-blue); }"
       },
       "destination": {
         "selector": ".una-prose :target",
@@ -356,11 +483,11 @@
       },
       "reducedMotion": {
         "condition": "prefers-reduced-motion: reduce",
-        "behavior": "Remove the destination background-color transition."
+        "behavior": "Remove all link-color and article-target background-color transitions."
       },
       "forcedColors": {
         "condition": "forced-colors: active",
-        "behavior": "The current navigation link receives a 2px solid LinkText bottom border."
+        "behavior": "Use LinkText for unvisited links, VisitedText for visited links, and Highlight for hover/active/current links and focus outlines. Add no borders or underlines."
       },
       "skipLink": {
         "defaultTransform": "translateY(-200%)",
@@ -381,38 +508,90 @@
         "scrollbar": "Hidden with scrollbar-width: none and ::-webkit-scrollbar { display: none }; the partial next label is the overflow cue.",
         "scrolling": "Browser-native horizontal scrolling and momentum; vertical page gestures remain unrestricted.",
         "keyboard": "Tab focuses each ordinary anchor; the centered optimal viewing region guides native scrolling to reveal even a partially visible focused link.",
-        "motion": "No custom scroll animation.",
-        "runtimeJavaScript": false
+        "motion": "Link color transitions for 160ms at the shared easing; navigation weight remains stable on hover/active. Native scrolling has no custom animation, snap behavior, or timer.",
+        "runtimeJavaScript": false,
+        "current": "aria-current=page, accent color, and stable weight 600; no text decoration.",
+        "hoverActive": "Inactive links change from muted cocoa to rose while retaining weight 300; current links retain rose and weight 600. Focus keeps its visible outline."
+      },
+      "links": {
+        "default": "Reading blue at weight 600, text-decoration none.",
+        "hoverActive": "Ordinary links use accent rose at weight 700; brand, display-title, navigation, and prose-link roles retain their own stable weights.",
+        "brand": "Cocoa to rose at stable weight 200.",
+        "navigation": "Inactive muted cocoa 300 to rose 300; current stays rose 600.",
+        "displayTitle": "Reading blue to rose at stable weight 300; cover uses paper to rose.",
+        "recentTitle": "Reading blue 600 to rose 700.",
+        "transition": "Color only; no weight animation.",
+        "visited": "No separate authored color outside forced-colors mode.",
+        "focus": "Visible outline; no underline or pseudo-element stroke.",
+        "prose": "Reading blue to rose at stable italic weight 600, distinct from upright strong 600."
       }
     },
-    "previewNotes": "Snippets use scoped ds- classes and source CSS variable references with fallback values. Load the optional local font stylesheet to show Geist Sans and its measured local fallback; all font roles resolve to the same family. Fragment links demonstrate native anchors; destinations belong to the surrounding document. Inline contents is displayed independently of the page breakpoint. Static quotations have no invented hover state. Main navigation uses a single horizontal row at all widths, scrolling within its own strip only when needed; the viewport-based 22rem breakpoint changes its gap to 0.5rem.",
+    "print": {
+      "condition": "print",
+      "hidden": [".una-nav", ".una-sidebar", ".una-skip-link", ".una-utility"],
+      "layout": "Main content becomes block layout; shell becomes 100% width.",
+      "colors": "Document becomes black on white; cover background and padding are removed, and its metadata/caption inherit the print text color. All links, including visited, hover, and active states, inherit the surrounding print text color.",
+      "linksCss": ".una a:any-link, .una a:hover, .una a:active { color: inherit; }"
+    },
+    "theming": {
+      "authority": "Root canonical CSS; optional Tailwind @theme inline aliases it.",
+      "aliasResolution": "Aliases resolve where declared. Override root primitives after core CSS for a coordinated theme; a descendant primitive override does not recompute inherited dependent aliases.",
+      "scopedOverride": "Redeclare --una-font-display, --una-font-prose, and --una-font-code when overriding --una-font-body in a scope; redeclare --una-color-accent when changing its original-rose source only in that scope.",
+      "publicFontRoles": [
+        "--una-font-display",
+        "--una-font-body",
+        "--una-font-prose",
+        "--una-font-code"
+      ]
+    },
+    "previewNotes": "Ten existing patterns, with ds- classes and live CSS token references plus source-value fallbacks. Load the optional local font stylesheet for Inter. SVG artwork is inlined from original repository specimens; no external preview asset or framework is needed. Fragment destinations belong to the surrounding document. Inline contents is shown independently of the page breakpoint. Static quotations have no invented hover state. The prose example makes italic links and upright strong text visible together. The masthead example includes utility copy so its phone omission is represented.",
     "fontDelivery": {
-      "family": "Geist Sans",
-      "cssFamily": "Geist",
-      "asset": "packages/core/assets/geist-variable.woff2",
-      "sourcePackage": "geist@1.9.0",
-      "embeddedVersion": "1.900",
-      "byteLength": 69576,
-      "sha256": "5c5588027e59e74e205b9d6c7fd877b261091cee367f6bb3a8d505da14cae512",
+      "family": "Inter",
+      "cssFamily": "Inter",
+      "asset": "packages/core/assets/inter-variable.woff2",
+      "release": {
+        "tag": "v4.1",
+        "publishedAt": "2024-11-16T00:27:07Z",
+        "url": "https://github.com/rsms/inter/releases/tag/v4.1",
+        "tagCommit": "e3a3d4c57d5ecc01453a575621882a384c1995a3"
+      },
+      "embeddedVersion": "4.001;git-9221beed3",
+      "byteLength": 352240,
+      "sha256": "693b77d4f32ee9b8bfc995589b5fad5e99adf2832738661f5402f9978429a8e3",
       "weightAxis": "100 900",
-      "usedWeights": [400, 700, 800],
-      "style": "normal; italic emphasis uses browser synthesis.",
+      "opticalSizeAxis": "14 32",
+      "opticalSizing": "auto",
+      "usedWeights": [200, 300, 400, 500, 600, 700],
+      "style": "Upright normal asset; italic emphasis and prose links use browser synthesis without an extra font download.",
       "fontDisplay": "swap",
       "externalRuntimeRequests": false,
       "provenance": "docs/assets.md",
-      "licenses": ["packages/core/assets/OFL.txt", "packages/core/assets/Geist-LICENSE.txt"],
-      "roleOwnership": "The body font token owns the stack; display, prose, and code tokens alias it.",
+      "machineReadableProvenance": "packages/core/assets/provenance.json",
+      "licenses": ["packages/core/assets/OFL.txt"],
+      "licenseSha256": "262481e844521b326f5ecd053e59b98c8b2da78c8ee1bdbb6e8174305e54935a",
+      "roleOwnership": "All four font roles resolve to the body stack at their root declaration; scoped overrides must redeclare dependent aliases.",
+      "metrics": {
+        "unitsPerEm": 2048,
+        "xHeightAtOpsz14": 1118,
+        "xHeightAtOpsz32": 1056,
+        "capHeight": 1490,
+        "ascent": 1984,
+        "descent": -494,
+        "lineGap": 0
+      },
       "localFallback": {
-        "family": "Una Geist Fallback",
+        "family": "Una Inter Fallback",
         "regularSources": ["Arial", "ArialMT"],
-        "regularWeight": "400",
+        "regularWeightRange": "100 599",
         "boldSources": ["Arial Bold", "Arial-BoldMT"],
-        "boldWeightRange": "700 900",
-        "sizeAdjust": "102.2072%",
-        "ascentOverride": "98.3297%",
-        "descentOverride": "28.863%",
+        "boldWeightRange": "600 900",
+        "sourceUnitsPerEm": 2048,
+        "sourceXHeight": 1062,
+        "sizeAdjust": "105.2731%",
+        "ascentOverride": "92.0226%",
+        "descentOverride": "22.9129%",
         "lineGapOverride": "0%",
-        "limitations": "Local font only; no system font is redistributed. Adjustments align x-height and vertical metrics, not every glyph width; layout shifts remain possible. System sans follows when the local face is absent."
+        "limitations": "These measured candidates align x-height and vertical metrics for the indicated optical-size endpoint only. The variable font x-height changes from 1118 at opsz14 to 1056 at opsz32; one fixed fallback cannot match every automatic optical size or glyph width. Arial has no matching true 200/300/500/600 variable faces; weight matching remains approximate. System-ui is an alternative when a predictable weight fallback matters more than metric matching."
       }
     }
   },
@@ -421,114 +600,133 @@
       "name": "Masthead",
       "kind": "custom",
       "refersTo": "masthead",
-      "description": "The cocoa and rose home link with a short publication description.",
-      "html": "<header class=\"ds-masthead\"><a class=\"ds-brand\" href=\"#journal\" aria-label=\"Una Moderno home\">Una<span>Moderno</span></a><p>Ideas, observations, and other things worth keeping.</p></header>",
-      "css": ".ds-masthead{font-family:var(--una-font-body, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);display:flex;align-items:end;justify-content:space-between;gap:var(--una-space-6, 1.5rem);padding-block:var(--una-space-8, 2rem) var(--una-space-6, 1.5rem);}.ds-brand { min-inline-size: 0; overflow-wrap: anywhere; color: var(--una-color-ink, #47281a); font-family: var(--una-font-display, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif); font-size: var(--una-text-brand, clamp(2.7rem, 6.8vw, 5.5rem)); font-weight: 800; letter-spacing: var(--una-tracking-display, -0.035em); line-height: 0.95; text-decoration: none; }.ds-brand span{color:var(--una-color-original-rose, #9b656b);}.ds-masthead p{margin:0;max-inline-size:27ch;padding-bottom:var(--una-space-1, 0.25rem);font-size:0.9375rem;line-height:1.45;}.ds-brand:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(width <= 56rem){.ds-masthead{align-items:start;flex-direction:column;gap:var(--una-space-4, 1rem);}.ds-masthead p{max-inline-size:45ch;}}"
+      "description": "Plain two-word publication identity with stable light weight, a viewport size cap, and utility copy omitted on phones.",
+      "html": "<div class=\"ds-publication-head\"><div class=\"ds-utility\"><p>An independent web journal</p><p>Volume 01 · A fictional editorial specimen</p></div><header class=\"ds-masthead\"><a class=\"ds-brand\" href=\"#home\" aria-label=\"Una Moderno home\"><span>Una</span> <span>Moderno</span></a><p>Ideas, observations, and other things worth keeping.</p></header></div>",
+      "css": ".ds-publication-head{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;}.ds-utility{display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--una-space-2, 0.5rem) var(--una-space-4, 1rem);padding-block:var(--una-space-4, 1rem) var(--una-space-2, 0.5rem);color:var(--una-color-muted, #715347);font-size:var(--una-text-utility, 0.75rem);font-weight:var(--una-weight-strong, 600);letter-spacing:.04em;text-transform:uppercase;}.ds-utility p{margin:0;}.ds-masthead{display:flex;align-items:end;justify-content:space-between;gap:var(--una-space-6, 1.5rem);padding-block:var(--una-space-6, 1.5rem) var(--una-space-8, 2rem);}.ds-brand{min-inline-size:0;overflow-wrap:anywhere;color:var(--una-color-ink, #47281a);font-family:var(--una-font-display, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:min(var(--una-text-brand, clamp(3rem, 7vw, 5.5rem)),20vw);font-weight:var(--una-weight-brand, 200);letter-spacing:var(--una-tracking-display, -0.025em);line-height:1.05;text-transform:lowercase;text-decoration:none;transition:color var(--una-motion-duration, 160ms) var(--una-motion-ease, cubic-bezier(0.16, 1, 0.3, 1));}.ds-brand:hover,.ds-brand:active{color:var(--una-color-accent, #9b656b);font-weight:var(--una-weight-brand, 200);}.ds-brand span{color:inherit;white-space:nowrap;}.ds-masthead p{margin:0;max-inline-size:30ch;padding-bottom:var(--una-space-1, 0.25rem);font-size:.875rem;line-height:1.5;}@media(width <= 56rem){.ds-masthead{align-items:start;flex-direction:column;gap:var(--una-space-4, 1rem);}.ds-masthead p{max-inline-size:45ch;}}@media(width <= 30rem){.ds-utility{display:none;}}@media print{.ds-utility{display:none;}}.ds-publication-head :focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(prefers-reduced-motion:reduce){.ds-publication-head a{transition:none;}}@media(forced-colors:active){.ds-publication-head a:link{color:LinkText;}.ds-publication-head a:visited{color:VisitedText;}.ds-publication-head a:hover,.ds-publication-head a:active,.ds-publication-head a[aria-current='page']{color:Highlight;}.ds-publication-head :focus-visible{outline-color:Highlight;}}@media print{.ds-publication-head a:any-link,.ds-publication-head a:hover,.ds-publication-head a:active{color:inherit;}}"
     },
     {
       "name": "Main navigation",
       "kind": "nav",
       "refersTo": "navigation",
-      "description": "One horizontal row of ordinary anchors at every width; its own strip scrolls only when the links overflow.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a href=\"#journal\" aria-current=\"page\">The journal</a><a href=\"#recent\">Recent stories</a><a href=\"#long-read\">The long read</a><a href=\"#about\">About this edition</a></nav>",
-      "css": ".ds-nav { font-family: var(--una-font-body, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif); font-size: var(--una-text-body, 1rem); line-height: var(--una-leading-body, 1.6); color: var(--una-color-ink, #47281a); } .ds-nav a { text-underline-offset: 0.2em; } .ds-nav, .ds-nav a { box-sizing: border-box; } .ds-nav :where(:focus-visible) { outline: var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79); outline-offset: var(--una-focus-offset, 4px); } .ds-nav { display: flex; flex-wrap: nowrap; gap: var(--una-space-6, 1.5rem); min-inline-size: 0; overflow-x: auto; overscroll-behavior-x: contain; /* A centered optimal view region makes native focus reveal partial links. */ scroll-padding-inline: 50%; padding: var(--una-space-2, 0.5rem); border-block: var(--una-border-width, 1px) solid var(--una-color-ink, #47281a); margin-block-end: var(--una-space-8, 2rem); scrollbar-width: none; } .ds-nav::-webkit-scrollbar { display: none; } .ds-nav a { display: flex; flex: none; align-items: center; min-block-size: 44px; padding: var(--una-space-1, 0.25rem) var(--una-space-2, 0.5rem); scroll-margin-inline: var(--una-space-2, 0.5rem); white-space: nowrap; font-size: 0.9375rem; font-weight: 700; color: var(--una-color-ink, #47281a); text-decoration: none; } .ds-nav a:hover, .ds-nav a[aria-current='page'] { text-decoration: underline; text-decoration-thickness: 2px; } @media (width <= 22rem) { .ds-nav { gap: var(--una-space-2, 0.5rem); } } @media (forced-colors: active) { .ds-nav a[aria-current='page'] { border-block-end: 2px solid LinkText; } }"
+      "description": "One native scrolling row: inactive links remain weight 300; the current destination stays rose at weight 600.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a href=\"#journal\" aria-current=\"page\">journal</a><a href=\"#stories\">stories</a><a href=\"#article\">long read</a><a href=\"#about\">about</a></nav>",
+      "css": ".ds-nav{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;display:flex;flex-wrap:nowrap;gap:var(--una-space-6, 1.5rem);min-inline-size:0;overflow-x:auto;overscroll-behavior-x:contain;scroll-padding-inline:50%;padding:var(--una-space-2, 0.5rem);margin-block-end:var(--una-space-10, 2.5rem);scrollbar-width:none;}.ds-nav::-webkit-scrollbar{display:none;}.ds-nav a{display:flex;flex:none;align-items:center;min-block-size:44px;padding:var(--una-space-1, 0.25rem) var(--una-space-2, 0.5rem);scroll-margin-inline:var(--una-space-2, 0.5rem);white-space:nowrap;font-size:var(--una-text-nav, clamp(1.75rem, 3vw, 2.25rem));font-weight:var(--una-weight-display, 300);line-height:1.35;letter-spacing:-.015em;text-transform:lowercase;color:var(--una-color-muted, #715347);text-decoration:none;transition:color var(--una-motion-duration, 160ms) var(--una-motion-ease, cubic-bezier(0.16, 1, 0.3, 1));}.ds-nav a:hover,.ds-nav a:active{color:var(--una-color-accent, #9b656b);}.ds-nav a[aria-current=\"page\"]{color:var(--una-color-accent, #9b656b);font-weight:var(--una-weight-strong, 600);}@media(width <= 22rem){.ds-nav{gap:var(--una-space-2, 0.5rem);}}@media print{.ds-nav{display:none;}}.ds-nav :focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(prefers-reduced-motion:reduce){.ds-nav a{transition:none;}}@media(forced-colors:active){.ds-nav a:link{color:LinkText;}.ds-nav a:visited{color:VisitedText;}.ds-nav a:hover,.ds-nav a:active,.ds-nav a[aria-current='page']{color:Highlight;}.ds-nav :focus-visible{outline-color:Highlight;}}@media print{.ds-nav a:any-link,.ds-nav a:hover,.ds-nav a:active{color:inherit;}}"
     },
     {
-      "name": "Feature without optional image",
+      "name": "Charcoal story cover",
+      "kind": "custom",
+      "refersTo": "feature-cover",
+      "description": "Square artwork beside a paper-colored headline that changes to rose at stable weight 300; copy precedes art when stacked.",
+      "html": "<article class=\"ds-cover\"><div class=\"ds-cover-copy\"><h2><a href=\"#article\">A website can be a place, not a feed.</a></h2><p class=\"ds-cover-deck\">What happens when we build a little corner of the internet around what we care about, and leave the door open?</p><p class=\"ds-cover-meta\"><span>By Mara Solis</span><time datetime=\"2026-10-12\">October 12, 2026</time><span>Web &amp; culture</span></p></div><figure><a href=\"#article\" aria-label=\"Read A website can be a place, not a feed\"><svg preserveAspectRatio=\"xMidYMid slice\" class=\"ds-cover-art\" xmlns=\"http://www.w3.org/2000/svg\" width=\"900\" height=\"600\" viewBox=\"0 0 900 600\">\n  <rect width=\"900\" height=\"600\" fill=\"#87a9d3\"/>\n  <g fill=\"none\" stroke=\"#47281a\" stroke-width=\"3\"><path d=\"M0 300h900M450 0v600\"/><path d=\"M180 170h220v260H180zM500 90h260v220H500zM540 370h180v160H540z\" fill=\"#e8eff8\"/></g>\n  <g fill=\"#47281a\"><rect x=\"180\" y=\"170\" width=\"220\" height=\"28\"/><rect x=\"500\" y=\"90\" width=\"260\" height=\"28\"/><rect x=\"540\" y=\"370\" width=\"180\" height=\"28\"/></g>\n  <g fill=\"#faf3e2\"><circle cx=\"196\" cy=\"184\" r=\"4\"/><circle cx=\"211\" cy=\"184\" r=\"4\"/><circle cx=\"516\" cy=\"104\" r=\"4\"/><circle cx=\"531\" cy=\"104\" r=\"4\"/><circle cx=\"556\" cy=\"384\" r=\"4\"/></g>\n  <circle cx=\"290\" cy=\"294\" r=\"61\" fill=\"#cd5f19\"/>\n  <path d=\"M231 397h118M231 377h83M536 255h188M536 273h142M575 491h110\" stroke=\"#47281a\" stroke-width=\"4\"/>\n  <path d=\"M552 215V151h47v64h46v-64h47v64\" stroke=\"#727c9f\" stroke-width=\"22\" fill=\"none\"/>\n  <path d=\"M574 465l55-50 55 50\" fill=\"#9b656b\"/>\n  <g fill=\"#47281a\"><circle cx=\"450\" cy=\"300\" r=\"9\"/><circle cx=\"450\" cy=\"475\" r=\"9\"/><circle cx=\"110\" cy=\"300\" r=\"9\"/></g>\n  <g fill=\"none\" stroke=\"#47281a\" stroke-width=\"2\"><path d=\"M400 300h100M450 475h90M110 300h70M760 200h140\"/></g>\n</svg></a><figcaption>Small places. Open windows. A web made by people.</figcaption></figure></article>",
+      "css": ".ds-cover :where(a){color:var(--una-color-link, #294d79);font-weight:var(--una-weight-strong, 600);text-decoration:none;transition:color var(--una-motion-duration, 160ms) var(--una-motion-ease, cubic-bezier(0.16, 1, 0.3, 1));}.ds-cover :where(a:hover,a:active){color:var(--una-color-accent, #9b656b);font-weight:var(--una-weight-hover, 700);}.ds-cover{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;padding:var(--una-space-6, 1.5rem);background:var(--una-color-stage, #171514);color:var(--una-color-paper, #fffefa);}.ds-cover:has(figure){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--una-space-6, 1.5rem);align-items:start;}.ds-cover-copy{min-inline-size:0;}.ds-cover:has(figure) .ds-cover-copy{grid-column:2;}.ds-cover h2{margin:0;max-inline-size:21ch;font-size:clamp(2rem,3vw,2.75rem);font-weight:var(--una-weight-display, 300);line-height:var(--una-leading-title, 1.08);letter-spacing:var(--una-tracking-display, -0.025em);text-transform:lowercase;text-wrap:pretty;overflow-wrap:anywhere;}.ds-cover h2 a{color:var(--una-color-paper, #fffefa);font-weight:inherit;text-decoration:none;}.ds-cover a{color:var(--una-color-paper, #fffefa);}.ds-cover a:hover,.ds-cover a:active{color:var(--una-color-accent, #9b656b);}.ds-cover h2 a:hover{text-decoration:none;}.ds-cover-deck{margin:var(--una-space-4, 1rem) 0 0;max-inline-size:60ch;font-size:var(--una-text-body, 1rem);line-height:1.55;}.ds-cover-meta{display:flex;flex-wrap:wrap;gap:var(--una-space-1, 0.25rem) var(--una-space-4, 1rem);margin:var(--una-space-4, 1rem) 0 var(--una-space-5, 1.25rem);font-size:var(--una-text-small, 0.8125rem);font-weight:var(--una-weight-label, 500);color:var(--una-color-paper, #fffefa);}.ds-cover time{font-variant-numeric:tabular-nums;}.ds-cover figure{margin:0;grid-column:1;grid-row:1;}.ds-cover-art{display:block;inline-size:100%;block-size:auto;aspect-ratio:1;object-fit:cover;}.ds-cover figcaption{padding-block-start:var(--una-space-2, 0.5rem);font-size:var(--una-text-small, 0.8125rem);font-weight:var(--una-weight-label, 500);color:var(--una-color-paper, #fffefa);}.ds-cover :focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-blue, #87a9d3);outline-offset:var(--una-focus-offset, 4px);}@media(width <= 42rem){.ds-cover:has(figure){display:block;}.ds-cover:has(figure) figure{margin-block-start:var(--una-space-6, 1.5rem);}}@media print{.ds-cover{padding:0;background:none;color:black;}.ds-cover figcaption,.ds-cover-meta{color:inherit;}}.ds-cover h2 a:hover,.ds-cover h2 a:active{color:var(--una-color-accent, #9b656b);font-weight:inherit;}@media(prefers-reduced-motion:reduce){.ds-cover a{transition:none;}}@media(forced-colors:active){.ds-cover a:link{color:LinkText;}.ds-cover a:visited{color:VisitedText;}.ds-cover a:hover,.ds-cover a:active,.ds-cover a[aria-current=\"page\"]{color:Highlight;}.ds-cover :focus-visible{outline-color:Highlight;}}@media print{.ds-cover a:any-link,.ds-cover a:hover,.ds-cover a:active{color:inherit;}}"
+    },
+    {
+      "name": "Light article header",
       "kind": "custom",
       "refersTo": "feature",
-      "description": "A complete title, deck, and metadata pattern with the optional figure omitted.",
-      "html": "<article class=\"ds-feature\"><h2 class=\"ds-title\"><a href=\"#long-read\">A website can be a place, not a feed.</a></h2><p class=\"ds-deck\">What happens when we build a little corner of the internet around what we care about, and leave the door open?</p><p class=\"ds-meta\"><span>By Mara Solis \u00b7 Fictional specimen</span><time datetime=\"2026-10-12\">October 12, 2026</time></p></article>",
-      "css": ".ds-feature{font-family:var(--una-font-body, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;}.ds-title{font-family:var(--una-font-display, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif);margin:0;max-inline-size:21ch;font-size:var(--una-text-title, clamp(2.25rem, 4.2vw, 3.375rem));line-height:var(--una-leading-title, 1.04);letter-spacing:var(--una-tracking-display, -0.035em);font-weight:700;text-wrap:balance;overflow-wrap:anywhere;}.ds-title a{color:inherit;text-decoration:none;text-underline-offset:0.2em;}.ds-title a:hover{text-decoration:underline;text-decoration-thickness:2px;}.ds-deck{margin:var(--una-space-4, 1rem) 0 0;max-inline-size:60ch;font-size:var(--una-text-deck, 1.125rem);line-height:1.55;}.ds-meta{display:flex;flex-wrap:wrap;gap:var(--una-space-1, 0.25rem) var(--una-space-4, 1rem);color:var(--una-color-muted, #715347);font-size:var(--una-text-small, 0.8125rem);margin-block:var(--una-space-4, 1rem) var(--una-space-5, 1.25rem);}.ds-meta time{font-variant-numeric:tabular-nums;}.ds-title a:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}"
+      "description": "Light article title, summary, and metadata without the optional image.",
+      "html": "<header class=\"ds-feature\"><h1>A website can be a place, not a feed.</h1><p class=\"ds-feature-deck\">What happens when we build a little corner of the internet around what we care about, and leave the door open?</p><p class=\"ds-feature-meta\"><span>By Mara Solis</span><time datetime=\"2026-10-12\">October 12, 2026</time><span>Web &amp; culture</span></p></header>",
+      "css": ".ds-feature{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;}.ds-feature h1{margin:0;max-inline-size:21ch;text-transform:lowercase;font-size:var(--una-text-title, clamp(2.25rem, 4.2vw, 3.375rem));line-height:var(--una-leading-title, 1.08);letter-spacing:var(--una-tracking-display, -0.025em);font-weight:var(--una-weight-display, 300);text-wrap:balance;overflow-wrap:anywhere;}.ds-feature-deck{margin:var(--una-space-4, 1rem) 0 0;max-inline-size:60ch;font-size:var(--una-text-deck, 1.125rem);line-height:1.55;}.ds-feature-meta{display:flex;flex-wrap:wrap;gap:var(--una-space-1, 0.25rem) var(--una-space-4, 1rem);color:var(--una-color-muted, #715347);font-size:var(--una-text-small, 0.8125rem);font-weight:var(--una-weight-label, 500);margin:var(--una-space-4, 1rem) 0 var(--una-space-5, 1.25rem);}.ds-feature time{font-variant-numeric:tabular-nums;}"
     },
     {
-      "name": "Recent story without optional thumbnail",
+      "name": "Recent story",
       "kind": "custom",
       "refersTo": "recent-story",
-      "description": "A linked story heading and metadata remain complete when no image is supplied.",
-      "html": "<article class=\"ds-story\"><h3><a href=\"#commonplace\">In praise of the commonplace book</a></h3><p class=\"ds-story-meta\"><span>Making things \u00b7 Fictional specimen</span><time datetime=\"2026-10-06\">Oct 6</time></p></article>",
-      "css": ".ds-story{font-family:var(--una-font-body, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);}.ds-story h3{font-family:var(--una-font-display, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif);margin:0;font-size:1.25rem;line-height:1.2;text-wrap:balance;overflow-wrap:anywhere;}.ds-story h3 a{color:inherit;text-decoration:none;text-underline-offset:0.2em;}.ds-story h3 a:hover{text-decoration:underline;text-decoration-thickness:2px;}.ds-story-meta{display:flex;flex-wrap:wrap;gap:var(--una-space-1, 0.25rem) var(--una-space-4, 1rem);color:var(--una-color-muted, #715347);font-size:var(--una-text-small, 0.8125rem);margin:var(--una-space-2, 0.5rem) 0 0;}.ds-story-meta time{font-variant-numeric:tabular-nums;}.ds-story a:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media (width <= 30rem) { .ds-story { display: grid; grid-template-columns: min(6rem, 33.3333%) minmax(0, 1fr); gap: var(--una-space-3, 0.75rem); } .ds-story > a:has(img), .ds-story > img { grid-row: span 2; } .ds-story:has(img) .ds-story-meta { grid-column: 2; } .ds-story:not(:has(img)) { grid-template-columns: minmax(0, 1fr); } .ds-story img { margin: 0; grid-row: span 2; } .ds-story h3 { font-size: 1.25rem; } .ds-story .ds-story-meta { margin: 0; } }"
+      "description": "Square thumbnail and compact strong heading, becoming a text-reserving phone row.",
+      "html": "<article class=\"ds-story\"><a href=\"#story\" tabindex=\"-1\" aria-hidden=\"true\"><svg preserveAspectRatio=\"xMidYMid slice\" class=\"ds-story-art\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\" width=\"400\" height=\"300\" viewBox=\"0 0 400 300\"><rect width=\"400\" height=\"300\" fill=\"#727c9f\"/><circle cx=\"270\" cy=\"102\" r=\"58\" fill=\"#faf3e2\"/><path d=\"M0 223h400v77H0z\" fill=\"#47281a\"/><path d=\"M0 183h98v40H0zm151-52h73v92h-73zm141 30h108v62H292z\" fill=\"#87a9d3\"/></svg></a><h3><a href=\"#story\">The city after the hurry</a></h3><p class=\"ds-story-meta\"><span>Field notes</span><time datetime=\"2026-10-09\">Oct 9</time></p></article>",
+      "css": ".ds-story :where(a){color:var(--una-color-link, #294d79);font-weight:var(--una-weight-strong, 600);text-decoration:none;transition:color var(--una-motion-duration, 160ms) var(--una-motion-ease, cubic-bezier(0.16, 1, 0.3, 1));}.ds-story :where(a:hover,a:active){color:var(--una-color-accent, #9b656b);font-weight:var(--una-weight-hover, 700);}.ds-story{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;}.ds-story-art{display:block;inline-size:100%;block-size:auto;aspect-ratio:1;object-fit:cover;margin-block-end:var(--una-space-3, 0.75rem);}.ds-story h3{margin:0;font-size:1.125rem;font-weight:var(--una-weight-strong, 600);line-height:1.35;text-wrap:balance;overflow-wrap:anywhere;}.ds-story h3 a{color:var(--una-color-link, #294d79);font-weight:inherit;text-decoration:none;}.ds-story h3 a:hover{text-decoration:none;}.ds-story-meta{display:flex;flex-wrap:wrap;gap:var(--una-space-1, 0.25rem) var(--una-space-4, 1rem);font-size:var(--una-text-small, 0.8125rem);font-weight:var(--una-weight-label, 500);color:var(--una-color-muted, #715347);margin:var(--una-space-2, 0.5rem) 0 0;}.ds-story time{font-variant-numeric:tabular-nums;}.ds-story :focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(width <= 30rem){.ds-story{display:grid;grid-template-columns:min(6rem,33.3333%) minmax(0,1fr);gap:var(--una-space-3, 0.75rem);}.ds-story>a:has(svg){grid-row:span 2;}.ds-story:has(svg) .ds-story-meta{grid-column:2;}.ds-story:not(:has(svg)){grid-template-columns:minmax(0,1fr);}.ds-story-art{margin:0;}.ds-story h3{font-size:1.25rem;}.ds-story-meta{margin:0;}}.ds-story h3 a:hover,.ds-story h3 a:active{color:var(--una-color-accent, #9b656b);font-weight:var(--una-weight-hover, 700);}@media(prefers-reduced-motion:reduce){.ds-story a{transition:none;}}@media(forced-colors:active){.ds-story a:link{color:LinkText;}.ds-story a:visited{color:VisitedText;}.ds-story a:hover,.ds-story a:active,.ds-story a[aria-current=\"page\"]{color:Highlight;}.ds-story :focus-visible{outline-color:Highlight;}}@media print{.ds-story a:any-link,.ds-story a:hover,.ds-story a:active{color:inherit;}}"
     },
     {
-      "name": "Blue publication module",
+      "name": "Open publication module",
       "kind": "custom",
-      "refersTo": "blue-module",
-      "description": "The blue margin field carries useful publication context.",
-      "html": "<section class=\"ds-blue\"><h2>A little more room for the interesting.</h2><p>This fictional edition is about paying attention: to the places we make, the things we collect, and the web we want to inhabit.</p><p><a href=\"#about\">Meet the specimen</a></p></section>",
-      "css": ".ds-blue{font-family:var(--una-font-body, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);padding:var(--una-space-8, 2rem);background:var(--una-color-blue, #87a9d3);border:0;}.ds-blue h2{font-family:var(--una-font-display, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif);margin:0 0 var(--una-space-4, 1rem);font-size:clamp(1.75rem,2.8vw,2.625rem);line-height:1.15;letter-spacing:-0.025em;max-inline-size:12ch;text-wrap:balance;overflow-wrap:anywhere;}.ds-blue p{margin:0;}.ds-blue p+p{margin-block-start:var(--una-space-4, 1rem);}.ds-blue a{color:var(--una-color-ink, #47281a);text-underline-offset:0.2em;text-decoration-thickness:1px;}.ds-blue a:hover{text-decoration-thickness:2px;}.ds-blue a:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(width <= 56rem){.ds-blue h2{max-inline-size:none;}}"
+      "refersTo": "publication-module",
+      "description": "An open publication note with a cocoa heading and blue links, separated through space.",
+      "html": "<section class=\"ds-module\"><h2>in this edition</h2><p>This edition is about paying attention: to the places we make, the things we collect, and the web we want to inhabit.</p><p><a href=\"#about\">Meet the specimen</a></p></section>",
+      "css": ".ds-module :where(a){color:var(--una-color-link, #294d79);font-weight:var(--una-weight-strong, 600);text-decoration:none;transition:color var(--una-motion-duration, 160ms) var(--una-motion-ease, cubic-bezier(0.16, 1, 0.3, 1));}.ds-module :where(a:hover,a:active){color:var(--una-color-accent, #9b656b);font-weight:var(--una-weight-hover, 700);}.ds-module{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;padding:0 0 var(--una-space-6, 1.5rem);background:transparent;}.ds-module h2{margin:0 0 var(--una-space-3, 0.75rem);font-size:var(--una-text-section, clamp(2rem, 3vw, 2.5rem));font-weight:var(--una-weight-display, 300);line-height:1.15;text-transform:lowercase;color:var(--una-color-ink, #47281a);text-wrap:balance;overflow-wrap:anywhere;}.ds-module p{margin:0;}.ds-module p+p{margin-block-start:var(--una-space-4, 1rem);}.ds-module a{color:var(--una-color-link, #294d79);}.ds-module :focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}.ds-module a:hover,.ds-module a:active{color:var(--una-color-accent, #9b656b);font-weight:var(--una-weight-hover, 700);}@media(prefers-reduced-motion:reduce){.ds-module a{transition:none;}}@media(forced-colors:active){.ds-module a:link{color:LinkText;}.ds-module a:visited{color:VisitedText;}.ds-module a:hover,.ds-module a:active,.ds-module a[aria-current=\"page\"]{color:Highlight;}.ds-module :focus-visible{outline-color:Highlight;}}@media print{.ds-module a:any-link,.ds-module a:hover,.ds-module a:active{color:inherit;}}"
     },
     {
       "name": "Reading list",
-      "kind": "nav",
+      "kind": "custom",
       "refersTo": "link-list",
-      "description": "Useful links with small descriptive lines, separated by space rather than boxes.",
-      "html": "<nav class=\"ds-list-module\" aria-label=\"Find your next read\"><h2>Find your next read</h2><ul class=\"ds-link-list\"><li><a href=\"#web\">Web &amp; culture</a><small>Personal places on a connected web</small></li><li><a href=\"#field\">Field notes</a><small>The overlooked life of a city</small></li></ul></nav>",
-      "css": ".ds-list-module{font-family:var(--una-font-body, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);padding-block:var(--una-space-6, 1.5rem);border-block-end:var(--una-border-width, 1px) solid var(--una-color-rule, #cbbeb5);}.ds-list-module h2{font-family:var(--una-font-display, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif);margin:0 0 var(--una-space-4, 1rem);font-size:1.5rem;line-height:1.15;}.ds-link-list{list-style:none;padding:0;margin:0;}.ds-link-list li+li{margin-block-start:var(--una-space-3, 0.75rem);}.ds-link-list a{display:inline-block;padding-block:var(--una-space-1, 0.25rem);}.ds-link-list small{display:block;color:var(--una-color-muted, #715347);font-size:var(--una-text-small, 0.8125rem);}.ds-link-list a{color:var(--una-color-link, #294d79);text-underline-offset:0.2em;text-decoration-thickness:1px;}.ds-link-list a:hover{color:var(--una-color-rust, #a1440d);text-decoration-thickness:2px;}.ds-link-list a:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}"
+      "description": "Blue strong links and muted supporting descriptions without rules or cards.",
+      "html": "<ul class=\"ds-link-list\"><li><a href=\"https://indieweb.org/\">IndieWeb</a><small>A community for owning your place online.</small></li><li><a href=\"https://www.webdesignmuseum.org/\">Web Design Museum</a><small>A look at the web's changing visual language.</small></li></ul>",
+      "css": ".ds-link-list :where(a){color:var(--una-color-link, #294d79);font-weight:var(--una-weight-strong, 600);text-decoration:none;transition:color var(--una-motion-duration, 160ms) var(--una-motion-ease, cubic-bezier(0.16, 1, 0.3, 1));}.ds-link-list :where(a:hover,a:active){color:var(--una-color-accent, #9b656b);font-weight:var(--una-weight-hover, 700);}.ds-link-list{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;list-style:none;padding:0;margin:0;}.ds-link-list li+li{margin-block-start:var(--una-space-2, 0.5rem);}.ds-link-list a{display:inline-block;padding-block:var(--una-space-1, 0.25rem);color:var(--una-color-link, #294d79);font-weight:var(--una-weight-strong, 600);text-decoration:none;}.ds-link-list a:hover,.ds-link-list a:active{font-weight:var(--una-weight-hover, 700);color:var(--una-color-accent, #9b656b);text-decoration:none;}.ds-link-list small{display:block;color:var(--una-color-muted, #715347);font-size:var(--una-text-small, 0.8125rem);}.ds-link-list :focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(prefers-reduced-motion:reduce){.ds-link-list a{transition:none;}}@media(forced-colors:active){.ds-link-list a:link{color:LinkText;}.ds-link-list a:visited{color:VisitedText;}.ds-link-list a:hover,.ds-link-list a:active,.ds-link-list a[aria-current=\"page\"]{color:Highlight;}.ds-link-list :focus-visible{outline-color:Highlight;}}@media print{.ds-link-list a:any-link,.ds-link-list a:hover,.ds-link-list a:active{color:inherit;}}"
     },
     {
       "name": "Inline article contents",
-      "kind": "nav",
+      "kind": "custom",
       "refersTo": "article-contents",
-      "description": "Native details disclosure, shown in the article at 56rem and below; preview displays it independently.",
-      "html": "<nav class=\"ds-contents\" aria-label=\"Article sections\"><details><summary>In this article</summary><ol><li><a href=\"#a-place-to-return\">A place to return to</a></li><li><a href=\"#leave-a-door-open\">Leave a door open</a></li></ol></details></nav>",
-      "css": ".ds-contents{font-family:var(--una-font-body, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);margin-block:var(--una-space-5, 1.25rem);padding-block:var(--una-space-3, 0.75rem);border-block:var(--una-border-width, 1px) solid var(--una-color-rule, #cbbeb5);}.ds-contents summary{cursor:pointer;color:var(--una-color-link, #294d79);font-weight:700;}.ds-contents ol{margin:0;padding:var(--una-space-4, 1rem) 0 0 var(--una-space-6, 1.5rem);}.ds-contents a{display:inline-block;padding-block:var(--una-space-2, 0.5rem);}.ds-contents summary:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}.ds-contents a{color:var(--una-color-link, #294d79);text-underline-offset:0.2em;text-decoration-thickness:1px;}.ds-contents a:hover{color:var(--una-color-rust, #a1440d);text-decoration-thickness:2px;}.ds-contents a:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}"
+      "description": "Native article disclosure, used instead of sidebar contents on narrower layouts.",
+      "html": "<details class=\"ds-contents\"><summary>In this article</summary><ol><li><a href=\"#a-place-to-return-to\">A place to return to</a></li><li><a href=\"#leave-a-door-open\">Leave a door open</a></li><li><a href=\"#keep-it-small\">Keep it small enough to care for</a></li></ol></details>",
+      "css": ".ds-contents :where(a){color:var(--una-color-link, #294d79);font-weight:var(--una-weight-strong, 600);text-decoration:none;transition:color var(--una-motion-duration, 160ms) var(--una-motion-ease, cubic-bezier(0.16, 1, 0.3, 1));}.ds-contents :where(a:hover,a:active){color:var(--una-color-accent, #9b656b);font-weight:var(--una-weight-hover, 700);}.ds-contents{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;margin-block:var(--una-space-5, 1.25rem);padding-block:var(--una-space-3, 0.75rem);}.ds-contents summary{cursor:pointer;color:var(--una-color-link, #294d79);font-weight:var(--una-weight-strong, 600);}.ds-contents ol{margin:0;padding:var(--una-space-4, 1rem) 0 0 var(--una-space-6, 1.5rem);}.ds-contents a{display:inline-block;padding-block:var(--una-space-2, 0.5rem);color:var(--una-color-link, #294d79);}.ds-contents a:hover,.ds-contents a:active{color:var(--una-color-accent, #9b656b);font-weight:var(--una-weight-hover, 700);}.ds-contents :focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(prefers-reduced-motion:reduce){.ds-contents a{transition:none;}}@media(forced-colors:active){.ds-contents a:link{color:LinkText;}.ds-contents a:visited{color:VisitedText;}.ds-contents a:hover,.ds-contents a:active,.ds-contents a[aria-current=\"page\"]{color:Highlight;}.ds-contents :focus-visible{outline-color:Highlight;}}@media print{.ds-contents a:any-link,.ds-contents a:hover,.ds-contents a:active{color:inherit;}}"
     },
     {
       "name": "Article quotation",
       "kind": "custom",
       "refersTo": "quote",
-      "description": "A larger regular-weight Geist quotation on a flat cream field.",
+      "description": "Regular larger text in a square cream reading field.",
       "html": "<blockquote class=\"ds-quote\"><p>A page you can maintain is more generous than a grand system you have abandoned.</p></blockquote>",
-      "css": ".ds-quote{margin:0;padding:var(--una-space-6, 1.5rem);background:var(--una-color-original-cream, #faf3e2);color:var(--una-color-ink, #47281a);font-family:var(--una-font-prose, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif);font-size:1.375rem;line-height:1.5;}.ds-quote p{margin:0;}"
+      "css": ".ds-quote{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;margin:0;padding:var(--una-space-6, 1.5rem);background:var(--una-color-original-cream, #faf3e2);font-family:var(--una-font-prose, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:1.375rem;line-height:1.5;}.ds-quote p{margin:0;}"
+    },
+    {
+      "name": "Article prose and inline links",
+      "kind": "custom",
+      "refersTo": "prose-reading",
+      "description": "Regular prose with italic weight-600 links, upright strong text, and stable link weight on hover/active.",
+      "html": "<div class=\"ds-prose\"><p>Every text role uses <a href=\"https://rsms.me/inter/\">Inter</a>, released under the SIL Open Font License. <strong>Light display type and regular reading text</strong> share one locally hosted variable face.</p></div>",
+      "css": ".ds-prose{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;max-inline-size:var(--una-prose-measure, 70ch);font-family:var(--una-font-prose, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-prose, 1.1875rem);line-height:var(--una-leading-prose, 1.75);padding-block-start:var(--una-space-8, 2rem);}.ds-prose p{margin:0;}.ds-prose strong{font-weight:var(--una-weight-strong, 600);}.ds-prose a{color:var(--una-color-link, #294d79);font-style:italic;font-weight:var(--una-weight-strong, 600);text-decoration:none;transition:color var(--una-motion-duration, 160ms) var(--una-motion-ease, cubic-bezier(0.16, 1, 0.3, 1));}.ds-prose a:hover,.ds-prose a:active{color:var(--una-color-accent, #9b656b);font-weight:var(--una-weight-strong, 600);}.ds-prose :focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(prefers-reduced-motion:reduce){.ds-prose a{transition:none;}}@media(forced-colors:active){.ds-prose a:link{color:LinkText;}.ds-prose a:visited{color:VisitedText;}.ds-prose a:hover,.ds-prose a:active,.ds-prose a[aria-current='page']{color:Highlight;}.ds-prose :focus-visible{outline-color:Highlight;}}@media print{.ds-prose a:any-link,.ds-prose a:hover,.ds-prose a:active{color:inherit;}}"
     }
   ],
   "narrative": {
-    "northStar": "Independent arts-journal contents spread",
-    "overview": "Una Moderno gives an independent publication a clear reading surface and a useful margin. Cocoa and rose display type, a nearly white ground, blue editorial fields, and square-edged imagery make it direct, lively, and grounded. Its density comes from stories and navigable lists, with rules separating functions rather than enclosing every item.\n\nGeist Sans carries every text role, from the heavy publication identity to calm article paragraphs. Weight, size, leading, tracking, and spacing establish the hierarchy within one family. The implemented world is light, flat, and built from ordinary HTML links, headings, lists, a horizontal navigation strip, and native disclosure for article contents. It carries no dark theme, floating card system, or scripted navigation.",
+    "northStar": "An editorial collection",
+    "overview": "Una Moderno makes an independent publication feel like a collection worth browsing: large light typography, confident square artwork, compact useful lists, and continuous open space without dividers. Cocoa text and a warm near-white ground surround a charcoal lead-story field. Rose marks navigation state; blue and cream belong to original editorial art and restrained reading cues.\n\nThe owner-pinned Zune 4.0 light Collection view supplies the typographic hierarchy, aligned lists, and open canvas. The historical Zune HD website reference supplies the dark lead field within a light document. These principles become an original editorial system, with Inter in every text role and a calm light article surface. The references are evidence, not distributable artwork or a media-player template; their relationship to the implementation is recorded in [the inspiration record](docs/zune-inspiration.md).\n\nHierarchy comes from weight, scale, leading, and space within one family. The system stays flat and native: ordinary links, a single horizontal navigation strip, semantic headings and lists, and article contents built with disclosure. The charcoal story treatment is a component variant, not a dark theme.",
     "keyCharacteristics": [
-      "Cocoa and rose masthead with a blue editorial margin.",
-      "Unequal columns, a leading story, three recent stories, and useful supporting lists.",
-      "Square corners, rectangular geometric art, and thin functional rules.",
-      "One Geist Sans family across all text roles, with article prose at a 70ch maximum.",
-      "Native links, visible focus, and an article destination highlight without runtime JavaScript."
+      "Light lowercase display and navigation typography, with regular-weight sustained reading.",
+      "One charcoal lead-story field, square cover art, and open supporting lists on a continuous light ground.",
+      "Unequal editorial columns with one 20px gutter, followed by a source-order stack on narrow screens.",
+      "Inter across all text roles; prose remains bounded by a 70ch maximum.",
+      "Native scrolling and visible focus, with brief link-color and article-target transitions that respect reduced motion."
     ],
     "rules": [
       {
         "name": "The Useful Color Rule",
-        "body": "Use the blue field to gather publication or reading context. Keep historical orange and slate in editorial art; ordinary text uses the established ink, muted, link, and hover colors.",
+        "body": "Reserve the charcoal field for the cover variant and rose for navigation state and interaction. Make links distinct through color and weight, with italic weight-600 anchors in prose and no underlines or decorative dividers; keep historical slate and orange out of ordinary small text.",
         "section": "colors"
       },
       {
         "name": "The One Family Rule",
-        "body": "Use Geist Sans across every text role. Establish hierarchy through weight, size, line height, tracking, and spacing, while preserving the distinct reading measure and rhythm of article prose.",
+        "body": "Use Inter across every text role. Keep display typography light and lowercase, compact titles stronger, and sustained prose regular; establish hierarchy with the existing role scale and spacing.",
         "section": "typography"
       },
       {
         "name": "The Honest Gutter Rule",
-        "body": "The desktop columns share one layout gap. Do not add sidebar padding that doubles the visible gutter; a colored module retains its own internal padding.",
+        "body": "The desktop columns share one layout gap. Do not add sidebar padding that doubles the visible gutter; the dark feature has its own internal padding.",
         "section": "layout"
       },
       {
         "name": "The Flat Page Rule",
-        "body": "Separate functions with space, thin rules, and the blue field. Do not add drop shadows or lift story items into floating cards.",
+        "body": "Separate functions with continuous space, typography, and the charcoal cover field. Keep supporting stories and lists on the page ground without decorative rules, drop shadows, or floating cards.",
         "section": "elevation"
       }
     ],
     "dos": [
-      "Do derive changes from the canonical CSS tokens, then refresh this record and the generated inventory.",
-      "Do preserve the unequal desktop columns and the useful margin; stack in source order at the existing breakpoint.",
-      "Do keep feature images optional, titles able to wrap, and article text within the established reading measure.",
-      "Do use descriptive links, ordered headings, the skip link, and the existing visible focus treatment.",
-      "Do keep supplied specimen stories and authors clearly identified as fictional.",
-      "Do retain the optional Geist font license, distribution notice, and asset provenance when distributing it."
+      "Do author tokens in the canonical CSS, build the inventories, and then refresh this derived record.",
+      "Do preserve the unequal editorial columns, one layout gutter, and source-order responsive stack.",
+      "Do keep display and navigation light, regular prose readable, and prose links distinct through italic weight 600.",
+      "Do keep wordmark, display-title, navigation, and prose-link weights stable on hover; distinguish current navigation with its established weight 600.",
+      "Do preserve optional images, wrapping titles, and the established article reading measure.",
+      "Do use descriptive links, semantic headings, native navigation, the skip link, and the existing visible focus treatment.",
+      "Do retain the Inter OFL license and exact asset provenance when distributing the optional font.",
+      "Do keep specimen stories and authors clearly identified as fictional."
     ],
     "donts": [
-      "Don't introduce a second palette or layout in the Tailwind layer or an adapter.",
-      "Don't substitute a generic card gallery or promotional hero for the editorial reading surface.",
-      "Don't use historical orange or slate as ordinary small-text colors; their established role is illustration.",
-      "Don't add rounded cards, drop shadows, decorative badges, or invented interface primitives to this documented system.",
+      "Don't introduce an independent palette, font ramp, or layout in Tailwind or an adapter.",
+      "Don't turn the light collection view into a media-player clone, generic tile dashboard, or promotional card gallery.",
+      "Don't distribute the reference screenshots, Microsoft marks, proprietary fonts, or borrowed media artwork.",
+      "Don't add divider lines, link underlines, fake strokes, rounded containers, drop shadows, or invented interface primitives to this vocabulary.",
       "Don't require JavaScript, a framework, Node, or the optional font for a reader to use the core layout.",
-      "Don't treat this extracted design record, its preview ramps, or a successful render as an accessibility or compatibility certification."
+      "Don't assume inherited aliases recompute after a descendant-only primitive override; redeclare dependent aliases in the same scope.",
+      "Don't treat this record, its preview ramps, or source contrast calculations as a compatibility or accessibility certification."
     ]
   }
 }

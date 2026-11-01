@@ -1,2 +1,0 @@
-# Preserve the upstream OFL notice byte-for-byte; its trailing space is covered by the checksum test.
-packages/core/assets/OFL.txt -whitespace

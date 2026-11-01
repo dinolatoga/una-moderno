@@ -1,49 +1,213 @@
 {
-  "file": "geist-variable.woff2",
-  "names": {
-    "0": ["Copyright 2024 The Geist Project Authors (https://github.com/vercel/geist-font)"],
-    "1": ["Geist"],
-    "2": ["Regular"],
-    "5": ["Version 1.900"],
-    "13": [
-      "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://openfontlicense.org"
+  "license": "OFL-1.1",
+  "release": {
+    "tag": "v4.1",
+    "publishedAt": "2024-11-16T00:27:07Z",
+    "url": "https://github.com/rsms/inter/releases/tag/v4.1",
+    "tagCommit": "e3a3d4c57d5ecc01453a575621882a384c1995a3"
+  },
+  "archive": {
+    "url": "https://github.com/rsms/inter/releases/download/v4.1/Inter-4.1.zip",
+    "bytes": 33707794,
+    "sha256": "9883fdd4a49d4fb66bd8177ba6625ef9a64aa45899767dde3d36aa425756b11e",
+    "upstreamDigest": null,
+    "zipCrc": "All members passed"
+  },
+  "selectedMember": "web/InterVariable.woff2",
+  "selection": "The only upright variable WOFF2 among all 74 WOFF2 files inspected in the official release; unmodified bytes, no subsetting or conversion.",
+  "font": {
+    "bytes": 352240,
+    "sha256": "693b77d4f32ee9b8bfc995589b5fad5e99adf2832738661f5402f9978429a8e3",
+    "licenseBytes": 4380,
+    "licenseSha256": "262481e844521b326f5ecd053e59b98c8b2da78c8ee1bdbb6e8174305e54935a",
+    "names": {
+      "0": ["Copyright 2016 The Inter Project Authors"],
+      "1": ["Inter Variable"],
+      "2": ["Regular"],
+      "5": ["Version 4.001;git-9221beed3"],
+      "6": ["InterVariable"],
+      "13": [
+        "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: http://scripts.sil.org/OFL"
+      ],
+      "14": ["http://scripts.sil.org/OFL"]
+    },
+    "fontRevision": 4.001007080078125,
+    "axes": [
+      {
+        "tag": "opsz",
+        "minimum": 14.0,
+        "default": 14.0,
+        "maximum": 32.0
+      },
+      {
+        "tag": "wght",
+        "minimum": 100.0,
+        "default": 400.0,
+        "maximum": 900.0
+      }
     ],
-    "14": ["https://openfontlicense.org"]
-  },
-  "axes": [
-    {
-      "tag": "wght",
-      "min": 100.0,
-      "default": 400.0,
-      "max": 900.0
-    }
-  ],
-  "unitsPerEm": 1000,
-  "fontRevision": 1.899993896484375,
-  "hhea": {
-    "ascent": 1005,
-    "descent": -295,
-    "lineGap": 0
-  },
-  "OS2": {
-    "typo": {
-      "ascent": 1005,
-      "descent": -295,
+    "unitsPerEm": 2048,
+    "xHeight": 1118,
+    "capHeight": 1490,
+    "hhea": {
+      "ascent": 1984,
+      "descent": -494,
       "lineGap": 0
     },
-    "win": {
-      "ascent": 1088,
-      "descent": 262
+    "OS2": {
+      "typoAscent": 1984,
+      "typoDescent": -494,
+      "typoLineGap": 0,
+      "winAscent": 1984,
+      "winDescent": 494,
+      "fsSelection": 192
     },
-    "xHeight": 530,
-    "capHeight": 710
+    "tables": [
+      "GlyphOrder",
+      "head",
+      "hhea",
+      "maxp",
+      "OS/2",
+      "hmtx",
+      "cmap",
+      "loca",
+      "glyf",
+      "name",
+      "post",
+      "GDEF",
+      "GPOS",
+      "GSUB",
+      "HVAR",
+      "MVAR",
+      "STAT",
+      "avar",
+      "fvar",
+      "gvar"
+    ],
+    "glyphCount": 2937,
+    "file": "inter-variable.woff2",
+    "licenseFile": "OFL.txt"
   },
-  "source": "https://registry.npmjs.org/geist/-/geist-1.9.0.tgz",
-  "package": "geist@1.9.0",
-  "member": "package/dist/fonts/geist-sans/Geist-Variable.woff2",
-  "bytes": 69576,
-  "sha256": "5c5588027e59e74e205b9d6c7fd877b261091cee367f6bb3a8d505da14cae512",
-  "license": "OFL-1.1",
-  "licenseFiles": ["OFL.txt", "Geist-LICENSE.txt"],
-  "archiveIntegrity": "sha512-uxiyxH5PaKDaK2//ln06NxJEz5gc6771BTwSs1YFgNnASGtp1SYD3VZShSIijvlNwDjMgHnzqye4MmIUTspEzw=="
+  "crossSourceVerification": {
+    "tagCommit": "e3a3d4c57d5ecc01453a575621882a384c1995a3",
+    "pinnedLicenseUrl": "https://raw.githubusercontent.com/rsms/inter/e3a3d4c57d5ecc01453a575621882a384c1995a3/LICENSE.txt",
+    "licenseByteIdenticalToRelease": true,
+    "officialWebsiteCss": "https://rsms.me/inter/inter.css",
+    "officialWebsiteFontUrl": "https://rsms.me/inter/font-files/InterVariable.woff2?v=4.1",
+    "resolvedOfficialWebsiteFontUrl": "https://rsms.me/inter/font-files/InterVariable.woff2?v=4.1",
+    "websiteFontBytes": 352240,
+    "websiteFontSha256": "693b77d4f32ee9b8bfc995589b5fad5e99adf2832738661f5402f9978429a8e3",
+    "websiteFontByteIdenticalToRelease": true
+  },
+  "opticalSizeMetrics": [
+    {
+      "opsz": 14,
+      "wght": 200,
+      "xHeight": 1118,
+      "capHeight": 1490,
+      "ascent": 1984,
+      "descent": -494,
+      "lineGap": 0,
+      "zeroAdvance": 1237
+    },
+    {
+      "opsz": 14,
+      "wght": 300,
+      "xHeight": 1118,
+      "capHeight": 1490,
+      "ascent": 1984,
+      "descent": -494,
+      "lineGap": 0,
+      "zeroAdvance": 1265
+    },
+    {
+      "opsz": 14,
+      "wght": 400,
+      "xHeight": 1118,
+      "capHeight": 1490,
+      "ascent": 1984,
+      "descent": -494,
+      "lineGap": 0,
+      "zeroAdvance": 1292
+    },
+    {
+      "opsz": 14,
+      "wght": 500,
+      "xHeight": 1118,
+      "capHeight": 1490,
+      "ascent": 1984,
+      "descent": -494,
+      "lineGap": 0,
+      "zeroAdvance": 1322
+    },
+    {
+      "opsz": 14,
+      "wght": 600,
+      "xHeight": 1118,
+      "capHeight": 1490,
+      "ascent": 1984,
+      "descent": -494,
+      "lineGap": 0,
+      "zeroAdvance": 1351
+    },
+    {
+      "opsz": 14,
+      "wght": 700,
+      "xHeight": 1118,
+      "capHeight": 1490,
+      "ascent": 1984,
+      "descent": -494,
+      "lineGap": 0,
+      "zeroAdvance": 1381
+    },
+    {
+      "opsz": 32,
+      "wght": 200,
+      "xHeight": 1056,
+      "capHeight": 1490,
+      "ascent": 1984,
+      "descent": -494,
+      "lineGap": 0,
+      "zeroAdvance": 1177
+    },
+    {
+      "opsz": 32,
+      "wght": 300,
+      "xHeight": 1056,
+      "capHeight": 1490,
+      "ascent": 1984,
+      "descent": -494,
+      "lineGap": 0,
+      "zeroAdvance": 1217
+    },
+    {
+      "opsz": 32,
+      "wght": 400,
+      "xHeight": 1056,
+      "capHeight": 1490,
+      "ascent": 1984,
+      "descent": -494,
+      "lineGap": 0,
+      "zeroAdvance": 1256
+    },
+    {
+      "opsz": 32,
+      "wght": 600,
+      "xHeight": 1056,
+      "capHeight": 1490,
+      "ascent": 1984,
+      "descent": -494,
+      "lineGap": 0,
+      "zeroAdvance": 1306
+    }
+  ],
+  "fallback": {
+    "target": "opsz14-text",
+    "source": "Existing repository-verified local Arial/Arial Bold metrics: UPM 2048, x-height 1062. No system font read or copied in this task.",
+    "sizeAdjust": "105.2731%",
+    "ascentOverride": "92.0226%",
+    "descentOverride": "22.9129%",
+    "lineGapOverride": "0%"
+  },
+  "fallbackLimitations": "These measured candidates align x-height and vertical metrics for the indicated optical-size endpoint only. The variable font x-height changes from 1118 at opsz14 to 1056 at opsz32; one fixed fallback cannot match every automatic optical size or glyph width. Arial has no matching true 200/300/500/600 variable faces; weight matching remains approximate. System-ui is an alternative when a predictable weight fallback matters more than metric matching."
 }

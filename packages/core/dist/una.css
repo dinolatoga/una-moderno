@@ -10,28 +10,38 @@
   --una-color-blue-light: #e8eff8;
   --una-color-link: #294d79;
   --una-color-rust: #a1440d;
-  --una-color-rule: #cbbeb5;
   --una-color-selection: #f2cc89;
   --una-color-focus: #294d79;
+  --una-color-stage: #171514;
+  --una-color-accent: var(--una-color-original-rose);
   --una-color-original-brown: #876551;
   --una-color-original-rose: #9b656b;
   --una-color-original-slate: #727c9f;
   --una-color-original-orange: #cd5f19;
   --una-color-original-cream: #faf3e2;
   --una-font-display: var(--una-font-body);
-  --una-font-body: 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --una-font-body: 'Inter', 'Una Inter Fallback', system-ui, sans-serif;
   --una-font-prose: var(--una-font-body);
   --una-font-code: var(--una-font-body);
+  --una-weight-brand: 200;
+  --una-weight-display: 300;
+  --una-weight-body: 400;
+  --una-weight-label: 500;
+  --una-weight-strong: 600;
+  --una-weight-hover: 700;
+  --una-text-nav: clamp(1.75rem, 3vw, 2.25rem);
+  --una-text-section: clamp(2rem, 3vw, 2.5rem);
+  --una-text-utility: 0.75rem;
   --una-text-small: 0.8125rem;
   --una-text-body: 1rem;
   --una-text-prose: 1.1875rem;
   --una-text-deck: 1.125rem;
   --una-text-title: clamp(2.25rem, 4.2vw, 3.375rem);
-  --una-text-brand: clamp(2.7rem, 6.8vw, 5.5rem);
+  --una-text-brand: clamp(3rem, 7vw, 5.5rem);
   --una-leading-body: 1.6;
   --una-leading-prose: 1.75;
-  --una-leading-title: 1.04;
-  --una-tracking-display: -0.035em;
+  --una-leading-title: 1.08;
+  --una-tracking-display: -0.025em;
   --una-space-1: 0.25rem;
   --una-space-2: 0.5rem;
   --una-space-3: 0.75rem;
@@ -47,8 +57,6 @@
   --una-layout-primary: 580fr;
   --una-layout-sidebar: 360fr;
   --una-prose-measure: 70ch;
-  --una-border-width: 1px;
-  --una-border-radius: 0;
   --una-focus-width: 3px;
   --una-focus-offset: 4px;
   --una-motion-duration: 160ms;
@@ -62,6 +70,8 @@
   color: var(--una-color-ink);
   font-family: var(--una-font-body);
   font-size: var(--una-text-body);
+  font-weight: var(--una-weight-body);
+  font-optical-sizing: auto;
   line-height: var(--una-leading-body);
   overflow-wrap: break-word;
   accent-color: var(--una-color-link);
@@ -88,19 +98,25 @@
 .una :where(h1, h2, h3) {
   font-family: var(--una-font-display);
   line-height: 1.15;
+  font-weight: var(--una-weight-display);
   text-wrap: balance;
   overflow-wrap: anywhere;
 }
 
-.una :where(a) {
-  color: var(--una-color-link);
-  text-underline-offset: 0.2em;
-  text-decoration-thickness: 1px;
+.una :where(strong, b) {
+  font-weight: var(--una-weight-strong);
 }
 
-.una :where(a:hover) {
-  color: var(--una-color-rust);
-  text-decoration-thickness: 2px;
+.una :where(a) {
+  color: var(--una-color-link);
+  font-weight: var(--una-weight-strong);
+  text-decoration: none;
+  transition: color var(--una-motion-duration) var(--una-motion-ease);
+}
+
+.una :where(a:hover, a:active) {
+  color: var(--una-color-accent);
+  font-weight: var(--una-weight-hover);
 }
 
 .una :where(:focus-visible) {
@@ -142,10 +158,12 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: var(--una-space-2) var(--una-space-4);
-  padding-block: var(--una-space-3);
-  border-bottom: var(--una-border-width) solid var(--una-color-rule);
+  padding-block: var(--una-space-4) var(--una-space-2);
   color: var(--una-color-muted);
-  font-size: var(--una-text-small);
+  font-size: var(--una-text-utility);
+  font-weight: var(--una-weight-strong);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .una-masthead {
@@ -153,7 +171,7 @@
   align-items: end;
   justify-content: space-between;
   gap: var(--una-space-6);
-  padding-block: var(--una-space-8) var(--una-space-6);
+  padding-block: var(--una-space-6) var(--una-space-8);
 }
 
 .una-brand {
@@ -161,22 +179,30 @@
   overflow-wrap: anywhere;
   color: var(--una-color-ink);
   font-family: var(--una-font-display);
-  font-size: var(--una-text-brand);
-  font-weight: 800;
+  font-size: min(var(--una-text-brand), 20vw);
+  font-weight: var(--una-weight-brand);
   letter-spacing: var(--una-tracking-display);
-  line-height: 0.95;
+  line-height: 1.05;
+  text-transform: lowercase;
   text-decoration: none;
 }
 
+.una-brand:hover,
+.una-brand:active {
+  color: var(--una-color-accent);
+  font-weight: var(--una-weight-brand);
+}
+
 .una-brand span {
-  color: var(--una-color-original-rose);
+  color: inherit;
+  white-space: nowrap;
 }
 
 .una-masthead p {
-  max-inline-size: 27ch;
+  max-inline-size: 30ch;
   padding-bottom: var(--una-space-1);
-  font-size: 0.9375rem;
-  line-height: 1.45;
+  font-size: 0.875rem;
+  line-height: 1.5;
 }
 
 .una-nav {
@@ -190,8 +216,7 @@
   /* A centered optimal view region makes native focus reveal partial links. */
   scroll-padding-inline: 50%;
   padding: var(--una-space-2);
-  border-block: var(--una-border-width) solid var(--una-color-ink);
-  margin-block-end: var(--una-space-8);
+  margin-block-end: var(--una-space-10);
   scrollbar-width: none;
 }
 
@@ -207,16 +232,23 @@
   padding: var(--una-space-1) var(--una-space-2);
   scroll-margin-inline: var(--una-space-2);
   white-space: nowrap;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  color: var(--una-color-ink);
+  font-size: var(--una-text-nav);
+  font-weight: var(--una-weight-display);
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  text-transform: lowercase;
+  color: var(--una-color-muted);
   text-decoration: none;
 }
 
 .una-nav a:hover,
+.una-nav a:active {
+  color: var(--una-color-accent);
+}
+
 .una-nav a[aria-current='page'] {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
+  color: var(--una-color-accent);
+  font-weight: var(--una-weight-strong);
 }
 
 .una-layout {
@@ -233,22 +265,29 @@
 
 .una-title {
   max-inline-size: 21ch;
+  text-transform: lowercase;
   font-size: var(--una-text-title);
   line-height: var(--una-leading-title);
   letter-spacing: var(--una-tracking-display);
-  font-weight: 700;
+  font-weight: var(--una-weight-display);
 }
 
 .una-title a,
 .una-story h3 a {
-  color: inherit;
-  text-decoration: none;
+  color: var(--una-color-link);
+  font-weight: inherit;
 }
 
 .una-title a:hover,
-.una-story h3 a:hover {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
+.una-title a:active {
+  color: var(--una-color-accent);
+  font-weight: inherit;
+}
+
+.una-story h3 a:hover,
+.una-story h3 a:active {
+  color: var(--una-color-accent);
+  font-weight: var(--una-weight-hover);
 }
 
 .una-deck {
@@ -264,7 +303,62 @@
   gap: var(--una-space-1) var(--una-space-4);
   color: var(--una-color-muted);
   font-size: var(--una-text-small);
+  font-weight: var(--una-weight-label);
   margin-block: var(--una-space-4) var(--una-space-5);
+}
+
+.una-feature--cover {
+  padding: var(--una-space-6);
+  background: var(--una-color-stage);
+  color: var(--una-color-paper);
+}
+
+.una-feature--cover .una-meta,
+.una .una-feature--cover figcaption {
+  color: var(--una-color-paper);
+}
+
+.una-feature--cover :focus-visible {
+  outline-color: var(--una-color-blue);
+}
+
+.una-feature--cover a {
+  color: var(--una-color-paper);
+}
+
+.una-feature--cover a:hover,
+.una-feature--cover a:active {
+  color: var(--una-color-accent);
+}
+
+.una-feature--cover:has(figure) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--una-space-6);
+  align-items: start;
+}
+
+.una-feature-copy {
+  min-inline-size: 0;
+}
+
+.una-feature--cover:has(figure) .una-feature-copy {
+  grid-column: 2;
+}
+
+.una-feature--cover:has(figure) figure {
+  grid-column: 1;
+  grid-row: 1;
+  margin: 0;
+}
+
+.una-feature--cover .una-title {
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  text-wrap: pretty;
+}
+
+.una-feature--cover .una-deck {
+  font-size: var(--una-text-body);
 }
 
 .una-feature figure {
@@ -277,10 +371,15 @@
   object-fit: cover;
 }
 
+.una-feature--cover figure img {
+  aspect-ratio: 1;
+}
+
 .una figcaption {
   font-size: var(--una-text-small);
   color: var(--una-color-muted);
   padding-block-start: var(--una-space-2);
+  font-weight: var(--una-weight-label);
 }
 
 .una-section-heading {
@@ -289,18 +388,22 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: var(--una-space-3);
-  border-block-start: var(--una-border-width) solid var(--una-color-ink);
   padding-block: var(--una-space-4);
   margin-block-start: var(--una-space-10);
 }
 
 .una-section-heading h2 {
-  font-size: 1.625rem;
+  font-size: var(--una-text-section);
+  font-weight: var(--una-weight-display);
+  text-transform: lowercase;
 }
 
 .una-section-heading p {
   color: var(--una-color-muted);
-  font-size: var(--una-text-small);
+  font-size: var(--una-text-utility);
+  font-weight: var(--una-weight-strong);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
 .una-recent {
@@ -311,14 +414,15 @@
 
 .una-story img {
   inline-size: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1;
   object-fit: cover;
   margin-block-end: var(--una-space-3);
 }
 
 .una-story h3 {
-  font-size: 1.25rem;
-  line-height: 1.2;
+  font-size: 1.125rem;
+  font-weight: var(--una-weight-strong);
+  line-height: 1.35;
 }
 
 .una-story .una-meta {
@@ -327,7 +431,6 @@
 
 .una-module {
   padding-block: var(--una-space-6);
-  border-block-end: var(--una-border-width) solid var(--una-color-rule);
 }
 
 .una-module:first-child {
@@ -335,8 +438,10 @@
 }
 
 .una-module h2 {
-  font-size: 1.5rem;
-  margin-block-end: var(--una-space-4);
+  font-size: var(--una-text-section);
+  font-weight: var(--una-weight-display);
+  text-transform: lowercase;
+  margin-block-end: var(--una-space-3);
 }
 
 .una-module p + p {
@@ -345,18 +450,11 @@
 
 .una-module--blue,
 .una-module--blue:first-child {
-  padding: var(--una-space-8);
-  background: var(--una-color-blue);
-  border: 0;
+  padding: 0 0 var(--una-space-6);
+  background: transparent;
 }
 
 .una-module--blue h2 {
-  font-size: clamp(1.75rem, 2.8vw, 2.625rem);
-  letter-spacing: -0.025em;
-  max-inline-size: 12ch;
-}
-
-.una-module--blue a {
   color: var(--una-color-ink);
 }
 
@@ -366,12 +464,21 @@
 }
 
 .una-link-list li + li {
-  margin-block-start: var(--una-space-3);
+  margin-block-start: var(--una-space-2);
 }
 
 .una-link-list a {
   display: inline-block;
   padding-block: var(--una-space-1);
+  color: var(--una-color-link);
+  font-weight: var(--una-weight-strong);
+  text-decoration: none;
+}
+
+.una-link-list a:hover,
+.una-link-list a:active {
+  color: var(--una-color-accent);
+  font-weight: var(--una-weight-hover);
 }
 
 .una-link-list small {
@@ -389,13 +496,12 @@
   display: none;
   margin-block: var(--una-space-5);
   padding-block: var(--una-space-3);
-  border-block: var(--una-border-width) solid var(--una-color-rule);
 }
 
 .una-contents-inline summary {
   cursor: pointer;
   color: var(--una-color-link);
-  font-weight: 700;
+  font-weight: var(--una-weight-strong);
 }
 
 .una-contents-inline ol {
@@ -415,13 +521,21 @@
   padding-block-start: var(--una-space-8);
 }
 
+/* Italic weight-600 links differ from both prose and adjacent upright strong text. */
+.una-prose a {
+  font-style: italic;
+  font-weight: var(--una-weight-strong);
+}
+
 .una-prose > * + * {
   margin-block-start: var(--una-space-6);
 }
 
 .una-prose h2 {
   margin-block-start: var(--una-space-12);
-  font-size: 1.75rem;
+  font-size: 2rem;
+  font-weight: var(--una-weight-display);
+  text-transform: lowercase;
   scroll-margin-block-start: var(--una-space-8);
 }
 
@@ -456,7 +570,6 @@
   justify-content: space-between;
   flex-wrap: wrap;
   gap: var(--una-space-4);
-  border-block-start: var(--una-border-width) solid var(--una-color-ink);
   margin-block-start: var(--una-space-16);
   padding-block: var(--una-space-6) var(--una-space-10);
   font-size: var(--una-text-small);
@@ -495,7 +608,21 @@
   }
 }
 
+@media (width <= 42rem) {
+  .una-feature--cover:has(figure) {
+    display: block;
+  }
+
+  .una-feature--cover:has(figure) figure {
+    margin-block-start: var(--una-space-6);
+  }
+}
+
 @media (width <= 30rem) {
+  .una-utility {
+    display: none;
+  }
+
   .una-shell {
     inline-size: calc(100% - 2rem);
   }
@@ -546,14 +673,29 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .una a,
   .una-prose :target {
     transition: none;
   }
 }
 
 @media (forced-colors: active) {
-  .una-nav a[aria-current='page'] {
-    border-block-end: 2px solid LinkText;
+  .una a:link {
+    color: LinkText;
+  }
+
+  .una a:visited {
+    color: VisitedText;
+  }
+
+  .una a:hover,
+  .una a:active,
+  .una a[aria-current='page'] {
+    color: Highlight;
+  }
+
+  .una :focus-visible {
+    outline-color: Highlight;
   }
 }
 
@@ -572,6 +714,23 @@
   .una {
     background: white;
     color: black;
+  }
+
+  .una a:any-link,
+  .una a:hover,
+  .una a:active {
+    color: inherit;
+  }
+
+  .una-feature--cover {
+    padding: 0;
+    background: none;
+    color: inherit;
+  }
+
+  .una .una-feature--cover figcaption,
+  .una-feature--cover .una-meta {
+    color: inherit;
   }
 
   .una-shell {
