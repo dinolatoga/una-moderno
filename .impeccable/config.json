@@ -1,1 +1,15 @@
-{"buildPath":"code"}
+{
+  "buildPath": "code",
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "overused-font",
+        "value": "arial",
+        "createdAt": "2026-11-01T02:39:41.729Z",
+        "reason": "Lead engineer retained Arial for framework-neutral body text and system fallback; DESIGN.md Typography records Bricolage Grotesque as the optional display face, and independent finish review accepted this intentional choice."
+      }
+    ]
+  }
+}
