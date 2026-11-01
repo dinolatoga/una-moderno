@@ -14,6 +14,9 @@ test('Tailwind theme aliases core values instead of defining a second palette', 
   for (const [themeName, coreName] of Object.entries({
     '--color-una-stage': '--una-color-stage',
     '--color-una-accent': '--una-color-accent',
+    '--spacing-una-layout-gap': '--una-layout-gap',
+    '--spacing-una-layout-stack-gap': '--una-layout-stack-gap',
+    '--spacing-una-20': '--una-space-20',
     ...Object.fromEntries(
       ['brand', 'display', 'body', 'label', 'strong', 'hover'].map((role) => [
         `--font-weight-una-weight-${role}`,
@@ -21,7 +24,10 @@ test('Tailwind theme aliases core values instead of defining a second palette', 
       ]),
     ),
     ...Object.fromEntries(
-      ['nav', 'section', 'utility'].map((role) => [`--text-una-${role}`, `--una-text-${role}`]),
+      ['nav', 'section', 'utility', 'cover', 'subsection'].map((role) => [
+        `--text-una-${role}`,
+        `--una-text-${role}`,
+      ]),
     ),
   })) {
     assert.ok(

@@ -11,7 +11,9 @@
   --color-una-selection: var(--una-color-selection);
   --color-una-focus: var(--una-color-focus);
   --color-una-stage: var(--una-color-stage);
+  --color-una-wash: var(--una-color-wash);
   --color-una-accent: var(--una-color-accent);
+  --color-una-accent-light: var(--una-color-accent-light);
   --color-una-original-brown: var(--una-color-original-brown);
   --color-una-original-rose: var(--una-color-original-rose);
   --color-una-original-slate: var(--una-color-original-slate);
@@ -37,6 +39,8 @@
   --text-una-prose: var(--una-text-prose);
   --text-una-deck: var(--una-text-deck);
   --text-una-title: var(--una-text-title);
+  --text-una-cover: var(--una-text-cover);
+  --text-una-subsection: var(--una-text-subsection);
   --text-una-brand: var(--una-text-brand);
   --leading-una-body: var(--una-leading-body);
   --leading-una-prose: var(--una-leading-prose);
@@ -52,6 +56,8 @@
   --spacing-una-10: var(--una-space-10);
   --spacing-una-12: var(--una-space-12);
   --spacing-una-16: var(--una-space-16);
+  --spacing-una-20: var(--una-space-20);
+  --spacing-una-layout-stack-gap: var(--una-layout-stack-gap);
   --spacing-una-layout-gap: var(--una-layout-gap);
   --container-una-layout: var(--una-layout-max);
   --container-una-prose: var(--una-prose-measure);

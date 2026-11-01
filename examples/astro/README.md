@@ -19,4 +19,8 @@ Open `http://127.0.0.1:4321/astro/`. Seven generated pages are available: the in
 
 Routes and local assets use `import.meta.env.BASE_URL`, so links include the configured `/astro/` prefix. Change `base` in `astro.config.mjs` when integrating the reference under another path. The shared CSS is bundled into the build; no copy of the visual system is maintained here.
 
+The shared layout accepts a typed `art` prop with the five core choices. The index defaults to cat-studio; the lead article and image-free fixture use robot-city, blue-hour uses ribbon-world, commonplace uses kite-festival, and ordinary/about use desktop-garden. Selection is resolved during static rendering and emits one `data-una-art` attribute; there is no client randomization or artwork runtime.
+
+Core artwork URLs are handled by Astro’s asset-aware build. `astro.config.mjs` sets [Vite `build.assetsInlineLimit`](https://vite.dev/config/build-options#build-assetsinlinelimit) to `0`, keeping the WebP derivatives as separate output assets instead of embedding all five choices in CSS. Core selects the 832px file at 52rem and below and the full-size file above that breakpoint. Only the selected background becomes active. The page atmosphere is independent of a story’s optional content image and follows the core print/forced-colors omission. [Artwork provenance](../../docs/assets.md#optional-page-artwork) stays with the core assets.
+
 Run `npm run check --workspace=@una-moderno/example-astro` for Astro/TypeScript diagnostics; `npm run build:astro` includes this check. [Adapter boundaries and the experimental EmDash mapping](../../docs/adapters.md) distinguish this working fixture renderer from future CMS work.

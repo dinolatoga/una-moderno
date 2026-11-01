@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 2,
+  "collection": "Una Moderno approved panoramic artwork",
+  "approval": "Generated under Dino Latoga’s direction and approved for Una Moderno in the working session.",
+  "sourcePolicy": "These PNG masters are preserved byte-for-byte, including their supplied provenance metadata. The repository’s MIT license does not itself establish the copyright status of generated artwork. No separate assertion of copyrightability or exclusive ownership is made.",
+  "sourceBoundary": "The approved generated PNGs are the source images. No Microsoft or Zune screenshot, logo, proprietary font, or extracted product asset is embedded by this build. Historical references informed the owner’s direction, not a tracing or asset transplant.",
+  "transformations": "Web derivatives use only full-frame resizing and WebP encoding. No crop, recoloring, compositing, alpha conversion, tracing, or additional image generation is applied.",
+  "command": "npm run build:art",
+  "encoder": {
+    "sharp": "0.35.5",
+    "libvips": "8.18.7",
+    "libwebp": "1.6.0",
+    "format": "webp",
+    "options": { "quality": 78, "effort": 6, "preset": "drawing", "smartSubsample": true },
+    "resize": { "widths": [1672, 832], "kernel": "lanczos3", "withoutEnlargement": true },
+    "metadata": "Supplied PNG metadata stays in the exact masters; WebP derivatives omit metadata."
+  },
+  "qualityAssessment": {
+    "comparedQuality": [78, 82, 86],
+    "chosenQuality": 78,
+    "method": "Visual comparison of all five masters, native-size detail crops, and full 832px views against quality 78, 82, and 86 candidates.",
+    "finding": "Quality 78 was the smallest tested output without material visible degradation at the intended display sizes. WebP compression is lossy; pixel identity and SSIM are not claimed."
+  },
+  "fade": {
+    "kind": "Near-white opaque lower image area supplied by the approved master.",
+    "transparency": false,
+    "note": "No intrinsic alpha mask is added. The page controls any additional blend to its paper background."
+  },
+  "totals": { "sourcePngBytes": 9117372, "runtimeWebpBytes": 900994, "runtimeImageCount": 10 },
+  "assets": [
+    {
+      "name": "cat-studio",
+      "source": {
+        "name": "cat-studio",
+        "file": "artwork/masters/cat-studio.png",
+        "bytes": 1757163,
+        "sha256": "445c2f4b59566fefc7329d44c395066509608591ee50bd815c8c1d4e443abc8d",
+        "width": 1672,
+        "height": 941,
+        "hasAlpha": false
+      },
+      "derivatives": [
+        {
+          "file": "cat-studio-1672.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 107352,
+          "sha256": "056318ab4382f7ee73d2ace50b4e68150c849faeac261aef4b07cc0c84c47002"
+        },
+        {
+          "file": "cat-studio-832.webp",
+          "width": 832,
+          "height": 468,
+          "bytes": 45834,
+          "sha256": "e1b428600a20a1f4971686a6fb72358968aaaedbf163d4b25e0a02768dd66db0"
+        }
+      ]
+    },
+    {
+      "name": "robot-city",
+      "source": {
+        "name": "robot-city",
+        "file": "artwork/masters/robot-city.png",
+        "bytes": 1707166,
+        "sha256": "dc1b2511ea005f90a9ebba7687c731742b0ee3d22385b9aa795061eb98725081",
+        "width": 1672,
+        "height": 941,
+        "hasAlpha": false
+      },
+      "derivatives": [
+        {
+          "file": "robot-city-1672.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 106438,
+          "sha256": "c2cb2a5484c5fe8c2262151a317e81f18aeccd14fd37a60f8fe8d94ef67b4f5c"
+        },
+        {
+          "file": "robot-city-832.webp",
+          "width": 832,
+          "height": 468,
+          "bytes": 46704,
+          "sha256": "14e64f9b471c6210c8a873495aba36abadc51ad8ee09f89fb9105c36cccd72e0"
+        }
+      ]
+    },
+    {
+      "name": "ribbon-world",
+      "source": {
+        "name": "ribbon-world",
+        "file": "artwork/masters/ribbon-world.png",
+        "bytes": 1834769,
+        "sha256": "7b971540208442bc04d8207068d5e8a7404486505b7466662f6a6fb3374c54da",
+        "width": 1672,
+        "height": 941,
+        "hasAlpha": false
+      },
+      "derivatives": [
+        {
+          "file": "ribbon-world-1672.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 131134,
+          "sha256": "c5f54dbc3d58b6314d162f0db7de5ec0ad6aa356b86b450ba57eace7c9cf46ab"
+        },
+        {
+          "file": "ribbon-world-832.webp",
+          "width": 832,
+          "height": 468,
+          "bytes": 55140,
+          "sha256": "6b4e9760a6dfdc2303aa9d45297e4e6e0d29e249c0aa8453c50a567e1e344fd9"
+        }
+      ]
+    },
+    {
+      "name": "kite-festival",
+      "source": {
+        "name": "kite-festival",
+        "file": "artwork/masters/kite-festival.png",
+        "bytes": 1885520,
+        "sha256": "cba985ee84fe989d8b5431226186101e6dfab0adb506e5ad37be37cc7c3a6172",
+        "width": 1672,
+        "height": 941,
+        "hasAlpha": false
+      },
+      "derivatives": [
+        {
+          "file": "kite-festival-1672.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 140322,
+          "sha256": "c221d517093d513f56f011938ab53b821e0f71a7876464f37a45b183260c6541"
+        },
+        {
+          "file": "kite-festival-832.webp",
+          "width": 832,
+          "height": 468,
+          "bytes": 57772,
+          "sha256": "1776403e94ecbcfe0ee597388b1d509f6f992e0f2776b1ab3783fc0d43761334"
+        }
+      ]
+    },
+    {
+      "name": "desktop-garden",
+      "source": {
+        "name": "desktop-garden",
+        "file": "artwork/masters/desktop-garden.png",
+        "bytes": 1932754,
+        "sha256": "81c055838ad1bc7eb741c21c910a278a1eab5589972c78d4d64234392b6386c6",
+        "width": 1672,
+        "height": 941,
+        "hasAlpha": false
+      },
+      "derivatives": [
+        {
+          "file": "desktop-garden-1672.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 149066,
+          "sha256": "4cea0dcccfd267db27ad4586ac4abee41cd218ffa2b4198ed2412a400a40f839"
+        },
+        {
+          "file": "desktop-garden-832.webp",
+          "width": 832,
+          "height": 468,
+          "bytes": 61232,
+          "sha256": "9ed74b6a809ae4cc9a188d33ac514c23b73c4ac4553ea39ed576975d7bdd8e3a"
+        }
+      ]
+    }
+  ]
+}

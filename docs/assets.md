@@ -6,7 +6,27 @@ No image, font, implementation code, or editorial content was copied from the hi
 
 `examples/static-html/assets/*.svg` are original geometric vector compositions authored for this repository in November 2026, under the repository MIT license. They depict abstract windows, a skyline, a notebook, and window frames. These are deliberate flat color/vector fields, not historical screenshots or photographs. SVGs contain no script, external references, or embedded raster content. Copies used by the Astro example retain this provenance.
 
-All specimen stories, dates, publication details and author names are fictional demonstration content authored for this project, under MIT. They are not factual reporting or endorsements.
+All specimen stories, dates and publication details are fictional demonstration content authored for this project, under MIT, and every author name except Dino Latoga’s is invented. Dino Latoga, Una Moderno’s creator, appears in the lead-story byline and the index author note, which states only that Dino created Una Moderno and writes this specimen. The stories remain illustrative; they are not biography, factual reporting or endorsements.
+
+## Optional page artwork
+
+Five panoramic illustrations were generated for Una Moderno under Dino’s direction and approved in the session: `cat-studio`, `robot-city`, `ribbon-world`, `kite-festival`, and `desktop-garden`. The approved PNG masters are 1672×941 pixels and are retained byte-for-byte under `artwork/masters/`. They are source assets for the repository, excluded from the consumer package. They contain no transplanted Microsoft/Zune assets. This record describes generation, owner approval and derivative delivery; it does not establish copyright ownership, exclusivity or third-party rights clearance.
+
+`npm run build:art` uses pinned Sharp 0.35.5 with WebP quality 78, effort 6, the `drawing` preset and smart subsampling. Lanczos3 resizing produces two derivatives of each master: 1672×941 and 832×468. The manifest records libvips 8.18.7 and libwebp 1.6.0 for this encoder build. It changes encoding and, for the smaller file, dimensions; it does not crop, recolor, redraw or regenerate the scene. Keep the masters intact and reproduce derivatives through that pipeline. The build checks source byte counts and SHA-256 digests against [the master manifest](../artwork/masters/provenance.json) before encoding. Original provenance metadata remains in the exact PNGs; delivery WebPs omit metadata. Compression is lossy, so derivative pixel identity is not claimed. [Machine-readable provenance](../packages/core/assets/art/provenance.json) records the source and output paths, dimensions, byte counts, SHA-256 hashes, and encoder settings.
+
+The recorded masters total 9,117,372 bytes; all ten WebP derivatives total 900,994 bytes. These are repository asset totals, not a per-page transfer or performance claim. A fresh page selects one scene and the size matching its viewport; resizing across the breakpoint can request the other derivative.
+
+| Scene          | 1672px WebP bytes | 832px WebP bytes |
+| -------------- | ----------------: | ---------------: |
+| Cat studio     |           107,352 |           45,834 |
+| Robot city     |           106,438 |           46,704 |
+| Ribbon world   |           131,134 |           55,140 |
+| Kite festival  |           140,322 |           57,772 |
+| Desktop garden |           149,066 |           61,232 |
+
+The default CSS selects the full-size WebP; at 52rem and below it selects the 832px derivative. Each page selects one allowlisted background through `data-una-art`; omission keeps the plain ground. The image keeps its natural proportions without cover cropping or blanket opacity. The masters have an opaque near-white lower area, not an intrinsic alpha mask. CSS blends only the lower quarter into the paper ground and reserves 39vw before content. Print and forced colors remove both the background and its content offset. Artwork colors belong to the illustrations, not a new interface token palette.
+
+Copy `assets/art/` alongside the core `dist/` directory, preserving the stylesheet-relative URLs, or let an asset-aware build rewrite and publish them. Keep WebP derivatives external so inactive choices are not embedded into CSS. The [chooser](../examples/static-html/artworks.html) selects no artwork and links to all five full-page previews. The optional font and the code-authored SVG story illustrations remain separate assets.
 
 ## Inter
 

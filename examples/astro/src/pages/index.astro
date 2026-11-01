@@ -21,12 +21,7 @@ const base = import.meta.env.BASE_URL;
           <p class="una-deck">{lead.summary}</p>
           <StoryMeta story={lead} />
         </div>
-        <StoryImage
-          image={lead.image}
-          href={`${base}${lead.slug}/`}
-          linkLabel={`Read ${lead.title}`}
-          caption="Small places. Open windows. A web made by people."
-        />
+        <StoryImage image={lead.image} />
       </article>
       <section aria-labelledby="recent">
         <div class="una-section-heading">
@@ -66,6 +61,10 @@ const base = import.meta.env.BASE_URL;
         <p>
           <a href={`${base}about/`}>Meet the specimen</a>
         </p>
+      </section>
+      <section class="una-module">
+        <h2>about the author</h2>
+        <p>Dino Latoga created Una Moderno and writes this specimen.</p>
       </section>
       <section class="una-module">
         <h2>topics</h2>

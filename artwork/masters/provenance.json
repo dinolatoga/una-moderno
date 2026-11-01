@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "collection": "Una Moderno approved panoramic artwork",
+  "approval": "Generated under Dino Latoga’s direction and approved for Una Moderno in the working session.",
+  "sourcePolicy": "These PNG masters are preserved byte-for-byte, including their supplied provenance metadata. The repository’s MIT license does not itself establish the copyright status of generated artwork. No separate assertion of copyrightability or exclusive ownership is made.",
+  "sourceBoundary": "The approved generated PNGs are the source images. No Microsoft or Zune screenshot, logo, proprietary font, or extracted product asset is embedded by this build. Historical references informed the owner’s direction, not a tracing or asset transplant.",
+  "transformations": "Web derivatives use only full-frame resizing and WebP encoding. No crop, recoloring, compositing, alpha conversion, tracing, or additional image generation is applied.",
+  "assets": [
+    {
+      "name": "cat-studio",
+      "file": "artwork/masters/cat-studio.png",
+      "bytes": 1757163,
+      "sha256": "445c2f4b59566fefc7329d44c395066509608591ee50bd815c8c1d4e443abc8d",
+      "width": 1672,
+      "height": 941,
+      "hasAlpha": false
+    },
+    {
+      "name": "robot-city",
+      "file": "artwork/masters/robot-city.png",
+      "bytes": 1707166,
+      "sha256": "dc1b2511ea005f90a9ebba7687c731742b0ee3d22385b9aa795061eb98725081",
+      "width": 1672,
+      "height": 941,
+      "hasAlpha": false
+    },
+    {
+      "name": "ribbon-world",
+      "file": "artwork/masters/ribbon-world.png",
+      "bytes": 1834769,
+      "sha256": "7b971540208442bc04d8207068d5e8a7404486505b7466662f6a6fb3374c54da",
+      "width": 1672,
+      "height": 941,
+      "hasAlpha": false
+    },
+    {
+      "name": "kite-festival",
+      "file": "artwork/masters/kite-festival.png",
+      "bytes": 1885520,
+      "sha256": "cba985ee84fe989d8b5431226186101e6dfab0adb506e5ad37be37cc7c3a6172",
+      "width": 1672,
+      "height": 941,
+      "hasAlpha": false
+    },
+    {
+      "name": "desktop-garden",
+      "file": "artwork/masters/desktop-garden.png",
+      "bytes": 1932754,
+      "sha256": "81c055838ad1bc7eb741c21c910a278a1eab5589972c78d4d64234392b6386c6",
+      "width": 1672,
+      "height": 941,
+      "hasAlpha": false
+    }
+  ]
+}

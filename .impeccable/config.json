@@ -32,6 +32,15 @@
         "value": "inter",
         "createdAt": "2026-11-01T04:07:35.332Z",
         "reason": "User confirmed Inter for every text role as the approved practical substitute for Zune-inspired typography. The pinned owner direction supersedes the saturated-font warning; hierarchy is expressed through weights 200, 300, 400, 500 and 600."
+      },
+      {
+        "rule": "design-system-color",
+        "value": "#000",
+        "files": [
+          "packages/core/src/una.css"
+        ],
+        "createdAt": "2026-11-01T06:57:20.111Z",
+        "reason": "Codex: black is opacity data in the existing alpha mask, not a painted interface color; owner requested retaining the panorama fade."
       }
     ]
   }

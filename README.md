@@ -15,11 +15,11 @@ Give an independent publication a considered editorial layout without adopting a
 This v0.1 foundation is for independent writers, developers integrating a layout into a publishing platform, and maintainers evaluating portability. It includes:
 
 - **A usable CSS core:** `--una-*` custom properties, semantic `una-*` classes, readable and minified distributions, and minimal HTML templates. No JavaScript, Node, Tailwind, or framework is needed in a consuming page.
-- **A complete plain-HTML specimen:** a featured story, three recent-story thumbnails, useful sidebar modules, four readable articles, and an about page. All editorial content and authors are fictional.
+- **A complete plain-HTML specimen:** a featured story, three recent-story thumbnails, useful sidebar modules, four readable articles, an about page, and a chooser for five optional approved panoramic background artworks. All editorial stories are fictional. Dino Latoga, Una Moderno’s creator, appears as the lead-story byline and in an author note; every other author is invented.
 - **An optional Tailwind v4 layer:** CSS-first aliases of core tokens, explicit source detection, and a compiled example using the same semantic structure.
 - **An Astro reference:** a static site rendered from validated fictional fixtures. It demonstrates a normalized content boundary, not a live CMS integration.
 
-The original 580:360 editorial split and 20px gap survive in a fluid layout. A dark lead-story field, lighter Inter typography, and open editorial columns draw on the owner's Zune references. Spacing and typography separate sections; italic inline links remain distinct from ordinary bold text. On smaller screens, the reading column comes first and the sidebar follows. One lowercase navigation row serves every viewport; on narrow screens, its strip scrolls while the page stays within the viewport. Primary headlines and navigation retain their weight on hover. Keyboard focus outlines, a skip link, and article contents work without client JavaScript.
+The editorial columns use an exact 1.618:1 split with a generous fluid gutter; narrow layouts use a separate 40px row gap. A dark lead-story field, lighter Inter typography, and open editorial columns draw on the owner's Zune references. Spacing and typography separate sections; italic inline links remain distinct from ordinary bold text. On smaller screens, the reading column comes first and the sidebar follows. One lowercase navigation row serves every viewport; on narrow screens, its strip scrolls while the page stays within the viewport. Every link hover changes color only, and titles wrap only where a line runs out. Keyboard focus outlines, a skip link, and article contents work without client JavaScript.
 
 ## Try it
 
@@ -35,7 +35,7 @@ npm run build
 npm run dev
 ```
 
-Open <http://127.0.0.1:4321/> for the editorial specimen, <http://127.0.0.1:4321/examples/tailwind/> for the Tailwind proof, and <http://127.0.0.1:4321/astro/> for the built Astro reference. The server stays local; stop it with Ctrl+C.
+Open <http://127.0.0.1:4321/> for the editorial specimen, <http://127.0.0.1:4321/examples/tailwind/> for the Tailwind proof, and <http://127.0.0.1:4321/astro/> for the built Astro reference. Browse <http://127.0.0.1:4321/artworks.html> to compare the five approved page backgrounds. The server stays local; stop it with Ctrl+C.
 
 **Only want HTML and CSS?** After cloning, open `examples/static-html/index.html` directly in a browser. The committed CSS, local font, images, and relative links work without installing anything. The minimal [index](packages/core/templates/index.html) and [article](packages/core/templates/article.html) templates also work directly from disk.
 
@@ -57,6 +57,8 @@ Copy `packages/core/dist/una.css` or `una.min.css` into your own assets director
 ```
 
 For coordinated theme changes, override `--una-*` properties on `:root` after core CSS so dependent aliases resolve together. Scoped overrides on `.una` also work, but each affected alias or role must be redefined there; inherited aliases do not recompute when a dependency changes on a descendant. See [core customization](packages/core/README.md#theme-overrides).
+
+For optional page artwork, add an allowlisted `data-una-art` value and preserve the stylesheet-relative `dist/` and `assets/art/` structure. Approved PNG masters live in `artwork/masters/`; `npm run build:art` generates full-size and 832px WebPs for delivery. The full build includes this step, and consumers need only the derivatives. The background spans the page at its natural proportions, with header space reserved below its detailed area. The [core guide](packages/core/README.md#optional-page-artwork) shows the copy layout; the plain-HTML snippet above needs only CSS. Selection happens in markup or at build/server time, without client JavaScript.
 
 Core CSS contains no external font request. For the specimen's self-hosted Inter typography across all text roles, copy `packages/core/assets/` and separately link `fonts.css`; preserve `OFL.txt`. The optional uncut variable font is 352,240 bytes, about 5.06 times the previous 69,576-byte asset. It preserves the official font's weight and optical-size axes; this is a download-size tradeoff, not a speed claim. It uses `font-display: swap` and local/system fallbacks. See [core usage](packages/core/README.md) and [font provenance](docs/assets.md#inter).
 
@@ -106,7 +108,7 @@ Start with [CONTRIBUTING.md](CONTRIBUTING.md), propose a focused issue, or submi
 
 ## Design, origin, and next steps
 
-Una Moderno descends from Dino Latoga's 2008 Una WordPress theme. The archived source confirms the proportions, palette, featured-story rhythm, and useful sidebar. This is a new implementation; historical PHP, JavaScript, images, and CSS were not transplanted. The archive's licensing language is distinct from this repository's MIT license. [Historical evidence and provenance](docs/history.md) record the inspected sources and uncertainties.
+Una Moderno descends from Dino Latoga's 2008 Una WordPress theme. The archived source records the historical 580:360 proportions and 20px gap, palette, featured-story rhythm, and useful sidebar. The current exact 1.618:1 grid, wider fluid gutter, and restrained display scale are modern owner-directed refinements. This is a new implementation; historical PHP, JavaScript, images, and CSS were not transplanted. The archive's licensing language is distinct from this repository's MIT license. [Historical evidence and provenance](docs/history.md) record the inspected sources and uncertainties.
 
 [PRODUCT.md](PRODUCT.md) fixes the product boundary. [DESIGN.md](DESIGN.md) records the implemented design system; [machine-readable tokens](packages/core/tokens.json) are generated from source CSS. [Asset provenance](docs/assets.md) covers the original artwork, demo writing, font, and screenshots.
 
@@ -116,4 +118,4 @@ v0.2 targets a verified WordPress adapter and a tested CMS mapping. Broader brow
 
 ## License
 
-Original code, templates, demo writing, and artwork are [MIT licensed](LICENSE), copyright Dino Latoga. Bundled Inter is separately licensed under [SIL OFL 1.1](packages/core/assets/OFL.txt). No historical Una assets are redistributed.
+Original code, templates, demo writing, and code-authored story illustrations are [MIT licensed](LICENSE), copyright Dino Latoga. The generated page backgrounds have a separate [generation, approval and derivative provenance record](docs/assets.md#optional-page-artwork). Bundled Inter is separately licensed under [SIL OFL 1.1](packages/core/assets/OFL.txt). No historical Una assets are redistributed.

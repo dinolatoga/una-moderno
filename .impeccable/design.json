@@ -1,15 +1,16 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-01T04:45:00.053929Z",
+  "generatedAt": "2026-11-01T06:08:30.847124Z",
   "title": "Design System: Una Moderno",
   "extensions": {
     "source": {
       "authority": "packages/core/src/tokens.css",
       "semanticStyles": "packages/core/src/una.css",
       "generatedInventory": "packages/core/tokens.json",
-      "canonicalTokenCount": 59,
+      "canonicalTokenCount": 69,
       "status": "Derived implementation record; edit source CSS first. No review, compatibility, or accessibility outcome is asserted.",
-      "optionalFont": "packages/core/assets/fonts.css"
+      "optionalFont": "packages/core/assets/fonts.css",
+      "optionalArtwork": "packages/core/assets/art/provenance.json"
     },
     "colorMeta": {
       "ink": {
@@ -311,9 +312,9 @@
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Lowercase two-word wordmark; each word is nowrap, with a real separating space and a 20vw cap on the fluid token. Weight 200 stays stable on hover/active.",
-        "tokenFontSize": "clamp(3rem, 7vw, 5.5rem)",
-        "renderedFontSize": "min(var(--una-text-brand), 20vw)"
+        "purpose": "Lowercase two-word wordmark; each word is nowrap, with a real separating space and a 16vw cap on the fluid token. Weight 200 stays stable on hover/active.",
+        "tokenFontSize": "clamp(2.4rem, 5.6vw, 4.4rem)",
+        "renderedFontSize": "min(var(--una-text-brand), 16vw)"
       },
       "headline": {
         "displayName": "Headline",
@@ -321,7 +322,8 @@
       },
       "cover-headline": {
         "displayName": "Cover Headline",
-        "purpose": "Narrower paper-colored headline on the charcoal cover, changing to rose on hover/active at stable weight 300."
+        "purpose": "Narrower paper-colored headline on the charcoal cover, changing to rose on hover/active at stable weight 300.",
+        "sourceToken": "--una-text-cover"
       },
       "section": {
         "displayName": "Section",
@@ -329,7 +331,8 @@
       },
       "prose-heading": {
         "displayName": "Prose Heading",
-        "purpose": "Lowercase subsection heading inside .una-prose."
+        "purpose": "Lowercase subsection heading inside .una-prose.",
+        "sourceToken": "--una-text-subsection"
       },
       "title": {
         "displayName": "Title",
@@ -375,10 +378,6 @@
         "displayName": "Navigation Current",
         "purpose": "Current page link, distinguished by rose color and weight 600."
       },
-      "utility": {
-        "displayName": "Utility",
-        "purpose": "Uppercase publication/specimen information; the entire utility block is hidden at width <= 30rem."
-      },
       "section-label": {
         "displayName": "Section Label",
         "purpose": "Uppercase recent-story count and ordering label."
@@ -389,7 +388,7 @@
       },
       "list-link": {
         "displayName": "List Link",
-        "purpose": "Supporting-list anchor at weight 600; hover/active uses 700."
+        "purpose": "Supporting-list anchor at weight 600 in every state; hover changes color only."
       },
       "code": {
         "displayName": "Code",
@@ -417,16 +416,10 @@
     ],
     "breakpoints": [
       {
-        "name": "narrow-navigation-gap",
-        "value": "22rem",
-        "condition": "width <= 22rem",
-        "behavior": "Reduce the navigation gap from 1.5rem to 0.5rem, retaining a single native horizontal row."
-      },
-      {
         "name": "compact-stories",
         "value": "30rem",
         "condition": "width <= 30rem",
-        "behavior": "Hide the publication utility block without reserved space; use 1rem shell margins and stacked recent-story rows with min(6rem, 33.3333%) thumbnail tracks, flexible text tracks, and 1.25rem titles."
+        "behavior": "Reduce the navigation gap to 1rem and add the scroll-driven right-edge fade while destinations remain; use 1rem shell margins and stacked recent-story rows with min(6rem, 33.3333%) thumbnail tracks, flexible text tracks, and 1.25rem titles."
       },
       {
         "name": "stacked-cover",
@@ -435,20 +428,26 @@
         "behavior": "Stack cover copy before the figure."
       },
       {
+        "name": "small-artwork-source",
+        "value": "52rem",
+        "condition": "width <= 52rem",
+        "behavior": "Select the 832px derivative of the same panoramic scene; preserve the layout, natural master aspect ratio, and 39vw content offset."
+      },
+      {
         "name": "stacked-editorial",
         "value": "56rem",
         "condition": "width <= 56rem",
-        "behavior": "One editorial column; masthead description below wordmark; sidebar after content; inline native article contents replaces sidebar contents."
+        "behavior": "One editorial column with a separate 2.5rem row gap and no extra sidebar margin; masthead description below wordmark; sidebar after content; inline native article contents replaces sidebar contents."
       }
     ],
     "layout": {
       "shellMax": "75rem",
       "shellInlineSize": "min(calc(100% - 3rem), var(--una-layout-max))",
       "compactShellInlineSize": "calc(100% - 2rem)",
-      "desktopTracks": "minmax(0, 580fr) minmax(0, 360fr)",
-      "columnGap": "1.25rem",
+      "desktopTracks": "minmax(0, 1.618fr) minmax(0, 1fr)",
+      "columnGap": "clamp(var(--una-space-12), 4.1667vw, var(--una-space-20))",
       "sidebarInlinePadding": "0",
-      "stackedSidebarMarginBlockStart": "2.5rem",
+      "stackedSidebarMarginBlockStart": "0",
       "proseMax": "70ch",
       "headlineMax": "21ch",
       "deckMax": "60ch",
@@ -462,9 +461,12 @@
       "compactStoryColumns": "min(6rem, 33.3333%) minmax(0, 1fr); without image: minmax(0, 1fr).",
       "wordmark": {
         "words": "Separate nowrap spans with a real space; wrap between words when needed.",
-        "fontSize": "min(var(--una-text-brand), 20vw)",
+        "fontSize": "min(var(--una-text-brand), 16vw)",
         "decorativeGeometry": false
-      }
+      },
+      "columnGapResolved": "clamp(3rem, 4.1667vw, 5rem)",
+      "rowGap": "2.5rem",
+      "rowGapToken": "--una-layout-stack-gap"
     },
     "interaction": {
       "focus": {
@@ -487,7 +489,7 @@
       },
       "forcedColors": {
         "condition": "forced-colors: active",
-        "behavior": "Use LinkText for unvisited links, VisitedText for visited links, and Highlight for hover/active/current links and focus outlines. Add no borders or underlines."
+        "behavior": "Use LinkText for unvisited links, VisitedText for visited links, and Highlight for hover/active/current links and focus outlines. Add no borders or underlines. Remove the optional panorama and its content offset."
       },
       "skipLink": {
         "defaultTransform": "translateY(-200%)",
@@ -497,7 +499,7 @@
       "navigation": {
         "element": "One labeled nav containing one set of direct anchors in a non-wrapping horizontal row at every width.",
         "overflow": "Only the navigation strip scrolls horizontally when its links exceed the available width.",
-        "gap": "1.5rem; 0.5rem at width <= 22rem.",
+        "gap": "1.5rem; 1rem at width <= 30rem; no narrower override.",
         "stripPadding": "0.5rem on every side, preserving room for the shared focus outline.",
         "linkMinimumBlockSize": "44px",
         "linkPadding": "0.25rem 0.5rem",
@@ -515,11 +517,11 @@
       },
       "links": {
         "default": "Reading blue at weight 600, text-decoration none.",
-        "hoverActive": "Ordinary links use accent rose at weight 700; brand, display-title, navigation, and prose-link roles retain their own stable weights.",
+        "hoverActive": "Every link turns accent rose on hover/active without any weight or geometry change.",
         "brand": "Cocoa to rose at stable weight 200.",
         "navigation": "Inactive muted cocoa 300 to rose 300; current stays rose 600.",
         "displayTitle": "Reading blue to rose at stable weight 300; cover uses paper to rose.",
-        "recentTitle": "Reading blue 600 to rose 700.",
+        "recentTitle": "Reading blue 600 to rose 600.",
         "transition": "Color only; no weight animation.",
         "visited": "No separate authored color outside forced-colors mode.",
         "focus": "Visible outline; no underline or pseudo-element stroke.",
@@ -528,15 +530,20 @@
     },
     "print": {
       "condition": "print",
-      "hidden": [".una-nav", ".una-sidebar", ".una-skip-link", ".una-utility"],
-      "layout": "Main content becomes block layout; shell becomes 100% width.",
+      "hidden": [
+        ".una-nav",
+        ".una-sidebar",
+        ".una-skip-link",
+        ".una[data-una-art]::before"
+      ],
+      "layout": "Main content becomes block layout; shell becomes 100% width. Remove the 39vw artwork content offset.",
       "colors": "Document becomes black on white; cover background and padding are removed, and its metadata/caption inherit the print text color. All links, including visited, hover, and active states, inherit the surrounding print text color.",
       "linksCss": ".una a:any-link, .una a:hover, .una a:active { color: inherit; }"
     },
     "theming": {
       "authority": "Root canonical CSS; optional Tailwind @theme inline aliases it.",
       "aliasResolution": "Aliases resolve where declared. Override root primitives after core CSS for a coordinated theme; a descendant primitive override does not recompute inherited dependent aliases.",
-      "scopedOverride": "Redeclare --una-font-display, --una-font-prose, and --una-font-code when overriding --una-font-body in a scope; redeclare --una-color-accent when changing its original-rose source only in that scope.",
+      "scopedOverride": "Redeclare --una-font-display, --una-font-prose, and --una-font-code when overriding --una-font-body in a scope; redeclare --una-color-accent when changing its original-rose source only in that scope. Redeclare --una-layout-gap or --una-layout-stack-gap if their spacing dependencies change only in that scope.",
       "publicFontRoles": [
         "--una-font-display",
         "--una-font-body",
@@ -544,7 +551,7 @@
         "--una-font-code"
       ]
     },
-    "previewNotes": "Ten existing patterns, with ds- classes and live CSS token references plus source-value fallbacks. Load the optional local font stylesheet for Inter. SVG artwork is inlined from original repository specimens; no external preview asset or framework is needed. Fragment destinations belong to the surrounding document. Inline contents is shown independently of the page breakpoint. Static quotations have no invented hover state. The prose example makes italic links and upright strong text visible together. The masthead example includes utility copy so its phone omission is represented.",
+    "previewNotes": "Ten existing patterns, with ds- classes and live CSS token references plus source-value fallbacks. Load the optional local font stylesheet for Inter. SVG artwork is inlined from original repository specimens; no external preview asset or framework is needed. Fragment destinations belong to the surrounding document. Inline contents is shown independently of the page breakpoint. Static quotations have no invented hover state. The prose example makes italic links and upright strong text visible together. The masthead example includes utility copy so its phone omission is represented. The masthead preview shows the valid art-free variant; page panorama delivery and layering are recorded separately in extensions.artwork. Previews do not embed or reinterpret approved raster masters.",
     "fontDelivery": {
       "family": "Inter",
       "cssFamily": "Inter",
@@ -561,7 +568,7 @@
       "weightAxis": "100 900",
       "opticalSizeAxis": "14 32",
       "opticalSizing": "auto",
-      "usedWeights": [200, 300, 400, 500, 600, 700],
+      "usedWeights": [200, 300, 400, 500, 600],
       "style": "Upright normal asset; italic emphasis and prose links use browser synthesis without an extra font download.",
       "fontDisplay": "swap",
       "externalRuntimeRequests": false,
@@ -593,6 +600,252 @@
         "lineGapOverride": "0%",
         "limitations": "These measured candidates align x-height and vertical metrics for the indicated optical-size endpoint only. The variable font x-height changes from 1118 at opsz14 to 1056 at opsz32; one fixed fallback cannot match every automatic optical size or glyph width. Arial has no matching true 200/300/500/600 variable faces; weight matching remains approximate. System-ui is an alternative when a predictable weight fallback matters more than metric matching."
       }
+    },
+    "artwork": {
+      "selectionAttribute": "data-una-art",
+      "choices": ["cat-studio", "robot-city", "ribbon-world", "kite-festival", "desktop-garden"],
+      "default": "Attribute omitted; plain paper ground and no reserved artwork offset.",
+      "sourceMasters": "artwork/masters/",
+      "sourceProvenance": "artwork/masters/provenance.json",
+      "deliveryDirectory": "packages/core/assets/art/",
+      "deliveryProvenance": "packages/core/assets/art/provenance.json",
+      "approval": "Generated under Dino Latoga’s direction and approved for Una Moderno in the working session.",
+      "sourcePolicy": "These PNG masters are preserved byte-for-byte, including their supplied provenance metadata. The repository’s MIT license does not itself establish the copyright status of generated artwork. No separate assertion of copyrightability or exclusive ownership is made.",
+      "sourceBoundary": "The approved generated PNGs are the source images. No Microsoft or Zune screenshot, logo, proprietary font, or extracted product asset is embedded by this build. Historical references informed the owner’s direction, not a tracing or asset transplant.",
+      "transformations": "Web derivatives use only full-frame resizing and WebP encoding. No crop, recoloring, compositing, alpha conversion, tracing, or additional image generation is applied.",
+      "consumerPackage": "Generated WebPs and their provenance; source PNG masters excluded.",
+      "encoder": {
+        "sharp": "0.35.5",
+        "libvips": "8.18.7",
+        "libwebp": "1.6.0",
+        "format": "webp",
+        "options": {
+          "quality": 78,
+          "effort": 6,
+          "preset": "drawing",
+          "smartSubsample": true
+        },
+        "resize": {
+          "widths": [1672, 832],
+          "kernel": "lanczos3",
+          "withoutEnlargement": true
+        },
+        "metadata": "Supplied PNG metadata stays in the exact masters; WebP derivatives omit metadata."
+      },
+      "sourceDimensions": {
+        "width": 1672,
+        "height": 941,
+        "hasAlpha": false
+      },
+      "deliveryDimensions": [
+        {
+          "width": 1672,
+          "height": 941
+        },
+        {
+          "width": 832,
+          "height": 468
+        }
+      ],
+      "sourceUrls": {
+        "full": "--una-art-url",
+        "small": "--una-art-url-small",
+        "defaultValues": "none"
+      },
+      "aspectRatio": {
+        "token": "--una-art-aspect-ratio",
+        "value": "1672 / 941"
+      },
+      "contentOffset": {
+        "token": "--una-art-content-offset",
+        "value": "39vw",
+        "purpose": "Place the header in the master’s quiet lower image area on full-width pages; narrower embedded scopes need an offset appropriate to their width."
+      },
+      "layer": {
+        "selector": ".una[data-una-art]::before",
+        "position": "absolute",
+        "inset": "0 0 auto",
+        "zIndex": -1,
+        "pointerEvents": "none",
+        "backgroundPosition": "center top",
+        "backgroundSize": "100% auto",
+        "backgroundRepeat": "no-repeat",
+        "maskImage": "linear-gradient(#000 75%, transparent)",
+        "opacity": "No blanket opacity declaration; preserve the approved scene above the bottom blend."
+      },
+      "scope": {
+        "selector": ".una[data-una-art]",
+        "position": "relative",
+        "isolation": "isolate",
+        "paddingBlockStart": "var(--una-art-content-offset)"
+      },
+      "responsiveSource": {
+        "condition": "width <= 52rem",
+        "backgroundImage": "var(--una-art-url-small)"
+      },
+      "printAndForcedColors": "Hide the background layer, clear background-image, and reset padding-block-start to 0.",
+      "motion": "Static illustration; no animation or runtime JavaScript.",
+      "selection": "One allowlisted choice in HTML or at server/build time. No client randomization. A fresh page activates the matching derivative; crossing the breakpoint may request the other size.",
+      "delivery": "Core CSS uses ../assets/art/<name>-1672.webp and <name>-832.webp relative to the stylesheet. Preserve sibling dist/assets directories or rewrite and publish assets when bundling. Keep images external.",
+      "routes": {
+        "index.html": "cat-studio",
+        "article.html": "robot-city",
+        "blue-hour.html": "ribbon-world",
+        "commonplace.html": "kite-festival",
+        "ordinary.html": "desktop-garden",
+        "about.html": "desktop-garden",
+        "artworks.html": null,
+        "tailwind": "cat-studio",
+        "astro": "Same route choices; image-free article falls back to robot-city."
+      },
+      "artColors": "Illustration pixels only; no additional interface color tokens.",
+      "totals": {
+        "sourcePngBytes": 9117372,
+        "runtimeWebpBytes": 900994,
+        "runtimeImageCount": 10
+      },
+      "assets": [
+        {
+          "name": "cat-studio",
+          "source": {
+            "name": "cat-studio",
+            "file": "artwork/masters/cat-studio.png",
+            "bytes": 1757163,
+            "sha256": "445c2f4b59566fefc7329d44c395066509608591ee50bd815c8c1d4e443abc8d",
+            "width": 1672,
+            "height": 941,
+            "hasAlpha": false
+          },
+          "derivatives": [
+            {
+              "file": "cat-studio-1672.webp",
+              "width": 1672,
+              "height": 941,
+              "bytes": 107352,
+              "sha256": "056318ab4382f7ee73d2ace50b4e68150c849faeac261aef4b07cc0c84c47002"
+            },
+            {
+              "file": "cat-studio-832.webp",
+              "width": 832,
+              "height": 468,
+              "bytes": 45834,
+              "sha256": "e1b428600a20a1f4971686a6fb72358968aaaedbf163d4b25e0a02768dd66db0"
+            }
+          ]
+        },
+        {
+          "name": "robot-city",
+          "source": {
+            "name": "robot-city",
+            "file": "artwork/masters/robot-city.png",
+            "bytes": 1707166,
+            "sha256": "dc1b2511ea005f90a9ebba7687c731742b0ee3d22385b9aa795061eb98725081",
+            "width": 1672,
+            "height": 941,
+            "hasAlpha": false
+          },
+          "derivatives": [
+            {
+              "file": "robot-city-1672.webp",
+              "width": 1672,
+              "height": 941,
+              "bytes": 106438,
+              "sha256": "c2cb2a5484c5fe8c2262151a317e81f18aeccd14fd37a60f8fe8d94ef67b4f5c"
+            },
+            {
+              "file": "robot-city-832.webp",
+              "width": 832,
+              "height": 468,
+              "bytes": 46704,
+              "sha256": "14e64f9b471c6210c8a873495aba36abadc51ad8ee09f89fb9105c36cccd72e0"
+            }
+          ]
+        },
+        {
+          "name": "ribbon-world",
+          "source": {
+            "name": "ribbon-world",
+            "file": "artwork/masters/ribbon-world.png",
+            "bytes": 1834769,
+            "sha256": "7b971540208442bc04d8207068d5e8a7404486505b7466662f6a6fb3374c54da",
+            "width": 1672,
+            "height": 941,
+            "hasAlpha": false
+          },
+          "derivatives": [
+            {
+              "file": "ribbon-world-1672.webp",
+              "width": 1672,
+              "height": 941,
+              "bytes": 131134,
+              "sha256": "c5f54dbc3d58b6314d162f0db7de5ec0ad6aa356b86b450ba57eace7c9cf46ab"
+            },
+            {
+              "file": "ribbon-world-832.webp",
+              "width": 832,
+              "height": 468,
+              "bytes": 55140,
+              "sha256": "6b4e9760a6dfdc2303aa9d45297e4e6e0d29e249c0aa8453c50a567e1e344fd9"
+            }
+          ]
+        },
+        {
+          "name": "kite-festival",
+          "source": {
+            "name": "kite-festival",
+            "file": "artwork/masters/kite-festival.png",
+            "bytes": 1885520,
+            "sha256": "cba985ee84fe989d8b5431226186101e6dfab0adb506e5ad37be37cc7c3a6172",
+            "width": 1672,
+            "height": 941,
+            "hasAlpha": false
+          },
+          "derivatives": [
+            {
+              "file": "kite-festival-1672.webp",
+              "width": 1672,
+              "height": 941,
+              "bytes": 140322,
+              "sha256": "c221d517093d513f56f011938ab53b821e0f71a7876464f37a45b183260c6541"
+            },
+            {
+              "file": "kite-festival-832.webp",
+              "width": 832,
+              "height": 468,
+              "bytes": 57772,
+              "sha256": "1776403e94ecbcfe0ee597388b1d509f6f992e0f2776b1ab3783fc0d43761334"
+            }
+          ]
+        },
+        {
+          "name": "desktop-garden",
+          "source": {
+            "name": "desktop-garden",
+            "file": "artwork/masters/desktop-garden.png",
+            "bytes": 1932754,
+            "sha256": "81c055838ad1bc7eb741c21c910a278a1eab5589972c78d4d64234392b6386c6",
+            "width": 1672,
+            "height": 941,
+            "hasAlpha": false
+          },
+          "derivatives": [
+            {
+              "file": "desktop-garden-1672.webp",
+              "width": 1672,
+              "height": 941,
+              "bytes": 149066,
+              "sha256": "4cea0dcccfd267db27ad4586ac4abee41cd218ffa2b4198ed2412a400a40f839"
+            },
+            {
+              "file": "desktop-garden-832.webp",
+              "width": 832,
+              "height": 468,
+              "bytes": 61232,
+              "sha256": "9ed74b6a809ae4cc9a188d33ac514c23b73c4ac4553ea39ed576975d7bdd8e3a"
+            }
+          ]
+        }
+      ]
     }
   },
   "components": [
@@ -600,9 +853,9 @@
       "name": "Masthead",
       "kind": "custom",
       "refersTo": "masthead",
-      "description": "Plain two-word publication identity with stable light weight, a viewport size cap, and utility copy omitted on phones.",
-      "html": "<div class=\"ds-publication-head\"><div class=\"ds-utility\"><p>An independent web journal</p><p>Volume 01 · A fictional editorial specimen</p></div><header class=\"ds-masthead\"><a class=\"ds-brand\" href=\"#home\" aria-label=\"Una Moderno home\"><span>Una</span> <span>Moderno</span></a><p>Ideas, observations, and other things worth keeping.</p></header></div>",
-      "css": ".ds-publication-head{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;}.ds-utility{display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--una-space-2, 0.5rem) var(--una-space-4, 1rem);padding-block:var(--una-space-4, 1rem) var(--una-space-2, 0.5rem);color:var(--una-color-muted, #715347);font-size:var(--una-text-utility, 0.75rem);font-weight:var(--una-weight-strong, 600);letter-spacing:.04em;text-transform:uppercase;}.ds-utility p{margin:0;}.ds-masthead{display:flex;align-items:end;justify-content:space-between;gap:var(--una-space-6, 1.5rem);padding-block:var(--una-space-6, 1.5rem) var(--una-space-8, 2rem);}.ds-brand{min-inline-size:0;overflow-wrap:anywhere;color:var(--una-color-ink, #47281a);font-family:var(--una-font-display, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:min(var(--una-text-brand, clamp(3rem, 7vw, 5.5rem)),20vw);font-weight:var(--una-weight-brand, 200);letter-spacing:var(--una-tracking-display, -0.025em);line-height:1.05;text-transform:lowercase;text-decoration:none;transition:color var(--una-motion-duration, 160ms) var(--una-motion-ease, cubic-bezier(0.16, 1, 0.3, 1));}.ds-brand:hover,.ds-brand:active{color:var(--una-color-accent, #9b656b);font-weight:var(--una-weight-brand, 200);}.ds-brand span{color:inherit;white-space:nowrap;}.ds-masthead p{margin:0;max-inline-size:30ch;padding-bottom:var(--una-space-1, 0.25rem);font-size:.875rem;line-height:1.5;}@media(width <= 56rem){.ds-masthead{align-items:start;flex-direction:column;gap:var(--una-space-4, 1rem);}.ds-masthead p{max-inline-size:45ch;}}@media(width <= 30rem){.ds-utility{display:none;}}@media print{.ds-utility{display:none;}}.ds-publication-head :focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(prefers-reduced-motion:reduce){.ds-publication-head a{transition:none;}}@media(forced-colors:active){.ds-publication-head a:link{color:LinkText;}.ds-publication-head a:visited{color:VisitedText;}.ds-publication-head a:hover,.ds-publication-head a:active,.ds-publication-head a[aria-current='page']{color:Highlight;}.ds-publication-head :focus-visible{outline-color:Highlight;}}@media print{.ds-publication-head a:any-link,.ds-publication-head a:hover,.ds-publication-head a:active{color:inherit;}}"
+      "description": "Plain two-word publication identity with stable light weight and a viewport size cap; no utility row sits above it.",
+      "html": "<div class=\"ds-publication-head\"><header class=\"ds-masthead\"><a class=\"ds-brand\" href=\"#home\" aria-label=\"Una Moderno home\"><span>Una</span> <span>Moderno</span></a><p>Ideas, observations, and other things worth keeping.</p></header></div>",
+      "css": ".ds-publication-head{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;}.ds-masthead{display:flex;align-items:end;justify-content:space-between;gap:var(--una-space-6, 1.5rem);padding-block:var(--una-space-6, 1.5rem) var(--una-space-8, 2rem);}.ds-brand{min-inline-size:0;overflow-wrap:anywhere;color:var(--una-color-ink, #47281a);font-family:var(--una-font-display, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:min(var(--una-text-brand, clamp(2.4rem, 5.6vw, 4.4rem)),16vw);font-weight:var(--una-weight-brand, 200);letter-spacing:var(--una-tracking-display, -0.025em);line-height:1.05;text-transform:lowercase;text-decoration:none;transition:color var(--una-motion-duration, 160ms) var(--una-motion-ease, cubic-bezier(0.16, 1, 0.3, 1));}.ds-brand:hover,.ds-brand:active{color:var(--una-color-accent, #9b656b);font-weight:var(--una-weight-brand, 200);}.ds-brand span{color:inherit;white-space:nowrap;}.ds-masthead p{margin:0;max-inline-size:30ch;padding-bottom:var(--una-space-1, 0.25rem);font-size:.875rem;line-height:1.5;}@media(width <= 56rem){.ds-masthead{align-items:start;flex-direction:column;gap:var(--una-space-4, 1rem);}.ds-masthead p{max-inline-size:45ch;}}.ds-publication-head :focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(prefers-reduced-motion:reduce){.ds-publication-head a{transition:none;}}@media(forced-colors:active){.ds-publication-head a:link{color:LinkText;}.ds-publication-head a:visited{color:VisitedText;}.ds-publication-head a:hover,.ds-publication-head a:active,.ds-publication-head a[aria-current='page']{color:Highlight;}.ds-publication-head :focus-visible{outline-color:Highlight;}}@media print{.ds-publication-head a:any-link,.ds-publication-head a:hover,.ds-publication-head a:active{color:inherit;}}"
     },
     {
       "name": "Main navigation",
@@ -610,23 +863,23 @@
       "refersTo": "navigation",
       "description": "One native scrolling row: inactive links remain weight 300; the current destination stays rose at weight 600.",
       "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a href=\"#journal\" aria-current=\"page\">journal</a><a href=\"#stories\">stories</a><a href=\"#article\">long read</a><a href=\"#about\">about</a></nav>",
-      "css": ".ds-nav{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;display:flex;flex-wrap:nowrap;gap:var(--una-space-6, 1.5rem);min-inline-size:0;overflow-x:auto;overscroll-behavior-x:contain;scroll-padding-inline:50%;padding:var(--una-space-2, 0.5rem);margin-block-end:var(--una-space-10, 2.5rem);scrollbar-width:none;}.ds-nav::-webkit-scrollbar{display:none;}.ds-nav a{display:flex;flex:none;align-items:center;min-block-size:44px;padding:var(--una-space-1, 0.25rem) var(--una-space-2, 0.5rem);scroll-margin-inline:var(--una-space-2, 0.5rem);white-space:nowrap;font-size:var(--una-text-nav, clamp(1.75rem, 3vw, 2.25rem));font-weight:var(--una-weight-display, 300);line-height:1.35;letter-spacing:-.015em;text-transform:lowercase;color:var(--una-color-muted, #715347);text-decoration:none;transition:color var(--una-motion-duration, 160ms) var(--una-motion-ease, cubic-bezier(0.16, 1, 0.3, 1));}.ds-nav a:hover,.ds-nav a:active{color:var(--una-color-accent, #9b656b);}.ds-nav a[aria-current=\"page\"]{color:var(--una-color-accent, #9b656b);font-weight:var(--una-weight-strong, 600);}@media(width <= 22rem){.ds-nav{gap:var(--una-space-2, 0.5rem);}}@media print{.ds-nav{display:none;}}.ds-nav :focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(prefers-reduced-motion:reduce){.ds-nav a{transition:none;}}@media(forced-colors:active){.ds-nav a:link{color:LinkText;}.ds-nav a:visited{color:VisitedText;}.ds-nav a:hover,.ds-nav a:active,.ds-nav a[aria-current='page']{color:Highlight;}.ds-nav :focus-visible{outline-color:Highlight;}}@media print{.ds-nav a:any-link,.ds-nav a:hover,.ds-nav a:active{color:inherit;}}"
+      "css": ".ds-nav{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;display:flex;flex-wrap:nowrap;gap:var(--una-space-6, 1.5rem);min-inline-size:0;overflow-x:auto;overscroll-behavior-x:contain;scroll-padding-inline:50%;padding:var(--una-space-2, 0.5rem);margin-block-end:var(--una-space-10, 2.5rem);scrollbar-width:none;}.ds-nav::-webkit-scrollbar{display:none;}.ds-nav a{display:flex;flex:none;align-items:center;min-block-size:44px;padding:var(--una-space-1, 0.25rem) var(--una-space-2, 0.5rem);scroll-margin-inline:var(--una-space-2, 0.5rem);white-space:nowrap;font-size:var(--una-text-nav, clamp(1.4rem, 2.4vw, 1.8rem));font-weight:var(--una-weight-display, 300);line-height:1.35;letter-spacing:-.015em;text-transform:lowercase;color:var(--una-color-muted, #715347);text-decoration:none;transition:color var(--una-motion-duration, 160ms) var(--una-motion-ease, cubic-bezier(0.16, 1, 0.3, 1));}.ds-nav a:hover,.ds-nav a:active{color:var(--una-color-accent, #9b656b);}.ds-nav a[aria-current=\"page\"]{color:var(--una-color-accent, #9b656b);font-weight:var(--una-weight-strong, 600);}@media(width <= 30rem){.ds-nav{gap:var(--una-space-4, 1rem);}}@media print{.ds-nav{display:none;}}.ds-nav :focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(prefers-reduced-motion:reduce){.ds-nav a{transition:none;}}@media(forced-colors:active){.ds-nav a:link{color:LinkText;}.ds-nav a:visited{color:VisitedText;}.ds-nav a:hover,.ds-nav a:active,.ds-nav a[aria-current='page']{color:Highlight;}.ds-nav :focus-visible{outline-color:Highlight;}}@media print{.ds-nav a:any-link,.ds-nav a:hover,.ds-nav a:active{color:inherit;}}"
     },
     {
       "name": "Charcoal story cover",
       "kind": "custom",
       "refersTo": "feature-cover",
       "description": "Square artwork beside a paper-colored headline that changes to rose at stable weight 300; copy precedes art when stacked.",
-      "html": "<article class=\"ds-cover\"><div class=\"ds-cover-copy\"><h2><a href=\"#article\">A website can be a place, not a feed.</a></h2><p class=\"ds-cover-deck\">What happens when we build a little corner of the internet around what we care about, and leave the door open?</p><p class=\"ds-cover-meta\"><span>By Mara Solis</span><time datetime=\"2026-10-12\">October 12, 2026</time><span>Web &amp; culture</span></p></div><figure><a href=\"#article\" aria-label=\"Read A website can be a place, not a feed\"><svg preserveAspectRatio=\"xMidYMid slice\" class=\"ds-cover-art\" xmlns=\"http://www.w3.org/2000/svg\" width=\"900\" height=\"600\" viewBox=\"0 0 900 600\">\n  <rect width=\"900\" height=\"600\" fill=\"#87a9d3\"/>\n  <g fill=\"none\" stroke=\"#47281a\" stroke-width=\"3\"><path d=\"M0 300h900M450 0v600\"/><path d=\"M180 170h220v260H180zM500 90h260v220H500zM540 370h180v160H540z\" fill=\"#e8eff8\"/></g>\n  <g fill=\"#47281a\"><rect x=\"180\" y=\"170\" width=\"220\" height=\"28\"/><rect x=\"500\" y=\"90\" width=\"260\" height=\"28\"/><rect x=\"540\" y=\"370\" width=\"180\" height=\"28\"/></g>\n  <g fill=\"#faf3e2\"><circle cx=\"196\" cy=\"184\" r=\"4\"/><circle cx=\"211\" cy=\"184\" r=\"4\"/><circle cx=\"516\" cy=\"104\" r=\"4\"/><circle cx=\"531\" cy=\"104\" r=\"4\"/><circle cx=\"556\" cy=\"384\" r=\"4\"/></g>\n  <circle cx=\"290\" cy=\"294\" r=\"61\" fill=\"#cd5f19\"/>\n  <path d=\"M231 397h118M231 377h83M536 255h188M536 273h142M575 491h110\" stroke=\"#47281a\" stroke-width=\"4\"/>\n  <path d=\"M552 215V151h47v64h46v-64h47v64\" stroke=\"#727c9f\" stroke-width=\"22\" fill=\"none\"/>\n  <path d=\"M574 465l55-50 55 50\" fill=\"#9b656b\"/>\n  <g fill=\"#47281a\"><circle cx=\"450\" cy=\"300\" r=\"9\"/><circle cx=\"450\" cy=\"475\" r=\"9\"/><circle cx=\"110\" cy=\"300\" r=\"9\"/></g>\n  <g fill=\"none\" stroke=\"#47281a\" stroke-width=\"2\"><path d=\"M400 300h100M450 475h90M110 300h70M760 200h140\"/></g>\n</svg></a><figcaption>Small places. Open windows. A web made by people.</figcaption></figure></article>",
-      "css": ".ds-cover :where(a){color:var(--una-color-link, #294d79);font-weight:var(--una-weight-strong, 600);text-decoration:none;transition:color var(--una-motion-duration, 160ms) var(--una-motion-ease, cubic-bezier(0.16, 1, 0.3, 1));}.ds-cover :where(a:hover,a:active){color:var(--una-color-accent, #9b656b);font-weight:var(--una-weight-hover, 700);}.ds-cover{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;padding:var(--una-space-6, 1.5rem);background:var(--una-color-stage, #171514);color:var(--una-color-paper, #fffefa);}.ds-cover:has(figure){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--una-space-6, 1.5rem);align-items:start;}.ds-cover-copy{min-inline-size:0;}.ds-cover:has(figure) .ds-cover-copy{grid-column:2;}.ds-cover h2{margin:0;max-inline-size:21ch;font-size:clamp(2rem,3vw,2.75rem);font-weight:var(--una-weight-display, 300);line-height:var(--una-leading-title, 1.08);letter-spacing:var(--una-tracking-display, -0.025em);text-transform:lowercase;text-wrap:pretty;overflow-wrap:anywhere;}.ds-cover h2 a{color:var(--una-color-paper, #fffefa);font-weight:inherit;text-decoration:none;}.ds-cover a{color:var(--una-color-paper, #fffefa);}.ds-cover a:hover,.ds-cover a:active{color:var(--una-color-accent, #9b656b);}.ds-cover h2 a:hover{text-decoration:none;}.ds-cover-deck{margin:var(--una-space-4, 1rem) 0 0;max-inline-size:60ch;font-size:var(--una-text-body, 1rem);line-height:1.55;}.ds-cover-meta{display:flex;flex-wrap:wrap;gap:var(--una-space-1, 0.25rem) var(--una-space-4, 1rem);margin:var(--una-space-4, 1rem) 0 var(--una-space-5, 1.25rem);font-size:var(--una-text-small, 0.8125rem);font-weight:var(--una-weight-label, 500);color:var(--una-color-paper, #fffefa);}.ds-cover time{font-variant-numeric:tabular-nums;}.ds-cover figure{margin:0;grid-column:1;grid-row:1;}.ds-cover-art{display:block;inline-size:100%;block-size:auto;aspect-ratio:1;object-fit:cover;}.ds-cover figcaption{padding-block-start:var(--una-space-2, 0.5rem);font-size:var(--una-text-small, 0.8125rem);font-weight:var(--una-weight-label, 500);color:var(--una-color-paper, #fffefa);}.ds-cover :focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-blue, #87a9d3);outline-offset:var(--una-focus-offset, 4px);}@media(width <= 42rem){.ds-cover:has(figure){display:block;}.ds-cover:has(figure) figure{margin-block-start:var(--una-space-6, 1.5rem);}}@media print{.ds-cover{padding:0;background:none;color:black;}.ds-cover figcaption,.ds-cover-meta{color:inherit;}}.ds-cover h2 a:hover,.ds-cover h2 a:active{color:var(--una-color-accent, #9b656b);font-weight:inherit;}@media(prefers-reduced-motion:reduce){.ds-cover a{transition:none;}}@media(forced-colors:active){.ds-cover a:link{color:LinkText;}.ds-cover a:visited{color:VisitedText;}.ds-cover a:hover,.ds-cover a:active,.ds-cover a[aria-current=\"page\"]{color:Highlight;}.ds-cover :focus-visible{outline-color:Highlight;}}@media print{.ds-cover a:any-link,.ds-cover a:hover,.ds-cover a:active{color:inherit;}}"
+      "html": "<article class=\"ds-cover\"><div class=\"ds-cover-copy\"><h2><a href=\"#article\">A website can be a place, not a feed.</a></h2><p class=\"ds-cover-deck\">What happens when we build a little corner of the internet around what we care about, and leave the door open?</p><p class=\"ds-cover-meta\"><span>By Dino Latoga</span><time datetime=\"2026-10-12\">October 12, 2026</time><span>Web &amp; culture</span></p></div><figure><a href=\"#article\" aria-label=\"Read A website can be a place, not a feed\"><svg preserveAspectRatio=\"xMidYMid slice\" class=\"ds-cover-art\" xmlns=\"http://www.w3.org/2000/svg\" width=\"900\" height=\"600\" viewBox=\"0 0 900 600\">\n  <rect width=\"900\" height=\"600\" fill=\"#87a9d3\"/>\n  <g fill=\"none\" stroke=\"#47281a\" stroke-width=\"3\"><path d=\"M0 300h900M450 0v600\"/><path d=\"M180 170h220v260H180zM500 90h260v220H500zM540 370h180v160H540z\" fill=\"#e8eff8\"/></g>\n  <g fill=\"#47281a\"><rect x=\"180\" y=\"170\" width=\"220\" height=\"28\"/><rect x=\"500\" y=\"90\" width=\"260\" height=\"28\"/><rect x=\"540\" y=\"370\" width=\"180\" height=\"28\"/></g>\n  <g fill=\"#faf3e2\"><circle cx=\"196\" cy=\"184\" r=\"4\"/><circle cx=\"211\" cy=\"184\" r=\"4\"/><circle cx=\"516\" cy=\"104\" r=\"4\"/><circle cx=\"531\" cy=\"104\" r=\"4\"/><circle cx=\"556\" cy=\"384\" r=\"4\"/></g>\n  <circle cx=\"290\" cy=\"294\" r=\"61\" fill=\"#cd5f19\"/>\n  <path d=\"M231 397h118M231 377h83M536 255h188M536 273h142M575 491h110\" stroke=\"#47281a\" stroke-width=\"4\"/>\n  <path d=\"M552 215V151h47v64h46v-64h47v64\" stroke=\"#727c9f\" stroke-width=\"22\" fill=\"none\"/>\n  <path d=\"M574 465l55-50 55 50\" fill=\"#9b656b\"/>\n  <g fill=\"#47281a\"><circle cx=\"450\" cy=\"300\" r=\"9\"/><circle cx=\"450\" cy=\"475\" r=\"9\"/><circle cx=\"110\" cy=\"300\" r=\"9\"/></g>\n  <g fill=\"none\" stroke=\"#47281a\" stroke-width=\"2\"><path d=\"M400 300h100M450 475h90M110 300h70M760 200h140\"/></g>\n</svg></a></figure></article>",
+      "css": ".ds-cover :where(a){color:var(--una-color-link, #294d79);font-weight:var(--una-weight-strong, 600);text-decoration:none;transition:color var(--una-motion-duration, 160ms) var(--una-motion-ease, cubic-bezier(0.16, 1, 0.3, 1));}.ds-cover :where(a:hover,a:active){color:var(--una-color-accent, #9b656b);}.ds-cover{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;padding:var(--una-space-6, 1.5rem);background:var(--una-color-stage, #171514);color:var(--una-color-paper, #fffefa);}.ds-cover:has(figure){display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:var(--una-space-6, 1.5rem);align-items:start;}.ds-cover-copy{min-inline-size:0;}.ds-cover:has(figure) .ds-cover-copy{grid-column:2;}.ds-cover h2{margin:0;max-inline-size:21ch;font-size:var(--una-text-cover, clamp(1.6rem, 2.4vw, 2.2rem));font-weight:var(--una-weight-display, 300);line-height:var(--una-leading-title, 1.08);letter-spacing:var(--una-tracking-display, -0.025em);text-transform:lowercase;text-wrap:pretty;overflow-wrap:anywhere;}.ds-cover h2 a{color:var(--una-color-paper, #fffefa);font-weight:inherit;text-decoration:none;}.ds-cover a{color:var(--una-color-paper, #fffefa);}.ds-cover a:hover,.ds-cover a:active{color:var(--una-color-accent, #9b656b);}.ds-cover h2 a:hover{text-decoration:none;}.ds-cover-deck{margin:var(--una-space-4, 1rem) 0 0;max-inline-size:60ch;font-size:var(--una-text-body, 1rem);line-height:1.55;}.ds-cover-meta{display:flex;flex-wrap:wrap;gap:var(--una-space-1, 0.25rem) var(--una-space-4, 1rem);margin:var(--una-space-4, 1rem) 0 var(--una-space-5, 1.25rem);font-size:var(--una-text-small, 0.8125rem);font-weight:var(--una-weight-label, 500);color:var(--una-color-paper, #fffefa);}.ds-cover time{font-variant-numeric:tabular-nums;}.ds-cover figure{margin:0;grid-column:1;grid-row:1;}.ds-cover-art{display:block;inline-size:100%;block-size:auto;aspect-ratio:1;object-fit:cover;}.ds-cover figcaption{padding-block-start:var(--una-space-2, 0.5rem);font-size:var(--una-text-small, 0.8125rem);font-weight:var(--una-weight-label, 500);color:var(--una-color-paper, #fffefa);}.ds-cover :focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-blue, #87a9d3);outline-offset:var(--una-focus-offset, 4px);}@media(width <= 42rem){.ds-cover:has(figure){display:block;}.ds-cover:has(figure) figure{margin-block-start:var(--una-space-6, 1.5rem);}}@media print{.ds-cover{padding:0;background:none;color:black;}.ds-cover figcaption,.ds-cover-meta{color:inherit;}}.ds-cover h2 a:hover,.ds-cover h2 a:active{color:var(--una-color-accent, #9b656b);font-weight:inherit;}@media(prefers-reduced-motion:reduce){.ds-cover a{transition:none;}}@media(forced-colors:active){.ds-cover a:link{color:LinkText;}.ds-cover a:visited{color:VisitedText;}.ds-cover a:hover,.ds-cover a:active,.ds-cover a[aria-current=\"page\"]{color:Highlight;}.ds-cover :focus-visible{outline-color:Highlight;}}@media print{.ds-cover a:any-link,.ds-cover a:hover,.ds-cover a:active{color:inherit;}}"
     },
     {
       "name": "Light article header",
       "kind": "custom",
       "refersTo": "feature",
       "description": "Light article title, summary, and metadata without the optional image.",
-      "html": "<header class=\"ds-feature\"><h1>A website can be a place, not a feed.</h1><p class=\"ds-feature-deck\">What happens when we build a little corner of the internet around what we care about, and leave the door open?</p><p class=\"ds-feature-meta\"><span>By Mara Solis</span><time datetime=\"2026-10-12\">October 12, 2026</time><span>Web &amp; culture</span></p></header>",
-      "css": ".ds-feature{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;}.ds-feature h1{margin:0;max-inline-size:21ch;text-transform:lowercase;font-size:var(--una-text-title, clamp(2.25rem, 4.2vw, 3.375rem));line-height:var(--una-leading-title, 1.08);letter-spacing:var(--una-tracking-display, -0.025em);font-weight:var(--una-weight-display, 300);text-wrap:balance;overflow-wrap:anywhere;}.ds-feature-deck{margin:var(--una-space-4, 1rem) 0 0;max-inline-size:60ch;font-size:var(--una-text-deck, 1.125rem);line-height:1.55;}.ds-feature-meta{display:flex;flex-wrap:wrap;gap:var(--una-space-1, 0.25rem) var(--una-space-4, 1rem);color:var(--una-color-muted, #715347);font-size:var(--una-text-small, 0.8125rem);font-weight:var(--una-weight-label, 500);margin:var(--una-space-4, 1rem) 0 var(--una-space-5, 1.25rem);}.ds-feature time{font-variant-numeric:tabular-nums;}"
+      "html": "<header class=\"ds-feature\"><h1>A website can be a place, not a feed.</h1><p class=\"ds-feature-deck\">What happens when we build a little corner of the internet around what we care about, and leave the door open?</p><p class=\"ds-feature-meta\"><span>By Dino Latoga</span><time datetime=\"2026-10-12\">October 12, 2026</time><span>Web &amp; culture</span></p></header>",
+      "css": ".ds-feature{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;}.ds-feature h1{margin:0;max-inline-size:21ch;text-transform:lowercase;font-size:var(--una-text-title, clamp(1.8rem, 3.36vw, 2.7rem));line-height:var(--una-leading-title, 1.08);letter-spacing:var(--una-tracking-display, -0.025em);font-weight:var(--una-weight-display, 300);text-wrap:balance;overflow-wrap:anywhere;}.ds-feature-deck{margin:var(--una-space-4, 1rem) 0 0;max-inline-size:60ch;font-size:var(--una-text-deck, 1.125rem);line-height:1.55;}.ds-feature-meta{display:flex;flex-wrap:wrap;gap:var(--una-space-1, 0.25rem) var(--una-space-4, 1rem);color:var(--una-color-muted, #715347);font-size:var(--una-text-small, 0.8125rem);font-weight:var(--una-weight-label, 500);margin:var(--una-space-4, 1rem) 0 var(--una-space-5, 1.25rem);}.ds-feature time{font-variant-numeric:tabular-nums;}"
     },
     {
       "name": "Recent story",
@@ -634,7 +887,7 @@
       "refersTo": "recent-story",
       "description": "Square thumbnail and compact strong heading, becoming a text-reserving phone row.",
       "html": "<article class=\"ds-story\"><a href=\"#story\" tabindex=\"-1\" aria-hidden=\"true\"><svg preserveAspectRatio=\"xMidYMid slice\" class=\"ds-story-art\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\" width=\"400\" height=\"300\" viewBox=\"0 0 400 300\"><rect width=\"400\" height=\"300\" fill=\"#727c9f\"/><circle cx=\"270\" cy=\"102\" r=\"58\" fill=\"#faf3e2\"/><path d=\"M0 223h400v77H0z\" fill=\"#47281a\"/><path d=\"M0 183h98v40H0zm151-52h73v92h-73zm141 30h108v62H292z\" fill=\"#87a9d3\"/></svg></a><h3><a href=\"#story\">The city after the hurry</a></h3><p class=\"ds-story-meta\"><span>Field notes</span><time datetime=\"2026-10-09\">Oct 9</time></p></article>",
-      "css": ".ds-story :where(a){color:var(--una-color-link, #294d79);font-weight:var(--una-weight-strong, 600);text-decoration:none;transition:color var(--una-motion-duration, 160ms) var(--una-motion-ease, cubic-bezier(0.16, 1, 0.3, 1));}.ds-story :where(a:hover,a:active){color:var(--una-color-accent, #9b656b);font-weight:var(--una-weight-hover, 700);}.ds-story{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;}.ds-story-art{display:block;inline-size:100%;block-size:auto;aspect-ratio:1;object-fit:cover;margin-block-end:var(--una-space-3, 0.75rem);}.ds-story h3{margin:0;font-size:1.125rem;font-weight:var(--una-weight-strong, 600);line-height:1.35;text-wrap:balance;overflow-wrap:anywhere;}.ds-story h3 a{color:var(--una-color-link, #294d79);font-weight:inherit;text-decoration:none;}.ds-story h3 a:hover{text-decoration:none;}.ds-story-meta{display:flex;flex-wrap:wrap;gap:var(--una-space-1, 0.25rem) var(--una-space-4, 1rem);font-size:var(--una-text-small, 0.8125rem);font-weight:var(--una-weight-label, 500);color:var(--una-color-muted, #715347);margin:var(--una-space-2, 0.5rem) 0 0;}.ds-story time{font-variant-numeric:tabular-nums;}.ds-story :focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(width <= 30rem){.ds-story{display:grid;grid-template-columns:min(6rem,33.3333%) minmax(0,1fr);gap:var(--una-space-3, 0.75rem);}.ds-story>a:has(svg){grid-row:span 2;}.ds-story:has(svg) .ds-story-meta{grid-column:2;}.ds-story:not(:has(svg)){grid-template-columns:minmax(0,1fr);}.ds-story-art{margin:0;}.ds-story h3{font-size:1.25rem;}.ds-story-meta{margin:0;}}.ds-story h3 a:hover,.ds-story h3 a:active{color:var(--una-color-accent, #9b656b);font-weight:var(--una-weight-hover, 700);}@media(prefers-reduced-motion:reduce){.ds-story a{transition:none;}}@media(forced-colors:active){.ds-story a:link{color:LinkText;}.ds-story a:visited{color:VisitedText;}.ds-story a:hover,.ds-story a:active,.ds-story a[aria-current=\"page\"]{color:Highlight;}.ds-story :focus-visible{outline-color:Highlight;}}@media print{.ds-story a:any-link,.ds-story a:hover,.ds-story a:active{color:inherit;}}"
+      "css": ".ds-story :where(a){color:var(--una-color-link, #294d79);font-weight:var(--una-weight-strong, 600);text-decoration:none;transition:color var(--una-motion-duration, 160ms) var(--una-motion-ease, cubic-bezier(0.16, 1, 0.3, 1));}.ds-story :where(a:hover,a:active){color:var(--una-color-accent, #9b656b);}.ds-story{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;}.ds-story-art{display:block;inline-size:100%;block-size:auto;aspect-ratio:1;object-fit:cover;margin-block-end:var(--una-space-3, 0.75rem);}.ds-story h3{margin:0;font-size:1.125rem;font-weight:var(--una-weight-strong, 600);line-height:1.35;text-wrap:balance;overflow-wrap:anywhere;}.ds-story h3 a{color:var(--una-color-link, #294d79);font-weight:inherit;text-decoration:none;}.ds-story h3 a:hover{text-decoration:none;}.ds-story-meta{display:flex;flex-wrap:wrap;gap:var(--una-space-1, 0.25rem) var(--una-space-4, 1rem);font-size:var(--una-text-small, 0.8125rem);font-weight:var(--una-weight-label, 500);color:var(--una-color-muted, #715347);margin:var(--una-space-2, 0.5rem) 0 0;}.ds-story time{font-variant-numeric:tabular-nums;}.ds-story :focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(width <= 30rem){.ds-story{display:grid;grid-template-columns:min(6rem,33.3333%) minmax(0,1fr);gap:var(--una-space-3, 0.75rem);}.ds-story>a:has(svg){grid-row:span 2;}.ds-story:has(svg) .ds-story-meta{grid-column:2;}.ds-story:not(:has(svg)){grid-template-columns:minmax(0,1fr);}.ds-story-art{margin:0;}.ds-story h3{font-size:1.25rem;}.ds-story-meta{margin:0;}}.ds-story h3 a:hover,.ds-story h3 a:active{color:var(--una-color-accent, #9b656b);}@media(prefers-reduced-motion:reduce){.ds-story a{transition:none;}}@media(forced-colors:active){.ds-story a:link{color:LinkText;}.ds-story a:visited{color:VisitedText;}.ds-story a:hover,.ds-story a:active,.ds-story a[aria-current=\"page\"]{color:Highlight;}.ds-story :focus-visible{outline-color:Highlight;}}@media print{.ds-story a:any-link,.ds-story a:hover,.ds-story a:active{color:inherit;}}"
     },
     {
       "name": "Open publication module",
@@ -642,7 +895,7 @@
       "refersTo": "publication-module",
       "description": "An open publication note with a cocoa heading and blue links, separated through space.",
       "html": "<section class=\"ds-module\"><h2>in this edition</h2><p>This edition is about paying attention: to the places we make, the things we collect, and the web we want to inhabit.</p><p><a href=\"#about\">Meet the specimen</a></p></section>",
-      "css": ".ds-module :where(a){color:var(--una-color-link, #294d79);font-weight:var(--una-weight-strong, 600);text-decoration:none;transition:color var(--una-motion-duration, 160ms) var(--una-motion-ease, cubic-bezier(0.16, 1, 0.3, 1));}.ds-module :where(a:hover,a:active){color:var(--una-color-accent, #9b656b);font-weight:var(--una-weight-hover, 700);}.ds-module{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;padding:0 0 var(--una-space-6, 1.5rem);background:transparent;}.ds-module h2{margin:0 0 var(--una-space-3, 0.75rem);font-size:var(--una-text-section, clamp(2rem, 3vw, 2.5rem));font-weight:var(--una-weight-display, 300);line-height:1.15;text-transform:lowercase;color:var(--una-color-ink, #47281a);text-wrap:balance;overflow-wrap:anywhere;}.ds-module p{margin:0;}.ds-module p+p{margin-block-start:var(--una-space-4, 1rem);}.ds-module a{color:var(--una-color-link, #294d79);}.ds-module :focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}.ds-module a:hover,.ds-module a:active{color:var(--una-color-accent, #9b656b);font-weight:var(--una-weight-hover, 700);}@media(prefers-reduced-motion:reduce){.ds-module a{transition:none;}}@media(forced-colors:active){.ds-module a:link{color:LinkText;}.ds-module a:visited{color:VisitedText;}.ds-module a:hover,.ds-module a:active,.ds-module a[aria-current=\"page\"]{color:Highlight;}.ds-module :focus-visible{outline-color:Highlight;}}@media print{.ds-module a:any-link,.ds-module a:hover,.ds-module a:active{color:inherit;}}"
+      "css": ".ds-module :where(a){color:var(--una-color-link, #294d79);font-weight:var(--una-weight-strong, 600);text-decoration:none;transition:color var(--una-motion-duration, 160ms) var(--una-motion-ease, cubic-bezier(0.16, 1, 0.3, 1));}.ds-module :where(a:hover,a:active){color:var(--una-color-accent, #9b656b);}.ds-module{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;padding:0 0 var(--una-space-6, 1.5rem);background:transparent;}.ds-module h2{margin:0 0 var(--una-space-3, 0.75rem);font-size:var(--una-text-section, clamp(1.6rem, 2.4vw, 2rem));font-weight:var(--una-weight-display, 300);line-height:1.15;text-transform:lowercase;color:var(--una-color-ink, #47281a);text-wrap:balance;overflow-wrap:anywhere;}.ds-module p{margin:0;}.ds-module p+p{margin-block-start:var(--una-space-4, 1rem);}.ds-module a{color:var(--una-color-link, #294d79);}.ds-module :focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}.ds-module a:hover,.ds-module a:active{color:var(--una-color-accent, #9b656b);}@media(prefers-reduced-motion:reduce){.ds-module a{transition:none;}}@media(forced-colors:active){.ds-module a:link{color:LinkText;}.ds-module a:visited{color:VisitedText;}.ds-module a:hover,.ds-module a:active,.ds-module a[aria-current=\"page\"]{color:Highlight;}.ds-module :focus-visible{outline-color:Highlight;}}@media print{.ds-module a:any-link,.ds-module a:hover,.ds-module a:active{color:inherit;}}"
     },
     {
       "name": "Reading list",
@@ -650,7 +903,7 @@
       "refersTo": "link-list",
       "description": "Blue strong links and muted supporting descriptions without rules or cards.",
       "html": "<ul class=\"ds-link-list\"><li><a href=\"https://indieweb.org/\">IndieWeb</a><small>A community for owning your place online.</small></li><li><a href=\"https://www.webdesignmuseum.org/\">Web Design Museum</a><small>A look at the web's changing visual language.</small></li></ul>",
-      "css": ".ds-link-list :where(a){color:var(--una-color-link, #294d79);font-weight:var(--una-weight-strong, 600);text-decoration:none;transition:color var(--una-motion-duration, 160ms) var(--una-motion-ease, cubic-bezier(0.16, 1, 0.3, 1));}.ds-link-list :where(a:hover,a:active){color:var(--una-color-accent, #9b656b);font-weight:var(--una-weight-hover, 700);}.ds-link-list{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;list-style:none;padding:0;margin:0;}.ds-link-list li+li{margin-block-start:var(--una-space-2, 0.5rem);}.ds-link-list a{display:inline-block;padding-block:var(--una-space-1, 0.25rem);color:var(--una-color-link, #294d79);font-weight:var(--una-weight-strong, 600);text-decoration:none;}.ds-link-list a:hover,.ds-link-list a:active{font-weight:var(--una-weight-hover, 700);color:var(--una-color-accent, #9b656b);text-decoration:none;}.ds-link-list small{display:block;color:var(--una-color-muted, #715347);font-size:var(--una-text-small, 0.8125rem);}.ds-link-list :focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(prefers-reduced-motion:reduce){.ds-link-list a{transition:none;}}@media(forced-colors:active){.ds-link-list a:link{color:LinkText;}.ds-link-list a:visited{color:VisitedText;}.ds-link-list a:hover,.ds-link-list a:active,.ds-link-list a[aria-current=\"page\"]{color:Highlight;}.ds-link-list :focus-visible{outline-color:Highlight;}}@media print{.ds-link-list a:any-link,.ds-link-list a:hover,.ds-link-list a:active{color:inherit;}}"
+      "css": ".ds-link-list :where(a){color:var(--una-color-link, #294d79);font-weight:var(--una-weight-strong, 600);text-decoration:none;transition:color var(--una-motion-duration, 160ms) var(--una-motion-ease, cubic-bezier(0.16, 1, 0.3, 1));}.ds-link-list :where(a:hover,a:active){color:var(--una-color-accent, #9b656b);}.ds-link-list{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;list-style:none;padding:0;margin:0;}.ds-link-list li+li{margin-block-start:var(--una-space-2, 0.5rem);}.ds-link-list a{display:inline-block;padding-block:var(--una-space-1, 0.25rem);color:var(--una-color-link, #294d79);font-weight:var(--una-weight-strong, 600);text-decoration:none;}.ds-link-list a:hover,.ds-link-list a:active{color:var(--una-color-accent, #9b656b);text-decoration:none;}.ds-link-list small{display:block;color:var(--una-color-muted, #715347);font-size:var(--una-text-small, 0.8125rem);}.ds-link-list :focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(prefers-reduced-motion:reduce){.ds-link-list a{transition:none;}}@media(forced-colors:active){.ds-link-list a:link{color:LinkText;}.ds-link-list a:visited{color:VisitedText;}.ds-link-list a:hover,.ds-link-list a:active,.ds-link-list a[aria-current=\"page\"]{color:Highlight;}.ds-link-list :focus-visible{outline-color:Highlight;}}@media print{.ds-link-list a:any-link,.ds-link-list a:hover,.ds-link-list a:active{color:inherit;}}"
     },
     {
       "name": "Inline article contents",
@@ -658,7 +911,7 @@
       "refersTo": "article-contents",
       "description": "Native article disclosure, used instead of sidebar contents on narrower layouts.",
       "html": "<details class=\"ds-contents\"><summary>In this article</summary><ol><li><a href=\"#a-place-to-return-to\">A place to return to</a></li><li><a href=\"#leave-a-door-open\">Leave a door open</a></li><li><a href=\"#keep-it-small\">Keep it small enough to care for</a></li></ol></details>",
-      "css": ".ds-contents :where(a){color:var(--una-color-link, #294d79);font-weight:var(--una-weight-strong, 600);text-decoration:none;transition:color var(--una-motion-duration, 160ms) var(--una-motion-ease, cubic-bezier(0.16, 1, 0.3, 1));}.ds-contents :where(a:hover,a:active){color:var(--una-color-accent, #9b656b);font-weight:var(--una-weight-hover, 700);}.ds-contents{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;margin-block:var(--una-space-5, 1.25rem);padding-block:var(--una-space-3, 0.75rem);}.ds-contents summary{cursor:pointer;color:var(--una-color-link, #294d79);font-weight:var(--una-weight-strong, 600);}.ds-contents ol{margin:0;padding:var(--una-space-4, 1rem) 0 0 var(--una-space-6, 1.5rem);}.ds-contents a{display:inline-block;padding-block:var(--una-space-2, 0.5rem);color:var(--una-color-link, #294d79);}.ds-contents a:hover,.ds-contents a:active{color:var(--una-color-accent, #9b656b);font-weight:var(--una-weight-hover, 700);}.ds-contents :focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(prefers-reduced-motion:reduce){.ds-contents a{transition:none;}}@media(forced-colors:active){.ds-contents a:link{color:LinkText;}.ds-contents a:visited{color:VisitedText;}.ds-contents a:hover,.ds-contents a:active,.ds-contents a[aria-current=\"page\"]{color:Highlight;}.ds-contents :focus-visible{outline-color:Highlight;}}@media print{.ds-contents a:any-link,.ds-contents a:hover,.ds-contents a:active{color:inherit;}}"
+      "css": ".ds-contents :where(a){color:var(--una-color-link, #294d79);font-weight:var(--una-weight-strong, 600);text-decoration:none;transition:color var(--una-motion-duration, 160ms) var(--una-motion-ease, cubic-bezier(0.16, 1, 0.3, 1));}.ds-contents :where(a:hover,a:active){color:var(--una-color-accent, #9b656b);}.ds-contents{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;margin-block:var(--una-space-5, 1.25rem);padding-block:var(--una-space-3, 0.75rem);}.ds-contents summary{cursor:pointer;color:var(--una-color-link, #294d79);font-weight:var(--una-weight-strong, 600);}.ds-contents ol{margin:0;padding:var(--una-space-4, 1rem) 0 0 var(--una-space-6, 1.5rem);}.ds-contents a{display:inline-block;padding-block:var(--una-space-2, 0.5rem);color:var(--una-color-link, #294d79);}.ds-contents a:hover,.ds-contents a:active{color:var(--una-color-accent, #9b656b);}.ds-contents :focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(prefers-reduced-motion:reduce){.ds-contents a{transition:none;}}@media(forced-colors:active){.ds-contents a:link{color:LinkText;}.ds-contents a:visited{color:VisitedText;}.ds-contents a:hover,.ds-contents a:active,.ds-contents a[aria-current=\"page\"]{color:Highlight;}.ds-contents :focus-visible{outline-color:Highlight;}}@media print{.ds-contents a:any-link,.ds-contents a:hover,.ds-contents a:active{color:inherit;}}"
     },
     {
       "name": "Article quotation",
@@ -679,11 +932,11 @@
   ],
   "narrative": {
     "northStar": "An editorial collection",
-    "overview": "Una Moderno makes an independent publication feel like a collection worth browsing: large light typography, confident square artwork, compact useful lists, and continuous open space without dividers. Cocoa text and a warm near-white ground surround a charcoal lead-story field. Rose marks navigation state; blue and cream belong to original editorial art and restrained reading cues.\n\nThe owner-pinned Zune 4.0 light Collection view supplies the typographic hierarchy, aligned lists, and open canvas. The historical Zune HD website reference supplies the dark lead field within a light document. These principles become an original editorial system, with Inter in every text role and a calm light article surface. The references are evidence, not distributable artwork or a media-player template; their relationship to the implementation is recorded in [the inspiration record](docs/zune-inspiration.md).\n\nHierarchy comes from weight, scale, leading, and space within one family. The system stays flat and native: ordinary links, a single horizontal navigation strip, semantic headings and lists, and article contents built with disclosure. The charcoal story treatment is a component variant, not a dark theme.",
+    "overview": "Una Moderno makes an independent publication feel like a collection worth browsing: large light typography, confident square artwork, compact useful lists, and continuous open space without dividers. Cocoa text and a warm near-white ground surround a charcoal lead-story field. An optional approved panorama opens the page at its natural proportions and gives way to the reading surface. Rose marks navigation state; the colorful page illustrations and geometric story art remain distinct from the interface palette.\n\nThe owner-pinned Zune 4.0 light Collection view supplies the typographic hierarchy, aligned lists, and open canvas. The historical Zune HD website reference supplies the dark lead field within a light document. These principles become an original editorial system, with Inter in every text role and a calm light article surface. The references are evidence, not distributable artwork or a media-player template; their relationship to the implementation is recorded in [the inspiration record](docs/zune-inspiration.md).\n\nHierarchy comes from weight, scale, leading, and space within one family. The system stays flat and native: ordinary links, a single horizontal navigation strip, semantic headings and lists, and article contents built with disclosure. The charcoal story treatment is a component variant, not a dark theme. The five generated panoramic backgrounds were approved for Una under the owner’s direction; their exact masters remain source assets and their delivery derivatives preserve each complete scene.",
     "keyCharacteristics": [
       "Light lowercase display and navigation typography, with regular-weight sustained reading.",
-      "One charcoal lead-story field, square cover art, and open supporting lists on a continuous light ground.",
-      "Unequal editorial columns with one 20px gutter, followed by a source-order stack on narrow screens.",
+      "An optional full-width panorama, followed by a charcoal lead-story field, square cover art, and open supporting lists on a continuous light ground.",
+      "Exact 1.618:1 editorial columns with one fluid gutter, followed by a source-order stack with a separate row gap.",
       "Inter across all text roles; prose remains bounded by a 70ch maximum.",
       "Native scrolling and visible focus, with brief link-color and article-target transitions that respect reduced motion."
     ],
@@ -700,7 +953,7 @@
       },
       {
         "name": "The Honest Gutter Rule",
-        "body": "The desktop columns share one layout gap. Do not add sidebar padding that doubles the visible gutter; the dark feature has its own internal padding.",
+        "body": "The desktop columns share one fluid column gap; stacked content uses its own 2.5rem row gap. Do not add sidebar padding or margin that doubles either space; the dark feature has its own internal padding.",
         "section": "layout"
       },
       {
@@ -711,10 +964,11 @@
     ],
     "dos": [
       "Do author tokens in the canonical CSS, build the inventories, and then refresh this derived record.",
-      "Do preserve the unequal editorial columns, one layout gutter, and source-order responsive stack.",
+      "Do preserve the exact 1.618:1 editorial columns, one fluid column gutter, and a separate row gap for the source-order responsive stack.",
       "Do keep display and navigation light, regular prose readable, and prose links distinct through italic weight 600.",
       "Do keep wordmark, display-title, navigation, and prose-link weights stable on hover; distinguish current navigation with its established weight 600.",
       "Do preserve optional images, wrapping titles, and the established article reading measure.",
+      "Do preserve approved panorama masters exactly; use the reproducible WebP derivatives, natural aspect ratio, and quiet-area content offset.",
       "Do use descriptive links, semantic headings, native navigation, the skip link, and the existing visible focus treatment.",
       "Do retain the Inter OFL license and exact asset provenance when distributing the optional font.",
       "Do keep specimen stories and authors clearly identified as fictional."
@@ -723,6 +977,7 @@
       "Don't introduce an independent palette, font ramp, or layout in Tailwind or an adapter.",
       "Don't turn the light collection view into a media-player clone, generic tile dashboard, or promotional card gallery.",
       "Don't distribute the reference screenshots, Microsoft marks, proprietary fonts, or borrowed media artwork.",
+      "Don't replace an approved panorama with a crop, recoloring, vector reinterpretation, or regenerated scene.",
       "Don't add divider lines, link underlines, fake strokes, rounded containers, drop shadows, or invented interface primitives to this vocabulary.",
       "Don't require JavaScript, a framework, Node, or the optional font for a reader to use the core layout.",
       "Don't assume inherited aliases recompute after a descendant-only primitive override; redeclare dependent aliases in the same scope.",

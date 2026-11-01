@@ -13,7 +13,9 @@
   --una-color-selection: #f2cc89;
   --una-color-focus: #294d79;
   --una-color-stage: #171514;
+  --una-color-wash: rgb(28 52 40 / 68%);
   --una-color-accent: var(--una-color-original-rose);
+  --una-color-accent-light: #f4c6cc;
   --una-color-original-brown: #876551;
   --una-color-original-rose: #9b656b;
   --una-color-original-slate: #727c9f;
@@ -29,15 +31,17 @@
   --una-weight-label: 500;
   --una-weight-strong: 600;
   --una-weight-hover: 700;
-  --una-text-nav: clamp(1.75rem, 3vw, 2.25rem);
-  --una-text-section: clamp(2rem, 3vw, 2.5rem);
+  --una-text-nav: clamp(1.4rem, 2.4vw, 1.8rem);
+  --una-text-section: clamp(1.6rem, 2.4vw, 2rem);
   --una-text-utility: 0.75rem;
   --una-text-small: 0.8125rem;
   --una-text-body: 1rem;
   --una-text-prose: 1.1875rem;
   --una-text-deck: 1.125rem;
-  --una-text-title: clamp(2.25rem, 4.2vw, 3.375rem);
-  --una-text-brand: clamp(3rem, 7vw, 5.5rem);
+  --una-text-title: clamp(1.8rem, 3.36vw, 2.7rem);
+  --una-text-brand: clamp(2.4rem, 5.6vw, 4.4rem);
+  --una-text-cover: clamp(1.6rem, 2.4vw, 2.2rem);
+  --una-text-subsection: 1.6rem;
   --una-leading-body: 1.6;
   --una-leading-prose: 1.75;
   --una-leading-title: 1.08;
@@ -52,10 +56,16 @@
   --una-space-10: 2.5rem;
   --una-space-12: 3rem;
   --una-space-16: 4rem;
+  --una-space-20: 5rem;
   --una-layout-max: 75rem;
-  --una-layout-gap: 1.25rem;
-  --una-layout-primary: 580fr;
-  --una-layout-sidebar: 360fr;
+  --una-layout-gap: clamp(var(--una-space-12), 4.1667vw, var(--una-space-20));
+  --una-layout-stack-gap: var(--una-space-10);
+  --una-layout-primary: 1.618fr;
+  --una-layout-sidebar: 1fr;
+  --una-art-url: none;
+  --una-art-url-small: none;
+  --una-art-aspect-ratio: 1672 / 941;
+  --una-art-content-offset: 39vw;
   --una-prose-measure: 70ch;
   --una-focus-width: 3px;
   --una-focus-offset: 4px;
@@ -78,6 +88,141 @@
   caret-color: var(--una-color-ink);
   scrollbar-color: var(--una-color-original-brown) var(--una-color-paper);
   color-scheme: light;
+}
+
+/* Optional panoramic artwork: preserve the entire composition and its natural fade.
+   Reserving its quiet lower region keeps text readable without dimming the artwork. */
+.una:where(
+  [data-una-art='cat-studio'],
+  [data-una-art='robot-city'],
+  [data-una-art='ribbon-world'],
+  [data-una-art='kite-festival'],
+  [data-una-art='desktop-garden']
+) {
+  position: relative;
+  isolation: isolate;
+  padding-block-start: var(--una-art-content-offset);
+}
+
+.una:where(
+    [data-una-art='cat-studio'],
+    [data-una-art='robot-city'],
+    [data-una-art='ribbon-world'],
+    [data-una-art='kite-festival'],
+    [data-una-art='desktop-garden']
+  )::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0 0 auto;
+  aspect-ratio: var(--una-art-aspect-ratio);
+  pointer-events: none;
+  background-image: var(--una-art-url);
+  background-position: center top;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  mask-image: linear-gradient(#000 75%, transparent);
+}
+
+/* Overlap prototype: every illustrated page whose body holds a direct .una-shell gets it;
+   data-una-art-effect="static" opts out. The panorama is a fixed far plane; without scroll
+   timelines it stays anchored. Full-width shell padding keeps the measure without 100vw overflow. */
+body.una:where(
+    [data-una-art='cat-studio'],
+    [data-una-art='robot-city'],
+    [data-una-art='ribbon-world'],
+    [data-una-art='kite-festival'],
+    [data-una-art='desktop-garden']
+  ):has(> .una-shell):not([data-una-art-effect='static'])::before {
+  position: fixed;
+}
+
+/* Where scroll timelines exist, the far plane recedes at 0.4x the scroll while the shell
+   rises at 1x. The range ends at the content offset, where the shell's solid paper reaches
+   the viewport top and covers the art. Upward-only travel never exposes an empty top edge.
+   Longhands stay separate: engines reject a timeline inside the animation shorthand. */
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    body.una:where(
+        [data-una-art='cat-studio'],
+        [data-una-art='robot-city'],
+        [data-una-art='ribbon-world'],
+        [data-una-art='kite-festival'],
+        [data-una-art='desktop-garden']
+      ):has(> .una-shell):not([data-una-art-effect='static'])::before {
+      animation-name: una-art-recede;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: scroll(root block);
+      animation-range: 0 var(--una-art-content-offset);
+    }
+  }
+}
+
+@keyframes una-art-recede {
+  to {
+    translate: 0 calc(var(--una-art-content-offset) * -0.4);
+  }
+}
+
+body.una:where(
+    [data-una-art='cat-studio'],
+    [data-una-art='robot-city'],
+    [data-una-art='ribbon-world'],
+    [data-una-art='kite-festival'],
+    [data-una-art='desktop-garden']
+  ):has(> .una-shell):not([data-una-art-effect='static'])
+  > .una-shell {
+  position: relative;
+  isolation: isolate;
+  inline-size: 100%;
+  margin-inline: 0;
+  padding-inline: max(1.5rem, calc((100% - var(--una-layout-max)) / 2));
+}
+
+body.una:where(
+    [data-una-art='cat-studio'],
+    [data-una-art='robot-city'],
+    [data-una-art='ribbon-world'],
+    [data-una-art='kite-festival'],
+    [data-una-art='desktop-garden']
+  ):has(> .una-shell):not([data-una-art-effect='static'])
+  > .una-shell::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: calc(-1 * clamp(var(--una-space-12), 8vw, 8rem)) 0 0;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--una-color-paper) 0%, transparent),
+    var(--una-color-paper) clamp(var(--una-space-12), 8vw, 8rem)
+  );
+}
+
+.una[data-una-art='cat-studio'] {
+  --una-art-url: url('../assets/art/cat-studio-1672.webp');
+  --una-art-url-small: url('../assets/art/cat-studio-832.webp');
+}
+
+.una[data-una-art='robot-city'] {
+  --una-art-url: url('../assets/art/robot-city-1672.webp');
+  --una-art-url-small: url('../assets/art/robot-city-832.webp');
+}
+
+.una[data-una-art='ribbon-world'] {
+  --una-art-url: url('../assets/art/ribbon-world-1672.webp');
+  --una-art-url-small: url('../assets/art/ribbon-world-832.webp');
+}
+
+.una[data-una-art='kite-festival'] {
+  --una-art-url: url('../assets/art/kite-festival-1672.webp');
+  --una-art-url-small: url('../assets/art/kite-festival-832.webp');
+}
+
+.una[data-una-art='desktop-garden'] {
+  --una-art-url: url('../assets/art/desktop-garden-1672.webp');
+  --una-art-url-small: url('../assets/art/desktop-garden-832.webp');
 }
 
 .una *,
@@ -114,9 +259,9 @@
   transition: color var(--una-motion-duration) var(--una-motion-ease);
 }
 
+/* Hover and active change color only; no link state alters geometry. */
 .una :where(a:hover, a:active) {
   color: var(--una-color-accent);
-  font-weight: var(--una-weight-hover);
 }
 
 .una :where(:focus-visible) {
@@ -153,19 +298,6 @@
   transform: translateY(0);
 }
 
-.una-utility {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: var(--una-space-2) var(--una-space-4);
-  padding-block: var(--una-space-4) var(--una-space-2);
-  color: var(--una-color-muted);
-  font-size: var(--una-text-utility);
-  font-weight: var(--una-weight-strong);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
 .una-masthead {
   display: flex;
   align-items: end;
@@ -179,7 +311,7 @@
   overflow-wrap: anywhere;
   color: var(--una-color-ink);
   font-family: var(--una-font-display);
-  font-size: min(var(--una-text-brand), 20vw);
+  font-size: min(var(--una-text-brand), 16vw);
   font-weight: var(--una-weight-brand);
   letter-spacing: var(--una-tracking-display);
   line-height: 1.05;
@@ -190,7 +322,6 @@
 .una-brand:hover,
 .una-brand:active {
   color: var(--una-color-accent);
-  font-weight: var(--una-weight-brand);
 }
 
 .una-brand span {
@@ -217,6 +348,14 @@
   scroll-padding-inline: 50%;
   padding: var(--una-space-2);
   margin-block-end: var(--una-space-10);
+
+  /* The first label's ink starts under the wordmark's ink at every width: the strip moves
+     left by its own and the link's inline padding, less Inter's measured first-glyph
+     bearings (wordmark "u" 0.0625em; nav "j" overhang 0.03em). Hit and focus areas
+     extend left inside the strip padding, which still clears the page edge. */
+  margin-inline-start: calc(
+    0.0625 * min(var(--una-text-brand), 16vw) - 2 * var(--una-space-2) + 0.03 * var(--una-text-nav)
+  );
   scrollbar-width: none;
 }
 
@@ -251,10 +390,39 @@
   font-weight: var(--una-weight-strong);
 }
 
+/* Phones: when the strip overflows, a paper fade at its right edge signals more
+   destinations. Driven by the strip's own scroll timeline, it is absent when nothing
+   overflows and clears over the last 2.5rem of travel, so the final link ends unmasked.
+   Masks leave hit testing, layout and scrolling untouched. */
+@supports (animation-timeline: scroll()) {
+  @media (width <= 42rem) {
+    .una-nav {
+      mask-image: linear-gradient(to left, transparent, #000 var(--una-space-10));
+      mask-size: calc(100% + var(--una-space-10)) 100%;
+      mask-repeat: no-repeat;
+      animation-name: una-nav-continues;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: scroll(self inline);
+      animation-range: calc(100% - var(--una-space-10)) 100%;
+    }
+  }
+}
+
+@keyframes una-nav-continues {
+  from {
+    mask-position: 100% 0;
+  }
+
+  to {
+    mask-position: 0 0;
+  }
+}
+
 .una-layout {
   display: grid;
   grid-template-columns: minmax(0, var(--una-layout-primary)) minmax(0, var(--una-layout-sidebar));
-  gap: var(--una-layout-gap);
+  gap: var(--una-layout-stack-gap) var(--una-layout-gap);
   align-items: start;
 }
 
@@ -263,8 +431,9 @@
   min-inline-size: 0;
 }
 
+/* Titles use the full content width and wrap only where the line genuinely runs out. */
 .una-title {
-  max-inline-size: 21ch;
+  text-wrap: wrap;
   text-transform: lowercase;
   font-size: var(--una-text-title);
   line-height: var(--una-leading-title);
@@ -281,13 +450,11 @@
 .una-title a:hover,
 .una-title a:active {
   color: var(--una-color-accent);
-  font-weight: inherit;
 }
 
 .una-story h3 a:hover,
 .una-story h3 a:active {
   color: var(--una-color-accent);
-  font-weight: var(--una-weight-hover);
 }
 
 .una-deck {
@@ -308,9 +475,29 @@
 }
 
 .una-feature--cover {
-  padding: var(--una-space-6);
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+
+  /* An optional caption adds an implicit third row; without one, no gap is reserved. */
+  grid-template-rows: minmax(12rem, 1fr) auto;
+  gap: var(--una-space-4);
+  min-block-size: 34rem;
+  padding: var(--una-space-8);
   background: var(--una-color-stage);
   color: var(--una-color-paper);
+}
+
+/* One uniform hue wash grades the whole illustration, edge to edge, beneath the copy.
+   Its opacity keeps paper text at AA even where the art beneath is pure white. */
+.una-feature--cover::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: var(--una-color-wash);
+  pointer-events: none;
 }
 
 .una-feature--cover .una-meta,
@@ -318,8 +505,13 @@
   color: var(--una-color-paper);
 }
 
+.una-feature--cover .una-meta {
+  margin-block-end: 0;
+}
+
+/* Canonical rose and art blue lack contrast on the wash; their light tints carry the cues. */
 .una-feature--cover :focus-visible {
-  outline-color: var(--una-color-blue);
+  outline-color: var(--una-color-blue-light);
 }
 
 .una-feature--cover a {
@@ -328,33 +520,19 @@
 
 .una-feature--cover a:hover,
 .una-feature--cover a:active {
-  color: var(--una-color-accent);
-}
-
-.una-feature--cover:has(figure) {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: var(--una-space-6);
-  align-items: start;
+  color: var(--una-color-accent-light);
 }
 
 .una-feature-copy {
   min-inline-size: 0;
 }
 
-.una-feature--cover:has(figure) .una-feature-copy {
-  grid-column: 2;
-}
-
-.una-feature--cover:has(figure) figure {
-  grid-column: 1;
-  grid-row: 1;
-  margin: 0;
+.una-feature--cover .una-feature-copy {
+  grid-area: 2 / 1;
 }
 
 .una-feature--cover .una-title {
-  font-size: clamp(2rem, 3vw, 2.75rem);
-  text-wrap: pretty;
+  font-size: var(--una-text-cover);
 }
 
 .una-feature--cover .una-deck {
@@ -371,8 +549,19 @@
   object-fit: cover;
 }
 
+.una-feature--cover figure {
+  display: contents;
+}
+
 .una-feature--cover figure img {
-  aspect-ratio: 1;
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  aspect-ratio: auto;
+  object-fit: cover;
+  pointer-events: none;
 }
 
 .una figcaption {
@@ -380,6 +569,21 @@
   color: var(--una-color-muted);
   padding-block-start: var(--una-space-2);
   font-weight: var(--una-weight-label);
+}
+
+.una-feature--cover figcaption {
+  grid-area: 3 / 1;
+  padding: 0;
+  text-wrap: pretty;
+}
+
+.una-feature--cover:not(:has(img)) {
+  display: block;
+  min-block-size: 0;
+}
+
+.una-feature--cover:not(:has(img))::before {
+  display: none;
 }
 
 .una-section-heading {
@@ -478,7 +682,6 @@
 .una-link-list a:hover,
 .una-link-list a:active {
   color: var(--una-color-accent);
-  font-weight: var(--una-weight-hover);
 }
 
 .una-link-list small {
@@ -533,7 +736,7 @@
 
 .una-prose h2 {
   margin-block-start: var(--una-space-12);
-  font-size: 2rem;
+  font-size: var(--una-text-subsection);
   font-weight: var(--una-weight-display);
   text-transform: lowercase;
   scroll-margin-block-start: var(--una-space-8);
@@ -589,10 +792,6 @@
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .una-sidebar {
-    margin-block-start: var(--una-space-10);
-  }
-
   .una-module--blue h2 {
     max-inline-size: none;
   }
@@ -608,19 +807,40 @@
   }
 }
 
-@media (width <= 42rem) {
-  .una-feature--cover:has(figure) {
-    display: block;
+@media (width <= 52rem) {
+  .una:where(
+      [data-una-art='cat-studio'],
+      [data-una-art='robot-city'],
+      [data-una-art='ribbon-world'],
+      [data-una-art='kite-festival'],
+      [data-una-art='desktop-garden']
+    )::before {
+    background-image: var(--una-art-url-small);
   }
+}
 
-  .una-feature--cover:has(figure) figure {
-    margin-block-start: var(--una-space-6);
+@media (width <= 42rem) {
+  .una-feature--cover {
+    grid-template-rows: minmax(10rem, 1fr) auto;
+    min-block-size: 30rem;
+    padding: var(--una-space-6);
   }
 }
 
 @media (width <= 30rem) {
-  .una-utility {
-    display: none;
+  body.una:where(
+      [data-una-art='cat-studio'],
+      [data-una-art='robot-city'],
+      [data-una-art='ribbon-world'],
+      [data-una-art='kite-festival'],
+      [data-una-art='desktop-garden']
+    ):has(> .una-shell):not([data-una-art-effect='static'])
+    > .una-shell {
+    padding-inline: var(--una-space-4);
+  }
+
+  .una-nav {
+    gap: var(--una-space-4);
   }
 
   .una-shell {
@@ -632,10 +852,14 @@
     gap: var(--una-space-6);
   }
 
+  /* Title and metadata stay one content-height stack beside the thumbnail. A taller
+     thumbnail's surplus lands below the metadata, never between it and the title. */
   .una-story {
     display: grid;
     grid-template-columns: min(6rem, 33.3333%) minmax(0, 1fr);
-    gap: var(--una-space-3);
+    grid-template-rows: auto 1fr;
+    align-items: start;
+    gap: var(--una-space-2) var(--una-space-3);
   }
 
   .una-story > a:has(img),
@@ -665,14 +889,17 @@
   }
 }
 
-/* Keep part of the next destination visible on the narrowest phones. */
-@media (width <= 22rem) {
-  .una-nav {
-    gap: var(--una-space-2);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
+  body.una:where(
+      [data-una-art='cat-studio'],
+      [data-una-art='robot-city'],
+      [data-una-art='ribbon-world'],
+      [data-una-art='kite-festival'],
+      [data-una-art='desktop-garden']
+    ):has(> .una-shell):not([data-una-art-effect='static'])::before {
+    position: absolute;
+  }
+
   .una a,
   .una-prose :target {
     transition: none;
@@ -680,6 +907,66 @@
 }
 
 @media (forced-colors: active) {
+  .una-nav {
+    mask-image: none;
+    animation: none;
+  }
+
+  .una-feature--cover {
+    display: block;
+    min-block-size: 0;
+    padding: 0;
+    background: none;
+    color: inherit;
+  }
+
+  .una-feature--cover::before,
+  .una-feature--cover figure img {
+    display: none;
+  }
+
+  .una-feature--cover figure {
+    display: block;
+  }
+
+  .una .una-feature--cover figcaption,
+  .una-feature--cover .una-meta {
+    color: inherit;
+  }
+
+  body.una:where(
+      [data-una-art='cat-studio'],
+      [data-una-art='robot-city'],
+      [data-una-art='ribbon-world'],
+      [data-una-art='kite-festival'],
+      [data-una-art='desktop-garden']
+    ):has(> .una-shell):not([data-una-art-effect='static'])
+    > .una-shell::before {
+    display: none;
+    background: none;
+  }
+
+  .una:where(
+    [data-una-art='cat-studio'],
+    [data-una-art='robot-city'],
+    [data-una-art='ribbon-world'],
+    [data-una-art='kite-festival'],
+    [data-una-art='desktop-garden']
+  ) {
+    padding-block-start: 0;
+  }
+
+  .una:where(
+      [data-una-art='cat-studio'],
+      [data-una-art='robot-city'],
+      [data-una-art='ribbon-world'],
+      [data-una-art='kite-festival'],
+      [data-una-art='desktop-garden']
+    )::before {
+    display: none;
+    background-image: none;
+  }
+
   .una a:link {
     color: LinkText;
   }
@@ -700,10 +987,75 @@
 }
 
 @media print {
+  .una-feature--cover {
+    display: block;
+    min-block-size: 0;
+    padding: 0;
+    background: none;
+    color: inherit;
+  }
+
+  .una-feature--cover::before,
+  .una-feature--cover figure img {
+    display: none;
+  }
+
+  .una-feature--cover figure {
+    display: block;
+  }
+
+  .una .una-feature--cover figcaption,
+  .una-feature--cover .una-meta {
+    color: inherit;
+  }
+
+  body.una:where(
+      [data-una-art='cat-studio'],
+      [data-una-art='robot-city'],
+      [data-una-art='ribbon-world'],
+      [data-una-art='kite-festival'],
+      [data-una-art='desktop-garden']
+    ):has(> .una-shell):not([data-una-art-effect='static'])
+    > .una-shell {
+    padding-inline: 0;
+  }
+
+  body.una:where(
+      [data-una-art='cat-studio'],
+      [data-una-art='robot-city'],
+      [data-una-art='ribbon-world'],
+      [data-una-art='kite-festival'],
+      [data-una-art='desktop-garden']
+    ):has(> .una-shell):not([data-una-art-effect='static'])
+    > .una-shell::before {
+    display: none;
+    background: none;
+  }
+
+  .una:where(
+    [data-una-art='cat-studio'],
+    [data-una-art='robot-city'],
+    [data-una-art='ribbon-world'],
+    [data-una-art='kite-festival'],
+    [data-una-art='desktop-garden']
+  ) {
+    padding-block-start: 0;
+  }
+
+  .una:where(
+      [data-una-art='cat-studio'],
+      [data-una-art='robot-city'],
+      [data-una-art='ribbon-world'],
+      [data-una-art='kite-festival'],
+      [data-una-art='desktop-garden']
+    )::before {
+    display: none;
+    background-image: none;
+  }
+
   .una-nav,
   .una-sidebar,
-  .una-skip-link,
-  .una-utility {
+  .una-skip-link {
     display: none;
   }
 
@@ -719,17 +1071,6 @@
   .una a:any-link,
   .una a:hover,
   .una a:active {
-    color: inherit;
-  }
-
-  .una-feature--cover {
-    padding: 0;
-    background: none;
-    color: inherit;
-  }
-
-  .una .una-feature--cover figcaption,
-  .una-feature--cover .una-meta {
     color: inherit;
   }
 

@@ -9,11 +9,12 @@
         "height": 1000
       },
       "fullPage": true,
-      "captured": "2026-11-01",
+      "captured": "2026-11-02",
       "browser": "Google Chrome 156.0.8078.74",
-      "command": "UNA_BROWSER_CHANNEL=chrome npm run test:browser",
-      "sha256": "73b358d4cc791f2fcb70899962fb5759e14f49406a377eeeaf558c5263679d92",
-      "origin": "Origin: local Una Moderno fictional specimen, route /, 1440x1000 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Initial navigation scroll position. Inter 4.1; spaced two-word masthead; utility metadata hidden at 480px and below; paper cover headline; stable hover weights; no decorative rules or link underlines; hidden scrollbar chrome. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; unmodified Inter Variable under SIL OFL 1.1. No historical, Microsoft/Zune, or private-site assets. Pixels are unchanged from the browser capture."
+      "command": "UNA_TEST_PORT=4323 UNA_BROWSER_CHANNEL=chrome npm run test:browser",
+      "sha256": "a7306f51ea9998a69fae0785e058c5e3ae3bc38169cafae64b1d857e76c0fa94",
+      "origin": "Local browser capture of Una Moderno's fictional specimen, route /, 1440x1000 CSS-pixel viewport, full page, 2026-11-02, Chrome 156.0.8078.74. Initial scroll position, with the panorama at its scroll-start position under the paper shell fade. Approved cat-studio panoramic WebP, full-cover lead with one uniform forest wash, no utility row, first navigation label aligned with the wordmark, natural title wrapping and exact 1.618:1 desktop columns. Core CSS and fictional story text carry the repository MIT license; Inter carries SIL OFL 1.1. Panoramas were generated for Una Moderno under Dino's direction and approved in this session; see docs/assets.md for provenance and generated-art limitations. No Microsoft/Zune or private-site assets. Pixel data is unchanged from the browser capture.",
+      "artwork": "cat-studio"
     },
     {
       "file": "editorial-mobile.png",
@@ -24,11 +25,12 @@
         "height": 1000
       },
       "fullPage": true,
-      "captured": "2026-11-01",
+      "captured": "2026-11-02",
       "browser": "Google Chrome 156.0.8078.74",
-      "command": "UNA_BROWSER_CHANNEL=chrome npm run test:browser",
-      "sha256": "f8c83527623b341f7be35caa204e7791d3970cf5a003534156e0cc361610bcea",
-      "origin": "Origin: local Una Moderno fictional specimen, route /, 390x1000 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Initial navigation scroll position. Inter 4.1; spaced two-word masthead; utility metadata hidden at 480px and below; paper cover headline; stable hover weights; no decorative rules or link underlines; hidden scrollbar chrome. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; unmodified Inter Variable under SIL OFL 1.1. No historical, Microsoft/Zune, or private-site assets. Pixels are unchanged from the browser capture."
+      "command": "UNA_TEST_PORT=4323 UNA_BROWSER_CHANNEL=chrome npm run test:browser",
+      "sha256": "2395f661eb3a5d60f9c30cc21b65cba978c9161bb40e047e9f1421d6c8cd3884",
+      "origin": "Local browser capture of Una Moderno's fictional specimen, route /, 390x1000 CSS-pixel viewport, full page, 2026-11-02, Chrome 156.0.8078.74. Initial scroll position, with the panorama at its scroll-start position under the paper shell fade. Approved cat-studio panoramic WebP, full-cover lead with one uniform forest wash, no utility row, first navigation label aligned with the wordmark, natural title wrapping and exact 1.618:1 desktop columns. Core CSS and fictional story text carry the repository MIT license; Inter carries SIL OFL 1.1. Panoramas were generated for Una Moderno under Dino's direction and approved in this session; see docs/assets.md for provenance and generated-art limitations. No Microsoft/Zune or private-site assets. Pixel data is unchanged from the browser capture.",
+      "artwork": "cat-studio"
     },
     {
       "file": "article-desktop.png",
@@ -39,11 +41,12 @@
         "height": 1000
       },
       "fullPage": true,
-      "captured": "2026-11-01",
+      "captured": "2026-11-02",
       "browser": "Google Chrome 156.0.8078.74",
-      "command": "UNA_BROWSER_CHANNEL=chrome npm run test:browser",
-      "sha256": "6dafcb1015d026823b456b2c81424f7f080b9e62fd291ed6a9798b2577c2761d",
-      "origin": "Origin: local Una Moderno fictional specimen, route /article.html, 1440x1000 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Initial navigation scroll position. Inter 4.1; spaced two-word masthead; utility metadata hidden at 480px and below; paper cover headline; stable hover weights; no decorative rules or link underlines; hidden scrollbar chrome. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; unmodified Inter Variable under SIL OFL 1.1. No historical, Microsoft/Zune, or private-site assets. Pixels are unchanged from the browser capture."
+      "command": "UNA_TEST_PORT=4323 UNA_BROWSER_CHANNEL=chrome npm run test:browser",
+      "sha256": "73fc6475dbd84c14ea9c09b249ba23012052c40837fe0ce304f35937bad6834c",
+      "origin": "Local browser capture of Una Moderno's fictional specimen, route /article.html, 1440x1000 CSS-pixel viewport, full page, 2026-11-02, Chrome 156.0.8078.74. Initial scroll position, with the panorama at its scroll-start position under the paper shell fade. Approved robot-city panoramic WebP, full-cover lead with one uniform forest wash, no utility row, first navigation label aligned with the wordmark, natural title wrapping and exact 1.618:1 desktop columns. Core CSS and fictional story text carry the repository MIT license; Inter carries SIL OFL 1.1. Panoramas were generated for Una Moderno under Dino's direction and approved in this session; see docs/assets.md for provenance and generated-art limitations. No Microsoft/Zune or private-site assets. Pixel data is unchanged from the browser capture.",
+      "artwork": "robot-city"
     },
     {
       "file": "article-mobile.png",
@@ -54,11 +57,12 @@
         "height": 1000
       },
       "fullPage": true,
-      "captured": "2026-11-01",
+      "captured": "2026-11-02",
       "browser": "Google Chrome 156.0.8078.74",
-      "command": "UNA_BROWSER_CHANNEL=chrome npm run test:browser",
-      "sha256": "fb435c6f12589f1b56dce168e6cb9078f34dc076030fb51d7eeff818f8e04ec9",
-      "origin": "Origin: local Una Moderno fictional specimen, route /article.html, 390x1000 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Initial navigation scroll position. Inter 4.1; spaced two-word masthead; utility metadata hidden at 480px and below; paper cover headline; stable hover weights; no decorative rules or link underlines; hidden scrollbar chrome. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; unmodified Inter Variable under SIL OFL 1.1. No historical, Microsoft/Zune, or private-site assets. Pixels are unchanged from the browser capture."
+      "command": "UNA_TEST_PORT=4323 UNA_BROWSER_CHANNEL=chrome npm run test:browser",
+      "sha256": "ccdf4ffb676a2ca330be4bce831eb22ca1f852a9e5d21e36d866f5ffc14cbcf8",
+      "origin": "Local browser capture of Una Moderno's fictional specimen, route /article.html, 390x1000 CSS-pixel viewport, full page, 2026-11-02, Chrome 156.0.8078.74. Initial scroll position, with the panorama at its scroll-start position under the paper shell fade. Approved robot-city panoramic WebP, full-cover lead with one uniform forest wash, no utility row, first navigation label aligned with the wordmark, natural title wrapping and exact 1.618:1 desktop columns. Core CSS and fictional story text carry the repository MIT license; Inter carries SIL OFL 1.1. Panoramas were generated for Una Moderno under Dino's direction and approved in this session; see docs/assets.md for provenance and generated-art limitations. No Microsoft/Zune or private-site assets. Pixel data is unchanged from the browser capture.",
+      "artwork": "robot-city"
     },
     {
       "file": "navigation-mobile-end.png",
@@ -69,11 +73,12 @@
         "height": 844
       },
       "fullPage": true,
-      "captured": "2026-11-01",
+      "captured": "2026-11-02",
       "browser": "Google Chrome 156.0.8078.74",
-      "command": "UNA_BROWSER_CHANNEL=chrome npm run test:browser",
-      "sha256": "df3874fd9c7dfb3dd7844d59cfc345b9bf93eec59cda80f49b10b37e084bf947",
-      "origin": "Origin: local Una Moderno fictional specimen, route /, 390x844 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Final navigation link keyboard-focused, fully visible outline. Inter 4.1; spaced two-word masthead; utility metadata hidden at 480px and below; paper cover headline; stable hover weights; no decorative rules or link underlines; hidden scrollbar chrome. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; unmodified Inter Variable under SIL OFL 1.1. No historical, Microsoft/Zune, or private-site assets. Pixels are unchanged from the browser capture."
+      "command": "UNA_TEST_PORT=4323 UNA_BROWSER_CHANNEL=chrome npm run test:browser",
+      "sha256": "3e608c8c2e774e29c5a5536f4b0e74d35f29b8953f77ade39597e0f13c393d74",
+      "origin": "Local browser capture of Una Moderno's fictional specimen, route /, 390x844 CSS-pixel viewport, full page, 2026-11-02, Chrome 156.0.8078.74. Final navigation link keyboard-focused with its complete outline and the strip scrolled to its end, so the right-edge fade has cleared. Approved cat-studio panoramic WebP, full-cover lead with one uniform forest wash, no utility row, first navigation label aligned with the wordmark, natural title wrapping and exact 1.618:1 desktop columns. Core CSS and fictional story text carry the repository MIT license; Inter carries SIL OFL 1.1. Panoramas were generated for Una Moderno under Dino's direction and approved in this session; see docs/assets.md for provenance and generated-art limitations. No Microsoft/Zune or private-site assets. Pixel data is unchanged from the browser capture.",
+      "artwork": "cat-studio"
     },
     {
       "file": "navigation-320-initial.png",
@@ -84,11 +89,12 @@
         "height": 844
       },
       "fullPage": true,
-      "captured": "2026-11-01",
+      "captured": "2026-11-02",
       "browser": "Google Chrome 156.0.8078.74",
-      "command": "UNA_BROWSER_CHANNEL=chrome npm run test:browser",
-      "origin": "Origin: local Una Moderno fictional specimen, route /, 320x844 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Initial navigation scroll position. Inter 4.1; spaced two-word masthead; utility metadata hidden at 480px and below; paper cover headline; stable hover weights; no decorative rules or link underlines; hidden scrollbar chrome. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; unmodified Inter Variable under SIL OFL 1.1. No historical, Microsoft/Zune, or private-site assets. Pixels are unchanged from the browser capture.",
-      "sha256": "4e5990194c373f87405732aacf1d0b28a8231af27357f9675d5cce95fa1fe959"
+      "command": "UNA_TEST_PORT=4323 UNA_BROWSER_CHANNEL=chrome npm run test:browser",
+      "origin": "Local browser capture of Una Moderno's fictional specimen, route /, 320x844 CSS-pixel viewport, full page, 2026-11-02, Chrome 156.0.8078.74. Initial navigation scroll position; the right-edge paper fade signals further destinations. Approved cat-studio panoramic WebP, full-cover lead with one uniform forest wash, no utility row, first navigation label aligned with the wordmark, natural title wrapping and exact 1.618:1 desktop columns. Core CSS and fictional story text carry the repository MIT license; Inter carries SIL OFL 1.1. Panoramas were generated for Una Moderno under Dino's direction and approved in this session; see docs/assets.md for provenance and generated-art limitations. No Microsoft/Zune or private-site assets. Pixel data is unchanged from the browser capture.",
+      "sha256": "b6d006f12a47fb6da2b57b4fed0ab861f3362910d82268402b4d0ef711fe23ba",
+      "artwork": "cat-studio"
     },
     {
       "file": "navigation-320-end.png",
@@ -99,11 +105,12 @@
         "height": 844
       },
       "fullPage": true,
-      "captured": "2026-11-01",
+      "captured": "2026-11-02",
       "browser": "Google Chrome 156.0.8078.74",
-      "command": "UNA_BROWSER_CHANNEL=chrome npm run test:browser",
-      "origin": "Origin: local Una Moderno fictional specimen, route /, 320x844 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Final navigation link keyboard-focused, fully visible outline. Inter 4.1; spaced two-word masthead; utility metadata hidden at 480px and below; paper cover headline; stable hover weights; no decorative rules or link underlines; hidden scrollbar chrome. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; unmodified Inter Variable under SIL OFL 1.1. No historical, Microsoft/Zune, or private-site assets. Pixels are unchanged from the browser capture.",
-      "sha256": "9a7657d3147c6d65b63b75ef5df68479467a7a8f64d19e8dac40ebc12159eb74"
+      "command": "UNA_TEST_PORT=4323 UNA_BROWSER_CHANNEL=chrome npm run test:browser",
+      "origin": "Local browser capture of Una Moderno's fictional specimen, route /, 320x844 CSS-pixel viewport, full page, 2026-11-02, Chrome 156.0.8078.74. Final navigation link keyboard-focused with its complete outline and the strip scrolled to its end, so the right-edge fade has cleared. Approved cat-studio panoramic WebP, full-cover lead with one uniform forest wash, no utility row, first navigation label aligned with the wordmark, natural title wrapping and exact 1.618:1 desktop columns. Core CSS and fictional story text carry the repository MIT license; Inter carries SIL OFL 1.1. Panoramas were generated for Una Moderno under Dino's direction and approved in this session; see docs/assets.md for provenance and generated-art limitations. No Microsoft/Zune or private-site assets. Pixel data is unchanged from the browser capture.",
+      "sha256": "d7aaff26d9136859f52b80934aa21fbce684b83e20731194375f9feb792e596d",
+      "artwork": "cat-studio"
     }
   ]
 }

@@ -18,13 +18,20 @@ interface Props {
 }
 const { story } = Astro.props;
 const base = import.meta.env.BASE_URL;
+const artBySlug = {
+  'a-website-can-be-a-place': 'robot-city',
+  'blue-hour': 'ribbon-world',
+  commonplace: 'kite-festival',
+  ordinary: 'desktop-garden',
+} as const;
+const art = artBySlug[story.slug as keyof typeof artBySlug] ?? 'robot-city';
 const headings = story.body.filter((block) => block.type === 'heading');
 const nextStory = stories.find(
   (candidate) => candidate.slug !== story.slug && candidate.slug !== stories[0].slug,
 )!;
 ---
 
-<Journal title={story.title} description={story.summary} current="article">
+<Journal title={story.title} description={story.summary} current="article" art={art}>
   <div class="una-layout">
     <main id="main" class="una-main" tabindex="-1">
       <article class="una-feature">
@@ -82,8 +89,8 @@ const nextStory = stories.find(
       </section>
       <section class="una-module">
         <p class="una-note">
-          All authors and stories in this specimen are fictional. The layout is real HTML and CSS,
-          with no runtime JavaScript.
+          Stories in this specimen are fictional, and every byline except Dino Latoga’s is invented.
+          The layout is real HTML and CSS, with no runtime JavaScript.
         </p>
       </section>
     </aside>

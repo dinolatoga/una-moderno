@@ -82,7 +82,21 @@ const server = createServer(async (request, response) => {
     const contentType = mediaTypes[extname(candidate)];
     if (!contentType) return reply(response, 404, 'Not found');
 
-    const bytes = await readFile(candidate);
+    let bytes = await readFile(candidate);
+    // Preview-only deterministic comparison: shipped HTML/CSS needs no client script.
+    if (contentType.startsWith('text/html')) {
+      const effect = new URL(request.url, 'http://localhost').searchParams.get('art-effect');
+      if (effect === 'static' || effect === 'parallax') {
+        // Illustrated pages get the overlap by default; the static comparison opts out.
+        const html = bytes.toString().replace(/<body\b[^>]*>/, (body) => {
+          const plain = body.replace(/\sdata-una-art-effect="[^"]*"/, '');
+          return effect === 'static' && /data-una-art="[a-z-]+"/.test(plain)
+            ? plain.replace(/>$/, ' data-una-art-effect="static">')
+            : plain;
+        });
+        bytes = Buffer.from(html);
+      }
+    }
     response.writeHead(200, {
       'content-type': contentType,
       'content-length': bytes.byteLength,
