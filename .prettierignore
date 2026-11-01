@@ -1,0 +1,9 @@
+node_modules/
+packages/core/dist/
+examples/astro/dist/
+examples/astro/.astro/
+examples/tailwind/dist/
+playwright-report/
+test-results/
+coverage/
+.impeccable/

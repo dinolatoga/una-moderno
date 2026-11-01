@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Una Moderno: a fictional editorial specimen for a portable layout system."
+    />
+    <title>Una Moderno — An independent web journal</title>
+    <link rel="stylesheet" href="../../packages/core/assets/fonts.css" />
+    <link rel="stylesheet" href="../../packages/core/dist/una.css" />
+  </head>
+  <body class="una">
+    <a class="una-skip-link" href="#main">Skip to stories</a>
+    <div class="una-shell">
+      <div class="una-utility">
+        <p>An independent web journal</p>
+        <p>Volume 01 · A fictional editorial specimen</p>
+      </div>
+      <header class="una-masthead">
+        <a class="una-brand" href="index.html" aria-label="Una Moderno home"
+          >Una<span>Moderno</span></a
+        >
+        <p>Ideas, observations, and other things worth keeping.</p>
+      </header>
+      <nav class="una-nav" aria-label="Main navigation">
+        <a href="index.html" aria-current="page">The journal</a><a href="#recent">Recent stories</a
+        ><a href="article.html">The long read</a><a href="#about">About this edition</a>
+      </nav>
+      <div class="una-layout">
+        <main id="main" class="una-main" tabindex="-1">
+          <article class="una-feature">
+            <h1 class="una-title">
+              <a href="article.html">A website can be a place, not a feed.</a>
+            </h1>
+            <p class="una-deck">
+              What happens when we build a little corner of the internet around what we care about,
+              and leave the door open?
+            </p>
+            <p class="una-meta">
+              <span>By Mara Solis</span><time datetime="2026-10-12">October 12, 2026</time
+              ><span>Web &amp; culture</span>
+            </p>
+            <figure>
+              <a href="article.html" aria-label="Read A website can be a place, not a feed"
+                ><img
+                  src="assets/connected-web.svg"
+                  width="900"
+                  height="600"
+                  alt="Three different windows connected by a network of paths, an abstract map of personal websites."
+              /></a>
+              <figcaption>Small places. Open windows. A web made by people.</figcaption>
+            </figure>
+          </article>
+          <section aria-labelledby="recent">
+            <div class="una-section-heading">
+              <h2 id="recent">Recently, in the journal</h2>
+              <p>Three things to spend time with</p>
+            </div>
+            <div class="una-recent">
+              <article class="una-story">
+                <a href="blue-hour.html" tabindex="-1" aria-hidden="true"
+                  ><img src="assets/blue-hour.svg" width="400" height="300" loading="lazy" alt=""
+                /></a>
+                <h3><a href="blue-hour.html">The city after the hurry</a></h3>
+                <p class="una-meta">
+                  <span>Field notes</span><time datetime="2026-10-09">Oct 9</time>
+                </p>
+              </article>
+              <article class="una-story">
+                <a href="commonplace.html" tabindex="-1" aria-hidden="true"
+                  ><img src="assets/commonplace.svg" width="400" height="300" loading="lazy" alt=""
+                /></a>
+                <h3><a href="commonplace.html">In praise of the commonplace book</a></h3>
+                <p class="una-meta">
+                  <span>Making things</span><time datetime="2026-10-06">Oct 6</time>
+                </p>
+              </article>
+              <article class="una-story">
+                <a href="ordinary.html" tabindex="-1" aria-hidden="true"
+                  ><img src="assets/ordinary.svg" width="400" height="300" loading="lazy" alt=""
+                /></a>
+                <h3><a href="ordinary.html">An archive of ordinary days</a></h3>
+                <p class="una-meta">
+                  <span>Everyday life</span><time datetime="2026-10-02">Oct 2</time>
+                </p>
+              </article>
+            </div>
+          </section>
+        </main>
+        <aside class="una-sidebar" aria-label="Publication and reading notes">
+          <section class="una-module una-module--blue" id="about">
+            <h2>A little more room for the interesting.</h2>
+            <p>
+              This edition is about paying attention: to the places we make, the things we collect,
+              and the web we want to inhabit.
+            </p>
+            <p><a href="about.html">Meet the specimen</a></p>
+          </section>
+          <section class="una-module">
+            <h2>Find your next read</h2>
+            <ul class="una-link-list">
+              <li>
+                <a href="article.html">Web &amp; culture</a
+                ><small>Personal places on a connected web</small>
+              </li>
+              <li>
+                <a href="blue-hour.html">Field notes</a><small>The overlooked life of a city</small>
+              </li>
+              <li>
+                <a href="commonplace.html">Making things</a
+                ><small>Notes, notebooks, and small practices</small>
+              </li>
+              <li>
+                <a href="ordinary.html">Everyday life</a
+                ><small>Keeping a record of the ordinary</small>
+              </li>
+            </ul>
+          </section>
+          <section class="una-module">
+            <h2>From the reading desk</h2>
+            <ul class="una-link-list">
+              <li>
+                <a href="https://indieweb.org/">IndieWeb</a
+                ><small>A community for owning your place online.</small>
+              </li>
+              <li>
+                <a href="https://www.webdesignmuseum.org/">Web Design Museum</a
+                ><small>A look at the web's changing visual language.</small>
+              </li>
+            </ul>
+          </section>
+          <section class="una-module">
+            <h2>Made to travel</h2>
+            <p class="una-note">
+              This journal is a working example of Una Moderno. Same editorial bones, your own
+              words.
+            </p>
+            <p>
+              <a href="https://github.com/dinolatoga/una-moderno">Explore the source on GitHub</a>
+            </p>
+          </section>
+        </aside>
+      </div>
+      <footer class="una-footer">
+        <p>Una Moderno · A portable editorial layout system.</p>
+        <p>Fictional stories and authors. Real, reusable HTML &amp; CSS.</p>
+        <a href="about.html">About &amp; credits</a>
+      </footer>
+    </div>
+  </body>
+</html>

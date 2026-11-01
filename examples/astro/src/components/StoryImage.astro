@@ -1,0 +1,29 @@
+---
+import type { EditorialStory } from '../content/contract';
+interface Props {
+  image: EditorialStory['image'];
+  caption?: string;
+  href?: string;
+  linkLabel?: string;
+}
+const { image, caption, href, linkLabel } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+{image && (
+  <figure>
+    {href ? (
+      <a href={href} aria-label={linkLabel}>
+        <img
+          src={`${base}${image.src}`}
+          width={image.width}
+          height={image.height}
+          alt={image.alt}
+        />
+      </a>
+    ) : (
+      <img src={`${base}${image.src}`} width={image.width} height={image.height} alt={image.alt} />
+    )}
+    {caption && <figcaption>{caption}</figcaption>}
+  </figure>
+)}

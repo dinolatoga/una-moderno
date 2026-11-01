@@ -1,0 +1,17 @@
+node_modules/
+.DS_Store
+.env
+.env.*
+!.env.example
+*.log
+.astro/
+examples/astro/dist/
+examples/tailwind/dist/
+playwright-report/
+test-results/
+coverage/
+.cache/
+.impeccable/*
+!.impeccable/config.json
+!.impeccable/design.json
+!.impeccable/surfaces/

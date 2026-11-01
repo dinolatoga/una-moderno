@@ -1,0 +1,67 @@
+---
+import Journal from '../layouts/Journal.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Journal
+  title="About this edition"
+  description="A fictional independent journal demonstrating Una Moderno's shared editorial layout in Astro."
+  current="about"
+>
+  <div class="una-layout">
+    <main id="main" class="una-main" tabindex="-1">
+      <article class="una-feature">
+        <h1 class="una-title">A journal made to travel.</h1>
+        <p class="una-deck">Different tools. The same editorial bones.</p>
+        <div class="una-prose">
+          <h2 id="this-edition">About this edition</h2>
+          <p>
+            Every story and author in this edition is fictional. The articles, geometric
+            illustrations, and layout were created for Una Moderno, a portable editorial layout
+            system for the independent web.
+          </p>
+          <p>
+            This reference renders the same public specimen content through Astro. The stories live
+            in this repository, so the example can be built without an account, a CMS, or private
+            material.
+          </p>
+          <h2 id="art-and-type">Art and type</h2>
+          <p>
+            The illustrations are original vector artwork created for this public project. The
+            display type is Bricolage Grotesque, used under the SIL Open Font License; reading text
+            uses local system fonts.
+          </p>
+          <h2 id="room-for-words">Room for words</h2>
+          <p>
+            Artwork is optional. The{' '}
+            <a href={`${base}no-image/`}>
+              edition of “An archive of ordinary days” without an image
+            </a>{' '}
+            shows how the story holds its place when only the words remain.
+          </p>
+          <h2 id="origin">Where it began</h2>
+          <p>
+            Una Moderno descends from Dino Latoga's Una WordPress theme of 2008. The modern system
+            keeps its editorial proportions and useful sidebar, while its core is ordinary HTML and
+            CSS.
+          </p>
+          <p>
+            <a href="https://github.com/dinolatoga/una-moderno">
+              Read the project documentation and provenance on GitHub
+            </a>
+            .
+          </p>
+        </div>
+      </article>
+    </main>
+    <aside class="una-sidebar" aria-label="About this journal">
+      <section class="una-module una-module--blue">
+        <h2>Start with a story.</h2>
+        <p>A place to read, follow a useful link, and find something worth keeping.</p>
+        <p>
+          <a href={base}>Back to the journal</a>
+        </p>
+      </section>
+    </aside>
+  </div>
+</Journal>

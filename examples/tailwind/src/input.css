@@ -1,0 +1,9 @@
+@layer theme, components, utilities;
+
+@import 'tailwindcss/theme.css' layer(theme);
+@import '@una-moderno/core' layer(components);
+@import '@una-moderno/tailwind';
+@import 'tailwindcss/utilities.css' layer(utilities) source(none);
+
+/* Deliberate source boundary: no scanning unrelated workspace examples. */
+@source "../index.html";

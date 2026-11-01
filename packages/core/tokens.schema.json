@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Una Moderno CSS token inventory",
+  "type": "object",
+  "required": ["name", "version", "source", "tokens"],
+  "properties": {
+    "$schema": { "type": "string" },
+    "name": { "type": "string" },
+    "version": { "type": "string" },
+    "source": { "const": "src/tokens.css" },
+    "description": { "type": "string" },
+    "tokens": {
+      "type": "object",
+      "minProperties": 1,
+      "patternProperties": { "^--una-[a-z0-9-]+$": { "type": "string", "minLength": 1 } },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

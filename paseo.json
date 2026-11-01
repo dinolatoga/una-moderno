@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "preview": {
+      "type": "service",
+      "command": "npm run dev",
+      "port": 4321
+    }
+  }
+}

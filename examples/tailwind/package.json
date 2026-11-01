@@ -1,0 +1,11 @@
+{
+  "name": "@una-moderno/example-tailwind",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "description": "An optional Tailwind v4 extension of the core editorial specimen",
+  "dependencies": {
+    "@una-moderno/core": "0.1.0",
+    "@una-moderno/tailwind": "0.1.0"
+  }
+}

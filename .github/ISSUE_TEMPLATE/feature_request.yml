@@ -1,0 +1,39 @@
+name: Feature request
+description: Explain a concrete publishing or integration problem.
+title: '[Feature]: '
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Una Moderno is framework-neutral at the core, with optional adapters.
+        Describe the user problem before the implementation. WordPress is a v0.2 target.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Who needs this, and what is difficult today?
+      description: Use a concrete publishing, reading, or integration example.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: Explain the behavior that would solve the problem and how it could be verified.
+    validations:
+      required: true
+  - type: dropdown
+    id: boundary
+    attributes:
+      label: Likely home for the change
+      options:
+        - Framework-neutral core
+        - Optional adapter or example
+        - Documentation or tooling
+        - Unsure
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives and tradeoffs
+      description: Note existing workarounds, portability concerns, and accessibility implications.

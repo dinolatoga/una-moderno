@@ -1,0 +1,212 @@
+[
+  {
+    "slug": "a-website-can-be-a-place",
+    "title": "A website can be a place, not a feed.",
+    "summary": "What happens when we build a little corner of the internet around what we care about, and leave the door open?",
+    "author": "Mara Solis",
+    "published": "2026-10-12",
+    "category": "Web & culture",
+    "image": {
+      "src": "assets/connected-web.svg",
+      "alt": "",
+      "width": 900,
+      "height": 600
+    },
+    "body": [
+      {
+        "type": "heading",
+        "id": "a-place-to-return",
+        "text": "A place to return to"
+      },
+      {
+        "type": "paragraph",
+        "text": "Before I knew what a personal website was supposed to do, I liked knowing where to find one. A friend kept a page of sketches. Someone else wrote about the buses in their town. The addresses felt like places, and returning was part of the pleasure."
+      },
+      {
+        "type": "paragraph",
+        "text": "A feed is good at bringing something new to the top. A place is good at letting something stay. Neither is the whole internet, but we have become unusually practiced at making the first and a little out of practice at making the second."
+      },
+      {
+        "type": "paragraph",
+        "text": "This is a fictional story about an ordinary wish: to make a small public home for things that do not need to compete for attention. A page of notes. A shelf of links. An essay that can take its time."
+      },
+      {
+        "type": "heading",
+        "id": "leave-a-door-open",
+        "text": "Leave a door open"
+      },
+      {
+        "type": "paragraph",
+        "text": "The best invitation is often a useful link. It tells a visitor that the site has neighbors, and that leaving it is not a failure. A good reading list can say more about a person than an elaborate biography."
+      },
+      {
+        "type": "paragraph",
+        "text": "Navigation is a kind of hospitality. Give the visitor a way home, a name for each room, and some indication of what lies beyond the next door. A heading should help them decide whether to stay. A link should tell them where it goes."
+      },
+      {
+        "type": "paragraph",
+        "text": "None of this requires a complicated system. A document with a title, a few paragraphs, and a handful of considered links already has the beginnings of a place."
+      },
+      {
+        "type": "quote",
+        "text": "A page you can maintain is more generous than a grand system you have abandoned."
+      },
+      {
+        "type": "heading",
+        "id": "keep-it-small",
+        "text": "Keep it small enough to care for"
+      },
+      {
+        "type": "paragraph",
+        "text": "There is a temptation to build the entire future before publishing the first page. An archive, a search engine, a newsletter, a perfect taxonomy: all useful, all capable of postponing the simple act of putting words somewhere."
+      },
+      {
+        "type": "paragraph",
+        "text": "A smaller structure makes a different promise. It says that this part works, that its links have been followed, and that its maker can still understand it. A page you can maintain is more generous than a grand system you have abandoned."
+      },
+      {
+        "type": "paragraph",
+        "text": "We can start with a few ordinary practices: write a descriptive title, give images useful alternatives, make the text comfortable to read, and check the page on a small screen. These are acts of care that survive a change of platform."
+      },
+      {
+        "type": "heading",
+        "id": "a-web-with-neighbors",
+        "text": "A web with neighbors"
+      },
+      {
+        "type": "paragraph",
+        "text": "A personal site need not be an island. Its independence is what makes its connections interesting. We can point to one another without agreeing on the same software, the same schedule, or the same definition of a finished thought."
+      },
+      {
+        "type": "paragraph",
+        "text": "Perhaps the thing worth bringing back is not an old visual style but a feeling of possibility. The web can contain many different kinds of places. We can still make one, leave the door open, and see who comes by."
+      }
+    ]
+  },
+  {
+    "slug": "blue-hour",
+    "title": "The city after the hurry",
+    "summary": "A walk home, taken slowly enough to notice what the afternoon leaves behind.",
+    "author": "Ivo Reyes",
+    "published": "2026-10-09",
+    "category": "Field notes",
+    "image": {
+      "src": "assets/blue-hour.svg",
+      "alt": "",
+      "width": 400,
+      "height": 300
+    },
+    "body": [
+      {
+        "type": "heading",
+        "id": "the-long-way",
+        "text": "Taking the long way"
+      },
+      {
+        "type": "paragraph",
+        "text": "In this fictional city, the street behind the market is quiet for exactly twenty minutes. The deliveries have finished. The evening tables have not yet appeared. Someone sweeps a threshold into the light."
+      },
+      {
+        "type": "paragraph",
+        "text": "I take the longer route home because it gives the day an edge I can recognize. At the crossing, a blue wall changes color as the sun moves behind the buildings. Nothing announces the change. You have to be there."
+      },
+      {
+        "type": "heading",
+        "id": "what-remains",
+        "text": "What remains in view"
+      },
+      {
+        "type": "paragraph",
+        "text": "Walking without headphones is not a cure for anything. It is simply another way of taking notes. A hinge, a conversation, the particular scrape of a chair: details that rarely make it into a photograph."
+      },
+      {
+        "type": "paragraph",
+        "text": "The city is still busy. My attention is the thing that has changed its pace. By the time the tables come out, I have almost enough material for a page."
+      }
+    ]
+  },
+  {
+    "slug": "commonplace",
+    "title": "In praise of the commonplace book",
+    "summary": "An unremarkable notebook for thoughts that are not ready to become anything else.",
+    "author": "Mara Solis",
+    "published": "2026-10-06",
+    "category": "Making things",
+    "image": {
+      "src": "assets/commonplace.svg",
+      "alt": "",
+      "width": 400,
+      "height": 300
+    },
+    "body": [
+      {
+        "type": "heading",
+        "id": "collecting",
+        "text": "Collecting without a system"
+      },
+      {
+        "type": "paragraph",
+        "text": "The notebook in this fictional essay begins with a shopping list and ends, so far, with the name of a tree. In between are overheard phrases, book titles, a recipe adjustment, and an idea that made sense on a bus."
+      },
+      {
+        "type": "paragraph",
+        "text": "A commonplace book does not ask for a finished argument. It offers a place for fragments to live near one another. Its usefulness comes partly from the accidents of that proximity."
+      },
+      {
+        "type": "heading",
+        "id": "returning",
+        "text": "Returning to a page"
+      },
+      {
+        "type": "paragraph",
+        "text": "I leave a few blank pages at the back for an index. Most months I forget to update it. The book remains useful anyway, because looking for one thing often turns up another."
+      },
+      {
+        "type": "paragraph",
+        "text": "The aim is not to capture everything. It is to keep a few things long enough to discover what they might mean together."
+      }
+    ]
+  },
+  {
+    "slug": "ordinary",
+    "title": "An archive of ordinary days",
+    "summary": "The small records that become interesting when enough time has passed.",
+    "author": "Nina Vale",
+    "published": "2026-10-02",
+    "category": "Everyday life",
+    "image": {
+      "src": "assets/ordinary.svg",
+      "alt": "",
+      "width": 400,
+      "height": 300
+    },
+    "body": [
+      {
+        "type": "heading",
+        "id": "small-records",
+        "text": "Small records"
+      },
+      {
+        "type": "paragraph",
+        "text": "This fictional archive contains no important occasions. There is a photograph of a kitchen window, a ticket from an uneventful journey, and three sentences about the rain."
+      },
+      {
+        "type": "paragraph",
+        "text": "At the time, each record seemed too ordinary to keep. A year later, the same details supply the shape of a day that would otherwise have disappeared."
+      },
+      {
+        "type": "heading",
+        "id": "enough-context",
+        "text": "Enough context to remember"
+      },
+      {
+        "type": "paragraph",
+        "text": "A date helps. So does a place, or the name of the person just outside the frame. An archive does not need a grand classification scheme to be kind to its future reader."
+      },
+      {
+        "type": "paragraph",
+        "text": "We keep things partly because we do not yet know what will matter. The ordinary is not an absence of a subject. It is a subject that asks us to look twice."
+      }
+    ]
+  }
+]

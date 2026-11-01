@@ -1,0 +1,47 @@
+{
+  "name": "una-moderno-workspace",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Una Moderno \u2014 a portable editorial layout system for the independent web.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dinolatoga/una-moderno.git"
+  },
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "packageManager": "npm@10.9.4",
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "scripts": {
+    "build:core": "node scripts/build-core.mjs",
+    "build:tailwind": "tailwindcss -i examples/tailwind/src/input.css -o examples/tailwind/dist/styles.css --minify",
+    "build:astro": "npm run build --workspace=@una-moderno/example-astro",
+    "build": "npm run build:tokens && npm run build:core && npm run build:tailwind && npm run build:astro",
+    "dev": "node scripts/serve.mjs",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "stylelint \"packages/*/src/**/*.css\" \"packages/tailwind/theme.css\" \"packages/core/assets/fonts.css\" \"examples/tailwind/src/**/*.css\" && node --check scripts/build-core.mjs && node --check scripts/serve.mjs && node --check scripts/check-links.mjs && node --check scripts/generate-tokens.mjs",
+    "test": "node --test tests/*.test.mjs examples/astro/tests/*.test.ts",
+    "test:browser": "playwright test",
+    "check:links": "node scripts/check-links.mjs",
+    "typecheck": "npm run check --workspace=@una-moderno/example-astro",
+    "check": "npm run format:check && npm run lint && npm test && npm run build && npm run check:links",
+    "build:tokens": "node scripts/generate-tokens.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.64.1",
+    "@tailwindcss/cli": "4.3.3",
+    "lightningcss": "1.33.0",
+    "prettier": "3.9.10",
+    "prettier-plugin-astro": "1.1.2",
+    "stylelint": "17.16.0",
+    "stylelint-config-standard": "40.0.0",
+    "tailwindcss": "4.3.3"
+  }
+}

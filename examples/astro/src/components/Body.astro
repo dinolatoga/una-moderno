@@ -1,0 +1,32 @@
+---
+import type { BodyBlock } from '../content/contract';
+interface Props {
+  blocks: BodyBlock[];
+}
+const { blocks } = Astro.props;
+---
+
+<div class="una-prose">
+  {blocks.map((block) => {
+    switch (block.type) {
+      case 'paragraph':
+        return <p>{block.text}</p>;
+      case 'heading':
+        return <h2 id={block.id}>{block.text}</h2>;
+      case 'quote':
+        return (
+          <blockquote>
+            <p>{block.text}</p>
+          </blockquote>
+        );
+      case 'list':
+        return (
+          <ul>
+            {block.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        );
+    }
+  })}
+</div>

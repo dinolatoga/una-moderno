@@ -1,0 +1,555 @@
+/*! Una Moderno v0.1.0 | MIT | https://github.com/dinolatoga/una-moderno */
+
+/* Una Moderno v0.1 — canonical tokens. MIT; see LICENSE. */
+:root {
+  --una-color-ink: #47281a;
+  --una-color-muted: #715347;
+  --una-color-paper: #fffefa;
+  --una-color-white: #fff;
+  --una-color-blue: #87a9d3;
+  --una-color-blue-light: #e8eff8;
+  --una-color-link: #294d79;
+  --una-color-rust: #a1440d;
+  --una-color-rule: #cbbeb5;
+  --una-color-selection: #f2cc89;
+  --una-color-focus: #294d79;
+  --una-color-original-brown: #876551;
+  --una-color-original-rose: #9b656b;
+  --una-color-original-slate: #727c9f;
+  --una-color-original-orange: #cd5f19;
+  --una-color-original-cream: #faf3e2;
+  --una-font-display: 'Bricolage Grotesque', 'Arial', sans-serif;
+  --una-font-body: 'Arial', 'Helvetica Neue', sans-serif;
+  --una-font-prose: 'Charter', 'Bitstream Charter', 'Georgia', serif;
+  --una-font-code: ui-monospace, 'Cascadia Code', monospace;
+  --una-text-small: 0.8125rem;
+  --una-text-body: 1rem;
+  --una-text-prose: 1.1875rem;
+  --una-text-deck: 1.125rem;
+  --una-text-title: clamp(2.25rem, 4.2vw, 3.375rem);
+  --una-text-brand: clamp(2.7rem, 6.8vw, 5.5rem);
+  --una-leading-body: 1.6;
+  --una-leading-prose: 1.75;
+  --una-leading-title: 1.04;
+  --una-tracking-display: -0.035em;
+  --una-space-1: 0.25rem;
+  --una-space-2: 0.5rem;
+  --una-space-3: 0.75rem;
+  --una-space-4: 1rem;
+  --una-space-5: 1.25rem;
+  --una-space-6: 1.5rem;
+  --una-space-8: 2rem;
+  --una-space-10: 2.5rem;
+  --una-space-12: 3rem;
+  --una-space-16: 4rem;
+  --una-layout-max: 75rem;
+  --una-layout-gap: 1.25rem;
+  --una-layout-primary: 580fr;
+  --una-layout-sidebar: 360fr;
+  --una-prose-measure: 70ch;
+  --una-border-width: 1px;
+  --una-border-radius: 0;
+  --una-focus-width: 3px;
+  --una-focus-offset: 4px;
+  --una-motion-duration: 160ms;
+  --una-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Semantic styles are scoped to .una. Tokens are the only global defaults. */
+.una {
+  margin: 0;
+  background: var(--una-color-paper);
+  color: var(--una-color-ink);
+  font-family: var(--una-font-body);
+  font-size: var(--una-text-body);
+  line-height: var(--una-leading-body);
+  overflow-wrap: break-word;
+  accent-color: var(--una-color-link);
+  caret-color: var(--una-color-ink);
+  scrollbar-color: var(--una-color-original-brown) var(--una-color-paper);
+  color-scheme: light;
+}
+
+.una *,
+.una *::before,
+.una *::after {
+  box-sizing: border-box;
+}
+
+.una ::selection {
+  background: var(--una-color-selection);
+  color: var(--una-color-ink);
+}
+
+.una :where(h1, h2, h3, p, figure, blockquote, ul, ol, dl) {
+  margin: 0;
+}
+
+.una :where(h1, h2, h3) {
+  font-family: var(--una-font-display);
+  line-height: 1.15;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+.una :where(a) {
+  color: var(--una-color-link);
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+}
+
+.una :where(a:hover) {
+  color: var(--una-color-rust);
+  text-decoration-thickness: 2px;
+}
+
+.una :where(:focus-visible) {
+  outline: var(--una-focus-width) solid var(--una-color-focus);
+  outline-offset: var(--una-focus-offset);
+}
+
+.una :where(img, svg) {
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+.una :where(time) {
+  font-variant-numeric: tabular-nums;
+}
+
+.una-shell {
+  inline-size: min(calc(100% - 3rem), var(--una-layout-max));
+  margin-inline: auto;
+}
+
+.una-skip-link {
+  position: absolute;
+  z-index: 10;
+  inset-block-start: var(--una-space-2);
+  inset-inline-start: var(--una-space-4);
+  padding: var(--una-space-3) var(--una-space-4);
+  background: var(--una-color-white);
+  transform: translateY(-200%);
+}
+
+.una-skip-link:focus {
+  transform: translateY(0);
+}
+
+.una-utility {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--una-space-2) var(--una-space-4);
+  padding-block: var(--una-space-3);
+  border-bottom: var(--una-border-width) solid var(--una-color-rule);
+  color: var(--una-color-muted);
+  font-size: var(--una-text-small);
+}
+
+.una-masthead {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: var(--una-space-6);
+  padding-block: var(--una-space-8) var(--una-space-6);
+}
+
+.una-brand {
+  color: var(--una-color-ink);
+  font-family: var(--una-font-display);
+  font-size: var(--una-text-brand);
+  font-weight: 800;
+  letter-spacing: var(--una-tracking-display);
+  line-height: 0.95;
+  text-decoration: none;
+}
+
+.una-brand span {
+  color: var(--una-color-original-rose);
+}
+
+.una-masthead p {
+  max-inline-size: 27ch;
+  padding-bottom: var(--una-space-1);
+  font-size: 0.9375rem;
+  line-height: 1.45;
+}
+
+.una-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--una-space-2) var(--una-space-6);
+  padding-block: var(--una-space-3);
+  border-block: var(--una-border-width) solid var(--una-color-ink);
+  margin-block-end: var(--una-space-8);
+}
+
+.una-nav a {
+  display: inline-block;
+  padding-block: var(--una-space-1);
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--una-color-ink);
+  text-decoration: none;
+}
+
+.una-nav a:hover,
+.una-nav a[aria-current='page'] {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+.una-layout {
+  display: grid;
+  grid-template-columns: minmax(0, var(--una-layout-primary)) minmax(0, var(--una-layout-sidebar));
+  gap: var(--una-layout-gap);
+  align-items: start;
+}
+
+.una-main,
+.una-sidebar {
+  min-inline-size: 0;
+}
+
+.una-title {
+  max-inline-size: 21ch;
+  font-size: var(--una-text-title);
+  line-height: var(--una-leading-title);
+  letter-spacing: var(--una-tracking-display);
+  font-weight: 700;
+}
+
+.una-title a,
+.una-story h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.una-title a:hover,
+.una-story h3 a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+.una-deck {
+  margin-block-start: var(--una-space-4);
+  max-inline-size: 60ch;
+  font-size: var(--una-text-deck);
+  line-height: 1.55;
+}
+
+.una-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--una-space-1) var(--una-space-4);
+  color: var(--una-color-muted);
+  font-size: var(--una-text-small);
+  margin-block: var(--una-space-4) var(--una-space-5);
+}
+
+.una-feature figure {
+  margin-block-start: var(--una-space-6);
+}
+
+.una-feature figure img {
+  inline-size: 100%;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.una figcaption {
+  font-size: var(--una-text-small);
+  color: var(--una-color-muted);
+  padding-block-start: var(--una-space-2);
+}
+
+.una-section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--una-space-3);
+  border-block-start: var(--una-border-width) solid var(--una-color-ink);
+  padding-block: var(--una-space-4);
+  margin-block-start: var(--una-space-10);
+}
+
+.una-section-heading h2 {
+  font-size: 1.625rem;
+}
+
+.una-section-heading p {
+  color: var(--una-color-muted);
+  font-size: var(--una-text-small);
+}
+
+.una-recent {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--una-space-5);
+}
+
+.una-story img {
+  inline-size: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  margin-block-end: var(--una-space-3);
+}
+
+.una-story h3 {
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+.una-story .una-meta {
+  margin-block: var(--una-space-2) 0;
+}
+
+.una-module {
+  padding-block: var(--una-space-6);
+  border-block-end: var(--una-border-width) solid var(--una-color-rule);
+}
+
+.una-module:first-child {
+  padding-block-start: 0;
+}
+
+.una-module h2 {
+  font-size: 1.5rem;
+  margin-block-end: var(--una-space-4);
+}
+
+.una-module p + p {
+  margin-block-start: var(--una-space-4);
+}
+
+.una-module--blue,
+.una-module--blue:first-child {
+  padding: var(--una-space-8);
+  background: var(--una-color-blue);
+  border: 0;
+}
+
+.una-module--blue h2 {
+  font-size: clamp(1.75rem, 2.8vw, 2.625rem);
+  letter-spacing: -0.025em;
+  max-inline-size: 12ch;
+}
+
+.una-module--blue a {
+  color: var(--una-color-ink);
+}
+
+.una-link-list {
+  list-style: none;
+  padding: 0;
+}
+
+.una-link-list li + li {
+  margin-block-start: var(--una-space-3);
+}
+
+.una-link-list a {
+  display: inline-block;
+  padding-block: var(--una-space-1);
+}
+
+.una-link-list small {
+  display: block;
+  color: var(--una-color-muted);
+  font-size: var(--una-text-small);
+}
+
+.una-note {
+  color: var(--una-color-muted);
+  font-size: 0.875rem;
+}
+
+.una-contents-inline {
+  display: none;
+  margin-block: var(--una-space-5);
+  padding-block: var(--una-space-3);
+  border-block: var(--una-border-width) solid var(--una-color-rule);
+}
+
+.una-contents-inline summary {
+  cursor: pointer;
+  color: var(--una-color-link);
+  font-weight: 700;
+}
+
+.una-contents-inline ol {
+  padding: var(--una-space-4) 0 0 var(--una-space-6);
+}
+
+.una-contents-inline a {
+  display: inline-block;
+  padding-block: var(--una-space-2);
+}
+
+.una-prose {
+  max-inline-size: var(--una-prose-measure);
+  font-family: var(--una-font-prose);
+  font-size: var(--una-text-prose);
+  line-height: var(--una-leading-prose);
+  padding-block-start: var(--una-space-8);
+}
+
+.una-prose > * + * {
+  margin-block-start: var(--una-space-6);
+}
+
+.una-prose h2 {
+  margin-block-start: var(--una-space-12);
+  font-size: 1.75rem;
+  scroll-margin-block-start: var(--una-space-8);
+}
+
+.una-prose :target {
+  background: var(--una-color-blue-light);
+  transition: background-color var(--una-motion-duration) var(--una-motion-ease);
+}
+
+.una-prose blockquote {
+  padding: var(--una-space-6);
+  background: var(--una-color-original-cream);
+  font-size: 1.375rem;
+  line-height: 1.5;
+}
+
+.una-prose :where(ul, ol) {
+  padding-inline-start: var(--una-space-6);
+}
+
+.una-prose li + li {
+  margin-block-start: var(--una-space-2);
+}
+
+.una-prose code {
+  font-family: var(--una-font-code);
+  font-size: 0.85em;
+  overflow-wrap: anywhere;
+}
+
+.una-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--una-space-4);
+  border-block-start: var(--una-border-width) solid var(--una-color-ink);
+  margin-block-start: var(--una-space-16);
+  padding-block: var(--una-space-6) var(--una-space-10);
+  font-size: var(--una-text-small);
+  color: var(--una-color-muted);
+}
+
+@media (width <= 56rem) {
+  .una-contents-inline {
+    display: block;
+  }
+
+  .una-contents-sidebar {
+    display: none;
+  }
+
+  .una-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .una-sidebar {
+    margin-block-start: var(--una-space-10);
+  }
+
+  .una-module--blue h2 {
+    max-inline-size: none;
+  }
+
+  .una-masthead {
+    align-items: start;
+    flex-direction: column;
+    gap: var(--una-space-4);
+  }
+
+  .una-masthead p {
+    max-inline-size: 45ch;
+  }
+}
+
+@media (width <= 30rem) {
+  .una-shell {
+    inline-size: calc(100% - 2rem);
+  }
+
+  .una-recent {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--una-space-6);
+  }
+
+  .una-story {
+    display: grid;
+    grid-template-columns: 6rem minmax(0, 1fr);
+    gap: var(--una-space-3);
+  }
+
+  .una-story > a:has(img),
+  .una-story > img {
+    grid-row: span 2;
+  }
+
+  .una-story:has(img) .una-meta {
+    grid-column: 2;
+  }
+
+  .una-story:not(:has(img)) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .una-story img {
+    margin: 0;
+    grid-row: span 2;
+  }
+
+  .una-story h3 {
+    font-size: 1.25rem;
+  }
+
+  .una-story .una-meta {
+    margin: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .una-prose :target {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .una-nav a[aria-current='page'] {
+    border-block-end: 2px solid LinkText;
+  }
+}
+
+@media print {
+  .una-nav,
+  .una-sidebar,
+  .una-skip-link,
+  .una-utility {
+    display: none;
+  }
+
+  .una-layout {
+    display: block;
+  }
+
+  .una {
+    background: white;
+    color: black;
+  }
+
+  .una-shell {
+    inline-size: 100%;
+  }
+}

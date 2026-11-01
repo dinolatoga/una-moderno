@@ -1,0 +1,476 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-01T02:32:40.394245Z",
+  "title": "Design System: Una Moderno",
+  "extensions": {
+    "source": {
+      "authority": "packages/core/src/tokens.css",
+      "semanticStyles": "packages/core/src/una.css",
+      "generatedInventory": "packages/core/tokens.json",
+      "canonicalTokenCount": 51,
+      "status": "Derived documentation; edit source CSS first. No independent palette or token authoring.",
+      "optionalFont": "packages/core/assets/fonts.css"
+    },
+    "colorMeta": {
+      "ink": {
+        "role": "primary",
+        "displayName": "Cocoa ink",
+        "tonalRamp": [
+          "oklch(15.000% 0.05233 44.691)",
+          "oklch(26.429% 0.05233 44.691)",
+          "oklch(37.857% 0.05233 44.691)",
+          "oklch(49.286% 0.05233 44.691)",
+          "oklch(60.714% 0.05233 44.691)",
+          "oklch(72.143% 0.05233 44.691)",
+          "oklch(83.571% 0.05233 44.691)",
+          "oklch(95.000% 0.05233 44.691)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted cocoa",
+        "tonalRamp": [
+          "oklch(15.000% 0.04466 42.780)",
+          "oklch(26.429% 0.04466 42.780)",
+          "oklch(37.857% 0.04466 42.780)",
+          "oklch(49.286% 0.04466 42.780)",
+          "oklch(60.714% 0.04466 42.780)",
+          "oklch(72.143% 0.04466 42.780)",
+          "oklch(83.571% 0.04466 42.780)",
+          "oklch(95.000% 0.04466 42.780)"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Reading white",
+        "tonalRamp": [
+          "oklch(15.000% 0.00537 95.097)",
+          "oklch(26.429% 0.00537 95.097)",
+          "oklch(37.857% 0.00537 95.097)",
+          "oklch(49.286% 0.00537 95.097)",
+          "oklch(60.714% 0.00537 95.097)",
+          "oklch(72.143% 0.00537 95.097)",
+          "oklch(83.571% 0.00537 95.097)",
+          "oklch(95.000% 0.00537 95.097)"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "Clear white",
+        "tonalRamp": [
+          "oklch(15.000% 0.00000 0.000)",
+          "oklch(26.429% 0.00000 0.000)",
+          "oklch(37.857% 0.00000 0.000)",
+          "oklch(49.286% 0.00000 0.000)",
+          "oklch(60.714% 0.00000 0.000)",
+          "oklch(72.143% 0.00000 0.000)",
+          "oklch(83.571% 0.00000 0.000)",
+          "oklch(95.000% 0.00000 0.000)"
+        ]
+      },
+      "blue": {
+        "role": "secondary",
+        "displayName": "Margin blue",
+        "tonalRamp": [
+          "oklch(15.000% 0.07199 253.996)",
+          "oklch(26.429% 0.07199 253.996)",
+          "oklch(37.857% 0.07199 253.996)",
+          "oklch(49.286% 0.07199 253.996)",
+          "oklch(60.714% 0.07199 253.996)",
+          "oklch(72.143% 0.07199 253.996)",
+          "oklch(83.571% 0.07199 253.996)",
+          "oklch(95.000% 0.07199 253.996)"
+        ]
+      },
+      "blue-light": {
+        "role": "secondary",
+        "displayName": "Destination blue",
+        "tonalRamp": [
+          "oklch(15.000% 0.01426 254.606)",
+          "oklch(26.429% 0.01426 254.606)",
+          "oklch(37.857% 0.01426 254.606)",
+          "oklch(49.286% 0.01426 254.606)",
+          "oklch(60.714% 0.01426 254.606)",
+          "oklch(72.143% 0.01426 254.606)",
+          "oklch(83.571% 0.01426 254.606)",
+          "oklch(95.000% 0.01426 254.606)"
+        ]
+      },
+      "link": {
+        "role": "primary",
+        "displayName": "Reading blue",
+        "tonalRamp": [
+          "oklch(15.000% 0.08501 254.512)",
+          "oklch(26.429% 0.08501 254.512)",
+          "oklch(37.857% 0.08501 254.512)",
+          "oklch(49.286% 0.08501 254.512)",
+          "oklch(60.714% 0.08501 254.512)",
+          "oklch(72.143% 0.08501 254.512)",
+          "oklch(83.571% 0.08501 254.512)",
+          "oklch(95.000% 0.08501 254.512)"
+        ]
+      },
+      "rust": {
+        "role": "primary",
+        "displayName": "Deep rust",
+        "tonalRamp": [
+          "oklch(15.000% 0.13737 44.960)",
+          "oklch(26.429% 0.13737 44.960)",
+          "oklch(37.857% 0.13737 44.960)",
+          "oklch(49.286% 0.13737 44.960)",
+          "oklch(60.714% 0.13737 44.960)",
+          "oklch(72.143% 0.13737 44.960)",
+          "oklch(83.571% 0.13737 44.960)",
+          "oklch(95.000% 0.13737 44.960)"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Warm rule",
+        "tonalRamp": [
+          "oklch(15.000% 0.01935 57.155)",
+          "oklch(26.429% 0.01935 57.155)",
+          "oklch(37.857% 0.01935 57.155)",
+          "oklch(49.286% 0.01935 57.155)",
+          "oklch(60.714% 0.01935 57.155)",
+          "oklch(72.143% 0.01935 57.155)",
+          "oklch(83.571% 0.01935 57.155)",
+          "oklch(95.000% 0.01935 57.155)"
+        ]
+      },
+      "selection": {
+        "role": "secondary",
+        "displayName": "Selection amber",
+        "tonalRamp": [
+          "oklch(15.000% 0.09495 81.111)",
+          "oklch(26.429% 0.09495 81.111)",
+          "oklch(37.857% 0.09495 81.111)",
+          "oklch(49.286% 0.09495 81.111)",
+          "oklch(60.714% 0.09495 81.111)",
+          "oklch(72.143% 0.09495 81.111)",
+          "oklch(83.571% 0.09495 81.111)",
+          "oklch(95.000% 0.09495 81.111)"
+        ]
+      },
+      "focus": {
+        "role": "primary",
+        "displayName": "Focus blue",
+        "tonalRamp": [
+          "oklch(15.000% 0.08501 254.512)",
+          "oklch(26.429% 0.08501 254.512)",
+          "oklch(37.857% 0.08501 254.512)",
+          "oklch(49.286% 0.08501 254.512)",
+          "oklch(60.714% 0.08501 254.512)",
+          "oklch(72.143% 0.08501 254.512)",
+          "oklch(83.571% 0.08501 254.512)",
+          "oklch(95.000% 0.08501 254.512)"
+        ]
+      },
+      "original-brown": {
+        "role": "neutral",
+        "displayName": "Historical brown",
+        "tonalRamp": [
+          "oklch(15.000% 0.05336 51.698)",
+          "oklch(26.429% 0.05336 51.698)",
+          "oklch(37.857% 0.05336 51.698)",
+          "oklch(49.286% 0.05336 51.698)",
+          "oklch(60.714% 0.05336 51.698)",
+          "oklch(72.143% 0.05336 51.698)",
+          "oklch(83.571% 0.05336 51.698)",
+          "oklch(95.000% 0.05336 51.698)"
+        ]
+      },
+      "original-rose": {
+        "role": "secondary",
+        "displayName": "Masthead rose",
+        "tonalRamp": [
+          "oklch(15.000% 0.07024 12.270)",
+          "oklch(26.429% 0.07024 12.270)",
+          "oklch(37.857% 0.07024 12.270)",
+          "oklch(49.286% 0.07024 12.270)",
+          "oklch(60.714% 0.07024 12.270)",
+          "oklch(72.143% 0.07024 12.270)",
+          "oklch(83.571% 0.07024 12.270)",
+          "oklch(95.000% 0.07024 12.270)"
+        ]
+      },
+      "original-slate": {
+        "role": "tertiary",
+        "displayName": "Historical slate",
+        "tonalRamp": [
+          "oklch(15.000% 0.05498 272.229)",
+          "oklch(26.429% 0.05498 272.229)",
+          "oklch(37.857% 0.05498 272.229)",
+          "oklch(49.286% 0.05498 272.229)",
+          "oklch(60.714% 0.05498 272.229)",
+          "oklch(72.143% 0.05498 272.229)",
+          "oklch(83.571% 0.05498 272.229)",
+          "oklch(95.000% 0.05498 272.229)"
+        ]
+      },
+      "original-orange": {
+        "role": "tertiary",
+        "displayName": "Historical orange",
+        "tonalRamp": [
+          "oklch(15.000% 0.15845 47.165)",
+          "oklch(26.429% 0.15845 47.165)",
+          "oklch(37.857% 0.15845 47.165)",
+          "oklch(49.286% 0.15845 47.165)",
+          "oklch(60.714% 0.15845 47.165)",
+          "oklch(72.143% 0.15845 47.165)",
+          "oklch(83.571% 0.15845 47.165)",
+          "oklch(95.000% 0.15845 47.165)"
+        ]
+      },
+      "original-cream": {
+        "role": "neutral",
+        "displayName": "Quote cream",
+        "tonalRamp": [
+          "oklch(15.000% 0.02363 88.234)",
+          "oklch(26.429% 0.02363 88.234)",
+          "oklch(37.857% 0.02363 88.234)",
+          "oklch(49.286% 0.02363 88.234)",
+          "oklch(60.714% 0.02363 88.234)",
+          "oklch(72.143% 0.02363 88.234)",
+          "oklch(83.571% 0.02363 88.234)",
+          "oklch(95.000% 0.02363 88.234)"
+        ]
+      }
+    },
+    "colorRampPolicy": "Eight-step OKLCH ramps are synthetic panel previews at source hue and chroma. They are not shipped tokens, approved UI colors, or contrast evidence; browser gamut mapping may apply.",
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Home wordmark."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Feature and article titles."
+      },
+      "section": {
+        "displayName": "Section",
+        "purpose": "Recent-stories section heading."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Recent-story headings."
+      },
+      "module": {
+        "displayName": "Module",
+        "purpose": "Ordinary sidebar headings."
+      },
+      "blue-module": {
+        "displayName": "Blue Module",
+        "purpose": "Blue publication-note heading."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Supporting copy and sidebar text."
+      },
+      "prose": {
+        "displayName": "Prose",
+        "purpose": "Sustained article reading; maximum 70ch."
+      },
+      "deck": {
+        "displayName": "Deck",
+        "purpose": "Story summaries; maximum 60ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Metadata, captions, utility copy, and descriptions."
+      },
+      "navigation": {
+        "displayName": "Navigation",
+        "purpose": "Main navigation links."
+      },
+      "quote": {
+        "displayName": "Quote",
+        "purpose": "Article quotation."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "destination-duration",
+        "value": "160ms",
+        "purpose": "Background-color transition on article :target."
+      },
+      {
+        "name": "destination-ease",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The easing used only for the article destination field."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact-stories",
+        "value": "30rem",
+        "condition": "width <= 30rem",
+        "behavior": "1rem shell margins; recent stories stack with a 6rem image track when an image exists."
+      },
+      {
+        "name": "stacked-editorial",
+        "value": "56rem",
+        "condition": "width <= 56rem",
+        "behavior": "One content column, masthead description below wordmark, sidebar after content, inline native article contents instead of sidebar contents."
+      }
+    ],
+    "layout": {
+      "shellMax": "75rem",
+      "shellInlineSize": "min(calc(100% - 3rem), var(--una-layout-max))",
+      "compactShellInlineSize": "calc(100% - 2rem)",
+      "desktopTracks": "minmax(0, 580fr) minmax(0, 360fr)",
+      "columnGap": "1.25rem",
+      "sidebarInlinePadding": "0",
+      "stackedSidebarMarginBlockStart": "2.5rem",
+      "proseMax": "70ch",
+      "headlineMax": "21ch",
+      "deckMax": "60ch",
+      "featureImageAspectRatio": "3 / 2",
+      "recentImageAspectRatio": "4 / 3"
+    },
+    "interaction": {
+      "focus": {
+        "width": "3px",
+        "offset": "4px",
+        "colorToken": "focus",
+        "css": ".una :where(:focus-visible) { outline: var(--una-focus-width) solid var(--una-color-focus); outline-offset: var(--una-focus-offset); }"
+      },
+      "destination": {
+        "selector": ".una-prose :target",
+        "backgroundToken": "blue-light",
+        "scrollMarginBlockStart": "2rem",
+        "runtimeJavaScript": false
+      },
+      "reducedMotion": {
+        "condition": "prefers-reduced-motion: reduce",
+        "behavior": "Remove the destination background-color transition."
+      },
+      "forcedColors": {
+        "condition": "forced-colors: active",
+        "behavior": "The current navigation link receives a 2px solid LinkText bottom border."
+      },
+      "skipLink": {
+        "defaultTransform": "translateY(-200%)",
+        "focusedTransform": "translateY(0)",
+        "target": "Main landmark with a unique id and tabindex=-1."
+      }
+    },
+    "previewNotes": "Snippets use scoped ds- classes and source CSS variable references with fallback values. Load the optional local font stylesheet to show Bricolage Grotesque. Fragment links demonstrate native anchors; destinations belong to the surrounding document. Inline contents is displayed independently of the page breakpoint. Static quotations have no invented hover state."
+  },
+  "components": [
+    {
+      "name": "Masthead",
+      "kind": "custom",
+      "refersTo": "masthead",
+      "description": "The cocoa and rose home link with a short publication description.",
+      "html": "<header class=\"ds-masthead\"><a class=\"ds-brand\" href=\"#journal\" aria-label=\"Una Moderno home\">Una<span>Moderno</span></a><p>Ideas, observations, and other things worth keeping.</p></header>",
+      "css": ".ds-masthead{font-family:var(--una-font-body, 'Arial', 'Helvetica Neue', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);display:flex;align-items:end;justify-content:space-between;gap:var(--una-space-6, 1.5rem);padding-block:var(--una-space-8, 2rem) var(--una-space-6, 1.5rem);}.ds-brand{font-family:var(--una-font-display, 'Bricolage Grotesque', 'Arial', sans-serif);color:var(--una-color-ink, #47281a);font-size:var(--una-text-brand, clamp(2.7rem, 6.8vw, 5.5rem));font-weight:800;letter-spacing:var(--una-tracking-display, -0.035em);line-height:0.95;text-decoration:none;}.ds-brand span{color:var(--una-color-original-rose, #9b656b);}.ds-masthead p{margin:0;max-inline-size:27ch;padding-bottom:var(--una-space-1, 0.25rem);font-size:0.9375rem;line-height:1.45;}.ds-brand:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(width <= 56rem){.ds-masthead{align-items:start;flex-direction:column;gap:var(--una-space-4, 1rem);}.ds-masthead p{max-inline-size:45ch;}}"
+    },
+    {
+      "name": "Main navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Wrapping native anchors, with an underlined current page.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a href=\"#journal\" aria-current=\"page\">The journal</a><a href=\"#recent\">Recent stories</a><a href=\"#long-read\">The long read</a><a href=\"#about\">About this edition</a></nav>",
+      "css": ".ds-nav{font-family:var(--una-font-body, 'Arial', 'Helvetica Neue', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);display:flex;flex-wrap:wrap;gap:var(--una-space-2, 0.5rem) var(--una-space-6, 1.5rem);padding-block:var(--una-space-3, 0.75rem);border-block:var(--una-border-width, 1px) solid var(--una-color-ink, #47281a);margin-block-end:var(--una-space-8, 2rem);}.ds-nav a{display:inline-block;padding-block:var(--una-space-1, 0.25rem);color:var(--una-color-ink, #47281a);font-size:0.9375rem;font-weight:700;text-decoration:none;text-underline-offset:0.2em;}.ds-nav a:hover,.ds-nav a[aria-current=\"page\"]{text-decoration:underline;text-decoration-thickness:2px;}.ds-nav a:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(forced-colors:active){.ds-nav a[aria-current=\"page\"]{border-block-end:2px solid LinkText;}}"
+    },
+    {
+      "name": "Feature without optional image",
+      "kind": "custom",
+      "refersTo": "feature",
+      "description": "A complete title, deck, and metadata pattern with the optional figure omitted.",
+      "html": "<article class=\"ds-feature\"><h2 class=\"ds-title\"><a href=\"#long-read\">A website can be a place, not a feed.</a></h2><p class=\"ds-deck\">What happens when we build a little corner of the internet around what we care about, and leave the door open?</p><p class=\"ds-meta\"><span>By Mara Solis \u00b7 Fictional specimen</span><time datetime=\"2026-10-12\">October 12, 2026</time></p></article>",
+      "css": ".ds-feature{font-family:var(--una-font-body, 'Arial', 'Helvetica Neue', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;}.ds-title{font-family:var(--una-font-display, 'Bricolage Grotesque', 'Arial', sans-serif);margin:0;max-inline-size:21ch;font-size:var(--una-text-title, clamp(2.25rem, 4.2vw, 3.375rem));line-height:var(--una-leading-title, 1.04);letter-spacing:var(--una-tracking-display, -0.035em);font-weight:700;text-wrap:balance;overflow-wrap:anywhere;}.ds-title a{color:inherit;text-decoration:none;text-underline-offset:0.2em;}.ds-title a:hover{text-decoration:underline;text-decoration-thickness:2px;}.ds-deck{margin:var(--una-space-4, 1rem) 0 0;max-inline-size:60ch;font-size:var(--una-text-deck, 1.125rem);line-height:1.55;}.ds-meta{display:flex;flex-wrap:wrap;gap:var(--una-space-1, 0.25rem) var(--una-space-4, 1rem);color:var(--una-color-muted, #715347);font-size:var(--una-text-small, 0.8125rem);margin-block:var(--una-space-4, 1rem) var(--una-space-5, 1.25rem);}.ds-meta time{font-variant-numeric:tabular-nums;}.ds-title a:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}"
+    },
+    {
+      "name": "Recent story without optional thumbnail",
+      "kind": "custom",
+      "refersTo": "recent-story",
+      "description": "A linked story heading and metadata remain complete when no image is supplied.",
+      "html": "<article class=\"ds-story\"><h3><a href=\"#commonplace\">In praise of the commonplace book</a></h3><p class=\"ds-story-meta\"><span>Making things \u00b7 Fictional specimen</span><time datetime=\"2026-10-06\">Oct 6</time></p></article>",
+      "css": ".ds-story{font-family:var(--una-font-body, 'Arial', 'Helvetica Neue', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);}.ds-story h3{font-family:var(--una-font-display, 'Bricolage Grotesque', 'Arial', sans-serif);margin:0;font-size:1.25rem;line-height:1.2;text-wrap:balance;overflow-wrap:anywhere;}.ds-story h3 a{color:inherit;text-decoration:none;text-underline-offset:0.2em;}.ds-story h3 a:hover{text-decoration:underline;text-decoration-thickness:2px;}.ds-story-meta{display:flex;flex-wrap:wrap;gap:var(--una-space-1, 0.25rem) var(--una-space-4, 1rem);color:var(--una-color-muted, #715347);font-size:var(--una-text-small, 0.8125rem);margin:var(--una-space-2, 0.5rem) 0 0;}.ds-story-meta time{font-variant-numeric:tabular-nums;}.ds-story a:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(width <= 30rem){.ds-story{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--una-space-3,0.75rem);}.ds-story-meta{margin:0;}}"
+    },
+    {
+      "name": "Blue publication module",
+      "kind": "custom",
+      "refersTo": "blue-module",
+      "description": "The blue margin field carries useful publication context.",
+      "html": "<section class=\"ds-blue\"><h2>A little more room for the interesting.</h2><p>This fictional edition is about paying attention: to the places we make, the things we collect, and the web we want to inhabit.</p><p><a href=\"#about\">Meet the specimen</a></p></section>",
+      "css": ".ds-blue{font-family:var(--una-font-body, 'Arial', 'Helvetica Neue', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);padding:var(--una-space-8, 2rem);background:var(--una-color-blue, #87a9d3);border:0;}.ds-blue h2{font-family:var(--una-font-display, 'Bricolage Grotesque', 'Arial', sans-serif);margin:0 0 var(--una-space-4, 1rem);font-size:clamp(1.75rem,2.8vw,2.625rem);line-height:1.15;letter-spacing:-0.025em;max-inline-size:12ch;text-wrap:balance;overflow-wrap:anywhere;}.ds-blue p{margin:0;}.ds-blue p+p{margin-block-start:var(--una-space-4, 1rem);}.ds-blue a{color:var(--una-color-ink, #47281a);text-underline-offset:0.2em;text-decoration-thickness:1px;}.ds-blue a:hover{text-decoration-thickness:2px;}.ds-blue a:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(width <= 56rem){.ds-blue h2{max-inline-size:none;}}"
+    },
+    {
+      "name": "Reading list",
+      "kind": "nav",
+      "refersTo": "link-list",
+      "description": "Useful links with small descriptive lines, separated by space rather than boxes.",
+      "html": "<nav class=\"ds-list-module\" aria-label=\"Find your next read\"><h2>Find your next read</h2><ul class=\"ds-link-list\"><li><a href=\"#web\">Web &amp; culture</a><small>Personal places on a connected web</small></li><li><a href=\"#field\">Field notes</a><small>The overlooked life of a city</small></li></ul></nav>",
+      "css": ".ds-list-module{font-family:var(--una-font-body, 'Arial', 'Helvetica Neue', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);padding-block:var(--una-space-6, 1.5rem);border-block-end:var(--una-border-width, 1px) solid var(--una-color-rule, #cbbeb5);}.ds-list-module h2{font-family:var(--una-font-display, 'Bricolage Grotesque', 'Arial', sans-serif);margin:0 0 var(--una-space-4, 1rem);font-size:1.5rem;line-height:1.15;}.ds-link-list{list-style:none;padding:0;margin:0;}.ds-link-list li+li{margin-block-start:var(--una-space-3, 0.75rem);}.ds-link-list a{display:inline-block;padding-block:var(--una-space-1, 0.25rem);}.ds-link-list small{display:block;color:var(--una-color-muted, #715347);font-size:var(--una-text-small, 0.8125rem);}.ds-link-list a{color:var(--una-color-link, #294d79);text-underline-offset:0.2em;text-decoration-thickness:1px;}.ds-link-list a:hover{color:var(--una-color-rust, #a1440d);text-decoration-thickness:2px;}.ds-link-list a:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}"
+    },
+    {
+      "name": "Inline article contents",
+      "kind": "nav",
+      "refersTo": "article-contents",
+      "description": "Native details disclosure, shown in the article at 56rem and below; preview displays it independently.",
+      "html": "<nav class=\"ds-contents\" aria-label=\"Article sections\"><details><summary>In this article</summary><ol><li><a href=\"#a-place-to-return\">A place to return to</a></li><li><a href=\"#leave-a-door-open\">Leave a door open</a></li></ol></details></nav>",
+      "css": ".ds-contents{font-family:var(--una-font-body, 'Arial', 'Helvetica Neue', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);margin-block:var(--una-space-5, 1.25rem);padding-block:var(--una-space-3, 0.75rem);border-block:var(--una-border-width, 1px) solid var(--una-color-rule, #cbbeb5);}.ds-contents summary{cursor:pointer;color:var(--una-color-link, #294d79);font-weight:700;}.ds-contents ol{margin:0;padding:var(--una-space-4, 1rem) 0 0 var(--una-space-6, 1.5rem);}.ds-contents a{display:inline-block;padding-block:var(--una-space-2, 0.5rem);}.ds-contents summary:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}.ds-contents a{color:var(--una-color-link, #294d79);text-underline-offset:0.2em;text-decoration-thickness:1px;}.ds-contents a:hover{color:var(--una-color-rust, #a1440d);text-decoration-thickness:2px;}.ds-contents a:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}"
+    },
+    {
+      "name": "Article quotation",
+      "kind": "custom",
+      "refersTo": "quote",
+      "description": "A larger serif quotation on a flat cream field.",
+      "html": "<blockquote class=\"ds-quote\"><p>A page you can maintain is more generous than a grand system you have abandoned.</p></blockquote>",
+      "css": ".ds-quote{margin:0;padding:var(--una-space-6, 1.5rem);background:var(--una-color-original-cream, #faf3e2);color:var(--una-color-ink, #47281a);font-family:var(--una-font-prose, 'Charter', 'Bitstream Charter', 'Georgia', serif);font-size:1.375rem;line-height:1.5;}.ds-quote p{margin:0;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Independent arts-journal contents spread",
+    "overview": "Una Moderno gives an independent publication a clear reading surface and a useful margin. Cocoa and rose display type, a nearly white ground, blue editorial fields, and square-edged imagery make it direct, lively, and grounded. Its density comes from stories and navigable lists, with rules separating functions rather than enclosing every item.\n\nThe custom sans establishes identity while familiar sans-serif supporting text and a serif article face keep reading comfortable. The implemented world is light, flat, and built from ordinary HTML links, headings, lists, and native disclosure. It carries no dark theme, floating card system, or scripted navigation.",
+    "keyCharacteristics": [
+      "Cocoa and rose masthead with a blue editorial margin.",
+      "Unequal columns, a leading story, three recent stories, and useful supporting lists.",
+      "Square corners, rectangular geometric art, and thin functional rules.",
+      "A custom sans for identity and headings; quiet serif prose at a 70ch maximum.",
+      "Native links, visible focus, and an article destination highlight without runtime JavaScript."
+    ],
+    "rules": [
+      {
+        "name": "The Useful Color Rule",
+        "body": "Use the blue field to gather publication or reading context. Keep historical orange and slate in editorial art; ordinary text uses the established ink, muted, link, and hover colors.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Reading Voices Rule",
+        "body": "Use the display sans for identity and headings, the body sans for navigation and summaries, and the prose serif for sustained reading. Do not turn the masthead face into the article body.",
+        "section": "typography"
+      },
+      {
+        "name": "The Honest Gutter Rule",
+        "body": "The desktop columns share one layout gap. Do not add sidebar padding that doubles the visible gutter; a colored module retains its own internal padding.",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat Page Rule",
+        "body": "Separate functions with space, thin rules, and the blue field. Do not add drop shadows or lift story items into floating cards.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do derive changes from the canonical CSS tokens, then refresh this record and the generated inventory.",
+      "Do preserve the unequal desktop columns and the useful margin; stack in source order at the existing breakpoint.",
+      "Do keep feature images optional, titles able to wrap, and article text within the established reading measure.",
+      "Do use descriptive links, ordered headings, the skip link, and the existing visible focus treatment.",
+      "Do keep supplied specimen stories and authors clearly identified as fictional.",
+      "Do retain the optional display font license and asset provenance when distributing it."
+    ],
+    "donts": [
+      "Don't introduce a second palette or layout in the Tailwind layer or an adapter.",
+      "Don't substitute a generic card gallery or promotional hero for the editorial reading surface.",
+      "Don't use historical orange or slate as ordinary small-text colors; their established role is illustration.",
+      "Don't add rounded cards, drop shadows, decorative badges, or invented interface primitives to this documented system.",
+      "Don't require JavaScript, a framework, Node, or the optional font for a reader to use the core layout.",
+      "Don't treat this extracted design record, its preview ramps, or a successful render as an accessibility or compatibility certification."
+    ]
+  }
+}

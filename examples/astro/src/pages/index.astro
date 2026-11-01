@@ -1,0 +1,103 @@
+---
+import Journal from '../layouts/Journal.astro';
+import StoryMeta from '../components/StoryMeta.astro';
+import StoryImage from '../components/StoryImage.astro';
+import { lead, recent, stories } from '../content/stories';
+const base = import.meta.env.BASE_URL;
+---
+
+<Journal
+  title="The journal"
+  description="A fictional journal of ideas, observations, and things worth keeping. An Astro specimen of Una Moderno."
+  current="journal"
+>
+  <div class="una-layout">
+    <main id="main" class="una-main" tabindex="-1">
+      <article class="una-feature">
+        <h1 class="una-title">
+          <a href={`${base}${lead.slug}/`}>{lead.title}</a>
+        </h1>
+        <p class="una-deck">{lead.summary}</p>
+        <StoryMeta story={lead} />
+        <StoryImage
+          image={lead.image}
+          href={`${base}${lead.slug}/`}
+          linkLabel={`Read ${lead.title}`}
+          caption="Small places. Open windows. A web made by people."
+        />
+      </article>
+      <section aria-labelledby="recent">
+        <div class="una-section-heading">
+          <h2 id="recent">Recently, in the journal</h2>
+          <p>Three things to spend time with</p>
+        </div>
+        <div class="una-recent">
+          {recent.map((story) => (
+            <article class="una-story">
+              {story.image && (
+                <a href={`${base}${story.slug}/`} tabindex="-1" aria-hidden="true">
+                  <img
+                    src={`${base}${story.image.src}`}
+                    width={story.image.width}
+                    height={story.image.height}
+                    loading="lazy"
+                    alt=""
+                  />
+                </a>
+              )}
+              <h3>
+                <a href={`${base}${story.slug}/`}>{story.title}</a>
+              </h3>
+              <StoryMeta story={story} compact />
+            </article>
+          ))}
+        </div>
+      </section>
+    </main>
+    <aside class="una-sidebar" aria-label="Publication and reading notes">
+      <section class="una-module una-module--blue">
+        <h2>A little more room for the interesting.</h2>
+        <p>
+          This edition is about paying attention: to the places we make, the things we collect, and
+          the web we want to inhabit.
+        </p>
+        <p>
+          <a href={`${base}about/`}>Meet the specimen</a>
+        </p>
+      </section>
+      <section class="una-module">
+        <h2>Find your next read</h2>
+        <ul class="una-link-list">
+          {stories.map((story) => (
+            <li>
+              <a href={`${base}${story.slug}/`}>{story.category}</a>
+              <small>{story.summary}</small>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <section class="una-module">
+        <h2>From the reading desk</h2>
+        <ul class="una-link-list">
+          <li>
+            <a href="https://indieweb.org/">IndieWeb</a>
+            <small>A community for owning your place online.</small>
+          </li>
+          <li>
+            <a href="https://www.webdesignmuseum.org/">Web Design Museum</a>
+            <small>A look at the web's changing visual language.</small>
+          </li>
+        </ul>
+      </section>
+      <section class="una-module">
+        <h2>Made to travel</h2>
+        <p class="una-note">
+          This journal is a working example of Una Moderno. Same editorial bones, your own words.
+        </p>
+        <p>
+          <a href="https://github.com/dinolatoga/una-moderno">Explore the source on GitHub</a>
+        </p>
+      </section>
+    </aside>
+  </div>
+</Journal>
