@@ -51,7 +51,7 @@ A public MIT initial repository and the maintainer brief. The archived post and 
 
 ## Accessibility & Inclusion
 
-Semantic landmarks, ordered headings, a skip link, visible keyboard focus, descriptive links, sufficient contrast, reduced-motion support, and no horizontal overflow at 390, 768, 1280, and 1440 pixels. Article measure targets 65–75ch.
+Semantic landmarks, ordered headings, a skip link, visible keyboard focus, descriptive links, sufficient contrast, reduced-motion support, and no document horizontal overflow at 320, 390, 768, 1280, and 1440 pixels. Main navigation remains one horizontal row and scrolls within its own strip when needed. Scrollbar chrome stays hidden; partially visible destinations signal continuation. Article measure targets 65–75ch. The owner-approved typography uses self-hosted Geist for every text role, with weight and scale establishing hierarchy and local/system fallbacks preserving readability.
 
 ## Assumptions and Open Decisions
 

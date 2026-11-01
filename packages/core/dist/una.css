@@ -18,10 +18,10 @@
   --una-color-original-slate: #727c9f;
   --una-color-original-orange: #cd5f19;
   --una-color-original-cream: #faf3e2;
-  --una-font-display: 'Bricolage Grotesque', 'Arial', sans-serif;
-  --una-font-body: 'Arial', 'Helvetica Neue', sans-serif;
-  --una-font-prose: 'Charter', 'Bitstream Charter', 'Georgia', serif;
-  --una-font-code: ui-monospace, 'Cascadia Code', monospace;
+  --una-font-display: var(--una-font-body);
+  --una-font-body: 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --una-font-prose: var(--una-font-body);
+  --una-font-code: var(--una-font-body);
   --una-text-small: 0.8125rem;
   --una-text-body: 1rem;
   --una-text-prose: 1.1875rem;
@@ -157,6 +157,8 @@
 }
 
 .una-brand {
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
   color: var(--una-color-ink);
   font-family: var(--una-font-display);
   font-size: var(--una-text-brand);
@@ -178,65 +180,33 @@
 }
 
 .una-nav {
-  padding-block: var(--una-space-3);
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--una-space-6);
+  min-inline-size: 0;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+
+  /* A centered optimal view region makes native focus reveal partial links. */
+  scroll-padding-inline: 50%;
+  padding: var(--una-space-2);
   border-block: var(--una-border-width) solid var(--una-color-ink);
   margin-block-end: var(--una-space-8);
+  scrollbar-width: none;
 }
 
-.una-nav-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--una-space-2) var(--una-space-6);
-}
-
-.una-nav-disclosure {
+.una-nav::-webkit-scrollbar {
   display: none;
-}
-
-.una-nav-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--una-space-2);
-  inline-size: max-content;
-  min-inline-size: 44px;
-  min-block-size: 44px;
-  margin-inline-start: auto;
-  padding: var(--una-space-2) var(--una-space-3);
-  color: var(--una-color-ink);
-  font-size: 0.9375rem;
-  font-weight: 700;
-  cursor: pointer;
-  list-style: none;
-}
-
-.una-nav-toggle::-webkit-details-marker {
-  display: none;
-}
-
-.una-nav-toggle:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-}
-
-.una-nav-icon {
-  flex: none;
-  inline-size: 24px;
-  block-size: 24px;
-}
-
-.una-nav-icon-close,
-.una-nav-disclosure[open] .una-nav-icon-menu {
-  display: none;
-}
-
-.una-nav-disclosure[open] .una-nav-icon-close {
-  display: block;
 }
 
 .una-nav a {
-  display: inline-block;
-  padding-block: var(--una-space-1);
+  display: flex;
+  flex: none;
+  align-items: center;
+  min-block-size: 44px;
+  padding: var(--una-space-1) var(--una-space-2);
+  scroll-margin-inline: var(--una-space-2);
+  white-space: nowrap;
   font-size: 0.9375rem;
   font-weight: 700;
   color: var(--una-color-ink);
@@ -525,35 +495,6 @@
   }
 }
 
-/* The four specimen links need about 530px including page margins. */
-@media (width <= 36rem) {
-  .una-nav {
-    padding-block: 0;
-  }
-
-  .una-nav-links--wide {
-    display: none;
-  }
-
-  .una-nav-disclosure {
-    display: block;
-  }
-
-  .una-nav-disclosure .una-nav-links {
-    flex-direction: column;
-    gap: 0;
-    padding-block: var(--una-space-2);
-    border-block-start: var(--una-border-width) solid var(--una-color-rule);
-  }
-
-  .una-nav-disclosure a {
-    display: flex;
-    align-items: center;
-    min-block-size: 44px;
-    padding: var(--una-space-3);
-  }
-}
-
 @media (width <= 30rem) {
   .una-shell {
     inline-size: calc(100% - 2rem);
@@ -566,7 +507,7 @@
 
   .una-story {
     display: grid;
-    grid-template-columns: 6rem minmax(0, 1fr);
+    grid-template-columns: min(6rem, 33.3333%) minmax(0, 1fr);
     gap: var(--una-space-3);
   }
 
@@ -594,6 +535,13 @@
 
   .una-story .una-meta {
     margin: 0;
+  }
+}
+
+/* Keep part of the next destination visible on the narrowest phones. */
+@media (width <= 22rem) {
+  .una-nav {
+    gap: var(--una-space-2);
   }
 }
 

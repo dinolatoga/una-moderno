@@ -12,8 +12,8 @@
       "captured": "2026-11-01",
       "browser": "Google Chrome 156.0.8078.74",
       "command": "UNA_BROWSER_CHANNEL=chrome npm run test:browser",
-      "sha256": "3232079ff8eea9a1724ac27854a0d0e5fef36968e50839121754e4c0eee839b1",
-      "origin": "Origin: local Una Moderno fictional specimen, route /, 1440x1000 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; bundled Bricolage Grotesque font under SIL OFL 1.1. No historical or private-site assets. Pixels are unchanged from the browser capture."
+      "sha256": "3b87e746c8962e778000bb03ead870187ca6850b4acb849950939ff74925d15e",
+      "origin": "Origin: local Una Moderno fictional specimen, route /, 1440x1000 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Initial navigation position. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; bundled Geist Sans 1.900 under SIL OFL 1.1. No historical or private-site assets. Pixels are unchanged from the browser capture."
     },
     {
       "file": "editorial-mobile.png",
@@ -27,8 +27,8 @@
       "captured": "2026-11-01",
       "browser": "Google Chrome 156.0.8078.74",
       "command": "UNA_BROWSER_CHANNEL=chrome npm run test:browser",
-      "sha256": "8282d27fbf0ac8f85beab3b46637a2f6dc1142f4e1952a7b1a683c7a7e84f89e",
-      "origin": "Origin: local Una Moderno fictional specimen, route /, 390x1000 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Native phone menu closed by default. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; bundled Bricolage Grotesque font under SIL OFL 1.1. No historical or private-site assets. Pixels are unchanged from the browser capture."
+      "sha256": "22c6a1fda298ccdfb5efe32fd74cd0891ba37ca33435ffac971cd7ed4082c5bf",
+      "origin": "Origin: local Una Moderno fictional specimen, route /, 390x1000 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Initial navigation position with hidden scrollbar chrome and a partial next destination. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; bundled Geist Sans 1.900 under SIL OFL 1.1. No historical or private-site assets. Pixels are unchanged from the browser capture."
     },
     {
       "file": "article-desktop.png",
@@ -42,8 +42,8 @@
       "captured": "2026-11-01",
       "browser": "Google Chrome 156.0.8078.74",
       "command": "UNA_BROWSER_CHANNEL=chrome npm run test:browser",
-      "sha256": "e1b0360ab7df09fa6408634be732d4ac5ea679e2d6a7b3f17472f004d8455d87",
-      "origin": "Origin: local Una Moderno fictional specimen, route /article.html, 1440x1000 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; bundled Bricolage Grotesque font under SIL OFL 1.1. No historical or private-site assets. Pixels are unchanged from the browser capture."
+      "sha256": "6fcc1e9fa4a089271aae0f5a556ef8aafb926375672733097f60c42f4e680fe6",
+      "origin": "Origin: local Una Moderno fictional specimen, route /article.html, 1440x1000 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Initial navigation position. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; bundled Geist Sans 1.900 under SIL OFL 1.1. No historical or private-site assets. Pixels are unchanged from the browser capture."
     },
     {
       "file": "article-mobile.png",
@@ -57,12 +57,12 @@
       "captured": "2026-11-01",
       "browser": "Google Chrome 156.0.8078.74",
       "command": "UNA_BROWSER_CHANNEL=chrome npm run test:browser",
-      "sha256": "6dde535c9283096eb461889bc1632c0cc23bb54a3c85756f08d20ae8dfccec93",
-      "origin": "Origin: local Una Moderno fictional specimen, route /article.html, 390x1000 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Native phone menu closed by default. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; bundled Bricolage Grotesque font under SIL OFL 1.1. No historical or private-site assets. Pixels are unchanged from the browser capture."
+      "sha256": "74a9ccea9ce6276a8dea355b530773252a9909dde63714d4391475c7ef459e7b",
+      "origin": "Origin: local Una Moderno fictional specimen, route /article.html, 390x1000 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Initial navigation position with hidden scrollbar chrome. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; bundled Geist Sans 1.900 under SIL OFL 1.1. No historical or private-site assets. Pixels are unchanged from the browser capture."
     },
     {
-      "file": "navigation-mobile-open.png",
-      "source": ".impeccable/review/nav-static-index-390-open.png",
+      "file": "navigation-mobile-end.png",
+      "source": ".impeccable/review/nav-static-index-390-end.png",
       "route": "/",
       "viewport": {
         "width": 390,
@@ -72,8 +72,8 @@
       "captured": "2026-11-01",
       "browser": "Google Chrome 156.0.8078.74",
       "command": "UNA_BROWSER_CHANNEL=chrome npm run test:browser",
-      "origin": "Origin: local Una Moderno fictional specimen, route /, 390x844 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Native phone menu open and keyboard-focused. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; bundled Bricolage Grotesque font under SIL OFL 1.1. No historical or private-site assets. Pixels are unchanged from the browser capture.",
-      "sha256": "3ec6b8593d85e0f6af4aef5cece777bf8bedf62f9aebfb16aeab2ff82b2970dd"
+      "sha256": "53070db6977d5c4fa2c87ba586724e2a743a4db77266825738b1b2b703650efd",
+      "origin": "Origin: local Una Moderno fictional specimen, route /, 390x844 CSS-pixel viewport, full-page Playwright capture on 2026-11-01 using Google Chrome 156.0.8078.74. Navigation scrolled to the final keyboard-focused link; complete focus outline and hidden scrollbar chrome. Captured by UNA_BROWSER_CHANNEL=chrome npm run test:browser after npm run build. Original repository art and text under MIT; bundled Geist Sans 1.900 under SIL OFL 1.1. No historical or private-site assets. Pixels are unchanged from the browser capture."
     }
   ]
 }

@@ -20,70 +20,70 @@ colors:
   'original-cream': '#faf3e2'
 typography:
   display:
-    fontFamily: "'Bricolage Grotesque', 'Arial', sans-serif"
+    fontFamily: "'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif"
     fontSize: 'clamp(2.7rem, 6.8vw, 5.5rem)'
     fontWeight: 800
     lineHeight: 0.95
     letterSpacing: '-0.035em'
   headline:
-    fontFamily: "'Bricolage Grotesque', 'Arial', sans-serif"
+    fontFamily: "'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif"
     fontSize: 'clamp(2.25rem, 4.2vw, 3.375rem)'
     fontWeight: 700
     lineHeight: 1.04
     letterSpacing: '-0.035em'
   section:
-    fontFamily: "'Bricolage Grotesque', 'Arial', sans-serif"
+    fontFamily: "'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif"
     fontSize: '1.625rem'
     fontWeight: 700
     lineHeight: 1.15
   title:
-    fontFamily: "'Bricolage Grotesque', 'Arial', sans-serif"
+    fontFamily: "'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif"
     fontSize: '1.25rem'
     fontWeight: 700
     lineHeight: 1.2
   module:
-    fontFamily: "'Bricolage Grotesque', 'Arial', sans-serif"
+    fontFamily: "'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif"
     fontSize: '1.5rem'
     fontWeight: 700
     lineHeight: 1.15
   blue-module:
-    fontFamily: "'Bricolage Grotesque', 'Arial', sans-serif"
+    fontFamily: "'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif"
     fontSize: 'clamp(1.75rem, 2.8vw, 2.625rem)'
     fontWeight: 700
     lineHeight: 1.15
     letterSpacing: '-0.025em'
   body:
-    fontFamily: "'Arial', 'Helvetica Neue', sans-serif"
+    fontFamily: "'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif"
     fontSize: '1rem'
     fontWeight: 400
     lineHeight: 1.6
   prose:
-    fontFamily: "'Charter', 'Bitstream Charter', 'Georgia', serif"
+    fontFamily: "'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif"
     fontSize: '1.1875rem'
     fontWeight: 400
     lineHeight: 1.75
   deck:
-    fontFamily: "'Arial', 'Helvetica Neue', sans-serif"
+    fontFamily: "'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif"
     fontSize: '1.125rem'
     fontWeight: 400
     lineHeight: 1.55
   label:
-    fontFamily: "'Arial', 'Helvetica Neue', sans-serif"
+    fontFamily: "'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif"
     fontSize: '0.8125rem'
     fontWeight: 400
     lineHeight: 1.6
   note:
-    fontFamily: "'Arial', 'Helvetica Neue', sans-serif"
+    fontFamily: "'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif"
     fontSize: '0.875rem'
     fontWeight: 400
     lineHeight: 1.6
   navigation:
-    fontFamily: "'Arial', 'Helvetica Neue', sans-serif"
+    fontFamily: "'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif"
     fontSize: '0.9375rem'
     fontWeight: 700
     lineHeight: 1.6
   quote:
-    fontFamily: "'Charter', 'Bitstream Charter', 'Georgia', serif"
+    fontFamily: "'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif"
     fontSize: '1.375rem'
     fontWeight: 400
     lineHeight: 1.5
@@ -107,7 +107,7 @@ components:
   navigation:
     textColor: '{colors.ink}'
     typography: '{typography.navigation}'
-    padding: '0.75rem 0'
+    padding: '0.5rem'
   feature:
     textColor: '{colors.ink}'
     typography: '{typography.headline}'
@@ -141,14 +141,14 @@ components:
 
 Una Moderno gives an independent publication a clear reading surface and a useful margin. Cocoa and rose display type, a nearly white ground, blue editorial fields, and square-edged imagery make it direct, lively, and grounded. Its density comes from stories and navigable lists, with rules separating functions rather than enclosing every item.
 
-The custom sans establishes identity while familiar sans-serif supporting text and a serif article face keep reading comfortable. The implemented world is light, flat, and built from ordinary HTML links, headings, lists, and native disclosure for the compact navigation and article contents. It carries no dark theme, floating card system, or scripted navigation.
+Geist Sans carries every text role, from the heavy publication identity to calm article paragraphs. Weight, size, leading, tracking, and spacing establish the hierarchy within one family. The implemented world is light, flat, and built from ordinary HTML links, headings, lists, a horizontal navigation strip, and native disclosure for article contents. It carries no dark theme, floating card system, or scripted navigation.
 
 **Key Characteristics:**
 
 - Cocoa and rose masthead with a blue editorial margin.
 - Unequal columns, a leading story, three recent stories, and useful supporting lists.
 - Square corners, rectangular geometric art, and thin functional rules.
-- A custom sans for identity and headings; quiet serif prose at a 70ch maximum.
+- One Geist Sans family across all text roles, with article prose at a 70ch maximum.
 - Native links, visible focus, and an article destination highlight without runtime JavaScript.
 
 This is a derived record of the implemented system. [Canonical token CSS](packages/core/src/tokens.css) remains the authoring authority for all 51 custom properties; [semantic styles](packages/core/src/una.css) define their application. The frontmatter is the machine-readable snapshot for design consumers, not an independent token source. [Generated token JSON](packages/core/tokens.json) is the complete inventory. Update the CSS first, build, and reconcile this document and [.impeccable/design.json](.impeccable/design.json). The optional Tailwind layer aliases the same variables.
@@ -190,15 +190,13 @@ The sidecar's eight-step color ramps are generated preview aids, not additional 
 
 ## Typography
 
-**Display Font:** Bricolage Grotesque, with Arial and generic sans-serif fallbacks. The optional local font stylesheet uses a variable weight range of 200–800 and `font-display: swap`; the bundled face retains its [SIL OFL license](packages/core/assets/OFL.txt) and [asset provenance](docs/assets.md).
+**Typeface:** Geist Sans for identity, headings, navigation, supporting text, article prose, quotations, and inline code. The body font token owns the family stack; the display, prose, and code tokens alias it. The four public role tokens remain stable while resolving to one family.
 
-**Body Font:** Arial, Helvetica Neue, sans-serif.
+**Fallback:** Una Geist Fallback, system-ui, -apple-system, Segoe UI, sans-serif. The named fallback uses locally installed Arial or Arial Bold with measured x-height and vertical-metric adjustments; no fallback font is downloaded or redistributed. It aligns those metrics without promising identical glyph widths or eliminating every layout shift. The system-sans stack remains available when the local fallback is absent.
 
-**Prose Font:** Charter, Bitstream Charter, Georgia, serif.
+**Delivery:** The optional local font stylesheet loads one normal variable Geist asset with `font-display: swap`. The embedded font version is 1.900, sourced from the official `geist@1.9.0` npm distribution; its available weight axis is 100–900, and this specimen uses 400, 700, and 800. The font retains its [SIL OFL license](packages/core/assets/OFL.txt), [distribution notice](packages/core/assets/Geist-LICENSE.txt), and [verified asset provenance](docs/assets.md). No external runtime font request is required. Italic emphasis uses browser synthesis from the upright face.
 
-**Code Font:** ui-monospace, Cascadia Code, monospace; inline code is sized relative to prose (0.85em) and can wrap.
-
-**Character:** The broad custom sans makes a compact, recognizable publication identity. Supporting copy stays familiar and unshowy; the serif appears where sustained reading benefits from a distinct rhythm. The ramp is role-based rather than a single mathematical scale.
+**Character:** A single contemporary sans gives the publication a consistent voice. The heavy, tightly tracked wordmark and bold headings establish identity; regular-weight supporting text and generously led prose keep reading calm. The ramp is role-based rather than a single mathematical scale.
 
 ### Hierarchy
 
@@ -207,14 +205,14 @@ The sidecar's eight-step color ramps are generated preview aids, not additional 
 - **Section:** the recent-stories heading. Ordinary sidebar headings use the smaller **Module** role; the blue module has its own fluid heading capped at 12ch above the stacking breakpoint.
 - **Title:** recent-story headings, compact enough to remain useful beside thumbnails.
 - **Body:** navigation-adjacent copy and sidebar text. **Navigation** is slightly smaller and bold; **Deck** is larger, with a 60ch maximum.
-- **Prose:** the sustained-reading role, constrained to 70ch. Article subsection headings return to the display face (1.75rem, 1.15 line height).
+- **Prose:** the sustained-reading role, constrained to 70ch. Article subsection headings use the bold heading role (1.75rem, 1.15 line height).
 - **Label:** sentence-case metadata, captions, utility copy, and small link descriptions. Dates use tabular numerals; there is no separate all-caps label system.
 - **Note:** muted supporting notes and specimen disclosures, slightly larger than metadata and quieter than body copy.
-- **Quote:** a larger serif voice within the cream quotation surface.
+- **Quote:** a larger regular-weight Geist role within the cream quotation surface.
 
 The frontmatter records each role's exact size, weight, and leading. These values describe the current implementation; they do not create new CSS token names for literals used by the semantic stylesheet.
 
-**The Two Reading Voices Rule.** Use the display sans for identity and headings, the body sans for navigation and summaries, and the prose serif for sustained reading. Do not turn the masthead face into the article body.
+**The One Family Rule.** Use Geist Sans across every text role. Establish hierarchy through weight, size, line height, tracking, and spacing, while preserving the distinct reading measure and rhythm of article prose.
 
 ## Layout
 
@@ -222,7 +220,7 @@ The centered page shell caps at 75rem. Above the small-screen breakpoint it leav
 
 The journal presents one leading story, a three-column recent-story row, and supporting sidebar modules. The feature image uses a 3:2 frame; recent thumbnails use 4:3 frames. Both crop with `object-fit: cover`. The core accepts absent optional images; omitting them must leave complete linked stories.
 
-At 56rem and below, the main grid becomes one column, the sidebar follows the main content with a 2.5rem top margin in addition to the grid gap, and the masthead description moves below the wordmark. The article's sidebar contents gives way to native inline disclosure. At 36rem and below, the horizontal main-navigation links give way to a closed-by-default native Menu disclosure. Its expanded links run vertically in the page flow below the masthead. Above that breakpoint, the horizontal links remain visible and can wrap. At 30rem and below, the three recent stories become individual rows with a 6rem thumbnail track and a flexible text track. A story without an image uses one text column.
+At 56rem and below, the main grid becomes one column, the sidebar follows the main content with a 2.5rem top margin in addition to the grid gap, and the masthead description moves below the wordmark. The article's sidebar contents gives way to native inline disclosure. At 30rem and below, the three recent stories become individual rows with a thumbnail track capped at the smaller of 6rem and 33.3333% of the story width, plus a flexible text track. The cap reserves room for titles and metadata when text size increases. A story without an image uses one text column. Main navigation stays in one horizontal row at every width, with scrolling confined to its own strip when the links exceed the available space. At 22rem and below, its gap decreases from 1.5rem to 0.5rem to keep part of the next destination visible on the narrowest phones; label lengths still determine the actual fit.
 
 The spacing scale is quarter-rem based, with deliberate larger steps for sections. Metadata and list details use the small steps; modules use the middle steps; article sections and the footer use the larger steps. Prose siblings are separated by 1.5rem, with subsection headings beginning after 3rem.
 
@@ -244,15 +242,13 @@ The corner token is square (zero radius), and the stylesheet introduces no round
 
 ### Masthead
 
-A compact publication identity, not a campaign banner. The home link uses the display role in cocoa, with the second word in rose; the short description sits beside it on desktop and below it when the layout stacks. It receives the shared focus outline. The separate utility line carries actual publication or specimen information in small muted text.
+A compact publication identity, not a campaign banner. The home link uses the display role in cocoa, with the second word in rose; the short description sits beside it on desktop and below it when the layout stacks. The wordmark can shrink within its layout and wrap anywhere when narrow space or enlarged text requires it. It receives the shared focus outline. The separate utility line carries actual publication or specimen information in small muted text.
 
 ### Navigation and text links
 
-Ordinary anchors carry the primary actions. Main navigation has cocoa text between top and bottom cocoa rules, with horizontal links above 36rem and a native Menu disclosure at 36rem and below. Both link groups contain the same destinations; the inactive group is hidden from display and keyboard focus. The current page is declared with `aria-current="page"`; hover and the current page receive an underline, and forced-colors mode adds a system-color bottom border. General links use Reading blue, an offset underline, and Deep rust on hover. Feature and story titles retain cocoa and reveal an underline on hover.
+Ordinary anchors carry the primary actions. One labeled navigation landmark contains a single set of direct link children. The row stays horizontal at every width, with cocoa text between top and bottom cocoa rules. Links keep their labels on one line and do not shrink; only the navigation strip scrolls when they overflow. The current page is declared with `aria-current="page"`; hover and the current page receive an underline, and forced-colors mode adds a system-color bottom border. General links use Reading blue, an offset underline, and Deep rust on hover. Feature and story titles retain cocoa and reveal an underline on hover.
 
-The frontmatter navigation padding describes the wide layout; compact navigation removes that outer padding. The compact menu begins closed. Its right-aligned summary combines the visible word Menu with a decorative, authored SVG icon: three lines when closed, an X when open. The summary has a minimum target of 44px by 44px; expanded links stretch across the available width and have a 44px minimum height. The icon follows `currentColor`, and the summary and links use the shared focus treatment. The expansion stays in document flow, without an overlay or animation. Native `details`/`summary` owns the expanded state; no JavaScript, scripted roles, or `aria-expanded` override is added. The native open state persists through viewport resizing, and following an in-page link does not automatically close the menu.
-
-The compact breakpoint is content-driven: the four specimen links measured about 482px, plus 48px of outer page margins, requiring about 530px. The implemented 36rem threshold (576px at the default root size) adds about 46px of allowance. These are specimen measurements, not a guarantee for longer or translated navigation labels; extensions must recheck fit.
+The strip has 0.5rem of padding on every side. Each link has a 44px minimum height and 0.25rem by 0.5rem padding; the normal gap is 1.5rem, reducing to 0.5rem at 22rem and below. The strip's inner padding reserves space for the shared focus outline. The strip uses 50% inline scroll padding to define a centered optimal viewing region for native focus scrolling; each link retains a 0.5rem inline scroll margin. Browser focus scrolling uses that region to reveal the focused destination, including links that were already partly visible. Scrollbar chrome is hidden with the standard `scrollbar-width` declaration and the WebKit scrollbar selector; the partial next label provides the overflow cue. Horizontal overscroll is contained within the strip, while vertical page gestures and momentum remain browser-managed. There is no custom scroll animation or runtime JavaScript.
 
 Keyboard focus is an unambiguous outline (3px, offset 4px). The skip link is translated above the viewport until focused, then appears on a white surface and targets the main landmark. The sidecar records the exact focus, reduced-motion, and forced-color behaviors.
 
@@ -270,7 +266,7 @@ Desktop article contents is a sidebar list of native fragment links. At the stac
 
 ### Prose and quotations
 
-The article stays one readable column. Its headings use the display face; paragraphs and lists use the prose face. Quotations are square cream fields with interior spacing and a larger serif voice. Lists use normal list semantics and indentation. Inline code uses the monospace family and wraps long strings.
+The article stays one readable column. Headings use bold Geist; paragraphs and lists use regular Geist with the prose role's larger size and generous leading. Quotations are square cream fields with interior spacing and a larger regular-weight Geist role. Lists use normal list semantics and indentation. Inline code uses the same family at 0.85em and wraps long strings; it has no fixed-width typeface contract.
 
 The sidecar previews these eight existing patterns. Buttons, form inputs, tags, dialogs, and application cards are not part of the implemented component vocabulary.
 
@@ -283,7 +279,7 @@ The sidecar previews these eight existing patterns. Buttons, form inputs, tags, 
 - Do keep feature images optional, titles able to wrap, and article text within the established reading measure.
 - Do use descriptive links, ordered headings, the skip link, and the existing visible focus treatment.
 - Do keep supplied specimen stories and authors clearly identified as fictional.
-- Do retain the optional display font license and asset provenance when distributing it.
+- Do retain the optional Geist font license, distribution notice, and asset provenance when distributing it.
 
 ### Don't:
 

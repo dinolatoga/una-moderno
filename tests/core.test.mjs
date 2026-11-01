@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { readFile, stat } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -88,15 +89,66 @@ test('generated token inventory exactly reflects canonical CSS', async () => {
   assert.deepEqual(inventory.tokens, expected, 'Run npm run build:tokens after editing tokens.');
 });
 
-test('core templates expose a native, script-free navigation disclosure', async () => {
+test('core templates expose one script-free horizontal navigation link set', async () => {
   for (const name of ['index', 'article']) {
     const html = await read(`packages/core/templates/${name}.html`);
-    assert.match(html, /<nav\b[^>]*class="una-nav"[^>]*aria-label="[^"]+"/);
-    assert.match(html, /class="una-nav-links una-nav-links--wide"/);
-    assert.match(html, /<details\s+class="una-nav-disclosure"\s*>/);
-    assert.match(html, /<summary\s+class="una-nav-toggle"\s*>/);
-    assert.match(html, /<svg\b[^>]*aria-hidden="true"/);
+    const navigation = html.match(
+      /<nav\b[^>]*class="una-nav"[^>]*aria-label="[^"]+"[^>]*>([\s\S]*?)<\/nav>/,
+    );
+    assert.ok(navigation, `${name} needs a named navigation landmark.`);
+    const links = [...navigation[1].matchAll(/<a\b[^>]*href="([^"]+)"/g)];
+    assert.ok(links.length > 0);
+    assert.equal(new Set(links.map((link) => link[1])).size, links.length);
+    assert.doesNotMatch(navigation[1], /<(?:details|summary|button|svg|div)\b|aria-expanded=/i);
     assert.doesNotMatch(html, /<script\b|\son\w+=|javascript:/i);
-    assert.doesNotMatch(html, /<summary\b[^>]*\b(?:role|aria-expanded)=/);
   }
+});
+
+test('bundled Geist binary and license notices match their recorded provenance', async () => {
+  const assetRoot = 'packages/core/assets';
+  const provenance = JSON.parse(await read(`${assetRoot}/provenance.json`));
+  const font = await readFile(resolve(root, assetRoot, provenance.file));
+  assert.equal(provenance.file, 'geist-variable.woff2');
+  assert.equal(provenance.package, 'geist@1.9.0');
+  assert.equal(provenance.source, 'https://registry.npmjs.org/geist/-/geist-1.9.0.tgz');
+  assert.equal(provenance.member, 'package/dist/fonts/geist-sans/Geist-Variable.woff2');
+  assert.equal(font.subarray(0, 4).toString(), 'wOF2');
+  assert.equal(font.length, 69576);
+  assert.equal(font.length, provenance.bytes);
+  const digest = createHash('sha256').update(font).digest('hex');
+  assert.equal(digest, '5c5588027e59e74e205b9d6c7fd877b261091cee367f6bb3a8d505da14cae512');
+  assert.equal(digest, provenance.sha256);
+  assert.deepEqual(provenance.axes, [{ tag: 'wght', min: 100, default: 400, max: 900 }]);
+  assert.equal(provenance.license, 'OFL-1.1');
+  const notices = {
+    'OFL.txt': 'c683bfbcc7e087f5d37a54ef628f10387c451a83ddc459b151403a164ac46c90',
+    'Geist-LICENSE.txt': '930853ee1daa68554d9e35c8a9175affb74f699fad9a5da6ee5ebe76379d9137',
+  };
+  assert.deepEqual(provenance.licenseFiles, Object.keys(notices));
+  for (const [file, expected] of Object.entries(notices)) {
+    const notice = await readFile(resolve(root, assetRoot, file));
+    assert.equal(createHash('sha256').update(notice).digest('hex'), expected, file);
+    assert.match(notice.toString(), /SIL OPEN FONT LICENSE Version 1\.1/);
+  }
+});
+
+test('font roles share one Geist stack and the optional face stays local with swap fallback', async () => {
+  const source = await read('packages/core/src/tokens.css');
+  const tokens = Object.fromEntries(
+    [...source.matchAll(/(--una-[\w-]+):\s*([^;]+);/g)].map((match) => [match[1], match[2].trim()]),
+  );
+  assert.match(tokens['--una-font-body'], /^'Geist', 'Una Geist Fallback', system-ui/);
+  for (const role of ['display', 'prose', 'code']) {
+    assert.equal(tokens[`--una-font-${role}`], 'var(--una-font-body)');
+  }
+  const fonts = await read('packages/core/assets/fonts.css');
+  const geistFace = fonts.match(/@font-face\s*\{[^}]*font-family: Geist;[^}]*\}/)?.[0];
+  assert.ok(geistFace);
+  assert.match(geistFace, /font-weight: 100 900;/);
+  assert.match(geistFace, /font-display: swap;/);
+  const downloads = [...fonts.matchAll(/url\(([^)]+)\)/g)].map((match) => match[1]);
+  assert.deepEqual(downloads, ["'./geist-variable.woff2'"]);
+  assert.match(fonts, /src: local\('Arial'\), local\('ArialMT'\)/);
+  assert.match(fonts, /size-adjust: 102\.2072%/);
+  assert.doesNotMatch(fonts, /@import|https?:\/\//);
 });

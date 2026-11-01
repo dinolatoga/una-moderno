@@ -24,6 +24,8 @@ Omit Tailwind Preflight: core already defines its scoped semantic presentation, 
 </p>
 ```
 
+All four font-role aliases resolve to the canonical Geist stack; headings differ by scale and weight, not a second face. Link the core `assets/fonts.css` entrypoint to load the local variable font.
+
 Aliases cover colors, fonts, type sizes, line heights, tracking, spacing, layout/prose maximum widths, border radius, and easing. Other properties remain available directly, for example `duration-(--una-motion-duration)`. Grid proportions stay in the semantic `una-layout` class.
 
 Source paths are relative to the input stylesheet. The example disables automatic scanning with `source(none)` and explicitly scans one HTML file. Register additional template directories with `@source` and write complete utility names; dynamically assembled class fragments cannot be detected.

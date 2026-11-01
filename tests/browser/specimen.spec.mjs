@@ -265,51 +265,97 @@ const navigationViewports = [
   { width: 667, height: 375 },
   { width: 768, height: 1024 },
   { width: 844, height: 390 },
+  { width: 1280, height: 1000 },
   { width: 1440, height: 1000 },
 ];
 
 const navigation = (page) => {
   const nav = page.locator('nav.una-nav');
-  const disclosure = nav.locator('details.una-nav-disclosure');
-  return {
-    nav,
-    wide: nav.locator('.una-nav-links--wide'),
-    disclosure,
-    toggle: disclosure.locator('summary.una-nav-toggle'),
-    links: disclosure.locator('.una-nav-links a'),
-  };
+  return { nav, links: nav.locator(':scope > a') };
 };
 
-async function expectNativeMenuState(page, expanded) {
-  // Chromium exposes summary as DisclosureTriangle rather than an ARIA button.
-  // Inspect its native accessibility state without adding redundant authored ARIA.
-  const session = await page.context().newCDPSession(page);
-  try {
-    await expect
-      .poll(async () => {
-        const { nodes } = await session.send('Accessibility.getFullAXTree');
-        return nodes
-          .filter(
-            (node) =>
-              !node.ignored &&
-              node.name?.value === 'Menu' &&
-              ['DisclosureTriangle', 'button'].includes(node.role?.value),
-          )
-          .map((node) => {
-            const properties = Object.fromEntries(
-              (node.properties ?? []).map(({ name, value }) => [name, value.value]),
-            );
-            return {
-              nativeControl: ['DisclosureTriangle', 'button'].includes(node.role?.value),
-              focusable: properties.focusable,
-              expanded: properties.expanded,
-            };
-          });
-      })
-      .toEqual([{ nativeControl: true, focusable: true, expanded }]);
-  } finally {
-    await session.detach();
-  }
+async function navigationGeometry(nav) {
+  return nav.evaluate((element) => {
+    const bounds = element.getBoundingClientRect();
+    const left = bounds.left + element.clientLeft;
+    const top = bounds.top + element.clientTop;
+    return {
+      left,
+      top,
+      right: left + element.clientWidth,
+      bottom: top + element.clientHeight,
+      clientWidth: element.clientWidth,
+      scrollWidth: element.scrollWidth,
+      scrollLeft: element.scrollLeft,
+      links: [...element.querySelectorAll(':scope > a')].map((link) => {
+        const box = link.getBoundingClientRect();
+        return { left: box.left, right: box.right, top: box.top, bottom: box.bottom };
+      }),
+    };
+  });
+}
+
+async function expectHiddenScrollbar(nav) {
+  const scrollbar = await nav.evaluate((element) => {
+    const style = getComputedStyle(element);
+    return {
+      standard: style.scrollbarWidth,
+      webkit: getComputedStyle(element, '::-webkit-scrollbar').display,
+      occupiedHeight:
+        element.offsetHeight -
+        element.clientHeight -
+        Number.parseFloat(style.borderTopWidth) -
+        Number.parseFloat(style.borderBottomWidth),
+    };
+  });
+  expect(scrollbar).toEqual({ standard: 'none', webkit: 'none', occupiedHeight: 0 });
+}
+
+async function expectUnclippedFocus(nav, link) {
+  await expect(link).toBeFocused();
+  await expect(link).toHaveCSS('outline-style', 'solid');
+  const focus = await link.evaluate((element) => {
+    const style = getComputedStyle(element);
+    return Number.parseFloat(style.outlineWidth) + Number.parseFloat(style.outlineOffset);
+  });
+  expect(focus).toBeGreaterThanOrEqual(7);
+  await expect
+    .poll(async () => {
+      const port = await navigationGeometry(nav);
+      const box = await link.boundingBox();
+      return (
+        box.x - focus >= port.left - 1 &&
+        box.x + box.width + focus <= port.right + 1 &&
+        box.y - focus >= port.top - 1 &&
+        box.y + box.height + focus <= port.bottom + 1
+      );
+    })
+    .toBe(true);
+}
+
+async function expectNoDocumentOverflow(page) {
+  expect(
+    await page.evaluate(() => ({
+      scroll: document.documentElement.scrollWidth,
+      client: document.documentElement.clientWidth,
+    })),
+  ).toEqual({
+    scroll: page.viewportSize().width,
+    client: page.viewportSize().width,
+  });
+}
+
+async function expectAxePass(page) {
+  const axe = await new AxeBuilder({ page })
+    .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])
+    .analyze();
+  expect(
+    axe.violations.map(({ id, impact, nodes }) => ({
+      id,
+      impact,
+      targets: nodes.map(({ target }) => target),
+    })),
+  ).toEqual([]);
 }
 
 async function captureNavigation(page, name, width, state) {
@@ -327,9 +373,27 @@ async function captureNavigation(page, name, width, state) {
   });
 }
 
-test('every shipped page shares the native navigation contract and matching link sets', async ({
-  page,
-}) => {
+async function touchSwipe(session, start, end) {
+  await session.send('Input.dispatchTouchEvent', {
+    type: 'touchStart',
+    touchPoints: [{ ...start, id: 1 }],
+  });
+  for (let step = 1; step <= 10; step++) {
+    await session.send('Input.dispatchTouchEvent', {
+      type: 'touchMove',
+      touchPoints: [
+        {
+          x: start.x + ((end.x - start.x) * step) / 10,
+          y: start.y + ((end.y - start.y) * step) / 10,
+          id: 1,
+        },
+      ],
+    });
+  }
+  await session.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+}
+
+test('every shipped page has one direct, script-free navigation link set', async ({ page }) => {
   const { pathToFileURL } = await import('node:url');
   const { resolve } = await import('node:path');
   const routes = [
@@ -353,26 +417,16 @@ test('every shipped page shares the native navigation contract and matching link
   ];
   for (const route of routes) {
     await page.goto(route);
-    const { nav, wide, disclosure, toggle, links } = navigation(page);
+    const { nav, links } = navigation(page);
     await expect(nav, route).toHaveCount(1);
     await expect(nav, route).toHaveAttribute('aria-label', /.+/);
-    await expect(disclosure, route).toHaveCount(1);
-    await expect(disclosure, route).not.toHaveAttribute('open');
-    await expect(toggle, route).toHaveText('Menu');
-    await expect(toggle.locator('svg[aria-hidden="true"]'), route).toHaveCount(1);
+    await expect(nav.locator(':scope > :not(a)'), route).toHaveCount(0);
     await expect(page.locator('script'), route).toHaveCount(0);
-    const linkDetails = (elements) =>
-      elements.map((element) => ({
-        href: element.getAttribute('href'),
-        text: element.textContent.trim(),
-        current: element.getAttribute('aria-current'),
-      }));
-    const desktopLinks = await wide.locator('a').evaluateAll(linkDetails);
-    expect(desktopLinks.length, route).toBeGreaterThan(0);
-    expect(await links.evaluateAll(linkDetails), route).toEqual(desktopLinks);
-    // Native state must not be overridden by a stale, manually authored ARIA state.
-    await expect(toggle, route).not.toHaveAttribute('aria-expanded');
-    await expect(toggle, route).not.toHaveAttribute('role');
+    const hrefs = await links.evaluateAll((anchors) => anchors.map((anchor) => anchor.href));
+    expect(hrefs.length, route).toBeGreaterThan(0);
+    expect(new Set(hrefs).size, route).toBe(hrefs.length);
+    expect(await nav.locator('a[aria-current="page"]').count(), route).toBeLessThanOrEqual(1);
+    for (const link of await links.all()) await expect(link, route).toHaveAccessibleName(/.+/);
     expect(
       await page.locator('[id]').evaluateAll((elements) => {
         const ids = elements.map((element) => element.id);
@@ -384,115 +438,93 @@ test('every shipped page shares the native navigation contract and matching link
 });
 
 for (const [name, path] of navigationSurfaces) {
-  test(`${name}: phone menu has native state, keyboard reachability and an accessible open view`, async ({
+  test(`${name}: phone navigation reveals overflow and reaches every link by keyboard`, async ({
     page,
   }) => {
     for (const width of [320, 390]) {
       await page.setViewportSize({ width, height: 844 });
       await page.goto(path);
       await page.evaluate(() => document.fonts.ready);
-      const { wide, disclosure, toggle, links } = navigation(page);
-      await expect(wide).toBeHidden();
-      await expect(toggle).toBeVisible();
-      await expectNativeMenuState(page, false);
-      await expect(links.first()).toBeHidden();
+      const { nav, links } = navigation(page);
+      const initial = await navigationGeometry(nav);
+      expect(initial.scrollLeft).toBe(0);
+      expect(initial.scrollWidth).toBeGreaterThan(initial.clientWidth);
+      expect(
+        initial.links.some((link) => link.right > initial.right && initial.right - link.left >= 40),
+        'At least 40px of the next link should reveal horizontal continuation.',
+      ).toBe(true);
+      await expectNoDocumentOverflow(page);
+      await expectAxePass(page);
+      await captureNavigation(page, name, width, 'initial');
+      const masthead = await page.locator('.una-masthead').boundingBox();
       await page.keyboard.press('Tab');
       await expect(page.locator('.una-skip-link')).toBeFocused();
       await page.keyboard.press('Tab');
       await expect(page.locator('.una-brand')).toBeFocused();
       await page.keyboard.press('Tab');
-      await expect(toggle).toBeFocused();
-      await expect(toggle).toHaveCSS('outline-style', 'solid');
-      await page.keyboard.press('Tab');
-      await expect(page.locator('.una-title a')).toBeFocused();
-      await toggle.focus();
-      await captureNavigation(page, name, width, 'closed');
-      const masthead = await page.locator('.una-masthead').boundingBox();
-      await toggle.focus();
-      await page.keyboard.press('Enter');
-      await expect(disclosure).toHaveAttribute('open', '');
-      await expectNativeMenuState(page, true);
-      const openedMasthead = await page.locator('.una-masthead').boundingBox();
-      expect(openedMasthead).toEqual(masthead);
-      await page.keyboard.press('Tab');
-      for (const link of await links.all()) {
-        await expect(link).toBeVisible();
-        await expect(link).toBeFocused();
-        await page.keyboard.press('Tab');
+      const allLinks = await links.all();
+      for (let index = 0; index < allLinks.length; index++) {
+        await expectUnclippedFocus(nav, allLinks[index]);
+        if (index < allLinks.length - 1) await page.keyboard.press('Tab');
       }
+      const end = await navigationGeometry(nav);
+      expect(end.scrollLeft).toBeGreaterThan(0);
+      expect(end.scrollLeft + end.clientWidth).toBeGreaterThanOrEqual(end.scrollWidth - 1);
+      expect(await page.locator('.una-masthead').boundingBox()).toEqual(masthead);
+      await expectNoDocumentOverflow(page);
+      await expectAxePass(page);
+      await captureNavigation(page, name, width, 'end');
+      for (let index = allLinks.length - 2; index >= 0; index--) {
+        await page.keyboard.press('Shift+Tab');
+        await expectUnclippedFocus(nav, allLinks[index]);
+      }
+      const wheelTarget = await nav.boundingBox();
+      await page.mouse.move(
+        wheelTarget.x + wheelTarget.width / 2,
+        wheelTarget.y + wheelTarget.height / 2,
+      );
+      for (let index = 1; index < allLinks.length; index++) await page.keyboard.press('Tab');
+      // No pause between keyboard focus and wheel input: focus must not pin native scrolling.
+      await page.mouse.wheel(-1000, 0);
+      await expect
+        .poll(async () => (await navigationGeometry(nav)).scrollLeft)
+        .toBeLessThanOrEqual(1);
+      await page.keyboard.press('Tab');
       await expect(page.locator('.una-title a')).toBeFocused();
-      const axe = await new AxeBuilder({ page })
-        .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])
-        .analyze();
-      expect(axe.violations.map(({ id, impact, nodes }) => ({ id, impact, nodes }))).toEqual([]);
-      await toggle.focus();
-      await captureNavigation(page, name, width, 'open');
-      await toggle.focus();
-      await page.keyboard.press('Space');
-      await expect(disclosure).not.toHaveAttribute('open');
-      await expect(links.first()).toBeHidden();
-      await expect(toggle).toBeFocused();
-      await page.keyboard.press('Enter');
-      // Activate a real destination from the disclosure, not only its toggle.
-      const destination = links.filter({ hasText: 'The long read' });
-      const href = await destination.getAttribute('href');
-      await destination.focus();
+      await links.filter({ hasText: 'The long read' }).focus();
+      const href = await links.filter({ hasText: 'The long read' }).getAttribute('href');
       await page.keyboard.press('Enter');
       await expect(page).toHaveURL(new URL(href, new URL(path, 'http://127.0.0.1:4321')).href);
       await expect(page.locator('main h1')).toBeVisible();
     }
   });
 
-  test(`${name}: navigation geometry works at phone edges, landscape, tablet and desktop`, async ({
+  test(`${name}: one navigation row survives phone, landscape, tablet and desktop widths`, async ({
     page,
   }) => {
     for (const viewport of navigationViewports) {
       await page.setViewportSize(viewport);
       await page.goto(path);
       await page.evaluate(() => document.fonts.ready);
-      const { nav, wide, disclosure, toggle, links } = navigation(page);
-      if (viewport.width <= 576) {
-        await expect(wide).toBeHidden();
-        await expect(toggle).toBeVisible();
-        const target = await toggle.boundingBox();
-        expect(target.width).toBeGreaterThanOrEqual(44);
-        expect(target.height).toBeGreaterThanOrEqual(44);
-        await toggle.click();
-        const navBounds = await nav.boundingBox();
-        let previousBottom = 0;
-        for (const link of await links.all()) {
-          const bounds = await link.boundingBox();
-          expect(bounds.height).toBeGreaterThanOrEqual(44);
-          expect(bounds.width).toBeGreaterThanOrEqual(44);
-          expect(bounds.x).toBeCloseTo(navBounds.x, 0);
-          expect(bounds.width).toBeCloseTo(navBounds.width, 0);
-          expect(bounds.y).toBeGreaterThanOrEqual(previousBottom);
-          previousBottom = bounds.y + bounds.height;
-        }
-      } else {
-        await expect(disclosure).toBeHidden();
-        await expect(wide).toBeVisible();
-        const row = await wide.locator('a').evaluateAll((elements) =>
-          elements.map((element) => ({
-            top: element.getBoundingClientRect().top,
-            bottom: element.getBoundingClientRect().bottom,
-          })),
-        );
-        expect(new Set(row.map(({ top }) => Math.round(top))).size).toBe(1);
-        await page.keyboard.press('Tab');
-        await page.keyboard.press('Tab');
-        await page.keyboard.press('Tab');
-        await expect(wide.locator('a').first()).toBeFocused();
+      const { nav, links } = navigation(page);
+      const geometry = await navigationGeometry(nav);
+      await expectHiddenScrollbar(nav);
+      expect(new Set(geometry.links.map(({ top }) => Math.round(top))).size).toBe(1);
+      for (const link of await links.all()) {
+        const bounds = await link.boundingBox();
+        expect(bounds.height).toBeGreaterThanOrEqual(44);
+        expect(bounds.width).toBeGreaterThanOrEqual(44);
       }
-      expect(
-        await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
-        JSON.stringify(viewport),
-      ).toBe(true);
+      if (viewport.width <= 390) expect(geometry.scrollWidth).toBeGreaterThan(geometry.clientWidth);
+      if (viewport.width >= 768) expect(geometry.scrollWidth).toBe(geometry.clientWidth);
+      await expectNoDocumentOverflow(page);
     }
   });
 }
 
-test('phone menu responds to touch and its links remain reachable', async ({ browser }) => {
+test('native touch scrolls the navigation horizontally and the page vertically without JavaScript', async ({
+  browser,
+}) => {
   const context = await browser.newContext({
     baseURL: 'http://127.0.0.1:4321',
     viewport: { width: 390, height: 844 },
@@ -500,57 +532,240 @@ test('phone menu responds to touch and its links remain reachable', async ({ bro
     javaScriptEnabled: false,
   });
   const page = await context.newPage();
+  const session = await context.newCDPSession(page);
   try {
     for (const [, path] of navigationSurfaces) {
       await page.goto(path);
-      const { disclosure, toggle, links } = navigation(page);
-      await toggle.tap();
-      await expect(disclosure).toHaveAttribute('open', '');
-      await toggle.tap();
-      await expect(disclosure).not.toHaveAttribute('open');
-      await toggle.tap();
-      const destination = links.filter({ hasText: 'The long read' });
-      const href = await destination.getAttribute('href');
-      await destination.tap();
+      const { nav, links } = navigation(page);
+      const box = await nav.boundingBox();
+      const y = box.y + box.height / 2;
+      await touchSwipe(session, { x: box.x + box.width - 16, y }, { x: box.x + 16, y });
+      await expect.poll(async () => (await navigationGeometry(nav)).scrollLeft).toBeGreaterThan(40);
+      const last = links.last();
+      const href = await last.getAttribute('href');
+      await last.tap();
       await expect(page).toHaveURL(new URL(href, new URL(path, 'http://127.0.0.1:4321')).href);
-      await expect(page.locator('main h1')).toBeVisible();
+      await page.goto(path);
+      // Switching from keyboard to touch must not trap the row on the focused link.
+      await page.keyboard.press('Tab');
+      await page.keyboard.press('Tab');
+      for (let index = 0; index < (await links.count()); index++) await page.keyboard.press('Tab');
+      await expectUnclippedFocus(nav, last);
+      const focusedOffset = (await navigationGeometry(nav)).scrollLeft;
+      expect(focusedOffset).toBeGreaterThan(40);
+      const focusedBox = await nav.boundingBox();
+      const focusedY = focusedBox.y + focusedBox.height / 2;
+      await touchSwipe(
+        session,
+        { x: focusedBox.x + 16, y: focusedY },
+        { x: focusedBox.x + focusedBox.width - 16, y: focusedY },
+      );
+      await expect
+        .poll(async () => (await navigationGeometry(nav)).scrollLeft)
+        .toBeLessThan(focusedOffset - 40);
+      // Allow native momentum to settle so transient movement cannot hide a return to focus.
+      await page.waitForTimeout(400);
+      expect((await navigationGeometry(nav)).scrollLeft).toBeLessThan(focusedOffset - 40);
+      await page.goto(path);
+      const fresh = await nav.boundingBox();
+      const x = fresh.x + fresh.width / 2;
+      const startY = fresh.y + fresh.height / 2;
+      await touchSwipe(session, { x, y: startY }, { x, y: Math.max(10, startY - 180) });
+      await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(40);
+      await expectNoDocumentOverflow(page);
     }
   } finally {
+    await session.detach();
     await context.close();
   }
 });
 
-test('native menu preserves focus, forced colors, reduced motion and resize state', async ({
+test('navigation stays usable with missing fonts, forced colors and reduced motion', async ({
   page,
 }) => {
+  await page.route('**/*.woff2', (route) => route.abort());
   await page.setViewportSize({ width: 390, height: 844 });
   await page.emulateMedia({ forcedColors: 'active', reducedMotion: 'reduce' });
-  await page.goto('/');
-  const { wide, disclosure, toggle, links } = navigation(page);
-  await page.keyboard.press('Tab');
-  await page.keyboard.press('Tab');
-  await page.keyboard.press('Tab');
-  await expect(toggle).toBeFocused();
-  await expect(toggle).toHaveCSS('outline-style', 'solid');
-  await page.keyboard.press('Enter');
-  await expect(disclosure).toHaveAttribute('open', '');
-  await expect(toggle).toHaveCSS('transition-duration', '0s');
-  await expect(toggle.locator('svg')).toBeVisible();
-  const icon = await toggle.locator('svg').evaluate((element) => ({
-    color: getComputedStyle(element).color,
-    toggleColor: getComputedStyle(element.closest('summary')).color,
-    stroke: getComputedStyle(element.querySelector('path')).stroke,
-  }));
-  expect(icon.color).toBe(icon.toggleColor);
-  expect(icon.stroke).toBe(icon.color);
-  const current = disclosure.locator('.una-nav-links a[aria-current="page"]');
-  await expect(current).toBeVisible();
-  await expect(current).toHaveCSS('text-decoration-line', 'underline');
-  await page.setViewportSize({ width: 768, height: 1024 });
-  await expect(disclosure).toBeHidden();
-  await expect(wide).toBeVisible();
+  for (const [, path] of navigationSurfaces) {
+    await page.goto(path);
+    await page.evaluate(() => document.fonts.ready);
+    const { nav, links } = navigation(page);
+    await expect(nav.locator('a[aria-current="page"]')).toHaveCSS(
+      'text-decoration-line',
+      'underline',
+    );
+    await expect(nav).toHaveCSS('scroll-behavior', 'auto');
+    await expectHiddenScrollbar(nav);
+    await page.keyboard.press('Tab');
+    await page.keyboard.press('Tab');
+    await page.keyboard.press('Tab');
+    const allLinks = await links.all();
+    for (let index = 0; index < allLinks.length; index++) {
+      await expectUnclippedFocus(nav, allLinks[index]);
+      if (index < allLinks.length - 1) await page.keyboard.press('Tab');
+    }
+    await expectNoDocumentOverflow(page);
+  }
+});
+
+async function platformFonts(page, session, selector) {
+  const { root } = await session.send('DOM.getDocument');
+  const { nodeId } = await session.send('DOM.querySelector', { nodeId: root.nodeId, selector });
+  expect(nodeId, selector).toBeGreaterThan(0);
+  const { fonts } = await session.send('CSS.getPlatformFontsForNode', { nodeId });
+  return fonts.filter(({ glyphCount }) => glyphCount > 0);
+}
+
+test('all font roles and specimen weights render the single local Geist variable face', async ({
+  page,
+}) => {
+  const fontRequests = [];
+  page.on('request', (request) => {
+    if (request.resourceType() === 'font') fontRequests.push(request.url());
+  });
+  const session = await page.context().newCDPSession(page);
+  await session.send('DOM.enable');
+  await session.send('CSS.enable');
+  try {
+    for (const [, path] of navigationSurfaces) {
+      await page.goto(path);
+      await page.evaluate(async () => {
+        const probe = document.createElement('div');
+        probe.className = 'una-prose';
+        probe.innerHTML =
+          '<p data-font-prose>Editorial prose font check</p><code data-font-code>const journal = true</code>';
+        document.querySelector('main').append(probe);
+        await Promise.all(
+          [400, 700, 800].map((weight) => document.fonts.load(`${weight} 16px Geist`)),
+        );
+        await document.fonts.ready;
+      });
+      for (const [selector, weight] of [
+        ['.una-deck', '400'],
+        ['.una-title a', '700'],
+        ['.una-brand', '800'],
+        ['[data-font-prose]', '400'],
+        ['[data-font-code]', '400'],
+      ]) {
+        await expect(page.locator(selector)).toHaveCSS('font-weight', weight);
+        const family = await page
+          .locator(selector)
+          .evaluate((element) => getComputedStyle(element).fontFamily);
+        expect(family.split(',')[0].replace(/["']/g, '').trim()).toBe('Geist');
+        const rendered = await platformFonts(page, session, selector);
+        expect(rendered.length, `${path} ${selector}`).toBeGreaterThan(0);
+        expect(rendered.every((font) => font.familyName === 'Geist' && font.isCustomFont)).toBe(
+          true,
+        );
+      }
+      expect(
+        await page.evaluate(() =>
+          [...document.fonts]
+            .filter((font) => font.family.replace(/["']/g, '') === 'Geist')
+            .map(({ weight, style, status }) => ({ weight, style, status })),
+        ),
+      ).toEqual([{ weight: '100 900', style: 'normal', status: 'loaded' }]);
+    }
+    expect(fontRequests.length).toBeGreaterThan(0);
+    for (const request of fontRequests) {
+      const url = new URL(request);
+      expect(url.origin).toBe('http://127.0.0.1:4321');
+      expect(url.pathname).toMatch(/geist-variable(?:\.[\w-]+)?\.woff2$/);
+    }
+  } finally {
+    await session.detach();
+  }
+});
+
+test('slow font loading keeps editorial text and keyboard navigation usable', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await expect(disclosure).toBeVisible();
-  await expect(disclosure).toHaveAttribute('open', '');
-  await expect(links.first()).toBeVisible();
+  const session = await page.context().newCDPSession(page);
+  await session.send('DOM.enable');
+  await session.send('CSS.enable');
+  try {
+    for (const [, path] of navigationSurfaces) {
+      let releaseFont;
+      let fontRequested = false;
+      const pendingFont = new Promise((resolve) => {
+        releaseFont = resolve;
+      });
+      const holdFont = async (route) => {
+        fontRequested = true;
+        await pendingFont;
+        await route.continue();
+      };
+      await page.route('**/*.woff2', holdFont);
+      try {
+        await page.goto(path, { waitUntil: 'domcontentloaded' });
+        await expect.poll(() => fontRequested).toBe(true);
+        expect(await page.evaluate(() => document.fonts.check('400 16px Geist'))).toBe(false);
+        await expect(page.locator('.una-deck')).toBeVisible();
+        const fallback = await platformFonts(page, session, '.una-deck');
+        expect(fallback.length).toBeGreaterThan(0);
+        expect(fallback.every((font) => font.familyName !== 'Geist')).toBe(true);
+        const { nav, links } = navigation(page);
+        await page.keyboard.press('Tab');
+        await page.keyboard.press('Tab');
+        await page.keyboard.press('Tab');
+        const allLinks = await links.all();
+        for (let index = 0; index < allLinks.length; index++) {
+          await expectUnclippedFocus(nav, allLinks[index]);
+          if (index < allLinks.length - 1) await page.keyboard.press('Tab');
+        }
+        await expectNoDocumentOverflow(page);
+        await expectHiddenScrollbar(nav);
+        releaseFont();
+        await page.evaluate(() => document.fonts.ready);
+        const loaded = await platformFonts(page, session, '.una-deck');
+        expect(loaded.length).toBeGreaterThan(0);
+        expect(loaded.every((font) => font.familyName === 'Geist' && font.isCustomFont)).toBe(true);
+        await expectNoDocumentOverflow(page);
+      } finally {
+        releaseFont();
+        await page.unroute('**/*.woff2', holdFont);
+      }
+    }
+  } finally {
+    await session.detach();
+  }
+});
+
+test('200 percent text remains readable without page overflow on phone index and article views', async ({
+  page,
+}) => {
+  for (const width of [320, 390]) {
+    for (const [, path] of surfaces) {
+      await page.setViewportSize({ width, height: 844 });
+      await page.goto(path);
+      await page.evaluate(async () => {
+        document.documentElement.style.fontSize = '200%';
+        await document.fonts.ready;
+      });
+      await expect(page.locator('html')).toHaveCSS('font-size', '32px');
+      await expectNoDocumentOverflow(page);
+      const masthead = page.locator('.una-brand');
+      await expect(masthead).toBeVisible();
+      await expect(masthead).toHaveText('UnaModerno');
+      const mastheadBounds = await masthead.boundingBox();
+      expect(mastheadBounds.x).toBeGreaterThanOrEqual(0);
+      expect(mastheadBounds.x + mastheadBounds.width).toBeLessThanOrEqual(width);
+      await expect(page.locator('main h1')).toBeVisible();
+      const { nav, links } = navigation(page);
+      await expectHiddenScrollbar(nav);
+      await page.keyboard.press('Tab');
+      await page.keyboard.press('Tab');
+      for (let index = 0; index < (await links.count()); index++) await page.keyboard.press('Tab');
+      const last = links.last();
+      await expect(last).toBeFocused();
+      await expect(last).toHaveCSS('outline-style', 'solid');
+      const port = await navigationGeometry(nav);
+      const target = await last.boundingBox();
+      // An enlarged label can exceed the scrollport; it must remain reachable and operable.
+      expect(target.x + target.width).toBeGreaterThan(port.left);
+      expect(target.x).toBeLessThan(port.right);
+      const destination = new URL(await last.getAttribute('href'), page.url()).href;
+      await page.keyboard.press('Enter');
+      await expect(page).toHaveURL(destination);
+    }
+  }
 });

@@ -19,7 +19,7 @@ Read [PRODUCT.md](PRODUCT.md) and [the markup/content contract](docs/architectur
 - Keep semantic `una-*` classes stable and document contract changes. Adapters own content acquisition, validation, escaping, routing, and asset resolution.
 - Tailwind aliases core variables; it must not fork the palette or layout. Static HTML remains usable with the committed core distributable.
 - Preserve the unequal editorial columns, leading story, three recent stories, and useful sidebar. Do not replace the reading surface with a generic component gallery.
-- Keep the optional display font's [SIL OFL license](packages/core/assets/OFL.txt) and [asset provenance](docs/assets.md). The repository MIT license does not replace third-party licenses.
+- Keep the optional Geist font's [SIL OFL license](packages/core/assets/OFL.txt), [distribution notice](packages/core/assets/Geist-LICENSE.txt) and [asset provenance](docs/assets.md). The repository MIT license does not replace third-party licenses.
 
 ## Commands
 
@@ -36,7 +36,7 @@ git diff --check
 
 ## Verification and handoff
 
-For visual changes, verify 390px, 768px, 1280px, and 1440px widths. For navigation changes, also verify 320px, phone landscape, both sides of the 36rem breakpoint, native open/closed accessibility state, keyboard and touch operation, 44px targets, and open-state axe; inspect screenshots, keyboard focus, skip navigation, headings, contrast, links, long titles, absent optional images, reduced motion, and horizontal overflow. Automated accessibility results supplement manual inspection.
+For visual changes, verify 390px, 768px, 1280px, and 1440px widths. For navigation changes, also verify 320px, phone landscape, the 576px neighborhood, initial/end scroll positions, unclipped keyboard focus, native horizontal and vertical touch scrolling, missing fonts, hidden scrollbar chrome, 44px targets, and axe; inspect screenshots, keyboard focus, skip navigation, headings, contrast, links, long titles, absent optional images, reduced motion, and horizontal overflow. Automated accessibility results supplement manual inspection.
 
 Before declaring work ready, run the full gates above, verify relative links/assets and package exports, inspect the diff for private material or secrets, and record actual results. Update generated design documentation from the implemented system. Report incomplete or unavailable checks explicitly; never turn a skipped check into a pass. Independent review should seek material defects and record their resolution.
 

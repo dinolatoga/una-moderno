@@ -1,0 +1,49 @@
+{
+  "file": "geist-variable.woff2",
+  "names": {
+    "0": ["Copyright 2024 The Geist Project Authors (https://github.com/vercel/geist-font)"],
+    "1": ["Geist"],
+    "2": ["Regular"],
+    "5": ["Version 1.900"],
+    "13": [
+      "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://openfontlicense.org"
+    ],
+    "14": ["https://openfontlicense.org"]
+  },
+  "axes": [
+    {
+      "tag": "wght",
+      "min": 100.0,
+      "default": 400.0,
+      "max": 900.0
+    }
+  ],
+  "unitsPerEm": 1000,
+  "fontRevision": 1.899993896484375,
+  "hhea": {
+    "ascent": 1005,
+    "descent": -295,
+    "lineGap": 0
+  },
+  "OS2": {
+    "typo": {
+      "ascent": 1005,
+      "descent": -295,
+      "lineGap": 0
+    },
+    "win": {
+      "ascent": 1088,
+      "descent": 262
+    },
+    "xHeight": 530,
+    "capHeight": 710
+  },
+  "source": "https://registry.npmjs.org/geist/-/geist-1.9.0.tgz",
+  "package": "geist@1.9.0",
+  "member": "package/dist/fonts/geist-sans/Geist-Variable.woff2",
+  "bytes": 69576,
+  "sha256": "5c5588027e59e74e205b9d6c7fd877b261091cee367f6bb3a8d505da14cae512",
+  "license": "OFL-1.1",
+  "licenseFiles": ["OFL.txt", "Geist-LICENSE.txt"],
+  "archiveIntegrity": "sha512-uxiyxH5PaKDaK2//ln06NxJEz5gc6771BTwSs1YFgNnASGtp1SYD3VZShSIijvlNwDjMgHnzqye4MmIUTspEzw=="
+}

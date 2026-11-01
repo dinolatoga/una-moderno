@@ -7,14 +7,15 @@ Changes that affect consumers, contributors, or the public markup/token contract
 ### Added
 
 - Framework-neutral core with `--una-*` tokens, semantic `una-*` classes, readable and minified distributable CSS, and HTML templates.
-- Plain HTML editorial index and article specimens with fictional content, local art, responsive columns, and optional local display typography.
+- Plain HTML editorial index and article specimens with fictional content, local art, responsive columns, and optional local typography.
 - Optional Tailwind CSS v4 token mapping and a compilation example.
 - Astro reference using a normalized content contract and public fictional fixtures.
 - Historical provenance, architecture and product documentation, asset licensing records, contributor policies, and repository verification tooling.
 
 ### Changed
 
-- Phone navigation now uses a closed-by-default native hamburger disclosure at 36rem and below, with 44px touch targets and a full-width vertical list. Tablet and desktop retain horizontal navigation. Core templates, static HTML, Tailwind, and Astro share the same markup contract with matching wide and disclosure link groups; no runtime JavaScript is added.
+- Use one self-hosted Geist Sans variable font for every text role, with weight and scale defining hierarchy; preserve official OFL notices, checksums, and metric-aware local/system fallbacks.
+- Main navigation uses one set of direct links at every width. The non-wrapping horizontal strip scrolls natively when needed, with visible continuation on phones, hidden scrollbar chrome, 44px targets, contained horizontal overscroll, unrestricted vertical page gestures, and room for the standard focus outline. Core templates, static HTML, Tailwind, and Astro share this smaller markup contract; no runtime JavaScript is added.
 
 ### Boundaries
 

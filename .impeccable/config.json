@@ -8,7 +8,7 @@
         "rule": "overused-font",
         "value": "arial",
         "createdAt": "2026-11-01T02:39:41.729Z",
-        "reason": "Lead engineer retained Arial for framework-neutral body text and system fallback; DESIGN.md Typography records Bricolage Grotesque as the optional display face, and independent finish review accepted this intentional choice."
+        "reason": "Codex lead engineer: Arial is used only as an optional locally installed, metric-adjusted fallback behind owner-approved Geist; docs/assets.md records measured fallback metrics. It is not the primary display or body face."
       },
       {
         "rule": "design-system-color",
@@ -26,6 +26,12 @@
         ],
         "createdAt": "2026-11-01T03:04:24.105Z",
         "reason": "Codex lead engineer: the single mobile-navigation detector pass reported default black on these masthead paragraphs; Chrome computed-style inspection of every named page, including file-based templates and the public preview, instead confirms canonical cocoa rgb(71, 40, 26). This narrowly scoped value is a detector rendering false positive; no palette change is authorized."
+      },
+      {
+        "rule": "overused-font",
+        "value": "geist",
+        "createdAt": "2026-11-01T03:49:29.023Z",
+        "reason": "User confirmed Geist for every text role: no, use Geist for all. just change weight for headings etc. DESIGN.md records that explicit owner decision; hierarchy uses weights 400, 700 and 800."
       }
     ]
   }

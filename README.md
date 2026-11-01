@@ -8,7 +8,7 @@ Give an independent publication a considered editorial layout without adopting a
 
 ![Una Moderno's editorial index: a featured essay, three recent stories, and a useful blue sidebar.](docs/images/editorial-desktop.png)
 
-[See the mobile specimen](docs/images/editorial-mobile.png) · [See the open phone menu](docs/images/navigation-mobile-open.png) · [See a long-form article](docs/images/article-desktop.png) · [Read the markup contract](docs/architecture.md) · [Inspect the source CSS](packages/core/src/una.css)
+[See the mobile specimen](docs/images/editorial-mobile.png) · [See the scrolled navigation](docs/images/navigation-mobile-end.png) · [See a long-form article](docs/images/article-desktop.png) · [Read the markup contract](docs/architecture.md) · [Inspect the source CSS](packages/core/src/una.css)
 
 ## What works today
 
@@ -19,7 +19,7 @@ This v0.1 foundation is for independent writers, developers integrating a layout
 - **An optional Tailwind v4 layer:** CSS-first aliases of core tokens, explicit source detection, and a compiled example using the same semantic structure.
 - **An Astro reference:** a static site rendered from validated fictional fixtures. It demonstrates a normalized content boundary, not a live CMS integration.
 
-The original 580:360 editorial split and 20px gap survive in a fluid layout. On smaller screens, the reading column comes first and the sidebar follows. Phone navigation uses a native hamburger disclosure with a full-width link list; tablet and desktop retain horizontal navigation. Visible focus, a skip link, and article contents work without client JavaScript.
+The original 580:360 editorial split and 20px gap survive in a fluid layout. On smaller screens, the reading column comes first and the sidebar follows. One horizontal navigation row serves every viewport; on narrow screens, its strip scrolls while the page stays within the viewport. Visible focus, a skip link, and article contents work without client JavaScript.
 
 ## Try it
 
@@ -56,7 +56,7 @@ Copy `packages/core/dist/una.css` or `una.min.css` into your own assets director
 </body>
 ```
 
-Override `--una-*` properties on `.una` to make it your own. Core CSS contains no external font request. For the specimen's display face, copy `packages/core/assets/` and separately link `fonts.css`; preserve its OFL license. See [core usage](packages/core/README.md).
+Override `--una-*` properties on `.una` to make it your own. Core CSS contains no external font request. For the specimen's self-hosted Geist typography across all text roles, copy `packages/core/assets/` and separately link `fonts.css`; preserve both OFL notices. One variable asset supplies the used weights, with `font-display: swap` and local/system fallbacks. See [core usage](packages/core/README.md).
 
 ## Add Tailwind when wanted
 
@@ -112,4 +112,4 @@ v0.2 targets a verified WordPress adapter and a tested CMS mapping. Broader brow
 
 ## License
 
-Original code, templates, demo writing, and artwork are [MIT licensed](LICENSE), copyright Dino Latoga. Bundled Bricolage Grotesque is separately licensed under [SIL OFL 1.1](packages/core/assets/OFL.txt). No historical Una assets are redistributed.
+Original code, templates, demo writing, and artwork are [MIT licensed](LICENSE), copyright Dino Latoga. Bundled Geist Sans is separately licensed under [SIL OFL 1.1](packages/core/assets/OFL.txt); the [distribution notice](packages/core/assets/Geist-LICENSE.txt) is also preserved. No historical Una assets are redistributed.

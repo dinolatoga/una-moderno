@@ -16,6 +16,8 @@
   --color-una-original-slate: var(--una-color-original-slate);
   --color-una-original-orange: var(--una-color-original-orange);
   --color-una-original-cream: var(--una-color-original-cream);
+
+  /* Role aliases share the canonical Geist stack; core owns font delivery. */
   --font-una-display: var(--una-font-display);
   --font-una-body: var(--una-font-body);
   --font-una-prose: var(--una-font-prose);

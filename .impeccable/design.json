@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-01T03:04:15.447202Z",
+  "generatedAt": "2026-11-01T03:49:56.473815Z",
   "title": "Design System: Una Moderno",
   "extensions": {
     "source": {
@@ -241,7 +241,7 @@
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Home wordmark."
+        "purpose": "Home wordmark; can shrink and wrap anywhere when narrow space or enlarged text requires it."
       },
       "headline": {
         "displayName": "Headline",
@@ -307,17 +307,17 @@
     ],
     "breakpoints": [
       {
+        "name": "narrow-navigation-gap",
+        "value": "22rem",
+        "condition": "width <= 22rem",
+        "behavior": "Reduce the horizontal navigation gap from 1.5rem to 0.5rem while retaining the same single row and native overflow scrolling.",
+        "rationale": "Keep part of the next destination visible on the narrowest phones; actual fit depends on label lengths."
+      },
+      {
         "name": "compact-stories",
         "value": "30rem",
         "condition": "width <= 30rem",
-        "behavior": "1rem shell margins; recent stories stack with a 6rem image track when an image exists."
-      },
-      {
-        "name": "compact-navigation",
-        "value": "36rem",
-        "condition": "width <= 36rem",
-        "behavior": "Replace horizontal navigation with a closed-by-default native Menu disclosure. Its expanded links form full-width vertical targets in the page flow; the inactive link group is hidden.",
-        "rationale": "The four specimen links measured about 482px plus 48px of outer margins (about 530px total); 576px at the default root size leaves about 46px of allowance. Recheck fit for different labels."
+        "behavior": "1rem shell margins; recent stories stack with a min(6rem, 33.3333%) image track and a flexible text track when an image exists, reserving room for text when its size increases."
       },
       {
         "name": "stacked-editorial",
@@ -338,7 +338,8 @@
       "headlineMax": "21ch",
       "deckMax": "60ch",
       "featureImageAspectRatio": "3 / 2",
-      "recentImageAspectRatio": "4 / 3"
+      "recentImageAspectRatio": "4 / 3",
+      "compactStoryColumns": "min(6rem, 33.3333%) minmax(0, 1fr); a story without an image uses minmax(0, 1fr)."
     },
     "interaction": {
       "focus": {
@@ -367,25 +368,53 @@
         "target": "Main landmark with a unique id and tabindex=-1."
       },
       "navigation": {
-        "element": "One labeled nav containing a wide link group and native details/summary with matching destinations.",
-        "compactCondition": "width <= 36rem",
-        "defaultState": "Closed; no open attribute in authored markup.",
-        "summaryLabel": "Menu",
-        "summaryMinimumInlineSize": "44px",
-        "summaryMinimumBlockSize": "44px",
-        "expandedLinkMinimumBlockSize": "44px",
-        "expandedLinkWidth": "Full available width.",
-        "icon": "Authored 24px SVG with currentColor stroke; hamburger paths when closed and X paths when open. Decorative and not focusable.",
-        "visibility": "Only the viewport-appropriate link group is displayed and available to keyboard focus.",
-        "expandedState": "Native details/summary semantics; no aria-expanded override or scripted role.",
-        "layout": "In flow below the masthead; no overlay.",
-        "motion": "No menu transition or animation.",
-        "resizeBehavior": "Native open state is preserved when resizing between compact and wide layouts.",
-        "fragmentLinkBehavior": "Following an in-page anchor does not automatically close the native disclosure.",
+        "element": "One labeled nav containing one set of direct anchors in a non-wrapping horizontal row at every width.",
+        "overflow": "Only the navigation strip scrolls horizontally when its links exceed the available width.",
+        "gap": "1.5rem; 0.5rem at width <= 22rem.",
+        "stripPadding": "0.5rem on every side, preserving room for the shared focus outline.",
+        "linkMinimumBlockSize": "44px",
+        "linkPadding": "0.25rem 0.5rem",
+        "linkWrapping": "Labels remain on one line; links do not shrink.",
+        "scrollPaddingInline": "50%; a centered optimal viewing region for native focus scrolling.",
+        "linkScrollMarginInline": "0.5rem",
+        "overscrollBehaviorX": "contain",
+        "scrollbar": "Hidden with scrollbar-width: none and ::-webkit-scrollbar { display: none }; the partial next label is the overflow cue.",
+        "scrolling": "Browser-native horizontal scrolling and momentum; vertical page gestures remain unrestricted.",
+        "keyboard": "Tab focuses each ordinary anchor; the centered optimal viewing region guides native scrolling to reveal even a partially visible focused link.",
+        "motion": "No custom scroll animation.",
         "runtimeJavaScript": false
       }
     },
-    "previewNotes": "Snippets use scoped ds- classes and source CSS variable references with fallback values. Load the optional local font stylesheet to show Bricolage Grotesque. Fragment links demonstrate native anchors; destinations belong to the surrounding document. Inline contents is displayed independently of the page breakpoint. Static quotations have no invented hover state. Main navigation follows the viewport-based 36rem breakpoint; the native disclosure starts closed and is shown only at compact widths."
+    "previewNotes": "Snippets use scoped ds- classes and source CSS variable references with fallback values. Load the optional local font stylesheet to show Geist Sans and its measured local fallback; all font roles resolve to the same family. Fragment links demonstrate native anchors; destinations belong to the surrounding document. Inline contents is displayed independently of the page breakpoint. Static quotations have no invented hover state. Main navigation uses a single horizontal row at all widths, scrolling within its own strip only when needed; the viewport-based 22rem breakpoint changes its gap to 0.5rem.",
+    "fontDelivery": {
+      "family": "Geist Sans",
+      "cssFamily": "Geist",
+      "asset": "packages/core/assets/geist-variable.woff2",
+      "sourcePackage": "geist@1.9.0",
+      "embeddedVersion": "1.900",
+      "byteLength": 69576,
+      "sha256": "5c5588027e59e74e205b9d6c7fd877b261091cee367f6bb3a8d505da14cae512",
+      "weightAxis": "100 900",
+      "usedWeights": [400, 700, 800],
+      "style": "normal; italic emphasis uses browser synthesis.",
+      "fontDisplay": "swap",
+      "externalRuntimeRequests": false,
+      "provenance": "docs/assets.md",
+      "licenses": ["packages/core/assets/OFL.txt", "packages/core/assets/Geist-LICENSE.txt"],
+      "roleOwnership": "The body font token owns the stack; display, prose, and code tokens alias it.",
+      "localFallback": {
+        "family": "Una Geist Fallback",
+        "regularSources": ["Arial", "ArialMT"],
+        "regularWeight": "400",
+        "boldSources": ["Arial Bold", "Arial-BoldMT"],
+        "boldWeightRange": "700 900",
+        "sizeAdjust": "102.2072%",
+        "ascentOverride": "98.3297%",
+        "descentOverride": "28.863%",
+        "lineGapOverride": "0%",
+        "limitations": "Local font only; no system font is redistributed. Adjustments align x-height and vertical metrics, not every glyph width; layout shifts remain possible. System sans follows when the local face is absent."
+      }
+    }
   },
   "components": [
     {
@@ -394,15 +423,15 @@
       "refersTo": "masthead",
       "description": "The cocoa and rose home link with a short publication description.",
       "html": "<header class=\"ds-masthead\"><a class=\"ds-brand\" href=\"#journal\" aria-label=\"Una Moderno home\">Una<span>Moderno</span></a><p>Ideas, observations, and other things worth keeping.</p></header>",
-      "css": ".ds-masthead{font-family:var(--una-font-body, 'Arial', 'Helvetica Neue', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);display:flex;align-items:end;justify-content:space-between;gap:var(--una-space-6, 1.5rem);padding-block:var(--una-space-8, 2rem) var(--una-space-6, 1.5rem);}.ds-brand{font-family:var(--una-font-display, 'Bricolage Grotesque', 'Arial', sans-serif);color:var(--una-color-ink, #47281a);font-size:var(--una-text-brand, clamp(2.7rem, 6.8vw, 5.5rem));font-weight:800;letter-spacing:var(--una-tracking-display, -0.035em);line-height:0.95;text-decoration:none;}.ds-brand span{color:var(--una-color-original-rose, #9b656b);}.ds-masthead p{margin:0;max-inline-size:27ch;padding-bottom:var(--una-space-1, 0.25rem);font-size:0.9375rem;line-height:1.45;}.ds-brand:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(width <= 56rem){.ds-masthead{align-items:start;flex-direction:column;gap:var(--una-space-4, 1rem);}.ds-masthead p{max-inline-size:45ch;}}"
+      "css": ".ds-masthead{font-family:var(--una-font-body, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);display:flex;align-items:end;justify-content:space-between;gap:var(--una-space-6, 1.5rem);padding-block:var(--una-space-8, 2rem) var(--una-space-6, 1.5rem);}.ds-brand { min-inline-size: 0; overflow-wrap: anywhere; color: var(--una-color-ink, #47281a); font-family: var(--una-font-display, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif); font-size: var(--una-text-brand, clamp(2.7rem, 6.8vw, 5.5rem)); font-weight: 800; letter-spacing: var(--una-tracking-display, -0.035em); line-height: 0.95; text-decoration: none; }.ds-brand span{color:var(--una-color-original-rose, #9b656b);}.ds-masthead p{margin:0;max-inline-size:27ch;padding-bottom:var(--una-space-1, 0.25rem);font-size:0.9375rem;line-height:1.45;}.ds-brand:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(width <= 56rem){.ds-masthead{align-items:start;flex-direction:column;gap:var(--una-space-4, 1rem);}.ds-masthead p{max-inline-size:45ch;}}"
     },
     {
       "name": "Main navigation",
       "kind": "nav",
       "refersTo": "navigation",
-      "description": "Horizontal links above 36rem; a closed-by-default native Menu disclosure with matching links at 36rem and below.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><div class=\"ds-nav-links ds-nav-links--wide\"><a href=\"#journal\" aria-current=\"page\">The journal</a><a href=\"#recent\">Recent stories</a><a href=\"#long-read\">The long read</a><a href=\"#about\">About this edition</a></div><details class=\"ds-nav-disclosure\"><summary class=\"ds-nav-toggle\"><svg class=\"ds-nav-icon\" viewBox=\"0 0 24 24\" width=\"24\" height=\"24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\" focusable=\"false\"><path class=\"ds-nav-icon-menu\" d=\"M3 6h18M3 12h18M3 18h18\" /><path class=\"ds-nav-icon-close\" d=\"m5 5 14 14M5 19 19 5\" /></svg><span>Menu</span></summary><div class=\"ds-nav-links\"><a href=\"#journal\" aria-current=\"page\">The journal</a><a href=\"#recent\">Recent stories</a><a href=\"#long-read\">The long read</a><a href=\"#about\">About this edition</a></div></details></nav>",
-      "css": ".ds-nav { font-family: var(--una-font-body, 'Arial', 'Helvetica Neue', sans-serif); font-size: var(--una-text-body, 1rem); line-height: var(--una-leading-body, 1.6); color: var(--una-color-ink, #47281a); } .ds-nav a { text-underline-offset: 0.2em; } .ds-nav-toggle, .ds-nav a { box-sizing: border-box; } .ds-nav :where(:focus-visible) { outline: var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79); outline-offset: var(--una-focus-offset, 4px); } .ds-nav { padding-block: var(--una-space-3, 0.75rem); border-block: var(--una-border-width, 1px) solid var(--una-color-ink, #47281a); margin-block-end: var(--una-space-8, 2rem); } .ds-nav-links { display: flex; flex-wrap: wrap; gap: var(--una-space-2, 0.5rem) var(--una-space-6, 1.5rem); } .ds-nav-disclosure { display: none; } .ds-nav-toggle { display: flex; align-items: center; justify-content: center; gap: var(--una-space-2, 0.5rem); inline-size: max-content; min-inline-size: 44px; min-block-size: 44px; margin-inline-start: auto; padding: var(--una-space-2, 0.5rem) var(--una-space-3, 0.75rem); color: var(--una-color-ink, #47281a); font-size: 0.9375rem; font-weight: 700; cursor: pointer; list-style: none; } .ds-nav-toggle::-webkit-details-marker { display: none; } .ds-nav-toggle:hover { text-decoration: underline; text-underline-offset: 0.2em; } .ds-nav-icon { flex: none; inline-size: 24px; block-size: 24px; } .ds-nav-icon-close, .ds-nav-disclosure[open] .ds-nav-icon-menu { display: none; } .ds-nav-disclosure[open] .ds-nav-icon-close { display: block; } .ds-nav a { display: inline-block; padding-block: var(--una-space-1, 0.25rem); font-size: 0.9375rem; font-weight: 700; color: var(--una-color-ink, #47281a); text-decoration: none; } .ds-nav a:hover, .ds-nav a[aria-current='page'] { text-decoration: underline; text-decoration-thickness: 2px; } @media (width <= 36rem) { .ds-nav { padding-block: 0; } .ds-nav-links--wide { display: none; } .ds-nav-disclosure { display: block; } .ds-nav-disclosure .ds-nav-links { flex-direction: column; gap: 0; padding-block: var(--una-space-2, 0.5rem); border-block-start: var(--una-border-width, 1px) solid var(--una-color-rule, #cbbeb5); } .ds-nav-disclosure a { display: flex; align-items: center; min-block-size: 44px; padding: var(--una-space-3, 0.75rem); } } @media (forced-colors: active) { .ds-nav a[aria-current='page'] { border-block-end: 2px solid LinkText; } }"
+      "description": "One horizontal row of ordinary anchors at every width; its own strip scrolls only when the links overflow.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Main navigation\"><a href=\"#journal\" aria-current=\"page\">The journal</a><a href=\"#recent\">Recent stories</a><a href=\"#long-read\">The long read</a><a href=\"#about\">About this edition</a></nav>",
+      "css": ".ds-nav { font-family: var(--una-font-body, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif); font-size: var(--una-text-body, 1rem); line-height: var(--una-leading-body, 1.6); color: var(--una-color-ink, #47281a); } .ds-nav a { text-underline-offset: 0.2em; } .ds-nav, .ds-nav a { box-sizing: border-box; } .ds-nav :where(:focus-visible) { outline: var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79); outline-offset: var(--una-focus-offset, 4px); } .ds-nav { display: flex; flex-wrap: nowrap; gap: var(--una-space-6, 1.5rem); min-inline-size: 0; overflow-x: auto; overscroll-behavior-x: contain; /* A centered optimal view region makes native focus reveal partial links. */ scroll-padding-inline: 50%; padding: var(--una-space-2, 0.5rem); border-block: var(--una-border-width, 1px) solid var(--una-color-ink, #47281a); margin-block-end: var(--una-space-8, 2rem); scrollbar-width: none; } .ds-nav::-webkit-scrollbar { display: none; } .ds-nav a { display: flex; flex: none; align-items: center; min-block-size: 44px; padding: var(--una-space-1, 0.25rem) var(--una-space-2, 0.5rem); scroll-margin-inline: var(--una-space-2, 0.5rem); white-space: nowrap; font-size: 0.9375rem; font-weight: 700; color: var(--una-color-ink, #47281a); text-decoration: none; } .ds-nav a:hover, .ds-nav a[aria-current='page'] { text-decoration: underline; text-decoration-thickness: 2px; } @media (width <= 22rem) { .ds-nav { gap: var(--una-space-2, 0.5rem); } } @media (forced-colors: active) { .ds-nav a[aria-current='page'] { border-block-end: 2px solid LinkText; } }"
     },
     {
       "name": "Feature without optional image",
@@ -410,7 +439,7 @@
       "refersTo": "feature",
       "description": "A complete title, deck, and metadata pattern with the optional figure omitted.",
       "html": "<article class=\"ds-feature\"><h2 class=\"ds-title\"><a href=\"#long-read\">A website can be a place, not a feed.</a></h2><p class=\"ds-deck\">What happens when we build a little corner of the internet around what we care about, and leave the door open?</p><p class=\"ds-meta\"><span>By Mara Solis \u00b7 Fictional specimen</span><time datetime=\"2026-10-12\">October 12, 2026</time></p></article>",
-      "css": ".ds-feature{font-family:var(--una-font-body, 'Arial', 'Helvetica Neue', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;}.ds-title{font-family:var(--una-font-display, 'Bricolage Grotesque', 'Arial', sans-serif);margin:0;max-inline-size:21ch;font-size:var(--una-text-title, clamp(2.25rem, 4.2vw, 3.375rem));line-height:var(--una-leading-title, 1.04);letter-spacing:var(--una-tracking-display, -0.035em);font-weight:700;text-wrap:balance;overflow-wrap:anywhere;}.ds-title a{color:inherit;text-decoration:none;text-underline-offset:0.2em;}.ds-title a:hover{text-decoration:underline;text-decoration-thickness:2px;}.ds-deck{margin:var(--una-space-4, 1rem) 0 0;max-inline-size:60ch;font-size:var(--una-text-deck, 1.125rem);line-height:1.55;}.ds-meta{display:flex;flex-wrap:wrap;gap:var(--una-space-1, 0.25rem) var(--una-space-4, 1rem);color:var(--una-color-muted, #715347);font-size:var(--una-text-small, 0.8125rem);margin-block:var(--una-space-4, 1rem) var(--una-space-5, 1.25rem);}.ds-meta time{font-variant-numeric:tabular-nums;}.ds-title a:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}"
+      "css": ".ds-feature{font-family:var(--una-font-body, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;}.ds-title{font-family:var(--una-font-display, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif);margin:0;max-inline-size:21ch;font-size:var(--una-text-title, clamp(2.25rem, 4.2vw, 3.375rem));line-height:var(--una-leading-title, 1.04);letter-spacing:var(--una-tracking-display, -0.035em);font-weight:700;text-wrap:balance;overflow-wrap:anywhere;}.ds-title a{color:inherit;text-decoration:none;text-underline-offset:0.2em;}.ds-title a:hover{text-decoration:underline;text-decoration-thickness:2px;}.ds-deck{margin:var(--una-space-4, 1rem) 0 0;max-inline-size:60ch;font-size:var(--una-text-deck, 1.125rem);line-height:1.55;}.ds-meta{display:flex;flex-wrap:wrap;gap:var(--una-space-1, 0.25rem) var(--una-space-4, 1rem);color:var(--una-color-muted, #715347);font-size:var(--una-text-small, 0.8125rem);margin-block:var(--una-space-4, 1rem) var(--una-space-5, 1.25rem);}.ds-meta time{font-variant-numeric:tabular-nums;}.ds-title a:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}"
     },
     {
       "name": "Recent story without optional thumbnail",
@@ -418,7 +447,7 @@
       "refersTo": "recent-story",
       "description": "A linked story heading and metadata remain complete when no image is supplied.",
       "html": "<article class=\"ds-story\"><h3><a href=\"#commonplace\">In praise of the commonplace book</a></h3><p class=\"ds-story-meta\"><span>Making things \u00b7 Fictional specimen</span><time datetime=\"2026-10-06\">Oct 6</time></p></article>",
-      "css": ".ds-story{font-family:var(--una-font-body, 'Arial', 'Helvetica Neue', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);}.ds-story h3{font-family:var(--una-font-display, 'Bricolage Grotesque', 'Arial', sans-serif);margin:0;font-size:1.25rem;line-height:1.2;text-wrap:balance;overflow-wrap:anywhere;}.ds-story h3 a{color:inherit;text-decoration:none;text-underline-offset:0.2em;}.ds-story h3 a:hover{text-decoration:underline;text-decoration-thickness:2px;}.ds-story-meta{display:flex;flex-wrap:wrap;gap:var(--una-space-1, 0.25rem) var(--una-space-4, 1rem);color:var(--una-color-muted, #715347);font-size:var(--una-text-small, 0.8125rem);margin:var(--una-space-2, 0.5rem) 0 0;}.ds-story-meta time{font-variant-numeric:tabular-nums;}.ds-story a:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(width <= 30rem){.ds-story{display:grid;grid-template-columns:minmax(0,1fr);gap:var(--una-space-3,0.75rem);}.ds-story-meta{margin:0;}}"
+      "css": ".ds-story{font-family:var(--una-font-body, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);}.ds-story h3{font-family:var(--una-font-display, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif);margin:0;font-size:1.25rem;line-height:1.2;text-wrap:balance;overflow-wrap:anywhere;}.ds-story h3 a{color:inherit;text-decoration:none;text-underline-offset:0.2em;}.ds-story h3 a:hover{text-decoration:underline;text-decoration-thickness:2px;}.ds-story-meta{display:flex;flex-wrap:wrap;gap:var(--una-space-1, 0.25rem) var(--una-space-4, 1rem);color:var(--una-color-muted, #715347);font-size:var(--una-text-small, 0.8125rem);margin:var(--una-space-2, 0.5rem) 0 0;}.ds-story-meta time{font-variant-numeric:tabular-nums;}.ds-story a:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media (width <= 30rem) { .ds-story { display: grid; grid-template-columns: min(6rem, 33.3333%) minmax(0, 1fr); gap: var(--una-space-3, 0.75rem); } .ds-story > a:has(img), .ds-story > img { grid-row: span 2; } .ds-story:has(img) .ds-story-meta { grid-column: 2; } .ds-story:not(:has(img)) { grid-template-columns: minmax(0, 1fr); } .ds-story img { margin: 0; grid-row: span 2; } .ds-story h3 { font-size: 1.25rem; } .ds-story .ds-story-meta { margin: 0; } }"
     },
     {
       "name": "Blue publication module",
@@ -426,7 +455,7 @@
       "refersTo": "blue-module",
       "description": "The blue margin field carries useful publication context.",
       "html": "<section class=\"ds-blue\"><h2>A little more room for the interesting.</h2><p>This fictional edition is about paying attention: to the places we make, the things we collect, and the web we want to inhabit.</p><p><a href=\"#about\">Meet the specimen</a></p></section>",
-      "css": ".ds-blue{font-family:var(--una-font-body, 'Arial', 'Helvetica Neue', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);padding:var(--una-space-8, 2rem);background:var(--una-color-blue, #87a9d3);border:0;}.ds-blue h2{font-family:var(--una-font-display, 'Bricolage Grotesque', 'Arial', sans-serif);margin:0 0 var(--una-space-4, 1rem);font-size:clamp(1.75rem,2.8vw,2.625rem);line-height:1.15;letter-spacing:-0.025em;max-inline-size:12ch;text-wrap:balance;overflow-wrap:anywhere;}.ds-blue p{margin:0;}.ds-blue p+p{margin-block-start:var(--una-space-4, 1rem);}.ds-blue a{color:var(--una-color-ink, #47281a);text-underline-offset:0.2em;text-decoration-thickness:1px;}.ds-blue a:hover{text-decoration-thickness:2px;}.ds-blue a:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(width <= 56rem){.ds-blue h2{max-inline-size:none;}}"
+      "css": ".ds-blue{font-family:var(--una-font-body, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);padding:var(--una-space-8, 2rem);background:var(--una-color-blue, #87a9d3);border:0;}.ds-blue h2{font-family:var(--una-font-display, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif);margin:0 0 var(--una-space-4, 1rem);font-size:clamp(1.75rem,2.8vw,2.625rem);line-height:1.15;letter-spacing:-0.025em;max-inline-size:12ch;text-wrap:balance;overflow-wrap:anywhere;}.ds-blue p{margin:0;}.ds-blue p+p{margin-block-start:var(--una-space-4, 1rem);}.ds-blue a{color:var(--una-color-ink, #47281a);text-underline-offset:0.2em;text-decoration-thickness:1px;}.ds-blue a:hover{text-decoration-thickness:2px;}.ds-blue a:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(width <= 56rem){.ds-blue h2{max-inline-size:none;}}"
     },
     {
       "name": "Reading list",
@@ -434,7 +463,7 @@
       "refersTo": "link-list",
       "description": "Useful links with small descriptive lines, separated by space rather than boxes.",
       "html": "<nav class=\"ds-list-module\" aria-label=\"Find your next read\"><h2>Find your next read</h2><ul class=\"ds-link-list\"><li><a href=\"#web\">Web &amp; culture</a><small>Personal places on a connected web</small></li><li><a href=\"#field\">Field notes</a><small>The overlooked life of a city</small></li></ul></nav>",
-      "css": ".ds-list-module{font-family:var(--una-font-body, 'Arial', 'Helvetica Neue', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);padding-block:var(--una-space-6, 1.5rem);border-block-end:var(--una-border-width, 1px) solid var(--una-color-rule, #cbbeb5);}.ds-list-module h2{font-family:var(--una-font-display, 'Bricolage Grotesque', 'Arial', sans-serif);margin:0 0 var(--una-space-4, 1rem);font-size:1.5rem;line-height:1.15;}.ds-link-list{list-style:none;padding:0;margin:0;}.ds-link-list li+li{margin-block-start:var(--una-space-3, 0.75rem);}.ds-link-list a{display:inline-block;padding-block:var(--una-space-1, 0.25rem);}.ds-link-list small{display:block;color:var(--una-color-muted, #715347);font-size:var(--una-text-small, 0.8125rem);}.ds-link-list a{color:var(--una-color-link, #294d79);text-underline-offset:0.2em;text-decoration-thickness:1px;}.ds-link-list a:hover{color:var(--una-color-rust, #a1440d);text-decoration-thickness:2px;}.ds-link-list a:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}"
+      "css": ".ds-list-module{font-family:var(--una-font-body, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);padding-block:var(--una-space-6, 1.5rem);border-block-end:var(--una-border-width, 1px) solid var(--una-color-rule, #cbbeb5);}.ds-list-module h2{font-family:var(--una-font-display, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif);margin:0 0 var(--una-space-4, 1rem);font-size:1.5rem;line-height:1.15;}.ds-link-list{list-style:none;padding:0;margin:0;}.ds-link-list li+li{margin-block-start:var(--una-space-3, 0.75rem);}.ds-link-list a{display:inline-block;padding-block:var(--una-space-1, 0.25rem);}.ds-link-list small{display:block;color:var(--una-color-muted, #715347);font-size:var(--una-text-small, 0.8125rem);}.ds-link-list a{color:var(--una-color-link, #294d79);text-underline-offset:0.2em;text-decoration-thickness:1px;}.ds-link-list a:hover{color:var(--una-color-rust, #a1440d);text-decoration-thickness:2px;}.ds-link-list a:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}"
     },
     {
       "name": "Inline article contents",
@@ -442,25 +471,25 @@
       "refersTo": "article-contents",
       "description": "Native details disclosure, shown in the article at 56rem and below; preview displays it independently.",
       "html": "<nav class=\"ds-contents\" aria-label=\"Article sections\"><details><summary>In this article</summary><ol><li><a href=\"#a-place-to-return\">A place to return to</a></li><li><a href=\"#leave-a-door-open\">Leave a door open</a></li></ol></details></nav>",
-      "css": ".ds-contents{font-family:var(--una-font-body, 'Arial', 'Helvetica Neue', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);margin-block:var(--una-space-5, 1.25rem);padding-block:var(--una-space-3, 0.75rem);border-block:var(--una-border-width, 1px) solid var(--una-color-rule, #cbbeb5);}.ds-contents summary{cursor:pointer;color:var(--una-color-link, #294d79);font-weight:700;}.ds-contents ol{margin:0;padding:var(--una-space-4, 1rem) 0 0 var(--una-space-6, 1.5rem);}.ds-contents a{display:inline-block;padding-block:var(--una-space-2, 0.5rem);}.ds-contents summary:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}.ds-contents a{color:var(--una-color-link, #294d79);text-underline-offset:0.2em;text-decoration-thickness:1px;}.ds-contents a:hover{color:var(--una-color-rust, #a1440d);text-decoration-thickness:2px;}.ds-contents a:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}"
+      "css": ".ds-contents{font-family:var(--una-font-body, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif);font-size:var(--una-text-body, 1rem);line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);margin-block:var(--una-space-5, 1.25rem);padding-block:var(--una-space-3, 0.75rem);border-block:var(--una-border-width, 1px) solid var(--una-color-rule, #cbbeb5);}.ds-contents summary{cursor:pointer;color:var(--una-color-link, #294d79);font-weight:700;}.ds-contents ol{margin:0;padding:var(--una-space-4, 1rem) 0 0 var(--una-space-6, 1.5rem);}.ds-contents a{display:inline-block;padding-block:var(--una-space-2, 0.5rem);}.ds-contents summary:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}.ds-contents a{color:var(--una-color-link, #294d79);text-underline-offset:0.2em;text-decoration-thickness:1px;}.ds-contents a:hover{color:var(--una-color-rust, #a1440d);text-decoration-thickness:2px;}.ds-contents a:focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}"
     },
     {
       "name": "Article quotation",
       "kind": "custom",
       "refersTo": "quote",
-      "description": "A larger serif quotation on a flat cream field.",
+      "description": "A larger regular-weight Geist quotation on a flat cream field.",
       "html": "<blockquote class=\"ds-quote\"><p>A page you can maintain is more generous than a grand system you have abandoned.</p></blockquote>",
-      "css": ".ds-quote{margin:0;padding:var(--una-space-6, 1.5rem);background:var(--una-color-original-cream, #faf3e2);color:var(--una-color-ink, #47281a);font-family:var(--una-font-prose, 'Charter', 'Bitstream Charter', 'Georgia', serif);font-size:1.375rem;line-height:1.5;}.ds-quote p{margin:0;}"
+      "css": ".ds-quote{margin:0;padding:var(--una-space-6, 1.5rem);background:var(--una-color-original-cream, #faf3e2);color:var(--una-color-ink, #47281a);font-family:var(--una-font-prose, 'Geist', 'Una Geist Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif);font-size:1.375rem;line-height:1.5;}.ds-quote p{margin:0;}"
     }
   ],
   "narrative": {
     "northStar": "Independent arts-journal contents spread",
-    "overview": "Una Moderno gives an independent publication a clear reading surface and a useful margin. Cocoa and rose display type, a nearly white ground, blue editorial fields, and square-edged imagery make it direct, lively, and grounded. Its density comes from stories and navigable lists, with rules separating functions rather than enclosing every item.\n\nThe custom sans establishes identity while familiar sans-serif supporting text and a serif article face keep reading comfortable. The implemented world is light, flat, and built from ordinary HTML links, headings, lists, and native disclosure for the compact navigation and article contents. It carries no dark theme, floating card system, or scripted navigation.",
+    "overview": "Una Moderno gives an independent publication a clear reading surface and a useful margin. Cocoa and rose display type, a nearly white ground, blue editorial fields, and square-edged imagery make it direct, lively, and grounded. Its density comes from stories and navigable lists, with rules separating functions rather than enclosing every item.\n\nGeist Sans carries every text role, from the heavy publication identity to calm article paragraphs. Weight, size, leading, tracking, and spacing establish the hierarchy within one family. The implemented world is light, flat, and built from ordinary HTML links, headings, lists, a horizontal navigation strip, and native disclosure for article contents. It carries no dark theme, floating card system, or scripted navigation.",
     "keyCharacteristics": [
       "Cocoa and rose masthead with a blue editorial margin.",
       "Unequal columns, a leading story, three recent stories, and useful supporting lists.",
       "Square corners, rectangular geometric art, and thin functional rules.",
-      "A custom sans for identity and headings; quiet serif prose at a 70ch maximum.",
+      "One Geist Sans family across all text roles, with article prose at a 70ch maximum.",
       "Native links, visible focus, and an article destination highlight without runtime JavaScript."
     ],
     "rules": [
@@ -470,8 +499,8 @@
         "section": "colors"
       },
       {
-        "name": "The Two Reading Voices Rule",
-        "body": "Use the display sans for identity and headings, the body sans for navigation and summaries, and the prose serif for sustained reading. Do not turn the masthead face into the article body.",
+        "name": "The One Family Rule",
+        "body": "Use Geist Sans across every text role. Establish hierarchy through weight, size, line height, tracking, and spacing, while preserving the distinct reading measure and rhythm of article prose.",
         "section": "typography"
       },
       {
@@ -491,7 +520,7 @@
       "Do keep feature images optional, titles able to wrap, and article text within the established reading measure.",
       "Do use descriptive links, ordered headings, the skip link, and the existing visible focus treatment.",
       "Do keep supplied specimen stories and authors clearly identified as fictional.",
-      "Do retain the optional display font license and asset provenance when distributing it."
+      "Do retain the optional Geist font license, distribution notice, and asset provenance when distributing it."
     ],
     "donts": [
       "Don't introduce a second palette or layout in the Tailwind layer or an adapter.",

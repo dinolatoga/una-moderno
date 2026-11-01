@@ -4,48 +4,47 @@
 
 `packages/core/src/tokens.css` is the source of truth for every `--una-*` token. The core build concatenates tokens and semantic styles into readable and minified CSS. Generated token JSON is an inventory, never a competing authoring source. Core has no runtime JavaScript, framework, external network request, or dependency on a build tool in the consuming page.
 
-An outer `.una` element scopes styles and establishes inherited typography/color. Place it on `<body>` for a whole page, or on a wrapper for an embedded region. Tokens are defaulted at `:root` and can be overridden on `.una` or a containing element. Core does not impose a global reset on unrelated content. Optional `assets/fonts.css` loads the bundled, separately licensed display face; the core works with fallbacks without this file.
+An outer `.una` element scopes styles and establishes inherited typography/color. Place it on `<body>` for a whole page, or on a wrapper for an embedded region. Tokens are defaulted at `:root` and can be overridden on `.una` or a containing element. Core does not impose a global reset on unrelated content. Optional `assets/fonts.css` loads the bundled, separately licensed Geist family for every text role; the core works with fallbacks without this file.
 
 ## Stable v0.1 markup
 
-| Class                                          | Element / responsibility                                   |
-| ---------------------------------------------- | ---------------------------------------------------------- |
-| `una`                                          | body or wrapper; scope and type/color context              |
-| `una-skip-link`                                | first anchor, href to main id                              |
-| `una-shell`                                    | centered page container                                    |
-| `una-masthead`                                 | header with brand and publication description              |
-| `una-brand`                                    | home link / text wordmark                                  |
-| `una-nav`                                      | labeled nav containing the wide links and phone disclosure |
-| `una-nav-links` / `una-nav-links--wide`        | link group / horizontal group above the phone breakpoint   |
-| `una-nav-disclosure` / `una-nav-toggle`        | native details / summary with a visible Menu label         |
-| `una-nav-icon`                                 | authored, aria-hidden SVG menu/close icon                  |
-| `una-layout`                                   | primary column followed by sidebar; 580:360 at desktop     |
-| `una-main`                                     | main landmark, unique id and tabindex=-1 for skip link     |
-| `una-feature`                                  | article with heading, link, metadata, optional figure      |
-| `una-title`                                    | feature or article heading; level chosen by document       |
-| `una-meta`                                     | author/date/category metadata, time uses datetime          |
-| `una-deck`                                     | summary paragraph                                          |
-| `una-recent`                                   | section containing three `una-story` articles              |
-| `una-story`                                    | linked heading, optional image, and metadata               |
-| `una-sidebar`                                  | aside with accessible label                                |
-| `una-module`                                   | a useful sidebar section with a heading                    |
-| `una-module--blue`                             | blue module surface                                        |
-| `una-link-list`                                | list of navigation/resource links                          |
-| `una-contents-inline` / `una-contents-sidebar` | mobile native details contents / desktop sidebar contents  |
-| `una-prose`                                    | long-form article body, max 70ch                           |
-| `una-footer`                                   | footer and specimen disclosure                             |
+| Class                                          | Element / responsibility                                         |
+| ---------------------------------------------- | ---------------------------------------------------------------- |
+| `una`                                          | body or wrapper; scope and type/color context                    |
+| `una-skip-link`                                | first anchor, href to main id                                    |
+| `una-shell`                                    | centered page container                                          |
+| `una-masthead`                                 | header with brand and publication description                    |
+| `una-brand`                                    | home link / text wordmark                                        |
+| `una-nav`                                      | labeled, horizontally scrollable nav with direct anchor children |
+| `una-layout`                                   | primary column followed by sidebar; 580:360 at desktop           |
+| `una-main`                                     | main landmark, unique id and tabindex=-1 for skip link           |
+| `una-feature`                                  | article with heading, link, metadata, optional figure            |
+| `una-title`                                    | feature or article heading; level chosen by document             |
+| `una-meta`                                     | author/date/category metadata, time uses datetime                |
+| `una-deck`                                     | summary paragraph                                                |
+| `una-recent`                                   | section containing three `una-story` articles                    |
+| `una-story`                                    | linked heading, optional image, and metadata                     |
+| `una-sidebar`                                  | aside with accessible label                                      |
+| `una-module`                                   | a useful sidebar section with a heading                          |
+| `una-module--blue`                             | blue module surface                                              |
+| `una-link-list`                                | list of navigation/resource links                                |
+| `una-contents-inline` / `una-contents-sidebar` | mobile native details contents / desktop sidebar contents        |
+| `una-prose`                                    | long-form article body, max 70ch                                 |
+| `una-footer`                                   | footer and specimen disclosure                                   |
 
 Classes express presentation, never replace landmarks, headings or link semantics. No DOM query hooks or script behavior is promised. Feature images are optional; omitting the figure leaves a complete story. Do not render an empty or broken image. Long text wraps. Sidebar follows primary content in source and on small screens. Use a single page h1, h2 section headings, and h3 for stories inside those sections. Core custom properties and documented classes are the public v0.1 surface; changes require a changelog note while this pre-1.0 API stabilizes.
 
 ## Responsive navigation
 
-One labeled `nav.una-nav` contains two equivalent link groups: `.una-nav-links.una-nav-links--wide` for wider screens, and a closed-by-default `details.una-nav-disclosure` for phones. Its first child is `summary.una-nav-toggle`, containing an authored `svg.una-nav-icon` and the visible label **Menu**; its second child is `.una-nav-links`. Copy the complete pattern from the [index template](../packages/core/templates/index.html).
+One labeled `nav.una-nav` contains one set of direct anchor children at every width. Copy the [index template](../packages/core/templates/index.html). Adapters render that one collection once, including destination URLs, descriptive labels, and `aria-current="page"` on the current page. No navigation-specific runtime or expanded state is part of the contract.
 
-At 36rem (576px with the default root size) and below, only the native disclosure is displayed. Above that breakpoint, only the horizontal group is displayed. The four specimen links need approximately 482px plus 48px of page margins; the breakpoint leaves room before they would wrap. Both groups must have identical destinations, labels, and current-page attributes. CMS adapters should render them from one data collection, as the Astro reference does. The hidden group is absent from keyboard navigation and the accessibility tree.
+The nav is a non-wrapping flex row with horizontally scrollable overflow. Links keep their labels on one line and have at least 44px height. The document stays within the viewport; overflow belongs to the navigation strip alone. The specimen fits on tablet and desktop. Narrow widths expose part of the next destination to make continuation visible, with no added control or instructional copy. There is no navigation mode change at 576px: overflow follows the actual content width.
 
-The native summary exposes its name and expanded state; do not replace its role or hard-code `aria-expanded`. The SVG is `aria-hidden="true"` and `focusable="false"`; its `.una-nav-icon-menu` and `.una-nav-icon-close` paths switch with the details element's `open` state. The toggle and mobile links have at least 44px touch targets. Open links occupy the full width in normal document flow, below the masthead. No overlay, scroll lock, animation, or script is needed.
+The strip has 8px padding, and links have 4px block / 8px inline padding with a 24px gap. At 22rem and below the gap becomes 8px, preserving a recognizable part of the next label at 320px. The 8px inner gutter and link scroll margin leave room for the standard 3px outline plus 4px offset. `scroll-padding-inline: 50%` narrows the optimal viewing region to the center, making native keyboard focus reveal even partially visible links. There is no scroll snapping or animation, so touch and trackpad scrolling remain free after keyboard use. The top and bottom cocoa rules remain fixed to the strip; current-page underline and forced-color styling are preserved.
 
-Native disclosure state persists when resizing away from and back to the phone layout. An in-page link scrolls to its destination without automatically closing the disclosure. Ordinary page navigation loads a closed menu in the new document; browser history restoration follows the browser's native behavior. The two markup groups avoid overriding the hidden content or accessibility semantics of a closed details element to force a desktop view.
+`overflow-x: auto` uses native scrolling, including momentum where the browser provides it. Horizontal overscroll is contained with `overscroll-behavior-x: contain`; the vertical axis and touch-action remain at browser defaults, so vertical gestures over the nav can scroll the page. Scrollbar chrome is suppressed with standard `scrollbar-width: none` and the WebKit/Chromium `::-webkit-scrollbar` rule. The partially visible next destination supplies continuation without an added control. Do not add a JavaScript carousel. Browser history restoration retains its normal scroll behavior.
+
+Longer labels, additional destinations, localization, and font changes require rechecking fit, focus visibility, and continuation at the intended widths. The specimen measurements are evidence for its actual content, not a guarantee for every navigation collection.
 
 ## Normalized content
 

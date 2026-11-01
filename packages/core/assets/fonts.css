@@ -1,8 +1,34 @@
-/* Optional display type; Bricolage Grotesque is SIL OFL 1.1. */
+/* Optional self-hosted Geist Sans 1.900; SIL OFL 1.1. See both license notices. */
 @font-face {
-  font-family: 'Bricolage Grotesque';
+  font-family: Geist;
   font-style: normal;
-  font-weight: 200 800;
+  font-weight: 100 900;
   font-display: swap;
-  src: url('./bricolage-grotesque-latin.woff2') format('woff2');
+  src: url('./geist-variable.woff2') format('woff2');
+}
+
+/* Match Geist x-height and vertical metrics when local Arial is available.
+   Derivation and source metrics: docs/assets.md. No fallback font is downloaded. */
+@font-face {
+  font-family: 'Una Geist Fallback';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Arial'), local('ArialMT');
+  size-adjust: 102.2072%;
+  ascent-override: 98.3297%;
+  descent-override: 28.863%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Una Geist Fallback';
+  font-style: normal;
+  font-weight: 700 900;
+  font-display: swap;
+  src: local('Arial Bold'), local('Arial-BoldMT');
+  size-adjust: 102.2072%;
+  ascent-override: 98.3297%;
+  descent-override: 28.863%;
+  line-gap-override: 0%;
 }
