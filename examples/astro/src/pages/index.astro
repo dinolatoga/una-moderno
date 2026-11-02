@@ -46,6 +46,7 @@ const base = import.meta.env.BASE_URL;
                 <a href={`${base}${story.slug}/`}>{story.title}</a>
               </h3>
               <StoryMeta story={story} compact />
+              <p class="una-excerpt">{story.summary}</p>
             </article>
           ))}
         </div>

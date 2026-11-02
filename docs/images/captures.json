@@ -12,8 +12,8 @@
       "captured": "2026-11-02",
       "browser": "Google Chrome 156.0.8078.74",
       "command": "UNA_TEST_PORT=4323 UNA_BROWSER_CHANNEL=chrome npm run test:browser",
-      "sha256": "a7306f51ea9998a69fae0785e058c5e3ae3bc38169cafae64b1d857e76c0fa94",
-      "origin": "Local browser capture of Una Moderno's fictional specimen, route /, 1440x1000 CSS-pixel viewport, full page, 2026-11-02, Chrome 156.0.8078.74. Initial scroll position, with the panorama at its scroll-start position under the paper shell fade. Approved cat-studio panoramic WebP, full-cover lead with one uniform forest wash, no utility row, first navigation label aligned with the wordmark, natural title wrapping and exact 1.618:1 desktop columns. Core CSS and fictional story text carry the repository MIT license; Inter carries SIL OFL 1.1. Panoramas were generated for Una Moderno under Dino's direction and approved in this session; see docs/assets.md for provenance and generated-art limitations. No Microsoft/Zune or private-site assets. Pixel data is unchanged from the browser capture.",
+      "sha256": "28b64d4f02f96f900d25499cc0e3daba4ef96393a45254a070d8d164d7d94e11",
+      "origin": "Local browser capture of Una Moderno's fictional specimen, route /, 1440x1000 CSS-pixel viewport, full page, 2026-11-02, Chrome 156.0.8078.74. Initial scroll position, with the panorama at its scroll-start position under the paper shell fade. Approved cat-studio panoramic WebP, full-cover lead with one uniform forest wash, three recent stories each reading title, category, date and a short excerpt, no utility row, first navigation label aligned with the wordmark, natural title wrapping and exact 1.618:1 desktop columns. Core CSS and fictional story text carry the repository MIT license; Inter carries SIL OFL 1.1. Panoramas were generated for Una Moderno under Dino's direction and approved by the owner; see docs/assets.md for provenance and generated-art limitations. No Microsoft/Zune or private-site assets. Pixel data is unchanged from the browser capture.",
       "artwork": "cat-studio"
     },
     {
@@ -28,8 +28,8 @@
       "captured": "2026-11-02",
       "browser": "Google Chrome 156.0.8078.74",
       "command": "UNA_TEST_PORT=4323 UNA_BROWSER_CHANNEL=chrome npm run test:browser",
-      "sha256": "2395f661eb3a5d60f9c30cc21b65cba978c9161bb40e047e9f1421d6c8cd3884",
-      "origin": "Local browser capture of Una Moderno's fictional specimen, route /, 390x1000 CSS-pixel viewport, full page, 2026-11-02, Chrome 156.0.8078.74. Initial scroll position, with the panorama at its scroll-start position under the paper shell fade. Approved cat-studio panoramic WebP, full-cover lead with one uniform forest wash, no utility row, first navigation label aligned with the wordmark, natural title wrapping and exact 1.618:1 desktop columns. Core CSS and fictional story text carry the repository MIT license; Inter carries SIL OFL 1.1. Panoramas were generated for Una Moderno under Dino's direction and approved in this session; see docs/assets.md for provenance and generated-art limitations. No Microsoft/Zune or private-site assets. Pixel data is unchanged from the browser capture.",
+      "sha256": "1974c18fbe6c6aed843c6df2ac8ad77090a0618b05b73343902a6de205f2efbf",
+      "origin": "Local browser capture of Una Moderno's fictional specimen, route /, 390x1000 CSS-pixel viewport, full page, 2026-11-02, Chrome 156.0.8078.74. Initial scroll position, with the panorama at its scroll-start position under the paper shell fade. Approved cat-studio panoramic WebP, full-cover lead with one uniform forest wash, three recent-story rows each reading title, category, date and a short excerpt beside the thumbnail, no utility row, first navigation label aligned with the wordmark, natural title wrapping and the stacked phone layout. Core CSS and fictional story text carry the repository MIT license; Inter carries SIL OFL 1.1. Panoramas were generated for Una Moderno under Dino's direction and approved by the owner; see docs/assets.md for provenance and generated-art limitations. No Microsoft/Zune or private-site assets. Pixel data is unchanged from the browser capture.",
       "artwork": "cat-studio"
     },
     {
@@ -76,8 +76,8 @@
       "captured": "2026-11-02",
       "browser": "Google Chrome 156.0.8078.74",
       "command": "UNA_TEST_PORT=4323 UNA_BROWSER_CHANNEL=chrome npm run test:browser",
-      "sha256": "3e608c8c2e774e29c5a5536f4b0e74d35f29b8953f77ade39597e0f13c393d74",
-      "origin": "Local browser capture of Una Moderno's fictional specimen, route /, 390x844 CSS-pixel viewport, full page, 2026-11-02, Chrome 156.0.8078.74. Final navigation link keyboard-focused with its complete outline and the strip scrolled to its end, so the right-edge fade has cleared. Approved cat-studio panoramic WebP, full-cover lead with one uniform forest wash, no utility row, first navigation label aligned with the wordmark, natural title wrapping and exact 1.618:1 desktop columns. Core CSS and fictional story text carry the repository MIT license; Inter carries SIL OFL 1.1. Panoramas were generated for Una Moderno under Dino's direction and approved in this session; see docs/assets.md for provenance and generated-art limitations. No Microsoft/Zune or private-site assets. Pixel data is unchanged from the browser capture.",
+      "sha256": "ecfabd09ee5d0b5679fc785be91bfcda4203bb37f1617766fe363b9361e74050",
+      "origin": "Local browser capture of Una Moderno's fictional specimen, route /, 390x844 CSS-pixel viewport, full page, 2026-11-02, Chrome 156.0.8078.74. Final navigation link keyboard-focused with its complete outline and the strip scrolled to its end, so the right-edge fade has cleared. Approved cat-studio panoramic WebP, full-cover lead with one uniform forest wash, three recent-story rows each reading title, category, date and a short excerpt, no utility row, natural title wrapping and the stacked phone layout. Core CSS and fictional story text carry the repository MIT license; Inter carries SIL OFL 1.1. Panoramas were generated for Una Moderno under Dino's direction and approved by the owner; see docs/assets.md for provenance and generated-art limitations. No Microsoft/Zune or private-site assets. Pixel data is unchanged from the browser capture.",
       "artwork": "cat-studio"
     },
     {
@@ -92,8 +92,8 @@
       "captured": "2026-11-02",
       "browser": "Google Chrome 156.0.8078.74",
       "command": "UNA_TEST_PORT=4323 UNA_BROWSER_CHANNEL=chrome npm run test:browser",
-      "origin": "Local browser capture of Una Moderno's fictional specimen, route /, 320x844 CSS-pixel viewport, full page, 2026-11-02, Chrome 156.0.8078.74. Initial navigation scroll position; the right-edge paper fade signals further destinations. Approved cat-studio panoramic WebP, full-cover lead with one uniform forest wash, no utility row, first navigation label aligned with the wordmark, natural title wrapping and exact 1.618:1 desktop columns. Core CSS and fictional story text carry the repository MIT license; Inter carries SIL OFL 1.1. Panoramas were generated for Una Moderno under Dino's direction and approved in this session; see docs/assets.md for provenance and generated-art limitations. No Microsoft/Zune or private-site assets. Pixel data is unchanged from the browser capture.",
-      "sha256": "b6d006f12a47fb6da2b57b4fed0ab861f3362910d82268402b4d0ef711fe23ba",
+      "origin": "Local browser capture of Una Moderno's fictional specimen, route /, 320x844 CSS-pixel viewport, full page, 2026-11-02, Chrome 156.0.8078.74. Initial navigation scroll position; the right-edge paper fade signals further destinations. Approved cat-studio panoramic WebP, full-cover lead with one uniform forest wash, three recent-story rows each reading title, category, date and a short excerpt, no utility row, first navigation label aligned with the wordmark, natural title wrapping and the stacked phone layout. Core CSS and fictional story text carry the repository MIT license; Inter carries SIL OFL 1.1. Panoramas were generated for Una Moderno under Dino's direction and approved by the owner; see docs/assets.md for provenance and generated-art limitations. No Microsoft/Zune or private-site assets. Pixel data is unchanged from the browser capture.",
+      "sha256": "e1940615a331431117dd2476ae6ccd551d29e9e7e2a636de39b33b2dd5864eba",
       "artwork": "cat-studio"
     },
     {
@@ -108,8 +108,8 @@
       "captured": "2026-11-02",
       "browser": "Google Chrome 156.0.8078.74",
       "command": "UNA_TEST_PORT=4323 UNA_BROWSER_CHANNEL=chrome npm run test:browser",
-      "origin": "Local browser capture of Una Moderno's fictional specimen, route /, 320x844 CSS-pixel viewport, full page, 2026-11-02, Chrome 156.0.8078.74. Final navigation link keyboard-focused with its complete outline and the strip scrolled to its end, so the right-edge fade has cleared. Approved cat-studio panoramic WebP, full-cover lead with one uniform forest wash, no utility row, first navigation label aligned with the wordmark, natural title wrapping and exact 1.618:1 desktop columns. Core CSS and fictional story text carry the repository MIT license; Inter carries SIL OFL 1.1. Panoramas were generated for Una Moderno under Dino's direction and approved in this session; see docs/assets.md for provenance and generated-art limitations. No Microsoft/Zune or private-site assets. Pixel data is unchanged from the browser capture.",
-      "sha256": "d7aaff26d9136859f52b80934aa21fbce684b83e20731194375f9feb792e596d",
+      "origin": "Local browser capture of Una Moderno's fictional specimen, route /, 320x844 CSS-pixel viewport, full page, 2026-11-02, Chrome 156.0.8078.74. Final navigation link keyboard-focused with its complete outline and the strip scrolled to its end, so the right-edge fade has cleared. Approved cat-studio panoramic WebP, full-cover lead with one uniform forest wash, three recent-story rows each reading title, category, date and a short excerpt, no utility row, natural title wrapping and the stacked phone layout. Core CSS and fictional story text carry the repository MIT license; Inter carries SIL OFL 1.1. Panoramas were generated for Una Moderno under Dino's direction and approved by the owner; see docs/assets.md for provenance and generated-art limitations. No Microsoft/Zune or private-site assets. Pixel data is unchanged from the browser capture.",
+      "sha256": "9a6d9ed0e5871705921baab3cc087cd39697d28c8d86bb859e2eb51c892ac1b1",
       "artwork": "cat-studio"
     }
   ]

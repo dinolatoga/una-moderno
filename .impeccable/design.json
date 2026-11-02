@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-01T06:08:30.847124Z",
+  "generatedAt": "2026-11-02T03:45:43.924Z",
   "title": "Design System: Una Moderno",
   "extensions": {
     "source": {
@@ -370,6 +370,10 @@
         "displayName": "Strapline",
         "purpose": "Masthead description at 1.5 leading."
       },
+      "excerpt": {
+        "displayName": "Excerpt",
+        "purpose": "Muted regular recent-story excerpt at 1.5 leading, a 60ch maximum and pretty wrapping, after the stacked category and date; never clamped."
+      },
       "navigation": {
         "displayName": "Navigation",
         "purpose": "Inactive muted navigation link at stable weight 300; hover/active changes only color to rose."
@@ -466,7 +470,9 @@
       },
       "columnGapResolved": "clamp(3rem, 4.1667vw, 5rem)",
       "rowGap": "2.5rem",
-      "rowGapToken": "--una-layout-stack-gap"
+      "rowGapToken": "--una-layout-stack-gap",
+      "compactStoryRows": "auto auto 1fr with an excerpt, auto 1fr without one; the thumbnail spans every row and surplus height falls below the last text row.",
+      "storyTextIntervals": "0.5rem title to metadata and metadata to excerpt; category and date stack with no gap."
     },
     "interaction": {
       "focus": {
@@ -885,9 +891,9 @@
       "name": "Recent story",
       "kind": "custom",
       "refersTo": "recent-story",
-      "description": "Square thumbnail and compact strong heading, becoming a text-reserving phone row.",
-      "html": "<article class=\"ds-story\"><a href=\"#story\" tabindex=\"-1\" aria-hidden=\"true\"><svg preserveAspectRatio=\"xMidYMid slice\" class=\"ds-story-art\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\" width=\"400\" height=\"300\" viewBox=\"0 0 400 300\"><rect width=\"400\" height=\"300\" fill=\"#727c9f\"/><circle cx=\"270\" cy=\"102\" r=\"58\" fill=\"#faf3e2\"/><path d=\"M0 223h400v77H0z\" fill=\"#47281a\"/><path d=\"M0 183h98v40H0zm151-52h73v92h-73zm141 30h108v62H292z\" fill=\"#87a9d3\"/></svg></a><h3><a href=\"#story\">The city after the hurry</a></h3><p class=\"ds-story-meta\"><span>Field notes</span><time datetime=\"2026-10-09\">Oct 9</time></p></article>",
-      "css": ".ds-story :where(a){color:var(--una-color-link, #294d79);font-weight:var(--una-weight-strong, 600);text-decoration:none;transition:color var(--una-motion-duration, 160ms) var(--una-motion-ease, cubic-bezier(0.16, 1, 0.3, 1));}.ds-story :where(a:hover,a:active){color:var(--una-color-accent, #9b656b);}.ds-story{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;}.ds-story-art{display:block;inline-size:100%;block-size:auto;aspect-ratio:1;object-fit:cover;margin-block-end:var(--una-space-3, 0.75rem);}.ds-story h3{margin:0;font-size:1.125rem;font-weight:var(--una-weight-strong, 600);line-height:1.35;text-wrap:balance;overflow-wrap:anywhere;}.ds-story h3 a{color:var(--una-color-link, #294d79);font-weight:inherit;text-decoration:none;}.ds-story h3 a:hover{text-decoration:none;}.ds-story-meta{display:flex;flex-wrap:wrap;gap:var(--una-space-1, 0.25rem) var(--una-space-4, 1rem);font-size:var(--una-text-small, 0.8125rem);font-weight:var(--una-weight-label, 500);color:var(--una-color-muted, #715347);margin:var(--una-space-2, 0.5rem) 0 0;}.ds-story time{font-variant-numeric:tabular-nums;}.ds-story :focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(width <= 30rem){.ds-story{display:grid;grid-template-columns:min(6rem,33.3333%) minmax(0,1fr);gap:var(--una-space-3, 0.75rem);}.ds-story>a:has(svg){grid-row:span 2;}.ds-story:has(svg) .ds-story-meta{grid-column:2;}.ds-story:not(:has(svg)){grid-template-columns:minmax(0,1fr);}.ds-story-art{margin:0;}.ds-story h3{font-size:1.25rem;}.ds-story-meta{margin:0;}}.ds-story h3 a:hover,.ds-story h3 a:active{color:var(--una-color-accent, #9b656b);}@media(prefers-reduced-motion:reduce){.ds-story a{transition:none;}}@media(forced-colors:active){.ds-story a:link{color:LinkText;}.ds-story a:visited{color:VisitedText;}.ds-story a:hover,.ds-story a:active,.ds-story a[aria-current=\"page\"]{color:Highlight;}.ds-story :focus-visible{outline-color:Highlight;}}@media print{.ds-story a:any-link,.ds-story a:hover,.ds-story a:active{color:inherit;}}"
+      "description": "Square thumbnail and compact strong heading, then category and date on separate muted lines and a short muted excerpt; becomes a text-reserving phone row.",
+      "html": "<article class=\"ds-story\"><a href=\"#story\" tabindex=\"-1\" aria-hidden=\"true\"><svg preserveAspectRatio=\"xMidYMid slice\" class=\"ds-story-art\" aria-hidden=\"true\" xmlns=\"http://www.w3.org/2000/svg\" width=\"400\" height=\"300\" viewBox=\"0 0 400 300\"><rect width=\"400\" height=\"300\" fill=\"#727c9f\"/><circle cx=\"270\" cy=\"102\" r=\"58\" fill=\"#faf3e2\"/><path d=\"M0 223h400v77H0z\" fill=\"#47281a\"/><path d=\"M0 183h98v40H0zm151-52h73v92h-73zm141 30h108v62H292z\" fill=\"#87a9d3\"/></svg></a><h3><a href=\"#story\">The city after the hurry</a></h3><p class=\"ds-story-meta\"><span>Field notes</span><time datetime=\"2026-10-09\">Oct 9</time></p><p class=\"ds-story-excerpt\">A walk home, taken slowly enough to notice what the afternoon leaves behind.</p></article>",
+      "css": ".ds-story :where(a){color:var(--una-color-link, #294d79);font-weight:var(--una-weight-strong, 600);text-decoration:none;transition:color var(--una-motion-duration, 160ms) var(--una-motion-ease, cubic-bezier(0.16, 1, 0.3, 1));}.ds-story :where(a:hover,a:active){color:var(--una-color-accent, #9b656b);}.ds-story{font-family:var(--una-font-body, 'Inter', 'Una Inter Fallback', system-ui, sans-serif);font-size:var(--una-text-body, 1rem);font-weight:var(--una-weight-body, 400);font-optical-sizing:auto;line-height:var(--una-leading-body, 1.6);color:var(--una-color-ink, #47281a);overflow-wrap:break-word;}.ds-story-art{display:block;inline-size:100%;block-size:auto;aspect-ratio:1;object-fit:cover;margin-block-end:var(--una-space-3, 0.75rem);}.ds-story h3{margin:0;font-size:1.125rem;font-weight:var(--una-weight-strong, 600);line-height:1.35;text-wrap:balance;overflow-wrap:anywhere;}.ds-story h3 a{color:var(--una-color-link, #294d79);font-weight:inherit;text-decoration:none;}.ds-story h3 a:hover{text-decoration:none;}.ds-story-meta{display:flex;flex-direction:column;gap:0;font-size:var(--una-text-small, 0.8125rem);font-weight:var(--una-weight-label, 500);color:var(--una-color-muted, #715347);margin:var(--una-space-2, 0.5rem) 0 0;}.ds-story time{font-variant-numeric:tabular-nums;}.ds-story-excerpt{max-inline-size:60ch;margin:var(--una-space-2, 0.5rem) 0 0;color:var(--una-color-muted, #715347);font-size:0.875rem;line-height:1.5;text-wrap:pretty;}.ds-story :focus-visible{outline:var(--una-focus-width, 3px) solid var(--una-color-focus, #294d79);outline-offset:var(--una-focus-offset, 4px);}@media(width <= 30rem){.ds-story{display:grid;grid-template-columns:min(6rem,33.3333%) minmax(0,1fr);grid-template-rows:auto auto 1fr;align-items:start;gap:var(--una-space-2, 0.5rem) var(--una-space-3, 0.75rem);}.ds-story:not(:has(.ds-story-excerpt)){grid-template-rows:auto 1fr;}.ds-story>a:has(svg){grid-row:1 / -1;}.ds-story:has(svg) :is(.ds-story-meta,.ds-story-excerpt){grid-column:2;}.ds-story:not(:has(svg)){grid-template-columns:minmax(0,1fr);}.ds-story-art{margin:0;}.ds-story h3{font-size:1.25rem;}.ds-story-meta,.ds-story-excerpt{margin:0;}}.ds-story h3 a:hover,.ds-story h3 a:active{color:var(--una-color-accent, #9b656b);}@media(prefers-reduced-motion:reduce){.ds-story a{transition:none;}}@media(forced-colors:active){.ds-story a:link{color:LinkText;}.ds-story a:visited{color:VisitedText;}.ds-story a:hover,.ds-story a:active,.ds-story a[aria-current=\"page\"]{color:Highlight;}.ds-story :focus-visible{outline-color:Highlight;}}@media print{.ds-story a:any-link,.ds-story a:hover,.ds-story a:active{color:inherit;}}"
     },
     {
       "name": "Open publication module",

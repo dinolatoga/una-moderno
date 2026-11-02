@@ -95,6 +95,11 @@ typography:
     fontSize: 0.875rem
     fontWeight: 400
     lineHeight: 1.5
+  excerpt:
+    fontFamily: "'Inter', 'Una Inter Fallback', system-ui, sans-serif"
+    fontSize: 0.875rem
+    fontWeight: 400
+    lineHeight: 1.5
   navigation:
     fontFamily: "'Inter', 'Una Inter Fallback', system-ui, sans-serif"
     fontSize: clamp(1.4rem, 2.4vw, 1.8rem)
@@ -166,6 +171,9 @@ components:
   recent-story:
     textColor: '{colors.ink}'
     typography: '{typography.title}'
+  story-excerpt:
+    textColor: '{colors.muted}'
+    typography: '{typography.excerpt}'
   publication-module:
     textColor: '{colors.ink}'
     padding: 0 0 1.5rem
@@ -267,7 +275,7 @@ The sidecar's eight-step color ramps are synthetic preview aids, not shipped tok
 - **Navigation:** lowercase links, weight 300, fluid between 1.4rem and 1.8rem, with 1.35 leading and slightly tight tracking. Inactive links use muted cocoa and retain weight 300 on hover/active, changing only to rose. **Navigation current** stays rose at weight 600 in every interaction state.
 - **Body:** 1rem regular supporting text. **Prose** is 1.1875rem with 1.75 leading and a 70ch maximum. **Deck** is 1.125rem with 1.55 leading and a 60ch maximum; **Cover deck** is 1rem.
 - **Label:** metadata and captions, 0.8125rem at weight 500. Dates use tabular numerals. **Section label** is 0.75rem, weight 600 and uppercase with 0.03em tracking; it carries actual list information. No utility row sits above the masthead.
-- **Note:** 0.875rem muted supporting copy. **Strapline** uses the same size with tighter 1.5 leading. **List link** uses the body size at weight 600 in every state.
+- **Note:** 0.875rem muted supporting copy. **Strapline** uses the same size with tighter 1.5 leading. **Excerpt** shares the strapline metrics in muted cocoa, with a 60ch maximum and pretty wrapping that avoids one-word last lines. It follows a recent story's stacked category and date: regular, one step larger than the metadata and smaller than the title. **List link** uses the body size at weight 600 in every state.
 - **Quote:** 1.375rem regular text with 1.5 leading inside the cream field. **Code** uses the same family at 0.85em with inherited prose leading, not a fixed-width face.
 
 Display, navigation, section, article-title, cover-title, and prose-subheading sizes are 80% of the preceding scale. Body, prose, metadata, decks, quotations, and compact recent-story titles retain their sizes. Cover and prose-subheading sizes now have canonical tokens.
@@ -284,7 +292,9 @@ The centered shell caps at 75rem. It leaves 1.5rem side margins above 30rem and 
 
 The index combines one cover story, three recent covers, and useful lists. A cover with a figure uses two equal internal tracks and a 1.5rem gap inside 1.5rem padding. Copy comes before the figure in source order; wider layouts place the figure left and the copy right. At 42rem and below, copy and figure stack in source order. Cover and recent-story art are square; an ordinary article-header image retains its 3:2 frame. Images use cover cropping. Omitting optional images preserves complete linked stories and a one-column feature.
 
-At 56rem and below, the editorial grid becomes one column, the sidebar follows across the 2.5rem row gap without an additional top margin, and the masthead description moves below the wordmark. Article contents moves from its sidebar list to native inline disclosure. At 30rem and below, recent stories become rows with `min(6rem, 33.3333%)` for the image track and a flexible text track; this reserves text space when font size increases. Beside the thumbnail, the title and metadata form one content-height stack with an 8px row gap: the title row is exactly its text, and any surplus thumbnail height falls below the metadata rather than between them. A story without an image uses one text column.
+At 56rem and below, the editorial grid becomes one column, the sidebar follows across the 2.5rem row gap without an additional top margin, and the masthead description moves below the wordmark. Article contents moves from its sidebar list to native inline disclosure. At 30rem and below, recent stories become rows with `min(6rem, 33.3333%)` for the image track and a flexible text track; this reserves text space when font size increases. Beside the thumbnail, the title, metadata and excerpt form one content-height stack with 8px row gaps. Each text row is exactly its content, and any surplus thumbnail height falls below the excerpt rather than between them. A story without an image uses one text column; one without an excerpt keeps the title-and-metadata stack.
+
+At every width a recent story reads title, category, date, then excerpt. The category and date take separate lines with no gap between them, so they read as one tight pair. The title-to-metadata and metadata-to-excerpt intervals are both 0.5rem. Wider layouts keep three natural-height columns: titles that wrap differently shift the lines below them instead of reserving equal title rows.
 
 Main navigation remains one horizontal row at every width. Only its strip scrolls when links exceed the space. The gap is 1.5rem, reduced to 1rem at 30rem and below, with no narrower override; actual fit and the next-label peek depend on text lengths and font metrics.
 
@@ -328,7 +338,7 @@ Keyboard focus uses a 3px outline offset by 4px. The normal focus color is readi
 
 ### Cover, article header, and recent stories
 
-The cover variant combines paper-colored copy, a paper-colored linked light-weight headline, summary, metadata, and optional square art on the charcoal field. Caption and metadata stay light. Without the modifier, the article header stays on the document ground with a larger headline and optional 3:2 figure. Recent stories use square thumbnails and stronger compact titles directly on the page ground. Optional decorative thumbnail links in recent stories are removed from keyboard order and the accessibility tree; the titled link remains available. Keep captions and metadata attached to their story.
+The cover variant combines paper-colored copy, a paper-colored linked light-weight headline, summary, metadata, and optional square art on the charcoal field. Caption and metadata stay light. Without the modifier, the article header stays on the document ground with a larger headline and optional 3:2 figure. Recent stories use square thumbnails and stronger compact titles directly on the page ground. The category and date follow on separate muted lines, then a short muted excerpt; the excerpt is the story's existing summary, never clamped or truncated. No field, rule, radius or shadow encloses the card, and title hover changes color only. Optional decorative thumbnail links in recent stories are removed from keyboard order and the accessibility tree; the titled link remains available. Keep captions, metadata and excerpts attached to their story.
 
 ### Sidebar modules and reading lists
 

@@ -24,9 +24,10 @@ An outer `.una` element scopes styles and establishes inherited typography/color
 | `una-title`                                    | feature or article heading; level chosen by document                |
 | `una-meta`                                     | author/date/category metadata, time uses datetime                   |
 | `una-deck`                                     | summary paragraph                                                   |
+| `una-excerpt`                                  | short, optional story excerpt after its metadata                    |
 | `una-recent`                                   | section containing three `una-story` articles                       |
 | `una-section-heading`                          | section heading and optional supporting label                       |
-| `una-story`                                    | linked heading, optional image, and metadata                        |
+| `una-story`                                    | linked heading, optional image, metadata and optional excerpt       |
 | `una-sidebar`                                  | aside with accessible label                                         |
 | `una-module`                                   | a useful sidebar section with a heading                             |
 | `una-module--blue`                             | unboxed module with ink heading; retained legacy modifier name      |
@@ -35,7 +36,7 @@ An outer `.una` element scopes styles and establishes inherited typography/color
 | `una-prose`                                    | long-form article body, max 70ch                                    |
 | `una-footer`                                   | footer and specimen disclosure                                      |
 
-Classes express presentation, never replace landmarks, headings or link semantics. No DOM query hooks or script behavior is promised. Feature images are optional; omitting the figure leaves a complete story. Do not render an empty or broken image. Long text wraps. Sidebar follows primary content in source and on small screens. Use a single page h1, h2 section headings, and h3 for stories inside those sections. Core custom properties, documented classes and the optional `data-una-art` attribute are the public v0.1 surface; changes require a changelog note while this pre-1.0 API stabilizes.
+Classes express presentation, never replace landmarks, headings or link semantics. No DOM query hooks or script behavior is promised. A recent `una-story` keeps one source and reading order: an optional decorative thumbnail link, the `h3` title link, a `una-meta` paragraph with the category `span` before the date `time`, then an optional `una-excerpt` paragraph. Inside a story, CSS stacks the category above the date as one tight pair. The excerpt is compact, regular muted text at its natural height; core never clamps or truncates it, so keep it to a sentence or two. Feature images are optional; omitting the figure leaves a complete story. Do not render an empty or broken image. Long text wraps. Sidebar follows primary content in source and on small screens. Use a single page h1, h2 section headings, and h3 for stories inside those sections. Core custom properties, documented classes and the optional `data-una-art` attribute are the public v0.1 surface; changes require a changelog note while this pre-1.0 API stabilizes.
 
 For the cover modifier, put `una-feature-copy` before the optional figure in source order. On wider screens CSS places the artwork beside the copy; at 42rem and below the copy precedes the figure in a single column. Omit the modifier for a light long-form article header. `--una-color-stage` supplies the cover's dark ground; its headline uses paper at rest and rose on hover, retaining display weight 300. Primary-title hover changes color without changing type metrics. Inter's role weights are canonical tokens: brand 200, display 300, body 400, label 500, strong 600 and hover 700. Every link hover changes color only, so no core state applies the hover weight; it remains a compatibility token. Titles have no measure cap and wrap only where a line runs out. The Tailwind layer aliases these values without introducing a second theme.
 
@@ -75,7 +76,7 @@ Keep background files external when bundling, so selecting one does not transpor
 
 ## Normalized content
 
-Adapters map source data to `EditorialStory`: stable slug, title, summary, author display name, ISO publication date, category, optional image (`src`, `alt`, width, height), and typed body blocks. The Astro example owns validation and escaping. Body blocks support paragraph, heading, list and quote; no arbitrary HTML or script from fixtures. CMS-specific rich text must be deliberately transformed and sanitized by its adapter.
+Adapters map source data to `EditorialStory`: stable slug, title, summary, author display name, ISO publication date, category, optional image (`src`, `alt`, width, height), and typed body blocks. The same `summary` serves as an article's deck and a recent card's excerpt; no separate excerpt field exists. The Astro example owns validation and escaping. Body blocks support paragraph, heading, list and quote; no arbitrary HTML or script from fixtures. CMS-specific rich text must be deliberately transformed and sanitized by its adapter.
 
 The static specimen uses handwritten HTML to show the complete output contract. Astro renders the same class/landmark pattern from typed public fixtures. Tailwind includes core CSS and aliases core variables through CSS-first `@theme inline`; it adds only utility-based extensions. No adapter may silently fork the core palette or layout.
 

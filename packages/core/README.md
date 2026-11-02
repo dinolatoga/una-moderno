@@ -60,6 +60,18 @@ Sections are separated by spacing and typography, without decorative rules or ma
 
 Add `una-feature--cover` to an index's `una-feature` for a dark lead-story field. Wrap its heading, summary and metadata in `una-feature-copy`, followed by an optional figure. Its headline stays weight 300, paper-colored at rest and rose on hover. The art and copy share columns on wider screens and follow source order on phones. Omit the figure when unavailable; the text remains complete. Use an ordinary `una-feature` for the light article view. The legacy `una-module--blue` class now has an ink-colored, noninteractive heading on an unboxed surface.
 
+A recent story keeps its title first, then the category and date, then an optional short excerpt:
+
+```html
+<article class="una-story">
+  <h3><a href="story.html">The story title</a></h3>
+  <p class="una-meta"><span>Category</span><time datetime="2026-10-09">Oct 9</time></p>
+  <p class="una-excerpt">One or two sentences, usually the story's summary.</p>
+</article>
+```
+
+Inside `una-story`, the category and date stack as one tight pair. `una-excerpt` is compact, regular, muted text at its natural height; core never clamps or truncates it. An optional decorative thumbnail link goes first, as in the [static specimen](../../examples/static-html/index.html).
+
 Keep the two wordmark words intact with a literal space between their spans:
 
 ```html

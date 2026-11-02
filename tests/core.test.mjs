@@ -75,6 +75,39 @@ for (const page of ['index.html', 'article.html']) {
   });
 }
 
+test('static and Tailwind recent cards reuse the canonical fixture summaries in reading order', async () => {
+  const fixtures = JSON.parse(await read('examples/astro/src/content/fixtures.json'));
+  const expected = fixtures
+    .slice(1, 4)
+    .map(({ title, category, published, summary }) => ({ title, category, published, summary }));
+  for (const page of ['examples/static-html/index.html', 'examples/tailwind/index.html']) {
+    const html = await read(page);
+    const recent = html.match(/<div class="una-recent">([\s\S]*?)<\/section>/)?.[1] ?? '';
+    const cards = [...recent.matchAll(/<article class="una-story">([\s\S]*?)<\/article>/g)].map(
+      ([, card]) => {
+        const text = (pattern) => card.match(pattern)?.[1].replace(/\s+/g, ' ').trim();
+        return {
+          order: [...card.matchAll(/<(h3|span|time|p class="una-excerpt")(?=[\s>])/g)].map(
+            (m) => m[1],
+          ),
+          content: {
+            title: text(/<h3>\s*<a\b[^>]*>([\s\S]*?)<\/a>\s*<\/h3>/),
+            category: text(/<p class="una-meta">\s*<span>([\s\S]*?)<\/span>/),
+            published: text(/<time datetime="([^"]+)"/),
+            summary: text(/<p class="una-excerpt">([\s\S]*?)<\/p>/),
+          },
+        };
+      },
+    );
+    assert.equal(cards.length, 3, page);
+    for (const [index, { order, content }] of cards.entries()) {
+      // Title first, then category above date, then the excerpt.
+      assert.deepEqual(order, ['h3', 'span', 'time', 'p class="una-excerpt"'], page);
+      assert.deepEqual(content, expected[index], `${page} story ${index + 1}`);
+    }
+  }
+});
+
 test('generated token inventory exactly reflects canonical CSS', async () => {
   const source = await readFile(
     new URL('../packages/core/src/tokens.css', import.meta.url),

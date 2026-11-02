@@ -71,6 +71,11 @@ text, and any surplus thumbnail height falls below the metadata. A row grows whe
 text outgrows the thumbnail. No negative margin, fixed or minimum height, or space
 distribution is involved, and the source and reading order are unchanged.
 
+Later on 2026-11-02 the recent-story annotation superseded this two-row stack. Cards with
+an excerpt now use `auto auto 1fr` rows: title, stacked category and date, then excerpt,
+with surplus thumbnail height below the excerpt. Cards without one keep `auto 1fr`.
+DESIGN.md describes the current behavior.
+
 ### 3. The panorama itself moves
 
 Motion thesis: the approved panorama is the issue's far plane and the paper shell its

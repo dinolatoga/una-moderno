@@ -399,6 +399,16 @@ body.una:where(
   margin-block: var(--una-space-4) var(--una-space-5);
 }
 
+/* A short story excerpt: compact, regular and subordinate to its title and metadata. */
+.una-excerpt {
+  max-inline-size: 60ch;
+  margin-block-start: var(--una-space-2);
+  color: var(--una-color-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
 .una-feature--cover {
   position: relative;
   isolation: isolate;
@@ -554,7 +564,10 @@ body.una:where(
   line-height: 1.35;
 }
 
+/* Category and date each take a line, read as one tight pair below the title. */
 .una-story .una-meta {
+  flex-direction: column;
+  gap: 0;
   margin-block: var(--una-space-2) 0;
 }
 
@@ -777,22 +790,26 @@ body.una:where(
     gap: var(--una-space-6);
   }
 
-  /* Title and metadata stay one content-height stack beside the thumbnail. A taller
-     thumbnail's surplus lands below the metadata, never between it and the title. */
+  /* Title, metadata and excerpt stay one content-height stack beside the thumbnail. A
+     taller thumbnail's surplus lands below the last text row, never between them. */
   .una-story {
     display: grid;
     grid-template-columns: min(6rem, 33.3333%) minmax(0, 1fr);
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto auto 1fr;
     align-items: start;
     gap: var(--una-space-2) var(--una-space-3);
   }
 
-  .una-story > a:has(img),
-  .una-story > img {
-    grid-row: span 2;
+  .una-story:not(:has(.una-excerpt)) {
+    grid-template-rows: auto 1fr;
   }
 
-  .una-story:has(img) .una-meta {
+  .una-story > a:has(img),
+  .una-story > img {
+    grid-row: 1 / -1;
+  }
+
+  .una-story:has(img) :is(.una-meta, .una-excerpt) {
     grid-column: 2;
   }
 
@@ -802,14 +819,13 @@ body.una:where(
 
   .una-story img {
     margin: 0;
-    grid-row: span 2;
   }
 
   .una-story h3 {
     font-size: 1.25rem;
   }
 
-  .una-story .una-meta {
+  .una-story :is(.una-meta, .una-excerpt) {
     margin: 0;
   }
 }

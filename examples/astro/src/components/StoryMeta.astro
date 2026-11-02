@@ -9,7 +9,8 @@ const { story, compact = false } = Astro.props;
 ---
 
 <p class="una-meta">
+  {compact && <span>{story.category}</span>}
   {!compact && <span>By {story.author}</span>}
   <time datetime={story.published}>{formattedDate(story.published, compact)}</time>
-  <span>{story.category}</span>
+  {!compact && <span>{story.category}</span>}
 </p>
