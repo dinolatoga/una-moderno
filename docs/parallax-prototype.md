@@ -253,9 +253,8 @@ byte-verified pre-change snapshot during the work.
 - After the corrections: the full browser suite passed 123 of 123: collection 7,
   cover 27, parallax 12, specimen 77. No tests were skipped, flaky or unexpected. A
   second full run on the final CSS, after the caption fix, also passed 123 of 123.
-- The public preview was refreshed only after these gates:
-  https://vehicle-classroom-attitude-dice.trycloudflare.com/index.html served CSS bytes
-  identical to the repository build. Fresh Chrome contexts on static, Tailwind and Astro
+- The public preview was refreshed only after these gates: its temporary tunnel, since
+  expired, served CSS bytes identical to the repository build. Fresh Chrome contexts on static, Tailwind and Astro
   at 390 and 1566 returned 200 with the author module and wash. They had no scripts,
   external or failed requests, or overflow, with one selected WebP each and live
   translate. Eight article, about and chooser routes returned 200 with the reconciled
